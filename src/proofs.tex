@@ -1,0 +1,69 @@
+Throughout this subsection $j$ denotes an embedding $\Psi \to \Phi$ of simply-laced root systems of rank $\geq 3$ and the corresponding
+ homomorphism of Steinberg groups induced by it.
+
+Recall from~\cite[\S~4]{Su77} that for $r \geq 3$ and a local pair $(A, M)$ one has
+\begin{equation}\label{eq:triple-decomposition}
+\E_r(A[X^{\pm 1}]) = \E_r(A[X]) \cdot B(A[X^{\pm 1}]) \cdot \E_r(A[X^{\pm 1}], M[X^{\pm 1}])
+\end{equation}
+
+We want to devise some tool to study the analogue of~\eqref{eq:triple-decomposition} in the context of Steinberg groups.
+
+
+\begin{lemma} \label{lem:qs-b}
+  Analogue of Quillen--Suslin for $\K_2$ but for subsystems.
+\end{lemma}
+
+\begin{lemma} \label{lem:horrocks-b}
+ Let $A$ be a commutative domain and $f \in A[X]$ be a unitary polynomial.
+ Let $\alpha \in \K_2(\Phi, A[X], XA[X])$ be such that $\lambda_f(\alpha)$ belongs to the image of the stabilization map
+ $\St(\Psi, A[X]_f) \to \St(\Phi, A[X]_f)$ then $\alpha$ lies in the image of $\St(\Psi, A[X]) \to \St(\Phi, A[X])$.
+\end{lemma}
+\begin{proof}
+    Suppose that $f(X) = X^n + a_1 X^{n-1} \ldots + a_n$.
+    Set $g(X\inv) = 1 + a_1 X\inv + \ldots + a_{n} X^{-n}$.
+    It is clear that $A[X, X\inv]_f = A[X\inv]_{X\inv g}$ and, moreover, that $X\inv$ and $g$ are not zero divisors and together generate the unit ideal of $A$.
+
+    Consider the following diagram:
+    %! suppress = EscapeAmpersand
+    \[ \xymatrix{\St(\Phi, A[X]) \ar[r]^{\lambda_X} \ar[d]_{\lambda_f} & \St(\Phi, A[X, X\inv]) \ar[d]_{\lambda_f}  & \St(\Phi, A[X\inv]) \ar[l]_{\lambda_{X\inv}} \ar[d]_{\lambda_g}  \\
+                 \St(\Phi, A[X]_f) \ar[r] & \St(\Phi, A[X, X\inv]_f) & \St(\Phi, A[X\inv]_g) \ar[l] \\
+                 \St(\Psi, A[X]_f) \ar[r] \ar[u]_j & \St(\Psi, A[X, X\inv]_f) \ar[u]_j & \St(\Psi, A[X\inv]_g) \ar[l] \ar[u]_j \\
+                                   & \St(\Psi, A[X, X\inv]) \ar[u]_{\lambda_f^\Psi}   & \St(\Psi, A[X\inv]). \ar[l] \ar[u]_{\lambda_g^\Psi}}\]
+
+    By assumption there exists $\widetilde{\alpha} \in \St(\Psi, A[X]_f)$ such that $j(\widetilde{\alpha}) = \lambda_f(\alpha)$.
+    By the first part of~\cref{lem:zariski-glueing} one can write $\lambda_X(\widetilde{\alpha}) = \lambda_f^\Psi(\gamma) \cdot \lambda_{X\inv}(\beta)$
+     for some $\beta \in \St(\Psi, A[X\inv]_g)$, $\gamma \in \St(\Psi, A[X, X\inv]).$
+    Consequently, one has $\lambda_f(j(\gamma)\inv \cdot \lambda_X(\alpha)) = \lambda_{X\inv}(j(\beta))$.
+    By the second part of~\cref{lem:zariski-glueing} there exists $\beta' \in \St(\Phi, A[X\inv])$ such that $\lambda_X(\alpha) = j(\gamma) \cdot \lambda_{X\inv}(\beta').$
+    The assertion now follows from~\cref{lem:horrocks--ingredient} and the local--global principle for $\K_2$, see~\cite{LS17}. %TODO
+\end{proof}
+
+We now come to the main theorem of this section.
+\begin{thm}\label{thm:early-stability}
+Let $\Phi$ be a root system of type $\rA_{\geq 4}$, $\rD_{\geq 5}$ or $\rE_{6,7,8}$ and let $A$ be an arbitrary noetherian commutative ring of Krull dimension $\leq 1$.
+Then for any $n \geq 0$ the obvious inclusion $\rA_4 \subseteq \Phi$ induces a surjection
+\[\K_2(\rA_4, A[X_1,\ldots, X_n]) \to \K_2(\Phi, A[X_1, \ldots X_n]).\]
+\end{thm}
+\begin{proof}[Proof of Theorem 1]
+    The proof is modeled after the proof of~\cite[Theorem~5.3]{Tu83}.
+    We proceed by induction on $n$.
+    Our assumption on the dimension of $A$ guarantees that it satisfies the condition $\mathrm{SR}_3$ in the sense of~\cite{St78}.
+    Thus, from Corollary~3.2 and Theorem~4.1 of~\cite{St78} we conclude that the composite arrow in the following diagram is a surjection:
+    \[\K_2(\rA_2, A) \to \K_2(\rA_4, A) \to \K_2(\Phi, A).\]
+    Consequently, we obtain that the right arrow is a surjection, which yields the induction base.
+
+    Now let us verify the induction step.
+    Set $C = A[X_2, \ldots , X_n]$ and $B = C[X_1]$.
+    We need to show that $\K_2(\rA_4, B) \to \K_2(\Phi, B)$ is surjective.
+    Every element $\alpha \in \K_2(\Phi, B)$ can be decomposed as a product $\alpha = \alpha_0 \cdot \alpha_1$,
+      where $\alpha_0 \in \K_2(\Phi, C)$ and $\alpha_1 \in \K_2(\Phi, B, X_1 B)$.
+    By inductive assumption $\K_2(\rA_4, C)$ surjects onto $\K_2(\Phi, C)$, so it remains to show that $\alpha_1$ lies in the image of $\K_2(\rA_4, B)$.
+
+    Denote by $S$ the multiplicative system $S \subseteq B$ consisting of polynomials $f$ such that for sufficiently large $m$
+    the polynomial $f$ becomes unitary in $Y_1$ after substitutions $X_1 \coloneqq Y_1,$ $X_2 \coloneqq Y_2 + Y_1^m, \ldots X_n \coloneqq Y_n + Y_1^{m^n}$.
+    Recall from~\cite[\S~6]{Su77} that $\dim(S^{-1}B) \leq \dim(A) = 1$.
+    By induction base the map $\K_2(\rA_4, S^{-1}B) \to \K_2(\Phi, S^{-1}B)$ is surjective.
+    Since functor $\K_2$ commutes with filtered colimits (cf. \cite[Lemma~3.3]{LSV2}) there exists $f \in S$ such that $\lambda^*_f(\alpha_1)$ lies in the image of $\K_2(\rA_4, B_f) \to \K_2(\Phi, B_f)$.
+    By the construction of $S$ we may assume that $f$ is unital in $X_1$.
+    The required assertion now follows from~\cref{lem:horrocks-b}.
+\end{proof}

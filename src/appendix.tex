@@ -1,0 +1,180 @@
+\subsection{Another presentation of $\St(4, -)$.} \label{subsec:another-presentation}
+Throughout this subsection $R$ denotes a commutative ring and $n \geq 4$.
+
+For $u \in R^n$ we denote by $D(u)$ the subset of $R^n$ consisting of all vectors $v$ which are orthogonal to $u$
+(i.\,e. $u^{t} v = 0$) and have at least two zero entries.
+Recall from 3.2 of~\cite{Ka77} that for every $u, v, w \in R^n$ such that $u^t v = 0$ there
+is a decomposition of $(w^t u) \cdot v$ into a sum of elements of $D(u)$, called \textit{canonical decomposition}:
+\begin{equation}
+    \label{eq:canonical} (w^tu) \cdot v=\sum_{i<j}u_{ij} c_{ij}(v, w),
+\end{equation}
+where $u_{ij} =e_i u_j-e_j u_i \in D(u)$ and $c_{ij}(v, w) =v_i w_j-v_j w_i \in R$.
+
+\begin{lemma}
+    \label{lem:xsmall-properties}
+    Let $v, w \in R^n$ be such that $v^t w = 0$ and assume, moreover, that either $v$ or $w$ has at least one zero entry.
+    Under these assumptions one can define certain element $x(v, w) \in \St(n, R)$ such that $\phi(x(v, w)) = t(v, w) = 1 + vw^t$.
+    The elements $x(v, w)$ enjoy the following properties:
+    \begin{lemlist}
+        \item \label{itm:xsmall-scalar} If $v$ or $w$ has at least two zero entries, then $x(v, wa) = x(va, w)$ for $a\in R$.
+        \item \label{itm:xsmall-additivity} If $w_1$ and $w_2$ have at least two zero entries of which at least one entry is common
+        then $x(v, w_1) \cdot x(v, w_2) = x(v, w_1+w_2)$ and $x(w_1, v) \cdot x(w_2, v) = x(w_1 + w_2, v)$.
+        \item \label{itm:xsmall-commute} If $v$, $v'$ are simultaneously orthogonal to $w$ and $w'$, and the elements $w, w'$ both have at least two zero entries then
+        $[x(v, w),\ x(v', w')] = 1$.
+        \item \label{itm:xsmall-conj} If $g = x_{ij}(\xi)$ is a Steinberg generator and $v$ or $w$ has at least two zero entries then
+        $g \cdot x(v, w) \cdot g^{-1} = x(gv, g^*w)$.
+    \end{lemlist}
+\end{lemma}
+\begin{proof}
+    See~\cite[Lemma~1.1]{Tu83}.
+\end{proof}
+
+Now assume that $I$ is an ideal of a ring $R$ which itself is a subring of a ring $S$.
+We now define two families of elements of $\St(n, R)$.
+\begin{dfn}
+    Let $u \in \Um(n, R)$ and $v \in I^n$ be a vector such that $u^{t}v = 0$.
+    Let $v = \sum_r v_r$ be some decomposition for $v$ into sum of elements $v_r \in D(u) \cap I^n$
+    (under the assumptions on $u$ and $v$ such decomposition always exists, see~\eqref{eq:canonical}).
+
+    Let $d$ be an element of the subgroup $T(n, S)$ of diagonal matrices of $\GL(n, S)$ such that
+    $d^{-1}u \in R^n,\ d \cdot I^n \subseteq R^n.$
+    Under these assumptions we set
+    \begin{equation*}
+        X^d(u, v) \coloneqq \prod_i x(d^{-1}u, dv_i),
+    \end{equation*}
+
+    Not let $d'$ be an element of $T(n, S)$ such that $d' u\in R^n,\ {d'}^{-1} \cdot I^n \subseteq R^n$.
+    Under these assumptions we set
+    \begin{equation*}
+        Y^{d'}(v, u) \coloneqq \prod_i x({d'}^{-1} v_i, {d'}u).
+    \end{equation*}
+\end{dfn}
+
+\begin{lemma}
+    \label{lem:xy-wd}
+    The elements $X^d(u, v)$, $Y^{d'}(u, v)$ are well-defined, i.\,e. they do not depend on the choice of decomposition for $v$.
+\end{lemma}
+\begin{proof}
+    Let $v = \sum_r v^r$ be a decomposition as above.
+    Since each $v^r$ is orthogonal to $u$ we can write the canonical decomposition
+    $v^r = \sum_{i<j} u_{ij} c_{ij}(v^r, w)$, moreover $\sum_{r} c_{ij}(v^r, w) = c_{ij}(v, w)$.
+    Now using~\cref{lem:xsmall-properties} we obtain:
+    \begin{multline*}
+        \prod\limits_r x(d^{-1}u, dv^r) = \prod\limits_{r}\prod\limits_{i<j} x(d^{-1} u, du_{ij}c_{ij}(v^r, w)) =
+        \prod\limits_{i<j} x(d^{-1} u, d u_{ij}c_{ij}(v, w)). \qedhere
+    \end{multline*}
+\end{proof}
+
+\begin{lemma}
+    \label{lem:xy-conj} Suppose that $g = x_{hk}(\xi)$ is a generator of $\St(n, R)$ such that $m = d\phi(g)d^{-1} \in \E(n, R)$, then
+    \begin{equation*}
+        g \cdot X_d(u, v) \cdot g^{-1} = X_d(mu, m^*v) \text{ and } g \cdot Y_d(v, u) \cdot g^{-1} = Y_d(mv, m^*u).
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Direct computation using~\cref{lem:xsmall-properties} (cf. with~\cite[3.14]{Ka77} or~\cite[Lemma~4.4d]{LS17}).
+\end{proof}
+
+In the next subsection we will use the following explicit presentation of the relative linear Steinberg group.
+\begin{prop}[\text{\cite[Proposition 3.10]{LS17}}]
+    \label{prop:rel-presentation}
+    Assume that $I$ is a splitting ideal of a commutative ring $R$.
+    Then for any $\ell\geq 3$ the group $\St(\rA_\ell,\,R,\,I)$ can be presented by means of two families of generators $F(u,\,v)$, $S(v,\,u)$
+    (where $u\in \E(n,\,R)e_1,$ and $v\in I^n$ are such that $u^{t}v=0$) subject to the following relations:
+    \begin{align}
+        &F(u,\,v)F(u,\,w)=F(u,\,v+w), \label{add4}\\
+        &S(u,\,v)S(w,\,v)=S(u+w,\,v), \label{add5}\\
+        &F(u,\,v)F(u',\,v')F(u,\,v)^{-1}=F(t(u,\,v)u',\,t(v,\,u)^{-1} v'), \label{conj3} \\
+        &F(me_1,\,m^{*}e_{2}a)=S(me_{1}a,\,m^{*}e_{2}),\ \text{for all $a\in I$}\, m \in \E(n, R). \label{coef-move}
+    \end{align}
+\end{prop}
+
+\subsection{Construction of the homomorphism $\sigma_1$}\label{subsec:construction-sigma}
+To simplify notation, throughout this section we set $N_1 = N(\varpi_1^\vee),$ $N^1 = N(-\varpi_1^\vee)$.
+We only construct one of the desired maps from the definition of $\sigma$-pair, namely $\sigma(\varpi_1^\vee) \colon N_1 \to N^1$,
+for shortness we denote it by $\sigma_1$.
+
+In order to define $\sigma_1$ we will use the description of the subgroup $N_1$ given in terms of ``another presentation''.
+We start with the following simple observation.
+\begin{lemma}
+    \label{lem:n1-decomp} For $n\geq 4$ there is an isomorphism $N_1 \cong N_{0} \rtimes P_1^-(A)$,
+    where $N_{0}$ denotes the subgroup $\St(n, A[t], tA[t])$ and $P_1^-(A)$ is the subgroup of $\St(n, A)$ generated by $x_{ij}(\xi)$ with $i\neq 1$.
+\end{lemma}
+
+Recall that the universal property of semidirect products gives for any group $H$ acting on a group $N$ via $\phi \colon H \to \Aut(N)$
+and any group homomorphisms $f_N\colon N \to G$, $f_H\colon H \to G$ satisfying
+\begin{equation}
+    \label{eq:coherence-condition} f_N(\phi(h)(n)) = f_H(h) f_N(n) f_H(h)^{-1},\ (n\in N,\ h\in H)
+\end{equation}
+a unique map $f\colon N \rtimes H \to G$ extending $f_N$ and $f_H$.
+
+Thus, by the above lemma, in order to construct the map $\sigma_1$ we need to construct two maps
+\[ (\sigma_1)_{P_1^-(A)} \colon P_1^-(A) \to N^1, \ \ (\sigma_1)_{N_{0}} \colon N_{0} \to N^1\]
+and then verify that they satisfy~\eqref{eq:coherence-condition}.
+
+It is easy to define the first map $(\sigma_1)_{P_1^-(A)}$, indeed, using the decomposition $P_1^-(A) \cong U^-_1 \rtimes L_1$ where %TODO: Language???
+\[U^-_1 = \langle x_{i1}(\xi) \mid i\neq 1,\ \xi\in A \rangle \text{ and } L_1 = \langle x_{ij}(\xi) \mid i,  j \neq 1,\ \xi\in A\rangle \]
+we apply the universal property of semidirect products once again
+and define $(\sigma_1)_{P_1^-(A)}$ by requiring that it acts identically on $L_1$ (notice that $L_1 \subseteq N^1$) %TODO: Language???
+and acts on elements of $U^-_1$ via the formula $(\sigma_1)_{P_1^-(A)}(x_{i1}(\xi))= x_{i1}(t\xi)$.
+
+%To define the map $(\sigma_1)_{N_{0}}$ we invoke the presentation of the relative Steinberg group $\St(n, A[t], tA[t])$ given in~\cref{prop:rel-presentation}.
+
+Denote by $\delta_1$ the matrix $\mathrm{diag}(t, 1, \ldots, 1) \in \GL(A[t, t^{-1}])$.
+Now for $u \in \E(n, A[t])$ and $v \in (tA[t])^n$ we can define the map $(\sigma_1)_{N_0}$ on the generators of $N_{0}=\St(n, A[t], tA[t])$
+using the elements defined in~\cref{subsec:another-presentation}:
+\begin{equation*}
+(\sigma_1)
+    _{N_0} (F(u, v)) = X_{\delta_1 \cdot t^{-1}}(u, v),\ (\sigma_1)_{N_0} (S(v, u)) = Y_{\delta_1}(v, u).
+\end{equation*}
+It is clear that the above elements belong to $N^1$.
+
+\begin{prop}
+    If $A$ is a local ring them the map $(\sigma_1)_{N_0}$ preserves relations~\eqref{add4}--\eqref{coef-move}.
+    In particular, the map $(\sigma_1)_{N_0}$ is well-defined.
+\end{prop}
+\begin{proof}
+    For~\eqref{add4}--\eqref{add5} this is an immediate corollary of~\cref{itm:xsmall-additivity} and~\cref{lem:xy-wd}.
+    By~\cref{lem:xy-conj} for $g \in N^1$ one has
+    \begin{equation}
+        \label{eq:xy-conj-n1}
+        g \cdot X_{\delta_1 t^{-1}}(u', v') \cdot g^{-1} = X_{\delta_1 t^{-1}}(mu', m^*v'), \text{ where } m = \delta_1 \cdot \phi(g) \cdot \delta_1^{-1}.
+    \end{equation}
+    To obtain that $(\sigma_1)_{N_0}$ preserves~\eqref{conj3} it remains to put $g = X_{\delta_1 t^{-1}}(u, v)$.
+
+    Let us verify that $\sigma_1$ preserves~\eqref{coef-move}, i.\,e. that for $a\in tA[t]$ and $m \in \E(n, A[t])$ one has
+    $X_{\delta_1 t^{-1}}(me_1, m^*e_2 a) = Y_{\delta_1}(me_1 a, m^* e_2)$.
+    At first let us verify this in the special case when $m^* \in \E(n, A[t])$ belongs to the subset $G_0 = H_{12}(A) \cdot U^+_1(A) \cdot U^-_1(A)$
+    (here $H_{12}(A)$ denotes the subgroup of $T(n, A)$ generated by semisimple root elements $h_{12}(\xi)$, $\xi \in A^\times$).
+    It is easy to check that in this case the only nonzero components of $v = m^* e_2$ are $v_1$ and $v_2$.
+    Write $u = m e_1$ as the sum $u' + u''$, where $u' = (u_1, u_2, 0, \ldots 0)^t,$ $u'' = (0, 0, u_3, \ldots u_n)^t$.
+    Since $u^t v = 0$ we obtain that $u', u'' \in D(v)$.
+    Now from Lemmas~\ref{lem:xy-wd}--\ref{lem:xy-conj} we conclude that:
+    \begin{multline}
+        \label{eq:special-case}
+        Y_{\delta_1}(me_{1}a, m^* e_2) = x(\delta_1^{-1} \cdot u'a, \delta_1\cdot  v) \cdot x(\delta_1^{-1}\cdot u''a, \delta_1 \cdot v) = \\
+        = x(\delta_1^{-1} ua, \delta_1 \cdot v) = x(\delta_1^{-1}t \cdot u, \delta_{1}t^{-1} \cdot v a) = X_{\delta_1 t^{-1}}(me_1, m^*e_2 a).
+    \end{multline}
+
+    To obtain the assertion in the general case notice that for local $A$ the group $\E(n, A)$ admits the following decomposition:
+    \[\E(n, A) = \mathrm{EP}_1(A) \cdot H_{12}(A) \cdot U^-_1(A) \cdot U^+_1(A).\]
+    This can be either obtained as a corollary of Gauss decomposition or can be proved by a direct calculation. %TODO: Give reference
+
+    Applying transpose-inverse automorphism $(-)^*$ to the above decomposition and invoking~\cref{lem:n1-decomp} we obtain that $\E(n, A[t]) = \phi(N_1) \cdot G_0$.
+    Thus, every $m \in \E(n, A[t])$ can be factored as $\phi(n) \cdot h$ for some $n\in N_1$ and $h \in G_0$.
+    Since $\phi(n) = \delta_1 \phi(n') \delta_1^{-1}$ for some $n' \in N^1$ it remains to apply~\eqref{eq:xy-conj-n1} and~\eqref{eq:special-case}:
+    \begin{multline}
+        \nonumber X_{\delta_1 t^{-1}}(me_1, m^*e_{2}a) = {}^{n'}(X_{\delta_1 t^{-1}}(he_1, h^*e_{2}a)) = \\
+        = {}^{n'}(Y_{\delta_1}(he_{1}a, h^*e_2)) = Y_{\delta_1}(me_{1}a, m^{*} e_{2}).
+    \end{multline}
+\end{proof}
+
+Thus, we have completed the construction of the map $(\sigma_1)_{N_{1,0}}$.
+It is not hard to verify that the condition~\eqref{eq:coherence-condition} is satisfied with these definitions,
+therefore, we have also completed the construction of the map $\sigma_1$.
+
+
+% Panin's theorem asserts $\KO_2(8, A) \twoheadrightarrow \KO_2(10, A) \cong \KO_2(10, A)$ for a Dedekind domain $A$.
+% We also may need Horrocks theorem for SO_5 :(
+
+\printbibliography

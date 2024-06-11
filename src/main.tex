@@ -1,0 +1,123 @@
+\documentclass[oneside, 10pt]{amsart}
+\usepackage{amscd, amsfonts, amsmath, amsthm, amstext, amssymb, comment, enumitem, verbatim, mathtools, xfrac, microtype, nameref, thmtools, tikz, tikz-cd}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage[capitalize]{cleveref}
+\usepackage[matrix,arrow,curve]{xy}
+\usepackage[notref,notcite]{showkeys}
+\usetikzlibrary{shapes, arrows, calc, arrows.meta, fit, positioning, decorations.markings}
+\usepackage[backend=bibtex, firstinits=true, citestyle=numeric-comp, sortlocale=en_US, url=false, doi=false, eprint=true, maxbibnames=4]{biblatex}
+\addbibresource{main.bib}
+
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\E}{E}
+\DeclareMathOperator{\G}{G}
+\newcommand{\Gsc}{\G_\mathrm{sc}}
+\newcommand{\Esc}{\E_\mathrm{sc}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Um}{Um}
+\DeclareMathOperator{\colim}{colim}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\K}{K}
+\DeclareMathOperator{\KO}{KO}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\sr}{sr}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\newcommand{\catname}[1]{{\normalfont\textbf{#1}}}
+
+\newcommand{\rA}{\mathsf{A}}
+\newcommand{\rB}{\mathsf{B}}
+\newcommand{\rC}{\mathsf{C}}
+\newcommand{\rD}{\mathsf{D}}
+\newcommand{\rE}{\mathsf{E}}
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\inv}{^{-1}}
+\newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+\newtheorem{thm}{Theorem}
+\Crefname{thm}{Theorem}{Theorems}
+\numberwithin{equation}{section}
+
+\newtheorem{lemma}{Lemma}
+\numberwithin{lemma}{section}
+\Crefname{lemma}{Lemma}{Lemmas}
+\newlist{lemlist}{enumerate}{1} \setlist[lemlist]{label=\textrm{(\arabic{lemlisti})}, ref=\thelemma.(\arabic{lemlisti}),noitemsep} \Crefname{lemlisti}{Lemma}{Lemma}
+
+\newtheorem{cor}[lemma]{Corollary}
+\Crefname{cor}{Corollary}{Corollaries}
+
+\newtheorem{prop}[lemma]{Proposition}
+\Crefname{prop}{Proposition}{Propositions}
+
+\newtheorem*{thm*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+
+\theoremstyle{definition}
+
+\newtheorem{dfn}[lemma]{Definition}
+\Crefname{dfn}{Definition}{Definitions}
+\newtheorem{example}[lemma]{Example}
+\newtheorem{problem}[lemma]{Problem}
+\Crefname{example}{Example}{Examples}
+
+\theoremstyle{remark}
+
+\newtheorem{rem}[lemma]{Remark}
+\Crefname{rem}{Remark}{Remarks}
+
+\title{On the $\mathbb{A}^1$-invariance of $K_2$ \RNum{2}: exceptional groups and Dedekind domains}
+\keywords {Steinberg group, $K_2$-functor, Serre problem {\em Mathematical Subject Classification (2010):} 19C20}
+\author {Sergei Sinchuk}
+\address{Ludwigs Maximilian Universität München}
+\email {sinchukss at gmail.com}
+\date {\today}
+
+\begin{document}
+    \maketitle
+
+    \section{Introduction}\label{sec:introduction}
+
+    \begin{dfn}
+        Let $k$ be commutative ring and $K$ be a functor $ \mathbf{Alg}_k \to \mathbf{Grp}$. $K$ is called \textit{locally acyclic (resp., locally acyclic for domains)}
+        if for every commutative local ring (resp., domain) $R \in \mathbf{Alg}_k$ the following diagram whose arrows are induced by natural embeddings is a pullback square:
+        \begin{equation}\label{eq:P1-square} \begin{tikzcd} K(R) \ar[r] \ar[d] & K(R[t]) \arrow{d} \\ K(R[t^{-1}]) \ar{r} & K(R[t, t^{-1}]). \end{tikzcd} \end{equation}
+    \end{dfn}
+
+    \begin{thm}[Horrocks theorem for $\K_2$]\label{thm:horrocks-k2}
+        Let $\Phi$ be a root system of simply-laced type of rank $\geq 3$ such that $\Phi \neq \rE_8$.
+        Then the functor $\K_{2}(\Phi, R)$ is (locally) acyclic.
+    \end{thm}
+
+    As a corollary we obtain the following result analogous to~\cite[Theorem~1.1]{St-Ded}:
+    \begin{cor}
+        \label{cor:dedekind}
+        Let $\Phi$ and $A$ be as above.
+        Assume additionally that $A$ is a regular domain.
+        Then $\K_2(A)$ surjects onto $\K_2(\Phi, A[X_1,\ldots, X_n])$.
+    \end{cor}
+    \begin{proof}
+        Consider the following diagram:
+        \[ \K_2(\rA_3, A) \to \K_2(\rA_4, A) \to \K_2(\rA_4, A[X_1, \ldots, X_n]) \rightarrow \K_2(A[X_1, \ldots, X_n]) \to \K_2(A).\]
+        The two right arrows on the above diagram are isomorphisms by the $\mathbb{A}^1$-invariance of the stable $\K_2$
+        (see e.\,g. \cite[Theorem~V.6.3]{Kbook}) combined with the main result of~\cite{Tu83}.
+        On the other hand, by~\cite[Corollary~3.2]{ST76} the left arrow and the composite arrow are isomorphisms.
+        Our assertion now follows from~\cref{thm:early-stability}.
+    \end{proof}
+
+
+    \section{Preliminaries}\label{sec:preliminaries}
+    \input{preliminaries}
+
+
+    \section{Proof of main result} \label{sec:main}
+    \input{proofs}
+
+    \appendix
+
+
+    \section{On the existence of the homomorphism $\delta_1$}\label{sec:delta1}
+    \input{appendix}
+
+\end{document}

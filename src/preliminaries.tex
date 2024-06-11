@@ -1,0 +1,202 @@
+\subsection{Formalism of triples}\label{subsec:triples}
+
+Let $N$ be a group acting on itself by right conjugation.
+Let $M$ be a group with a right action of $N$.
+Recall that a group homomorphism $\varphi\colon M \to N$ is called a \textit{precrossed module} if $\varphi$ preserves the action of $N$, i.\,e.
+\[\varphi(m^n) = \varphi(m)^n, \text{for all $m \in M$, $n\in N;$} \]
+If, in addition, $\varphi$ satisfies the so-called \textit{Peiffer identity}, i.\,e.
+\[{m}^{\varphi(m')} = {m'}^{-1} m m', \text{for all $m, m' \in M$,}\]
+then $\varphi$ is called a \textit{crossed module}.
+
+Let $\varphi\colon M \to N$ and $\varphi' \colon M' \to N'$ be a pair of precrossed modules.
+A \textit{map of precrossed modules} $(f, g)\colon \varphi \to \varphi'$ is, by definition, any pair of homomorphisms
+$f \colon M \to M'$, $g \colon N \to N'$ such that ${f(m)}^{g(n)} = f(m^n)$ for all $n \in N$, $m \in M$.
+
+Now suppose that we are given the following cube-like commutative diagram of abstract groups:
+\begin{equation} \label{eq:cube} \begin{split} \xymatrix{
+    G_{123} \ar[rr]_{f_{23}} \ar[dd]_{f_{12}} \ar[rd]_{f_{13}} &                        & G_{23} \ar@{-->}[dd]^(.3){g_2^3} \ar[rd]^{g^2_3} &           \\
+    & G_{13} \ar[rr]^(.3){g^1_3} \ar^(.3){g^3_1}[dd] &                   & G_3 \ar[dd]_{h_3} \\
+    G_{12} \ar@{-->}[rr]^(.3){g_2^1} \ar[rd]_{g_1^2}          &                        & G_2 \ar@{-->}[rd]_{h_2}         &           \\
+    & G_1 \ar[rr]_{h_1}              &                   & G.} \end{split} \end{equation}
+Additionally, suppose that $g_1^3$ is a precrossed module, $h_3$ is a crossed module and, moreover, that $(g_3^1, h_1) \colon g_1^3 \to h_3$ is a map of precrossed modules.
+
+Set $V = G_1 \times G_2 \times G_3$, $W = G_{12} \times G_{13} \times G_{23}$.
+We define an operation $\star \colon W \times V \to V$ as follows. For $v = (x, y, z) \in V$ and $(a, b, c) \in W$ we set
+\[(a, b, c) \star (x, y, z) = (x \cdot g_1^3(b) \cdot g_1^2(a),\ g_2^1(a)^{-1} \cdot y \cdot g_2^3(c),\ g_3^2(c)^{-1} \cdot g_3^1(b)^{-h_2(y)} \cdot z).\]
+
+\begin{lemma} For every $v \in V$ one has
+\begin{equation*}(a', b', c') \star \left( (a, b, c) \star v \right) = (a \cdot a', b \cdot {b'}^{g_1^2(a)^{-1}}, c \cdot c') \star v.\end{equation*}
+\end{lemma}
+\begin{proof}
+    Set $v'=(x', y', z') = (a, b, c) \star v$ and $(x'', y'', z'') = (a', b', c') \star v'$.
+    Since $g_1^3$ is a precrossed module we immediately obtain that
+    \begin{align*}
+        x'' =& x' \cdot g_1^3(b') \cdot g_1^2(a') = x \cdot g_1^3(b) \cdot g_1^2(a) \cdot g_1^3(b') \cdot g_1^2(a') = x \cdot g_1^3(b \cdot b'^{g_1^2(a)^{-1}}) g_1^2(a \cdot a'),\\
+        y'' =& g_2^1(a')^{-1} \cdot g_2^1(a)^{-1} \cdot y \cdot g_2^3(c) \cdot g_2^3(c') = g_2^1(a\cdot a')^{-1} \cdot y \cdot g_2^{3}(c\cdot c'). \end{align*}
+    Since $(g_3^1, h_1)$ is a map of precrossed modules, for every $a \in G_{12}$, $b \in G_{13}$ one has $g_3^1(b^{g_1^2(a)}) = g_3^1(b)^{h_1 g_1^2(a)} = g_3^1(b)^{h_2g_2^1(a)}$.
+    Since $h_3$ satisfies Peiffer identity, for every $c \in G_{23}$ and $z \in G_3$ one has $z ^{h_2 g_2^3(c)} = z^{ h_3 g_3^2(c)} = g_3^2(c)^{-1} \cdot z \cdot g_3^2(c)$.
+    Using these identities we obtain that
+    \begin{multline*}
+        z'' = g_3^2(c')^{-1} \cdot g_3^1(b')^{-h_2(y')} \cdot z' = \\
+        = g_3^2(c')^{-1} \cdot g_3^1(b')^{- h_2 \left( g_2^1(a)^{-1} \cdot y \cdot g_2^3(c) \right)} g_3^2(c)^{-1} \cdot g_3^1(b)^{-h_2(y)} \cdot z = \\
+        = g_3^2(c \cdot c')^{-1} \cdot g_3^1(b')^{- h_2 \left( g_2^1(a)^{-1} \cdot y \right)} \cdot g_3^1(b)^{-h_2(y)} \cdot z = \\
+        = g_3^2(c \cdot c')^{-1} \cdot g_3^1(b \cdot {b'} ^ {g_1^2(a)^{-1}})^{- h_2 \left( y \right)} \cdot z. \qedhere
+    \end{multline*}
+\end{proof}
+
+The above lemma allows us to define an equivalence relation on the set $V$ in the following fashion.
+We declare two elements $v, v' \in V$ congruent (denoted $v \sim v'$) if $v' = w \star v$ for some triple $(a, b, c) \in W$.
+
+\begin{lemma}\label{one-one-z} Assume that the back face $(f_{12}, f_{23}, g_2^1, g_2^3)$ of~\eqref{eq:cube} is a pullback square.
+Assume additionally that the triple $(1, 1, 1)$ is congruent to $(1, 1, z)$ for some $z\in G_3$.
+Then $z \in g_3^1(\Ker(g_1^3)).$ \end{lemma}
+\begin{proof} By the definition of congruence relation there exists $(a, b, c)\in W$ such that
+\[ (a, b, c) \star (1, 1, 1) = ( g_1^3(b) \cdot g_1^2(a),\ g_2^1(a)^{-1} \cdot g_2^3(c),\ g_3^2(c)^{-1} \cdot g_3^1(b)^{-1}) = (1,1,z). \]
+By the Lemma's assumption there exists $e \in G_{123}$ such that $f_{12}(e) = a$, $f_{23}(e) = c$, hence
+\[ 1 = g_1^3(b) \cdot g_1^2(f_{12}(e)) = g_1^3(b \cdot f_{13}(e)),\ z = g_3^2(f_{23}(e))^{-1} \cdot g_3^1(b)^{-1} = g_3^1(b \cdot f_{13}(e))^{-1}. \qedhere\] \end{proof}
+
+\subsection{Steinberg groups, $\K_2$-groups and symbols}\label{subsec:steinberg-preliminaries}
+Let $R$ be an arbitrary commutative ring with $1$ and $\Phi$ be a reduced irreducible root system, $\Phi \neq \rA_1$.
+Recall that to this data one can associate an abstract group $\St(\Phi, R)$, called the \textit{Steinberg group} of type $\Phi$ over $R$.
+By definition, $\St(\Phi, R)$ is the group presented by generators $x_\alpha(a)$, $a \in R$, $\alpha \in \Phi$ and an explicit list of relations (see e.\,g in.~\cite{Ma69, Re75, St71}).
+In this paper we may restrict ourselves to the case when the root system $\Phi$ in question is simply-laced (i.\,e. has type $\mathsf{ADE}$),
+ in which case the defining relations of $\St(\Phi, R)$ reduce to the following shorter list:
+\begin{align}
+x_{\alpha}(a)\cdot x_{\alpha}(b)&=x_{\alpha}(a+b), \tag{R1} \label{x-additivity}\\
+[x_{\alpha}(a),\,x_{\beta}(b)]  &=x_{\alpha+\beta}(N_{\alpha,\beta} \cdot ab),\text{ for }\alpha+\beta\in\Phi, \tag{R2} \label{R2} \\
+[x_{\alpha}(a),\,x_{\beta}(b)]  &=1,\text{ for }\alpha+\beta\not\in\Phi\cup0. \tag{R3} \label{R3}
+\end{align}
+The coefficients $N_{\alpha,\beta}$ in the above formula are integers equal to $\pm 1$, they coincide with the structure constants of the complex Lie algebra of type $\Phi$.
+
+Throughout this paper we denote by $\Gsc(\Phi, R)$ the group of points of the simply-connected Chevalley--Demazure group of type $\Phi$ over $R$.
+We denote by $\Esc(\Phi, R)$ the \textit{elementary subgroup} of $\Gsc(\Phi, R)$, i.\,e. the subgroup generated by elementary root unipotents of $\Gsc(\Phi, R)$.
+Notice that in~\cite{VP, Vav09} the notation $x_\alpha(a)$ is used to denote the elementary root unipotents.
+To prevent confusion we will use different notation $t_\alpha(a)$ for them and reserve the notation $x_\alpha(a)$ solely for generators of Steinberg groups.
+
+Recall that the map sending $x_\alpha(a)$ to $t_\alpha(a)$ gives rise to a well-defined homomorphism $\pi \colon \St(\Phi, R) \to \G_\mathrm{sc}(\Phi, R)$, see~\cite[\S~1A]{St78}.
+The cokernel and the kernel of $\pi$ are called \textit{the unstable $\K_1$- and $\K_2$-functors modeled on the root system $\Phi$}:
+\begin{equation} \label{eq:K1-K2-sequence}
+  \xymatrix{ 1 \ar[r] & \K_2(\Phi, R) \ar[r] & \St(\Phi, R) \ar[r]^{\pi} & \Gsc(\Phi, R) \ar[r] & \K_1(\Phi, R) \ar[r] & 1}
+\end{equation}
+
+Following~\cite{Ma69} for $\alpha\in\Phi$ and $u \in R^\times$ we define the following elements of $\St(\Phi, R)$:
+\begin{align*} w_\alpha(u) & =  x_\alpha(u) \cdot x_{-\alpha}(-u^{-1}) \cdot x_\alpha(u), \\
+               h_\alpha(u) & =  w_\alpha(u) \cdot w_\alpha(-1).  \end{align*}
+
+In the sequel we will need the following explicit elements of the group $\K_2(\Phi, R)$.
+Recall that for arbitrary $u, v \in R^\times$ one defines the \textit{Steinberg symbol} via the formula
+\begin{equation} \label{eq:steinberg} \{ u, v \}_\alpha = h_\alpha(uv) \cdot h_\alpha^{-1}(u) \cdot h_\alpha^{-1}(v). \end{equation}
+%Now if $a, b\in R$ satisfy $1 + ab \in R^\times$ one defines the \textit{Dennis--Stein} symbol via the formula
+%\begin{equation} \label{eq:dennis-stein} \langle a,b \rangle _ \alpha = x_{-\alpha}\left(\tfrac{- b}{1 + ab}\right) \cdot x_{\alpha}(a) \cdot x_{-\alpha}(b) \cdot x_{\alpha}\left(\tfrac{- a}{1+ab}\right) \cdot h_{\alpha}^{-1}(1 + ab). \end{equation}
+%Notice that the above definition of Dennis--Stein symbol is \("\)old-fashioned\("\) in the sense that it agrees with~\cite{DS73} and~\cite{LS20}
+% and is different from~\cite[Definition~III.5.11]{Kbook}.
+Recall from~\cite{Ma69} that Steinberg symbols depend only on the length of the root $\alpha$.
+In particular, in the case of a root system $\Phi$ of type $\mathsf{ADE}$ they do not depend on the choice of $\alpha$, which allows us to omit it from notation.
+Recall from Lemme
+
+%Dennis--Stein symbols are a generalization of Steinberg symbols and the former can be expressed through the latter in the special case when either
+%$a$ or $b$ is an invertible element of $R$ (cf. \cite[p.~250]{DS73}):
+%\begin{equation} \label{DS-S-relationship}
+%\langle a, b \rangle = \{-a, 1+ab\}\text{ for } a, 1+ab\in R^\times,\ \
+% \{ u, v \} = \left\langle -u, \tfrac{1 - v}{u} \right\rangle\text{ for } u, v\in R^\times. \end{equation}
+
+Under our asumptions on $\Phi$ Steinberg symbols are antisymmetric and bimultiplicative, i.\,e. they satisfy the following identities:
+\begin{equation} \label{eq:symbol-properties} \{ u, st \} = \{ u, s\} \{ u, t \}, \ \{ u, v \} = \{ v, u\}^{-1}. \end{equation}
+
+In this paper we will use also use the concept of a \textit{relative Steinberg group} introduced by F.~Keune and J.-L.~Loday in~\cite{Ke78, Lo78}.
+We will only briefly mention the definition and basic properties of these groups and refer the reader to~\cite[\S~2.3]{LS20} for a more detailed exposition.
+
+For our purposes it will be sufficient to think of $\St(\Phi, R, I)$ as a certain central extension of the kernel of the homomorphism of Steinberg groups induced by $p:R\to R/I$:
+\begin{equation}
+    \xymatrix{1 \ar[r] & C(\Phi, R, I) \ar[r] & \St(\Phi, R, I) \ar[r] & \St(\Phi, R) \ar[r]_-{p^*} & \St(\Phi, R/I) \ar[r] & 1. }\label{eq:relative-Steinberg}
+\end{equation}
+The precise definition of $\St(\Phi, R, I)$ can be given either explicitly via generators and relations (see~???)
+ or using the Loday's relativization construction (see~???).
+The group $C(\Phi, R, I)$ from the above exact sequence admits homological interpretation (see~???).
+
+
+\subsection{Horrocks ingredient}\label{subsec:horrocks-ingredient}
+\begin{lemma} \label{lem:zariski-glueing}
+Let $\Phi$ be any simply-laced root system of rank $\geq 3$.
+Let $A$ be a commutative domain and $a, b \in A$ be a pair of coprime elements.
+\begin{enumerate}
+    \item Let $\delta$ be an element of $\St(\Phi, A_{ab})$.
+    Then $\delta$ can be presented as $\lambda_b(\alpha) \cdot \lambda_a(\beta)$ for some
+    $\alpha \in \St(\Phi, A_a)$ and \beta \in $\St(\Phi, A_b)$.
+    \item  Let $\alpha \in \St(\Phi, A_a)$ and $\beta \in \St(\Phi, A_b)$ be such that the equality $\lambda_b(\alpha) = \lambda_a(\beta)$ holds in $\St(\Phi, A_{ab})$.
+    Then there exists $\gamma \in \St(\Phi, A)$ such that $\alpha = \lambda_a(\gamma)$, $\beta = \lambda_b(\gamma)$.
+\end{enumerate}
+
+\end{lemma}
+\begin{proof}
+    This is a special case of Nisnevich excision for domains, see~\cite[Proposition~4.5]{LSV2}
+    (cf. also the proof of~\cite[Lemma~2.6]{LSV2}).
+\end{proof}
+
+Now let $A$ be a local ring with maximal ideal $M$.
+Set $B \coloneqq A[X\inv] + M[X],\ R \coloneqq A[X, X\inv]$.
+Consider the following diagram:
+%! suppress = EscapeAmpersand
+\[ \xymatrix{ & \St(\Phi, A[X], M[X]) \ar[d]_{t_M} \ar[r] & \St(\Phi, A[X]) \ar[d]_{\lambda_X^*} \\
+   \St(\Phi, A[X\inv]) \ar[r]^{i_B} \ar@/_/[rr]_{\lambda_{X\inv}^*} & \St(\Phi, B) \ar[r]^{\lambda^*_{X\inv, B}} & \St(\Phi, R)
+}\]
+The arrow $t_M$ arises from the \("\)lifting property\("\) of Steinberg groups (cf. \cite[Lemma~3.3]{LS20} or~\cite[Theorem~3]{LS17}) as the composition of morphisms
+$\lambda_{X}^{rel}\colon \St(\Phi, A[X], M[X]) \to \St(\Phi, R, M[X, X\inv])$ and $T \colon \St(\Phi, R, M[X, X\inv]) \to \St(\Phi, B)$.
+%This is wrong: Its image $\Img(t_M) \leq \St(\Phi, B)$ is generated as a subgroup by elements $x_\alpha(f)$, $z_\alpha(f, a)$, $z_\alpha(X^2f, aX^{-1})$, for $\alpha\in \Phi$, $a \in A$, $f \in M[X]$, see the proof of~\cite[Lemma~5.41]{LS20}.
+
+Set $G_M^{\geq 0} \coloneqq \Img(\St(\Phi, A[X], M[X]) \to \St(\Phi, R)), G_M^0 \coloneqq \overline{\St}(\Phi, A, M)$.% Show that G_M^0 is a subgroup of both first two factors
+Denote by $\overline{V}$ the quotient-set of the product $V \coloneqq G_M^{\geq 0} \times \St(\Phi, A[X\inv]) \times (1 + M)^\times$
+ modulo the equivalence relation given by $(gh_0, h, u) \cong (g, h_0h, u)$ where $h_0 \in G_M^0, (g, h, u) \in V.$
+Denote by $[g, h, u] \in \overline{V}$ the equivalence class corresponding to $(g, h, u)\in V$.
+
+\begin{prop} \label{prop:horrocks-main} The group $\St(\Phi, B)$ acts on $\overline{V}$.
+ This action satisfies the following properties:
+    \begin{enumerate}
+        \item For $(g, h, u) \in V$ and $g_0 \in \Img(t_M)$ one has
+         \[g_0 \cdot [g, h, u] = [\lambda_{X\inv, B}^* (g_0) \cdot g, h, u]\]
+        \item For $(1, h, u) \in V$ and $h_0 \in \St(\Phi, A[X\inv])$ one has
+         \[ i_B(h_0) \cdot [1, h, u] = [1, h_0 \cdot h, u].\]
+        \item If $g \in \Img(j\colon \St(\Psi, B) \to \St(\Phi, B)), h \in \St(\Phi, A[X\inv]), u \in 1 + M$ then
+         \[ g \cdot [1, h, u] = [g', h', u']\] for some $g' \in \Img(j\colon G_{M, \Psi}^{\geq 0} \to G_{M, \Phi}^{\geq 0})$, $h' \in \St(\Phi, A[X\inv])$, $u'\in 1 + M$.
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    The existence of the action of $\St(\Phi, B)$ and the second assertion are contained in~\cite[Proposition~5.39]{LS20}.
+    The first assertion is what the proof of~\cite[Lemma~5.41]{LS20} actually shows without the assumption that $i_R$ is injective.
+    The last assertion follows from the construction of the action. %TODO: Add more details!
+\end{proof}
+
+\begin{lemma} \label{lem:horrocks--ingredient}
+Let $A$ be a local ring, $\alpha \in \K_2(\Phi, A[X], XA[X])$, $\beta \in \St(\Phi, A[X\inv]),$ $\gamma \in \St(\Psi, A[X, X\inv])$ be elements satisfying the equality (in $\St(\Phi, R)$)
+\begin{equation} \label{eq:alpha-def}\lambda_X(\alpha) = j(\gamma) \cdot \lambda_{X\inv}(\beta) \end{equation}
+Then $\alpha$ belongs to the image of $j\colon \St(\Psi, A[X]) \to \St(\Phi, A[X])$.
+\end{lemma}
+\begin{proof}
+    Denote by $M$ the maximal ideal of $A$ and by $k$ its residue field.
+    We denote by $\pi_A$ (resp. $\pi_{A[X]}$, resp. $\pi_{R}$) the canonical homomorphism $A \to k$ (resp. $A[X] \to k[X]$, resp. $R \to k[X, X\inv]$).
+
+    Since $\K_2(\Psi, k[X])$ surjects onto $\K_2(\Phi, k[X])$ there exists $\alpha_0 \in \St(\Psi, A[X])$ such that $j(\alpha_0) \cdot \alpha \in \overline{\St}(\Phi, A[X], M[X])$ and
+     hence $\pi_{A[X]}^*(j(\alpha_0) \cdot \alpha) = 1$.
+    By definition of relative Steinberg groups, there exists $\widetilde{\alpha} \in \St(\Phi, A[X], M[X])$ such that
+     $\iota \cdot \lambda_X^{rel}(\widetilde{\alpha}) = \lambda_X^* (j(\alpha_0) \cdot \alpha)$. %TODO: More details
+
+    Now consider the element $\pi^*_{A[X\inv]}(\beta) \in \St(\Phi, k[X\inv])$.
+    Its image in $\G(\Phi, k[X\inv])$ is contained in the subgroup $\G(\Psi, k[X\inv])$.
+    Since $\K_1(\Psi, k[X\inv]) = 1$, there exist
+    \[\beta_0 \in \St(\Psi, A[X\inv]),\ \beta_1 \in \St(\Phi, A[X\inv], M[X\inv])\] such that $\beta = j(\beta_0) \cdot \beta_1$.
+    Set $\gamma_1 \coloneqq \lambda^*_X(\alpha_0) \cdot \gamma \cdot \lambda^*_{X\inv}(\beta_0) \in \St(\Psi, R)$.
+    It follows from~\eqref{eq:alpha-def} that the element $\pi_R^*(j(\gamma_1)) \in \St(\Phi, k[X, X\inv])$ is trivial, hence $\pi^*_R(\gamma_1) \in \K_2(\Psi, k[X, X\inv])$.
+    Recall from~\cite{Hur77} that $\K_2(\Psi, k[X, X\inv]) \to \K_2(\Phi, k[X, X\inv])$ is injective (see the assertion after Korollar~6).
+    Thus, $\gamma_1 \in \overline{\St}(\Psi, R, M[X, X\inv]).$
+    There exists $\gamma_2 \in \St(\Psi, R, M[X, X\inv])$ such that $\iota (\gamma_2) = \gamma_1$.
+    Notice that $j(\gamma_2) \cdot \lambda_{X\inv}^{rel}(\beta_1) = \kappa \lambda_X^{rel}(\widetilde{\alpha})$ for $\kappa \in \Ker(\iota\colon \St(\Phi, R, M[X, X\inv]) \to \St(\Phi, R))$
+
+    By the third assertion of~\cref{prop:horrocks-main} $j(\gamma_2) \cdot [1, \beta_1, 1] = [j(g), h, u]$ for some $g \in \G_{M, \Psi}^{\geq 0}$.
+    Observe that
+    \[ \lambda_{X\inv, B}^* (j(\gamma_2) \cdot i_B(\beta_1)) = j(\gamma_1) \lambda_{X\inv}^*(\beta_1) = \lambda_X^*(j(\alpha_0)) \cdot j(\gamma) \lambda_{X\inv}^*(\beta) = \lambda_{X\inv, B}^*(t_M(\widetilde{\alpha})), \]
+    hence there exists $\kappa \in \Ker(\lambda^*_{X\inv, B})$ such that $j(\gamma_2) \cdot i_B(\beta_1) = \kappa t_M(\widetilde{\alpha})$.
+    Consequently, from~\cref{prop:horrocks-main} we obtain that
+    \[j(\gamma_2) \cdot [1, \beta_1, 1] = j(\gamma_2) \cdot i_B(\beta_1) [1, 1, 1] = \kappa [\lambda_X^*(j(\alpha_0) \cdot \alpha), 1, 1].\]
+    By the definition of $\overline{V}$ one has $j(\alpha_0) \alpha = j(g) g_0$ for $g$ as above and some $g_0 \in \overline{\St}(\Phi, A, M)$.
+    Since $\alpha(0) = 1$ we obtain that $g_0 = j(g)(0) \cdot j(\alpha_0)(0)$, which implies the required assertion.
+\end{proof}
