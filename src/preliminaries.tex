@@ -86,27 +86,20 @@ Following~\cite{Ma69} for $\alpha\in\Phi$ and $u \in R^\times$ we define the fol
 In the sequel we will need the following explicit elements of the group $\K_2(\Phi, R)$.
 Recall that for arbitrary $u, v \in R^\times$ one defines the \textit{Steinberg symbol} via the formula
 \begin{equation} \label{eq:steinberg} \{ u, v \}_\alpha = h_\alpha(uv) \cdot h_\alpha^{-1}(u) \cdot h_\alpha^{-1}(v). \end{equation}
-%Now if $a, b\in R$ satisfy $1 + ab \in R^\times$ one defines the \textit{Dennis--Stein} symbol via the formula
-%\begin{equation} \label{eq:dennis-stein} \langle a,b \rangle _ \alpha = x_{-\alpha}\left(\tfrac{- b}{1 + ab}\right) \cdot x_{\alpha}(a) \cdot x_{-\alpha}(b) \cdot x_{\alpha}\left(\tfrac{- a}{1+ab}\right) \cdot h_{\alpha}^{-1}(1 + ab). \end{equation}
-%Notice that the above definition of Dennis--Stein symbol is \("\)old-fashioned\("\) in the sense that it agrees with~\cite{DS73} and~\cite{LS20}
-% and is different from~\cite[Definition~III.5.11]{Kbook}.
-Recall from~\cite{Ma69} that Steinberg symbols depend only on the length of the root $\alpha$.
-In particular, in the case of a root system $\Phi$ of type $\mathsf{ADE}$ they do not depend on the choice of $\alpha$, which allows us to omit it from notation.
-Recall from Lemme
+Recall also from \cite[Lemme~5.4]{Ma69} that
+\begin{equation} [h_\alpha(u), h_\beta(v)] = \{u, v^{\langle \alpha, \beta \rangle}\}_\alpha. \end{equation}
+Steinberg symbols depend only on the length of the root $\alpha$.
+In particular, in the case when $\Phi$ is of simply-laced type, they do not depend on the choice of $\alpha$, which allows us to omit it from notation.
 
-%Dennis--Stein symbols are a generalization of Steinberg symbols and the former can be expressed through the latter in the special case when either
-%$a$ or $b$ is an invertible element of $R$ (cf. \cite[p.~250]{DS73}):
-%\begin{equation} \label{DS-S-relationship}
-%\langle a, b \rangle = \{-a, 1+ab\}\text{ for } a, 1+ab\in R^\times,\ \
-% \{ u, v \} = \left\langle -u, \tfrac{1 - v}{u} \right\rangle\text{ for } u, v\in R^\times. \end{equation}
-
-Under our asumptions on $\Phi$ Steinberg symbols are antisymmetric and bimultiplicative, i.\,e. they satisfy the following identities:
+Our asumptions on $\Phi$ guarantee that Steinberg symbols would be antisymmetric and bimultiplicative, i.\,e. they satisfy the following identities:
 \begin{equation} \label{eq:symbol-properties} \{ u, st \} = \{ u, s\} \{ u, t \}, \ \{ u, v \} = \{ v, u\}^{-1}. \end{equation}
 
 In this paper we will use also use the concept of a \textit{relative Steinberg group} introduced by F.~Keune and J.-L.~Loday in~\cite{Ke78, Lo78}.
 We will only briefly mention the definition and basic properties of these groups and refer the reader to~\cite[\S~2.3]{LS20} for a more detailed exposition.
 
-For our purposes it will be sufficient to think of $\St(\Phi, R, I)$ as a certain central extension of the kernel of the homomorphism of Steinberg groups induced by $p:R\to R/I$:
+Let $R$ be a commutative ring, $I \trianglelefteq R$ be an ideal and let $p$ denote the canonical projection $R \to R/I$.
+For our purposes it will be sufficient to think of $\St(\Phi, R, I)$ as a certain central extension of
+ the kernel of the homomorphism of Steinberg groups induced by $p^*$:
 \begin{equation}
     \xymatrix{1 \ar[r] & C(\Phi, R, I) \ar[r] & \St(\Phi, R, I) \ar[r] & \St(\Phi, R) \ar[r]_-{p^*} & \St(\Phi, R/I) \ar[r] & 1. }\label{eq:relative-Steinberg}
 \end{equation}
