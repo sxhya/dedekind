@@ -1,3 +1,5 @@
+In this paper all rings are assumed to be commutative and all commutators are left-normed i.\,e. $[a, b] = a b a^{-1} b^{-1}$.
+
 \subsection{Formalism of triples}\label{subsec:triples}
 
 Let $N$ be a group acting on itself by right conjugation.
@@ -56,10 +58,10 @@ By the Lemma's assumption there exists $e \in G_{123}$ such that $f_{12}(e) = a$
 \[ 1 = g_1^3(b) \cdot g_1^2(f_{12}(e)) = g_1^3(b \cdot f_{13}(e)),\ z = g_3^2(f_{23}(e))^{-1} \cdot g_3^1(b)^{-1} = g_3^1(b \cdot f_{13}(e))^{-1}. \qedhere\] \end{proof}
 
 \subsection{Steinberg groups, $\K_2$-groups and symbols}\label{subsec:steinberg-preliminaries}
-Let $R$ be an arbitrary commutative ring with $1$ and $\Phi$ be a reduced irreducible root system, $\Phi \neq \rA_1$.
+Let $R$ be an arbitrary commutative ring with $1$ and $\Phi$ be a reduced irreducible root system of rank $\geq 2$.
 Recall that to this data one can associate an abstract group $\St(\Phi, R)$, called the \textit{Steinberg group} of type $\Phi$ over $R$.
 By definition, $\St(\Phi, R)$ is the group presented by generators $x_\alpha(a)$, $a \in R$, $\alpha \in \Phi$ and an explicit list of relations (see e.\,g in.~\cite{Ma69, Re75, St71}).
-In this paper we may restrict ourselves to the case when the root system $\Phi$ in question is simply-laced (i.\,e. has type $\mathsf{ADE}$),
+In this paper we may restrict ourselves to the case when the root system $\Phi$ in question is \textit{simply-laced} (i.\,e. has type $\mathsf{ADE}$),
  in which case the defining relations of $\St(\Phi, R)$ reduce to the following shorter list:
 \begin{align}
 x_{\alpha}(a)\cdot x_{\alpha}(b)&=x_{\alpha}(a+b), \tag{R1} \label{x-additivity}\\
@@ -86,27 +88,51 @@ Following~\cite{Ma69} for $\alpha\in\Phi$ and $u \in R^\times$ we define the fol
 In the sequel we will need the following explicit elements of the group $\K_2(\Phi, R)$.
 Recall that for arbitrary $u, v \in R^\times$ one defines the \textit{Steinberg symbol} via the formula
 \begin{equation} \label{eq:steinberg} \{ u, v \}_\alpha = h_\alpha(uv) \cdot h_\alpha^{-1}(u) \cdot h_\alpha^{-1}(v). \end{equation}
-Recall also from \cite[Lemme~5.4]{Ma69} that
-\begin{equation} [h_\alpha(u), h_\beta(v)] = \{u, v^{\langle \alpha, \beta \rangle}\}_\alpha. \end{equation}
+Recall also from~\cite[Lemme~5.4]{Ma69} that
+\begin{equation} \label{eq:steinberg-2} [h_\alpha(u), h_\beta(v)] = \{u, v^{\langle \alpha, \beta \rangle}\}_\alpha. \end{equation}
 Steinberg symbols depend only on the length of the root $\alpha$.
 In particular, in the case when $\Phi$ is of simply-laced type, they do not depend on the choice of $\alpha$, which allows us to omit it from notation.
 
-Our asumptions on $\Phi$ guarantee that Steinberg symbols would be antisymmetric and bimultiplicative, i.\,e. they satisfy the following identities:
+Steinberg symbols are central elements of $\St(\Phi, R)$.
+Our assumptions on $\Phi$ guarantee that Steinberg symbols are antisymmetric and bimultiplicative, i.\,e. they satisfy the following identities:
 \begin{equation} \label{eq:symbol-properties} \{ u, st \} = \{ u, s\} \{ u, t \}, \ \{ u, v \} = \{ v, u\}^{-1}. \end{equation}
 
 In this paper we will use also use the concept of a \textit{relative Steinberg group} introduced by F.~Keune and J.-L.~Loday in~\cite{Ke78, Lo78}.
 We will only briefly mention the definition and basic properties of these groups and refer the reader to~\cite[\S~2.3]{LS20} for a more detailed exposition.
 
 Let $R$ be a commutative ring, $I \trianglelefteq R$ be an ideal and let $p$ denote the canonical projection $R \to R/I$.
-For our purposes it will be sufficient to think of $\St(\Phi, R, I)$ as a certain central extension of
- the kernel of the homomorphism of Steinberg groups induced by $p^*$:
+Denote by $D_{R, I}$ the pullback of two copies of $p$ i.\,e. the ring $R \times_{R/I} R$.
+Elements of $D_{R, I}$ are pairs $(a; b)$ such that $a-b \in I$.
+We also denote by $p_1$, $p_2$ the canonical projections $D_{R, I} \to R$ and by $p_1^*$, $p_2^*$ the corresponding homomorphisms of Steinberg groups induced by them.
+Recall from~\cite[Definition~2.5]{LS20} that the relative Steinberg group $\St(\Phi, R, I)$ is defined as the quotient
+ $\Ker(p_1^*) / C$, where $C = [\Ker(p_1^*), \Ker(p_2^*)]$.
+If we denote by $\mu$ the homomorphism $\St(\Phi, R, I) \to \St(\Phi, R)$ induced by $p_2^*$, we obtain an exact sequence
 \begin{equation}
-    \xymatrix{1 \ar[r] & C(\Phi, R, I) \ar[r] & \St(\Phi, R, I) \ar[r] & \St(\Phi, R) \ar[r]_-{p^*} & \St(\Phi, R/I) \ar[r] & 1. }\label{eq:relative-Steinberg}
+    \xymatrix{1 \ar[r] & C(\Phi, R, I) \ar[r] & \St(\Phi, R, I) \ar[r]^\mu & \St(\Phi, R) \ar[r]^-{p^*} & \St(\Phi, R/I) \ar[r] & 1. }\label{eq:relative-Steinberg}
 \end{equation}
-The precise definition of $\St(\Phi, R, I)$ can be given either explicitly via generators and relations (see~???)
- or using the Loday's relativization construction (see~???).
-The group $C(\Phi, R, I)$ from the above exact sequence admits homological interpretation (see~???).
+The group $\St(\Phi, R, I)$ can alternatively be defined via generators and relations (cf. \cite[Proposition~6]{S15} or~\cite{V22}).
 
+We will need a relative analogue of Steinberg symbol.
+Let $A$ be a local unital ring with maximal ideal $M$ embedded as a subring into a larger unital ring $R$.
+Under this assumption the subset $1+M \subseteq A$ forms a group under multiplication.
+It is clear that $(1+M)^\times$ is isomorphic to the abelian group $(M, \circ)$ with the operation given by $m \circ m' = m + m' + mm'$.
+Now for $a \in R^\times$ and $m \in M$ we denote by $\{a, 1+m\}_r$ the element $\{(a; a), (1; 1+m)\}C \in \St(\Phi, R, I)$.
+It is clear that the map $1+m \mapsto \{a, 1+m\}_r$ specifies a group homomorphism $(1+M)^\times \to \St(\Phi, R, I)$ and that
+ $\mu(\{a, 1+m\}_r) = \{a, 1+m\}$.
+
+For the next lemma we set $R \coloneqq A[X, X^{-1}]$.
+\begin{lemma}\label{lem:symbols}
+If $A$ is a domain then \[\{A^\times, 1+M\} \cap C(\Phi, A[X, X\inv], M[X, X\inv]) = 1.\]
+\end{lemma}
+\begin{proof}
+Set $F = \mathrm{Frac}(A)$.
+Consider the following diagram:
+\[\begin{tikzcd}
+ (1+M)^\times \ar[hookrightarrow, rr] \ar[d] &  & F^\times \ar[hookrightarrow, d] \\
+  \K_2(\Phi ,A[X^{\pm 1}], M[X^{\pm 1}]) \ar[r] & \K_2(\Phi, A[X^{\pm 1}]) \ar[r] & \K_2(\Phi, F[X^{\pm 1}]).
+\end{tikzcd}\]
+The right arrow is injective by Hurrelbrink's result (cf.~\cite[Lemma~2.2]{LS20}).
+\end{proof}
 
 \subsection{Horrocks ingredient}\label{subsec:horrocks-ingredient}
 \begin{lemma} \label{lem:zariski-glueing}
