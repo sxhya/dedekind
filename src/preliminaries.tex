@@ -110,28 +110,32 @@ If we denote by $\mu$ the homomorphism $\St(\Phi, R, I) \to \St(\Phi, R)$ induce
 \begin{equation}
     \xymatrix{1 \ar[r] & C(\Phi, R, I) \ar[r] & \St(\Phi, R, I) \ar[r]^\mu & \St(\Phi, R) \ar[r]^-{p^*} & \St(\Phi, R/I) \ar[r] & 1. }\label{eq:relative-Steinberg}
 \end{equation}
-The group $\St(\Phi, R, I)$ can alternatively be defined via generators and relations (cf. \cite[Proposition~6]{S15} or~\cite{V22}).
+Alternatively, the group $\St(\Phi, R, I)$ can be defined via generators and relations as an $\St(\Phi, R)$-group, cf.~\cite[Proposition~6]{S15}
+ or even as an abstract group, see~\cite{V22}.
+The relative group $\K_2(\Phi, R, I)$ is defined as the kernel of the homomorphism $\pi \mu$.
 
 We will need a relative analogue of Steinberg symbol.
 Let $A$ be a local unital ring with maximal ideal $M$ embedded as a subring into a larger unital ring $R$.
 Under this assumption the subset $1+M \subseteq A$ forms a group under multiplication.
 It is clear that $(1+M)^\times$ is isomorphic to the abelian group $(M, \circ)$ with the operation given by $m \circ m' = m + m' + mm'$.
-Now for $a \in R^\times$ and $m \in M$ we denote by $\{a, 1+m\}_r$ the element $\{(a; a), (1; 1+m)\}C \in \St(\Phi, R, I)$.
-It is clear that the map $1+m \mapsto \{a, 1+m\}_r$ specifies a group homomorphism $(1+M)^\times \to \St(\Phi, R, I)$ and that
- $\mu(\{a, 1+m\}_r) = \{a, 1+m\}$.
+Now for $a \in R^\times$ and $m \in M$ we denote by $\{a, 1+m\}_r$ the coset $\{(a; a), (1; 1+m)\}C \in \St(\Phi, R, RM)$.
+It is clear that the map $1+m \mapsto \{a, 1+m\}_r$ specifies a group homomorphism
+\[\{ a, -\}_r \colon (1+M)^\times \to \K_2(\Phi, R, RM). \]
+It is also clear that $\mu(\{a, 1+m\}_r) = \{a, 1+m\}$.
 
-For the next lemma we set $R \coloneqq A[X, X^{-1}]$.
 \begin{lemma}\label{lem:symbols}
-If $A$ is a domain then \[\{A^\times, 1+M\} \cap C(\Phi, A[X, X\inv], M[X, X\inv]) = 1.\]
+Assume that $A$ is a local domain with maximal ideal $M$.
+Denote by $R$ the ring $A[X, X\inv]$.
+Then the intersection of the image of the relative symbol map $\{X, -\}_r$ with $C(\Phi, R, M[X, X\inv])$ is trivial.
 \end{lemma}
 \begin{proof}
 Set $F = \mathrm{Frac}(A)$.
 Consider the following diagram:
 \[\begin{tikzcd}
  (1+M)^\times \ar[hookrightarrow, rr] \ar[d] &  & F^\times \ar[hookrightarrow, d] \\
-  \K_2(\Phi ,A[X^{\pm 1}], M[X^{\pm 1}]) \ar[r] & \K_2(\Phi, A[X^{\pm 1}]) \ar[r] & \K_2(\Phi, F[X^{\pm 1}]).
+  \K_2(\Phi ,R, M[X^{\pm 1}]) \ar[r] & \K_2(\Phi, R) \ar[r] & \K_2(\Phi, F[X^{\pm 1}]).
 \end{tikzcd}\]
-The right arrow is injective by Hurrelbrink's result (cf.~\cite[Lemma~2.2]{LS20}).
+Since the right vertical arrow is injective by~\cite[Lemma~2.2]{LS20}, so is the left arrow.
 \end{proof}
 
 \subsection{Horrocks ingredient}\label{subsec:horrocks-ingredient}
