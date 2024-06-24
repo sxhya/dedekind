@@ -153,16 +153,34 @@ Since the right vertical arrow is injective by~\cite[Lemma~2.2]{LS20}, so is the
 
 \subsection{Weight elements}\label{subsec:weight-elements}
 Recall that for every coweight $\omega \in P(\Phi^\vee)$ and $\beta \in \ZZ \Phi$ the scalar product $(\omega, \beta)$ is an integer.
-Thus, for $u \in R^\times$ and $\omega \in P(\Phi^\vee)$ we can define a map of abelian groups $\chi \in \Hom(\ZZ \Phi, R^\times)$
- via the formula $\chi(\beta) = u ^ {(\omega, \beta)}$.
-Such a map specifies an action on the set of generators of the Steinberg group $\St(\Phi, R)$ via the identity
-\begin{equation*} \chi \cdot x_\alpha(\xi) = x_\alpha(\chi(\alpha) \cdot \xi),\ \alpha\in \Phi,\ \xi \in R. \end{equation*}
-It is not hard to check that this action is compatible with Steinberg relations and
- hence gives a well-defined automorphism of $\St(\Phi, R)$ which we denote by the same symbol $\chi$.
+%Thus, for $u \in R^\times$ and $\omega \in P(\Phi^\vee)$ we can define a map of abelian groups $\ZZ \Phi \to R^\times$ via the formula $\beta \mapsto u ^ {(\omega, \beta)}$.
+Thus, a choice of $u \in R^\times$ and $\omega \in P(\Phi^\vee)$ specifies a permutation of the generating set for $\St(\Phi, R)$ via the following mapping:
+\begin{equation*} x_\alpha(a) \mapsto x_\alpha(u^{(\omega, \alpha)} \cdot a),\ \alpha\in \Phi,\ a \in R. \end{equation*}
+It is not hard to check that this action is compatible with relations~\eqref{x-additivity}--\eqref{R3} and hence specifies a well-defined automorphism of $\St(\Phi, R)$, which we denote by $\chi_{\omega, u}$.
+
+In the following lemma we check that an analogue of $\chi_{\omega, u}$ can also be defined for relative Steinberg groups.
+\begin{lemma} \label{lem:relative-chi}
+Let $R$ be a commutative ring, $I$ be its ideal and let $u \in R^\times$.
+For every coweight $\omega \in P(\Phi^\vee)$ there exists a well-defined automorphism $\widetilde{\chi}_{\omega, u}$ of the relative Steinberg group $\St(\Phi, R, I)$ making the following diagram commute:
+\[\begin{tikzcd} \St(\Phi, R, I) \ar[r, "\widetilde{\chi}_{\omega, u}"] \ar[d] & \St(\Phi, R, I) \ar[d] \\
+                 \St(\Phi, R) \ar[r, "\chi_{\omega, X}"] & \St(\Phi, R]). \end{tikzcd}\]
+\end{lemma}
+\begin{proof}
+    Observe that the automorphism $\chi_{\omega, (u; u)}$ of $\St(\Phi, D_{R, I})$ preserves subgroups
+     $\Ker(p_i^*)$, $i=1, 2$ and hence their commutator subgroup $C$.
+    The required automorphism $\widetilde{\chi}_{\omega, u}$ now can be obtained by restricting $\chi_{\omega, (u; u)}$ to $\Ker(p_1^*)$.
+    The commutativity of the diagram is obvious.
+\end{proof}
+
+In the sequel we will use the following formulae describing the action of $\chi_{\omega, u}$ on the elements $w_\alpha(u)$, $h_\alpha(u)$:
+\begin{align}
+    \label{eq:chi-w} \chi_{\omega, u}\left(w_\alpha(v)\right) &= w_\alpha(v \cdot u^{(\omega, \alpha)}), \\
+    \label{eq:chi-h} \chi_{\omega, u} (h_\alpha(v)) &= h_\alpha(u^{(\omega, \alpha)} v) \cdot h_\alpha(u^{(\omega, \alpha)})^{-1} = \{u^{(\omega, \alpha)}, v\} \cdot h_\alpha(v).
+\end{align}
 
 The following lemma is the analogue of~\cite[Lemma~3.1(c)]{Tu83}.
 \begin{lemma} \label{lem:winv-chiw}
-For any root system $\Phi$ if $w \in \StW(\Phi, A[X^{\pm 1}])$ then $w^{-1} \cdot \chi_{\omega, X}(w)$ belongs to $\StH(\Phi, A[X^{\pm 1}])$.
+For any $w \in \StW(\Phi, A[X^{\pm 1}])$ the element $w^{-1} \cdot \chi_{\omega, X}(w)$ belongs to $\StH(\Phi, A[X^{\pm 1}])$.
 \end{lemma}
 \begin{proof}
 Since $\StH(\Phi, A[X^{\pm 1}])$ is a normal subgroup of $\StW(\Phi, A[X^{\pm 1}])$, it suffices to verify the assertion for $w = w_\alpha(u)$.
@@ -171,22 +189,6 @@ It is not hard to check that
 \begin{multline} w_\alpha(1) \cdot h\cdot  w_\alpha(-1) = w_\alpha(-1)^{-1} \cdot w_\alpha(u)^{-1} \cdot w_{\alpha}(X^{(\omega, \alpha)} u) \cdot w_\alpha(-1) = \\
 = h_\alpha(u)^{-1} \cdot h_\alpha(X^{(\omega, \alpha)}u) \in \StH(\Phi, A[X^{\pm 1}]).\end{multline}
 Thus, we get that \[h = h_{\alpha}(u^{-1})^{-1} \cdot h_{\alpha}(X^{-(\omega, \alpha)}u^{-1}) = h_{\alpha}(X^{-(\omega, \alpha)}) \cdot c,\ \text{for some $c \in \K_2(\Phi, A)$.} \qedhere\]
-\end{proof}
-
-
-In the sequel we will also need the following identity:
-\begin{equation} \label{eq:chi-h} \chi_{\omega, X} (h_\alpha(u)) = h_\alpha(X^{(\omega, \alpha)} u) \cdot h_\alpha(X^{(\omega, \alpha)})^{-1} = \{X^{(\omega, \alpha)}, u\} \cdot h_\alpha(u) \end{equation}
-
-
-\begin{lemma} \label{lem:relative-chi}
- For every coweight $\omega$ there is a well-defined automorphism $\widetilde{\chi}(\omega, X)$ of the relative group $\St(\Phi, A[X^{\pm 1}], M[X^{\pm 1}])$ making the following diagram commute:
- \[\begin{tikzcd} \St(\Phi, A[X^{\pm 1}], M[X^{\pm 1}]) \ar[r, "\widetilde{\chi}{(\omega, X)}"] \ar[d] & \St(\Phi, A[X^{\pm 1}], M[X^{\pm 1}]) \ar[d] \\ \St(\Phi, A[X^{\pm 1}]) \ar[r, "\chi{(\omega, X)}"] & \St(\Phi, A[X^{\pm 1}]). \end{tikzcd}\]
-\end{lemma}
-\begin{proof}
- Recall that $\St(\Phi, R, I)$ is defined as $\Ker(p_1^*)/[\Ker(p_1^*), \Ker(p_2^*)]$ where
- \[\begin{tikzcd} p_1, p_2 \colon R \times_{R/I} R \arrow[r, shift right=2] \arrow[r] & R \colon \Delta. \arrow[l, shift right=2] \end{tikzcd}\]
- Substitute $R = A[X^{\pm 1}]$, $I = M[X^{\pm 1}]$ and apply $\St(\Phi, -)$ to this diagram.
- Homomorphisms $\chi(\omega, (X, X))$, $\chi_{\omega, X}$ define its automorphism.
 \end{proof}
 
 \begin{example} \label{exm:chi-linear}
