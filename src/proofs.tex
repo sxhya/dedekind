@@ -1,3 +1,26 @@
+
+We use the following notation.
+\begin{align*}
+ G     =& \St(\Phi, A[X, X^{-1}]),\\
+ G^+   =& \St(\Phi, A[X]),\\
+ B     =& \UU(\Phi^+, A[X, X\inv]) \cdot \StH(\Phi, A[X, X\inv]) \leq G,\\
+ G_M   =& \St(\Phi, A[X, X^{-1}], M[X, X^{-1}],\\
+ U^+   =& \UU(\Phi^+, A[X]),\\
+ G^+_M =& \St(\Phi, A[X], M[X]),\\
+ B_M   =& \UU(\Phi^+, M[X, X^{-1}]) \cdot \Sym(\Phi, A, M) \leq G_M,\\
+ U^+_M =& \UU(\Phi^+, M[X]).
+\end{align*}
+
+
+\[\xymatrix{
+U^+_M \ar@{^{(}->}[rr] \ar@{^{(}->}[dd] \ar@{^{(}->}[rd] &                        & B_M \ar[dd]^(.3){g_2^3} \ar@{^{(}->}[rd]^{g^2_3} &           \\
+                                & G^+_M \ar[rr]^(.3){g^1_3} \ar^(.3){g^3_1=\pi}[dd] &                   & G_M \ar[dd]_{h_3=\pi} \\
+U^+ \ar@{^{(}->}[rr]^(.3){g_2^1} \ar@{^{(}->}[rd]_{g_1^2}          &                        & B \ar@{^{(}->}[rd]_{h_2}       &           \\
+                                & G^+ \ar[rr]_{h_1}              &                   & G}\]
+\begin{rem}
+ where 1=``over $A[X]$''; 2=``triangular subgroup''; 3=``relative group''.
+\end{rem}
+
 Throughout this subsection $j$ denotes an embedding $\Psi \to \Phi$ of simply-laced root systems of rank $\geq 3$ and the corresponding
  homomorphism of Steinberg groups induced by it.
 
