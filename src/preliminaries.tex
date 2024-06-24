@@ -151,9 +151,8 @@ Consider the following diagram:
 Since the right vertical arrow is injective by~\cite[Lemma~2.2]{LS20}, so is the left arrow.
 \end{proof}
 
-\subsection{Weight elements}\label{subsec:weight-elements}
+\subsection{Weight automorphisms}\label{subsec:weight-automorphisms}
 Recall that for every coweight $\omega \in P(\Phi^\vee)$ and $\beta \in \ZZ \Phi$ the scalar product $(\omega, \beta)$ is an integer.
-%Thus, for $u \in R^\times$ and $\omega \in P(\Phi^\vee)$ we can define a map of abelian groups $\ZZ \Phi \to R^\times$ via the formula $\beta \mapsto u ^ {(\omega, \beta)}$.
 Thus, a choice of $u \in R^\times$ and $\omega \in P(\Phi^\vee)$ specifies a permutation of the generating set for $\St(\Phi, R)$ via the following mapping:
 \begin{equation*} x_\alpha(a) \mapsto x_\alpha(u^{(\omega, \alpha)} \cdot a),\ \alpha\in \Phi,\ a \in R. \end{equation*}
 It is not hard to check that this action is compatible with relations~\eqref{x-additivity}--\eqref{R3} and hence specifies a well-defined automorphism of $\St(\Phi, R)$, which we denote by $\chi_{\omega, u}$.
@@ -174,55 +173,58 @@ For every coweight $\omega \in P(\Phi^\vee)$ there exists a well-defined automor
 
 In the sequel we will use the following formulae describing the action of $\chi_{\omega, u}$ on the elements $w_\alpha(u)$, $h_\alpha(u)$:
 \begin{align}
-    \label{eq:chi-w} \chi_{\omega, u}\left(w_\alpha(v)\right) &= w_\alpha(v \cdot u^{(\omega, \alpha)}), \\
-    \label{eq:chi-h} \chi_{\omega, u} (h_\alpha(v)) &= h_\alpha(u^{(\omega, \alpha)} v) \cdot h_\alpha(u^{(\omega, \alpha)})^{-1} = \{u^{(\omega, \alpha)}, v\} \cdot h_\alpha(v).
+    \label{eq:chi-w} \chi_{\omega, u}\left(w_\alpha(v)\right) &= w_\alpha(u^{(\omega, \alpha)} \cdot v), \\
+    \label{eq:chi-h} \chi_{\omega, u} (h_\alpha(v)) &= h_\alpha(u^{(\omega, \alpha)} \cdot v) \cdot h_\alpha(u^{(\omega, \alpha)})^{-1} = \{u^{(\omega, \alpha)}, v\} \cdot h_\alpha(v).
 \end{align}
 
-The following lemma is the analogue of~\cite[Lemma~3.1(c)]{Tu83}.
+The following lemma is analogous to~\cite[Lemma~3.1(c)]{Tu83}.
 \begin{lemma} \label{lem:winv-chiw}
 For any $w \in \StW(\Phi, A[X^{\pm 1}])$ the element $w^{-1} \cdot \chi_{\omega, X}(w)$ belongs to $\StH(\Phi, A[X^{\pm 1}])$.
 \end{lemma}
 \begin{proof}
 Since $\StH(\Phi, A[X^{\pm 1}])$ is a normal subgroup of $\StW(\Phi, A[X^{\pm 1}])$, it suffices to verify the assertion for $w = w_\alpha(u)$.
 Set $h = w^{-1} \cdot \chi_{\omega, X}(w)$.
-It is not hard to check that
-\begin{multline} w_\alpha(1) \cdot h\cdot  w_\alpha(-1) = w_\alpha(-1)^{-1} \cdot w_\alpha(u)^{-1} \cdot w_{\alpha}(X^{(\omega, \alpha)} u) \cdot w_\alpha(-1) = \\
-= h_\alpha(u)^{-1} \cdot h_\alpha(X^{(\omega, \alpha)}u) \in \StH(\Phi, A[X^{\pm 1}]).\end{multline}
-Thus, we get that \[h = h_{\alpha}(u^{-1})^{-1} \cdot h_{\alpha}(X^{-(\omega, \alpha)}u^{-1}) = h_{\alpha}(X^{-(\omega, \alpha)}) \cdot c,\ \text{for some $c \in \K_2(\Phi, A)$.} \qedhere\]
+Notice that
+\begin{multline*} w_\alpha(1) \cdot h\cdot  w_\alpha(-1) = w_\alpha(-1)^{-1} \cdot w_\alpha(u)^{-1} \cdot w_{\alpha}(X^{(\omega, \alpha)} u) \cdot w_\alpha(-1) = \\
+= h_\alpha(u)^{-1} \cdot h_\alpha(X^{(\omega, \alpha)}u) \in \StH(\Phi, A[X^{\pm 1}]).\end{multline*}
+Thus, we get from\cite[Lemme~5.2(b,g)]{Ma69} and~\eqref{eq:steinberg} that \[h = h_{\alpha}^{-1}(u^{-1}) \cdot h_{\alpha}(X^{-(\omega, \alpha)}u^{-1}) = h_{\alpha}^{-1}(X^{(\omega, \alpha)}) \cdot \{ X^{(\omega, \alpha)}, u^{-1} \}. \qedhere\]
 \end{proof}
 
 \begin{example} \label{exm:chi-linear}
-Set $R = A[X^{\pm 1}]$. Consider the following coweights: \[\varepsilon_1 = \varpi_1^\vee,\ \varepsilon_2 = \varpi_2^\vee - \varpi_1^\vee,\ \ldots,\ \varepsilon_{\ell+1} = -\varpi^\vee_\ell.\] For $1\leq k\leq \ell+1$ and $u \in R^\times$ denote by $d_k(u)$ the matrix from $\GL(\ell+1, R)$ which differs from the unit matrix only in that it has the element $u$ on the $k$-th place of its diagonal.
+Set $R = A[X^{\pm 1}]$.
+Consider the following coweights:
+\[\varepsilon_1 = \varpi_1^\vee,\ \varepsilon_2 = \varpi_2^\vee - \varpi_1^\vee,\ \ldots,\ \varepsilon_{\ell+1} = -\varpi^\vee_\ell.\]
+For $1\leq k\leq \ell+1$ and $u \in R^\times$ denote by $d_k(u)$ the matrix from $\GL(\ell+1, R)$ which differs from the unit matrix only in that it has the element $u$ on the $k$-th place of its diagonal.
 Recall from~\cite[Corollary~4]{Ka77} that for any $g \in \GL(\ell+1, R)$ there exists an automorphism $\beta_g$ of $\St(\ell+1, R)$ ''modeling`` the automorphism $\alpha_g \colon \GL(\ell+1, R) \to \GL(\ell+1, R)$ of inner conjugation by $g$, i.\,e. such that $\phi \beta_g = \alpha_g \phi$.
 
 
-It is clear that in the linear case the map $\chi(\varepsilon_k, u)$ coincides with $\beta_{d_k(u)}$,
- while for other Chevalley groups the maps $\chi(\omega, u)$ model automorphisms of inner conjugation by weight elements $h_\omega(u)$ in the sense of~\cite[\S~4]{Vav09}.
+It is clear that in the linear case the map $\chi_{\varepsilon_k, u}$ coincides with $\beta_{d_k(u)}$,
+ while for other Chevalley groups the maps $\chi_{\omega, u}$ model automorphisms of inner conjugation by weight elements $h_\omega(u)$ in the sense of~\cite[\S~4]{Vav09}.
 \end{example}
 
 
-Let $\omega \in P(\Phi^\vee)$ be a coweight of $\Phi$ as above.
-Denote by $\XX(\omega)$ the subset of $\XX_{\Phi, A[X]}$ consisting of those generators $x_{\alpha}(\xi)$ of $\St(\Phi, A[X])$ for which
-$(\alpha, \omega) < 0$ implies that $\xi \in A[X]$ is divisible by $X^{-(\alpha, \omega)}$.
-
-
-Denote by $N(\omega)$ the subgroup of $\St(\Phi, A[X])$ generated by $\XX(\omega)$.
+Let $\omega \in P(\Phi^\vee)$ be a coweight of $\Phi$.
+Consider the subset $\mathcal{X}_\omega$ of the generating set of $\St(\Phi, A[X])$ consisting of those generators $x_{\alpha}(a) \in \St(\Phi, A[X])$ for which
+$(\alpha, \omega) < 0$ implies that $a \in A[X]$ is divisible by $X^{-(\alpha, \omega)}$.
+\begin{rem}
+Notice that according to this condition if $(\alpha, \omega) \geq 0$ then $\mathcal{X}$ contains $x_\alpha(a)$ for all $a \in A[X]$.
+\end{rem}
+Denote by $N_\omega$ the subgroup of $\St(\Phi, A[X])$ generated by $\mathcal{X}_\omega$.
 
 
 \begin{dfn} \label{dfn:delta-pair}
 By definition, a {\it $\delta$-pair for $\omega$} is a pair of mutually inverse group homomorphisms
-$\xymatrix{ \delta(\omega)\colon N(\omega) \ar[r] & \ar@<-1.0ex>[l] N(-\omega)\colon \delta(-\omega) }$ satisfying
+$\xymatrix{ \delta(\omega)\colon N_\omega \ar[r] & \ar@<-1.0ex>[l] N_{-\omega}\colon \delta(-\omega) }$ satisfying the following identity:
 \begin{equation} \label{eq:sigmadef}
 \delta(\pm \omega)(x_\alpha(\xi)) = x_\alpha(X^{(\pm \omega, \alpha)}\cdot \xi),
- \text{ for all } x_\alpha(\xi) \in \XX(\pm\omega).
+ \text{ for all } x_\alpha(\xi) \in \mathcal{X}_{\pm\omega}.
 \end{equation}\end{dfn}
 It is clear that the maps $\delta(\omega)$, $\delta(-\omega)$ are uniquely determined by~\eqref{eq:sigmadef}, so at most one $\delta$-pair may exist for any given $\omega$.
-Moreover, it is automatically true that the homomorphisms $\delta(\omega), \delta(-\omega)$ make the following diagram commute:
+Moreover, $\delta(\omega), \delta(-\omega)$ always make the following diagram commute:
 \begin{equation} \label{eq:sigma-diagram}
-\xymatrix{ N(\omega) \ar[r]^{\delta(\omega)}\ar@{^{(}->}[d] \ar@/^1.5pc/[rr]_{\mathrm{id}} & N(-\omega) \ar@{^{(}->}[d] \ar[r]^{\delta(-\omega)} & N(\omega) \ar@{^{(}->}[d] \\
+\xymatrix{ N_\omega \ar[r]_{\delta(\omega)}\ar@{^{(}->}[d] \ar@/^1.5pc/[rr]^{\mathrm{id}} & N_{-\omega} \ar@{^{(}->}[d] \ar[r]_{\delta(-\omega)} & N_\omega \ar@{^{(}->}[d] \\
           \St(\Phi, A[X]) \ar[d] & \St(\Phi, A[X]) \ar[d] & \St(\Phi, A[X]) \ar[d] \\
-          \St(\Phi, A[X^{\pm 1}]) \ar@<-0.0ex>[r]_{\chi_{\omega, X}} \ar@/_1.5pc/[rr]^{\mathrm{id}} & \St(\Phi, A[X^{\pm 1}]) \ar@<-0.0ex>[r]_{\chi(-\omega, X)} & \St(\Phi, A[X^{\pm 1}]).} \end{equation}
-
+          \St(\Phi, A[X^{\pm 1}]) \ar@<-0.0ex>[r]_{\chi_{\omega, X}} \ar@/_1.5pc/[rr]^{\mathrm{id}} & \St(\Phi, A[X^{\pm 1}]) \ar@<-0.0ex>[r]_{\chi_{-\omega, X}} & \St(\Phi, A[X^{\pm 1}]).} \end{equation}
 
 
 \subsection{Horrocks ingredient}\label{subsec:horrocks-ingredient}
