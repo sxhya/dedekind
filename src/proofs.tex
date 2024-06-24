@@ -1,35 +1,36 @@
+\subsection{Overview of the main structure theorem} \label{subsec:structure-theorem-overview}
+Let $A$ be a local ring with maximal ideal $M$ and residue field $k$.
+Recall from~\cite[\S~4]{Su77} or~\cite[\S~VI.6]{Lam10} that for $r \geq 3$ and the elementary linear group $\E_r(A[X, X\inv])$ admits the following decomposition:
+\begin{equation}\label{eq:triple-decomposition}
+\E_r(A[X^{\pm 1}]) = \E_r(A[X]) \cdot B(A[X^{\pm 1}]) \cdot \E_r(A[X^{\pm 1}], M[X^{\pm 1}]).
+\end{equation}
+Here $\E_r(-)$ denotes the same object as $\Esc(\rA_{r - 1}, -)$ before.
+Recall that the relative elementary subgroup $\E_r(R, I)$ is defined as the kernel of canonical reduction homomorphism $\E_r(R) \to \E_r(R/I).$
+Recall also that $B(R)$ denotes the Borel subgroup (i.\,e. the semidirect product of the unipotent radical $\UU(\Phi^+, R)$ and the group of diagonal matrices).
 
-We use the following notation.
+Decomposition~\eqref{eq:triple-decomposition} is a key tool in the study of the {$\K_1$-analogue of Serre's problem}.
+We want to devise some analogue of it which would be suitable for study of Steinberg groups.
+
+Consider the following diagram:
+\[\xymatrix{
+    U^+_M \ar@{^{(}->}[rr] \ar@{^{(}->}[dd] \ar@{^{(}->}[rd] &                        & B_M \ar[dd]^(.3){g_B^3} \ar@{^{(}->}[rd]^{g^B_M} &           \\
+    & G^+_M \ar[rr]^(.3){g^+_M} \ar^(.3){g^M_+=\pi}[dd] &                   & G_M \ar[dd]_{h_M=\pi} \\
+    U^+ \ar@{^{(}->}[rr]^(.3){g_B^+} \ar@{^{(}->}[rd]_{g_+^B}          &                        & B \ar@{^{(}->}[rd]_{h_B}       &           \\
+    & G^+ \ar[rr]_{h_+}              &                   & G}\]
+The notation for the groups appearing in it is given in the list below.
 \begin{align*}
  G     =& \St(\Phi, A[X, X^{-1}]),\\
  G^+   =& \St(\Phi, A[X]),\\
  B     =& \UU(\Phi^+, A[X, X\inv]) \cdot \StH(\Phi, A[X, X\inv]) \leq G,\\
- G_M   =& \St(\Phi, A[X, X^{-1}], M[X, X^{-1}],\\
+ G_M   =& \St(\Phi, A[X, X^{-1}], M[X, X^{-1}]),\\
  U^+   =& \UU(\Phi^+, A[X]),\\
  G^+_M =& \St(\Phi, A[X], M[X]),\\
  B_M   =& \UU(\Phi^+, M[X, X^{-1}]) \cdot \Sym(\Phi, A, M) \leq G_M,\\
  U^+_M =& \UU(\Phi^+, M[X]).
 \end{align*}
 
-
-\[\xymatrix{
-U^+_M \ar@{^{(}->}[rr] \ar@{^{(}->}[dd] \ar@{^{(}->}[rd] &                        & B_M \ar[dd]^(.3){g_2^3} \ar@{^{(}->}[rd]^{g^2_3} &           \\
-                                & G^+_M \ar[rr]^(.3){g^1_3} \ar^(.3){g^3_1=\pi}[dd] &                   & G_M \ar[dd]_{h_3=\pi} \\
-U^+ \ar@{^{(}->}[rr]^(.3){g_2^1} \ar@{^{(}->}[rd]_{g_1^2}          &                        & B \ar@{^{(}->}[rd]_{h_2}       &           \\
-                                & G^+ \ar[rr]_{h_1}              &                   & G}\]
-\begin{rem}
- where 1=``over $A[X]$''; 2=``triangular subgroup''; 3=``relative group''.
-\end{rem}
-
 Throughout this subsection $j$ denotes an embedding $\Psi \to \Phi$ of simply-laced root systems of rank $\geq 3$ and the corresponding
  homomorphism of Steinberg groups induced by it.
-
-Recall from~\cite[\S~4]{Su77} that for $r \geq 3$ and a local pair $(A, M)$ one has
-\begin{equation}\label{eq:triple-decomposition}
-\E_r(A[X^{\pm 1}]) = \E_r(A[X]) \cdot B(A[X^{\pm 1}]) \cdot \E_r(A[X^{\pm 1}], M[X^{\pm 1}])
-\end{equation}
-
-We want to devise some tool to study the analogue of~\eqref{eq:triple-decomposition} in the context of Steinberg groups.
 
 
 \begin{lemma} \label{lem:qs-b}
@@ -89,4 +90,91 @@ Then for any $n \geq 0$ the obvious inclusion $\rA_4 \subseteq \Phi$ induces a s
     Since functor $\K_2$ commutes with filtered colimits (cf. \cite[Lemma~3.3]{LSV2}) there exists $f \in S$ such that $\lambda^*_f(\alpha_1)$ lies in the image of $\K_2(\rA_4, B_f) \to \K_2(\Phi, B_f)$.
     By the construction of $S$ we may assume that $f$ is unital in $X_1$.
     The required assertion now follows from~\cref{lem:horrocks-b}.
+\end{proof}
+
+
+\subsection{Horrocks ingredient}\label{subsec:horrocks-ingredient}
+\begin{lemma} \label{lem:zariski-glueing}
+Let $\Phi$ be any simply-laced root system of rank $\geq 3$.
+Let $A$ be a commutative domain and $a, b \in A$ be a pair of coprime elements.
+\begin{enumerate}
+    \item Let $\delta$ be an element of $\St(\Phi, A_{ab})$.
+    Then $\delta$ can be presented as $\lambda_b(\alpha) \cdot \lambda_a(\beta)$ for some
+    $\alpha \in \St(\Phi, A_a)$ and \beta \in $\St(\Phi, A_b)$.
+    \item  Let $\alpha \in \St(\Phi, A_a)$ and $\beta \in \St(\Phi, A_b)$ be such that the equality $\lambda_b(\alpha) = \lambda_a(\beta)$ holds in $\St(\Phi, A_{ab})$.
+    Then there exists $\gamma \in \St(\Phi, A)$ such that $\alpha = \lambda_a(\gamma)$, $\beta = \lambda_b(\gamma)$.
+\end{enumerate}
+
+\end{lemma}
+\begin{proof}
+    This is a special case of Nisnevich excision for domains, see~\cite[Proposition~4.5]{LSV2}
+    (cf. also the proof of~\cite[Lemma~2.6]{LSV2}).
+\end{proof}
+
+Now let $A$ be a local ring with maximal ideal $M$.
+Set $B \coloneqq A[X\inv] + M[X],\ R \coloneqq A[X, X\inv]$.
+Consider the following diagram:
+%! suppress = EscapeAmpersand
+\[ \xymatrix{ & \St(\Phi, A[X], M[X]) \ar[d]_{t_M} \ar[r] & \St(\Phi, A[X]) \ar[d]_{\lambda_X^*} \\
+\St(\Phi, A[X\inv]) \ar[r]^{i_B} \ar@/_/[rr]_{\lambda_{X\inv}^*} & \St(\Phi, B) \ar[r]^{\lambda^*_{X\inv, B}} & \St(\Phi, R)
+}\]
+The arrow $t_M$ arises from the \("\)lifting property\("\) of Steinberg groups (cf. \cite[Lemma~3.3]{LS20} or~\cite[Theorem~3]{LS17}) as the composition of morphisms
+$\lambda_{X}^{rel}\colon \St(\Phi, A[X], M[X]) \to \St(\Phi, R, M[X, X\inv])$ and $T \colon \St(\Phi, R, M[X, X\inv]) \to \St(\Phi, B)$.
+%This is wrong: Its image $\Img(t_M) \leq \St(\Phi, B)$ is generated as a subgroup by elements $x_\alpha(f)$, $z_\alpha(f, a)$, $z_\alpha(X^2f, aX^{-1})$, for $\alpha\in \Phi$, $a \in A$, $f \in M[X]$, see the proof of~\cite[Lemma~5.41]{LS20}.
+
+Set $G_M^{\geq 0} \coloneqq \Img(\St(\Phi, A[X], M[X]) \to \St(\Phi, R)), G_M^0 \coloneqq \overline{\St}(\Phi, A, M)$.% Show that G_M^0 is a subgroup of both first two factors
+Denote by $\overline{V}$ the quotient-set of the product $V \coloneqq G_M^{\geq 0} \times \St(\Phi, A[X\inv]) \times (1 + M)^\times$
+modulo the equivalence relation given by $(gh_0, h, u) \cong (g, h_0h, u)$ where $h_0 \in G_M^0, (g, h, u) \in V.$
+Denote by $[g, h, u] \in \overline{V}$ the equivalence class corresponding to $(g, h, u)\in V$.
+
+\begin{prop} \label{prop:horrocks-main} The group $\St(\Phi, B)$ acts on $\overline{V}$.
+This action satisfies the following properties:
+\begin{enumerate}
+    \item For $(g, h, u) \in V$ and $g_0 \in \Img(t_M)$ one has
+    \[g_0 \cdot [g, h, u] = [\lambda_{X\inv, B}^* (g_0) \cdot g, h, u]\]
+    \item For $(1, h, u) \in V$ and $h_0 \in \St(\Phi, A[X\inv])$ one has
+    \[ i_B(h_0) \cdot [1, h, u] = [1, h_0 \cdot h, u].\]
+    \item If $g \in \Img(j\colon \St(\Psi, B) \to \St(\Phi, B)), h \in \St(\Phi, A[X\inv]), u \in 1 + M$ then
+    \[ g \cdot [1, h, u] = [g', h', u']\] for some $g' \in \Img(j\colon G_{M, \Psi}^{\geq 0} \to G_{M, \Phi}^{\geq 0})$, $h' \in \St(\Phi, A[X\inv])$, $u'\in 1 + M$.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+    The existence of the action of $\St(\Phi, B)$ and the second assertion are contained in~\cite[Proposition~5.39]{LS20}.
+    The first assertion is what the proof of~\cite[Lemma~5.41]{LS20} actually shows without the assumption that $i_R$ is injective.
+    The last assertion follows from the construction of the action. %TODO: Add more details!
+\end{proof}
+
+\begin{lemma} \label{lem:horrocks--ingredient}
+Let $A$ be a local ring, $\alpha \in \K_2(\Phi, A[X], XA[X])$, $\beta \in \St(\Phi, A[X\inv]),$ $\gamma \in \St(\Psi, A[X, X\inv])$ be elements satisfying the equality (in $\St(\Phi, R)$)
+\begin{equation} \label{eq:alpha-def}\lambda_X(\alpha) = j(\gamma) \cdot \lambda_{X\inv}(\beta) \end{equation}
+Then $\alpha$ belongs to the image of $j\colon \St(\Psi, A[X]) \to \St(\Phi, A[X])$.
+\end{lemma}
+\begin{proof}
+    Denote by $M$ the maximal ideal of $A$ and by $k$ its residue field.
+    We denote by $\pi_A$ (resp. $\pi_{A[X]}$, resp. $\pi_{R}$) the canonical homomorphism $A \to k$ (resp. $A[X] \to k[X]$, resp. $R \to k[X, X\inv]$).
+
+    Since $\K_2(\Psi, k[X])$ surjects onto $\K_2(\Phi, k[X])$ there exists $\alpha_0 \in \St(\Psi, A[X])$ such that $j(\alpha_0) \cdot \alpha \in \overline{\St}(\Phi, A[X], M[X])$ and
+    hence $\pi_{A[X]}^*(j(\alpha_0) \cdot \alpha) = 1$.
+    By definition of relative Steinberg groups, there exists $\widetilde{\alpha} \in \St(\Phi, A[X], M[X])$ such that
+    $\iota \cdot \lambda_X^{rel}(\widetilde{\alpha}) = \lambda_X^* (j(\alpha_0) \cdot \alpha)$. %TODO: More details
+
+    Now consider the element $\pi^*_{A[X\inv]}(\beta) \in \St(\Phi, k[X\inv])$.
+    Its image in $\G(\Phi, k[X\inv])$ is contained in the subgroup $\G(\Psi, k[X\inv])$.
+    Since $\K_1(\Psi, k[X\inv]) = 1$, there exist
+    \[\beta_0 \in \St(\Psi, A[X\inv]),\ \beta_1 \in \St(\Phi, A[X\inv], M[X\inv])\] such that $\beta = j(\beta_0) \cdot \beta_1$.
+    Set $\gamma_1 \coloneqq \lambda^*_X(\alpha_0) \cdot \gamma \cdot \lambda^*_{X\inv}(\beta_0) \in \St(\Psi, R)$.
+    It follows from~\eqref{eq:alpha-def} that the element $\pi_R^*(j(\gamma_1)) \in \St(\Phi, k[X, X\inv])$ is trivial, hence $\pi^*_R(\gamma_1) \in \K_2(\Psi, k[X, X\inv])$.
+    Recall from~\cite{Hur77} that $\K_2(\Psi, k[X, X\inv]) \to \K_2(\Phi, k[X, X\inv])$ is injective (see the assertion after Korollar~6).
+    Thus, $\gamma_1 \in \overline{\St}(\Psi, R, M[X, X\inv]).$
+    There exists $\gamma_2 \in \St(\Psi, R, M[X, X\inv])$ such that $\iota (\gamma_2) = \gamma_1$.
+    Notice that $j(\gamma_2) \cdot \lambda_{X\inv}^{rel}(\beta_1) = \kappa \lambda_X^{rel}(\widetilde{\alpha})$ for $\kappa \in \Ker(\iota\colon \St(\Phi, R, M[X, X\inv]) \to \St(\Phi, R))$
+
+    By the third assertion of~\cref{prop:horrocks-main} $j(\gamma_2) \cdot [1, \beta_1, 1] = [j(g), h, u]$ for some $g \in \G_{M, \Psi}^{\geq 0}$.
+    Observe that
+    \[ \lambda_{X\inv, B}^* (j(\gamma_2) \cdot i_B(\beta_1)) = j(\gamma_1) \lambda_{X\inv}^*(\beta_1) = \lambda_X^*(j(\alpha_0)) \cdot j(\gamma) \lambda_{X\inv}^*(\beta) = \lambda_{X\inv, B}^*(t_M(\widetilde{\alpha})), \]
+    hence there exists $\kappa \in \Ker(\lambda^*_{X\inv, B})$ such that $j(\gamma_2) \cdot i_B(\beta_1) = \kappa t_M(\widetilde{\alpha})$.
+    Consequently, from~\cref{prop:horrocks-main} we obtain that
+    \[j(\gamma_2) \cdot [1, \beta_1, 1] = j(\gamma_2) \cdot i_B(\beta_1) [1, 1, 1] = \kappa [\lambda_X^*(j(\alpha_0) \cdot \alpha), 1, 1].\]
+    By the definition of $\overline{V}$ one has $j(\alpha_0) \alpha = j(g) g_0$ for $g$ as above and some $g_0 \in \overline{\St}(\Phi, A, M)$.
+    Since $\alpha(0) = 1$ we obtain that $g_0 = j(g)(0) \cdot j(\alpha_0)(0)$, which implies the required assertion.
 \end{proof}
