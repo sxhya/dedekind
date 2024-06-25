@@ -57,6 +57,9 @@ Then $z \in g_3^1(\Ker(g_1^3)).$ \end{lemma}
 By the Lemma's assumption there exists $e \in G_{123}$ such that $f_{12}(e) = a$, $f_{23}(e) = c$, hence
 \[ 1 = g_1^3(b) \cdot g_1^2(f_{12}(e)) = g_1^3(b \cdot f_{13}(e)),\ z = g_3^2(f_{23}(e))^{-1} \cdot g_3^1(b)^{-1} = g_3^1(b \cdot f_{13}(e))^{-1}. \qedhere\] \end{proof}
 
+Consider the set-theoretic map $h \colon V \to G$ given by $(x, y, z) \mapsto h_1(x) \cdot h_2(y) \cdot h_3(z)$.
+It is clear that for any $w \in W$ one has $h(w \star (x, y, z)) = h(x, y, z)$, consequently we obtain a well-defined set-theoretic map $\overline{h} \colon V/W \to G$.
+
 \subsection{Steinberg groups, $\K_2$-groups and symbols}\label{subsec:steinberg-preliminaries}
 Let $\Phi$ be a root system of rank $\ell \geq 1$.
 We assume that $\Phi$ is embedded into $\mathbb{R}^\ell$ whose scalar product we denote by $(\text{-}, \text{-})$.
@@ -134,7 +137,7 @@ Under this assumption the subset $1+M \subseteq A$ forms a group under multiplic
 It is clear that $(1+M)^\times$ is isomorphic to the abelian group $(M, \circ)$ with the operation given by $m \circ m' = m + m' + mm'$.
 Now for $a \in R^\times$ and $m \in M$ we denote by $\{a, 1+m\}_r$ the coset $\{(a; a), (1; 1+m)\}C \in \St(\Phi, R, RM)$.
 It is clear that the map $1+m \mapsto \{a, 1+m\}_r$ specifies a group homomorphism
-\[\{ a, -\}_r \colon (1+M)^\times \to \K_2(\Phi, R, RM). \]
+\begin{equation} \label{eq:relative-symbol} \{ a, -\}_r \colon (1+M)^\times \to \K_2(\Phi, R, RM). \end{equation}
 It is also clear that $\mu(\{a, 1+m\}_r) = \{a, 1+m\}$.
 
 \begin{lemma}\label{lem:symbols}
