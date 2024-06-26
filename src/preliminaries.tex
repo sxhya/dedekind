@@ -4,15 +4,15 @@ In this paper all rings are assumed to be commutative and all commutators are le
 
 Let $N$ be a group acting on itself by right conjugation.
 Let $M$ be a group with a right action of $N$.
-Recall that a group homomorphism $\varphi\colon M \to N$ is called a \textit{precrossed module} if $\varphi$ preserves the action of $N$, i.\,e.
-\[\varphi(m^n) = \varphi(m)^n, \text{for all $m \in M$, $n\in N;$} \]
-If, in addition, $\varphi$ satisfies the so-called \textit{Peiffer identity}, i.\,e.
-\[{m}^{\varphi(m')} = {m'}^{-1} m m', \text{for all $m, m' \in M$,}\]
-then $\varphi$ is called a \textit{crossed module}.
+Recall that a group homomorphism $\mu\colon M \to N$ is called a \textit{precrossed module} if $\mu$ preserves the action of $N$, i.\,e.
+\[\mu(m^n) = \mu(m)^n, \text{for all $m \in M$, $n\in N;$} \]
+If, in addition, $\mu$ satisfies the so-called \textit{Peiffer identity}, i.\,e.
+\[{m}^{\mu(m')} = {m'}^{-1} m m', \text{for all $m, m' \in M$,}\]
+then $\mu$ is called a \textit{crossed module}.
 
-Let $\varphi\colon M \to N$ and $\varphi' \colon M' \to N'$ be a pair of precrossed modules.
-A \textit{map of precrossed modules} $(f, g)\colon \varphi \to \varphi'$ is, by definition, any pair of homomorphisms
-$f \colon M \to M'$, $g \colon N \to N'$ such that ${f(m)}^{g(n)} = f(m^n)$ for all $n \in N$, $m \in M$.
+If $\mu\colon M \to N$ and $\mu' \colon M' \to N'$ is a pair of precrossed modules.
+A \textit{map of precrossed modules} $(f, g)\colon \mu \to \mu'$ is a pair of group homomorphisms $f\colon M \to M'$, $g\colon N \to N'$ such that
+$\mu'f = g \mu$ and that the action of $N$ is preserved, i.\,e. ${f(m)}^{g(n)} = f(m^n)$ for all $n \in N$, $m \in M$.
 
 Now suppose that we are given the following cube-like commutative diagram of abstract groups:
 \begin{equation} \label{eq:cube} \begin{split} \xymatrix{
@@ -20,12 +20,21 @@ Now suppose that we are given the following cube-like commutative diagram of abs
     & G_{13} \ar[rr]^(.3){g^1_3} \ar^(.3){g^3_1}[dd] &                   & G_3 \ar[dd]_{h_3} \\
     G_{12} \ar@{-->}[rr]^(.3){g_2^1} \ar[rd]_{g_1^2}          &                        & G_2 \ar@{-->}[rd]_{h_2}         &           \\
     & G_1 \ar[rr]_{h_1}              &                   & G.} \end{split} \end{equation}
-Additionally, suppose that $g_1^3$ is a precrossed module, $h_3$ is a crossed module and, moreover, that $(g_3^1, h_1) \colon g_1^3 \to h_3$ is a map of precrossed modules.
-
+Additionally, we make the following assumptions:
+\begin{itemize}
+    \item $g_1^3$ is a precrossed module;
+    \item $h_3$ is a crossed module;
+    \item $(g_3^1, h_1) \colon g_1^3 \to h_3$ is a map of precrossed modules.
+\end{itemize}
 Set $V = G_1 \times G_2 \times G_3$, $W = G_{12} \times G_{13} \times G_{23}$.
-We define an operation $\star \colon W \times V \to V$ as follows. For $v = (x, y, z) \in V$ and $(a, b, c) \in W$ we set
+We define an operation $\star \colon W \times V \to V$ as follows.
+For $v = (x, y, z) \in V$ and $w = (a, b, c) \in W$ we set
 \[(a, b, c) \star (x, y, z) = (x \cdot g_1^3(b) \cdot g_1^2(a),\ g_2^1(a)^{-1} \cdot y \cdot g_2^3(c),\ g_3^2(c)^{-1} \cdot g_3^1(b)^{-h_2(y)} \cdot z).\]
-
+Consider the set-theoretic map $h \colon V \to G$ given by $(x, y, z) \mapsto h_1(x) \cdot h_2(y) \cdot h_3(z)$.
+It is clear from the definition of $\star$-operation that for $w \in W$ one has $h(w \star v) = h(v).$
+Now let us define the relation associated with $\star$-operation.
+We declare two elements $v, v' \in V$ congruent (denoted $v \sim_W v'$) if $v' = w \star v$ for some triple $w=(a, b, c) \in W$.
+As the following lemma shows, this relation is an equivalence relation.
 \begin{lemma} For every $v \in V$ one has
 \begin{equation*}(a', b', c') \star \left( (a, b, c) \star v \right) = (a \cdot a', b \cdot {b'}^{g_1^2(a)^{-1}}, c \cdot c') \star v.\end{equation*}
 \end{lemma}
@@ -45,9 +54,7 @@ We define an operation $\star \colon W \times V \to V$ as follows. For $v = (x, 
         = g_3^2(c \cdot c')^{-1} \cdot g_3^1(b \cdot {b'} ^ {g_1^2(a)^{-1}})^{- h_2 \left( y \right)} \cdot z. \qedhere
     \end{multline*}
 \end{proof}
-
-The above lemma allows us to define an equivalence relation on the set $V$ in the following fashion.
-We declare two elements $v, v' \in V$ congruent (denoted $v \sim v'$) if $v' = w \star v$ for some triple $(a, b, c) \in W$.
+Since $h$ is constant on the orbits of $\star$-action, $h$ gives rise to a well-defined map $\overline{h} \colon V/\sim_W \to G$.
 
 \begin{lemma}\label{one-one-z} Assume that the back face $(f_{12}, f_{23}, g_2^1, g_2^3)$ of~\eqref{eq:cube} is a pullback square.
 Assume additionally that the triple $(1, 1, 1)$ is congruent to $(1, 1, z)$ for some $z\in G_3$.
@@ -56,9 +63,6 @@ Then $z \in g_3^1(\Ker(g_1^3)).$ \end{lemma}
 \[ (a, b, c) \star (1, 1, 1) = ( g_1^3(b) \cdot g_1^2(a),\ g_2^1(a)^{-1} \cdot g_2^3(c),\ g_3^2(c)^{-1} \cdot g_3^1(b)^{-1}) = (1,1,z). \]
 By the Lemma's assumption there exists $e \in G_{123}$ such that $f_{12}(e) = a$, $f_{23}(e) = c$, hence
 \[ 1 = g_1^3(b) \cdot g_1^2(f_{12}(e)) = g_1^3(b \cdot f_{13}(e)),\ z = g_3^2(f_{23}(e))^{-1} \cdot g_3^1(b)^{-1} = g_3^1(b \cdot f_{13}(e))^{-1}. \qedhere\] \end{proof}
-
-Consider the set-theoretic map $h \colon V \to G$ given by $(x, y, z) \mapsto h_1(x) \cdot h_2(y) \cdot h_3(z)$.
-It is clear that for any $w \in W$ one has $h(w \star (x, y, z)) = h(x, y, z)$, consequently we obtain a well-defined set-theoretic map $\overline{h} \colon V/W \to G$.
 
 \subsection{Steinberg groups, $\K_2$-groups and symbols}\label{subsec:steinberg-preliminaries}
 Let $\Phi$ be a root system of rank $\ell \geq 1$.
