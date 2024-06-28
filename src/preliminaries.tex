@@ -135,6 +135,15 @@ Alternatively, the group $\St(\Phi, R, I)$ can be defined via generators and rel
  or even as an abstract group, see~\cite{V22}.
 The relative group $\K_2(\Phi, R, I)$ is defined as the kernel of the homomorphism $\pi \mu$.
 
+\begin{lemma} \label{lem:rel-Steinberg-crossed-module}
+For any irreducible root system $\Phi$ of rank $\geq 3$ the homomorphism $\mu \colon \St(\Phi, R, I) \to \St(\Phi, R)$ is a crossed module.
+\end{lemma}
+\begin{proof}
+    Denote by $\Delta$ the diagonal homomorphism $R \to D_{R, I}.$
+    By~\cite[Proposition~6]{Lo78} it suffices to show that $[\Ker(p_1^*) \cap \Ker(p_2^*), \Delta^*(\St(\Phi, R))] = 1$.
+    But the latter is clear since $\Ker(p_1^*) \cap \Ker(p_2^*) \subseteq \K_2(\Phi, D_{R, I})$ while the latter subgroup is central by~\cite{LSV1}.
+\end{proof}
+
 We will need a relative analogue of Steinberg symbol.
 Let $A$ be a local unital ring with maximal ideal $M$ embedded as a subring into a larger unital ring $R$.
 Under this assumption the subset $1+M \subseteq A$ forms a group under multiplication.
