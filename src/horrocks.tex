@@ -1,3 +1,14 @@
+\begin{dfn}
+    Let $k$ be commutative ring and $K$ be a functor $ \mathbf{Alg}_k \to \mathbf{Grp}$. $K$ is called \textit{locally acyclic (resp., locally acyclic for domains)}
+    if for every commutative local ring (resp., domain) $R \in \mathbf{Alg}_k$ the following diagram whose arrows are induced by natural embeddings is a pullback square:
+    \begin{equation}\label{eq:P1-square} \begin{tikzcd} K(R) \ar[r] \ar[d] & K(R[t]) \arrow{d} \\ K(R[t^{-1}]) \ar{r} & K(R[t, t^{-1}]). \end{tikzcd} \end{equation}
+\end{dfn}
+
+\begin{thm}[Horrocks theorem for $\K_2$]\label{thm:horrocks-k2}
+Let $\Phi$ be a root system of simply-laced type of rank $\geq 3$ such that $\Phi \neq \rE_8$.
+Then the functor $\K_{2}(\Phi, R)$ is (locally) acyclic for domains.
+\end{thm}
+
 \subsection{Main structure theorem} \label{subsec:structure-theorem-overview}
 Let $A$ be a local ring with maximal ideal $M$ and residue field $k$.
 Recall from~\cite[\S~4]{Su77} or~\cite[\S~VI.6]{Lam10} that for $r \geq 3$ the elementary linear group $\E_r(A[X, X\inv])$ admits the following decomposition:
@@ -38,20 +49,24 @@ The above groups can be organized into the following commutative diagram:
 Here $g^M_+$ and $h_M$ are just renamed homomorphisms $\mu$ from~\eqref{eq:relative-Steinberg}.
 Homomorphism $g^M_B$ is also induced by $\mu$.
 Maps $g_M^+$ and $h^+$ are induced by the ring embedding $A[X] \to A[X, X\inv]$.
-All the other homomorphisms on the diagram are obvious embeddings.
+The other homomorphisms on the diagram are all obvious subgroup embeddings.
 
 Set $V = G^+\times B \times G_M$, $W = U^+\times G^+_M \times B_M$.
 Both homomorphisms $g_+^M$ and $h_M$ are crossed modules by~\cref{lem:rel-Steinberg-crossed-module}.
 The fact that $(g^+_M, h_+)$ is a map of precrossed modules is obvious.
 Thus, we find ourselves in the situation of~\cref{subsec:triples}.
 
-The following lemma explains the strategy behind the proof of Horrocks theorem.
+The following lemma explains the strategy behind our proof of Horrocks theorem.
 \begin{lemma}
     Suppose that $A$ is a domain.
-    Suppose that we can define an action of $G$ on $V/\sim_W$ with the property that
-      for $g \in G_M$ one has \[ \pi(g) \cdot [(1, 1, 1)] = [(1, 1, g)]. \]
-    Then
+    Suppose that $V/\sim_W$ admits an action of $G$ with the only property that
+      for $g \in G_M$ one has \[ h_M(g) \cdot [(1, 1, 1)] = [(1, 1, g)]. \]
+    Then the canonical homomorphism \[C(\Phi, A[X], M[X]) \to C(\Phi, A[X, X\inv], M[X, X\inv])\] is surjective.
 \end{lemma}
 \begin{proof}
-
+  Since $A$ is a domain, $g^M_B$ is injective by~\cref{lem:symbols}.
+    Thus, the back face of~\eqref{eq:cube-Steinberg} is pull-back.
+  Notice that for any $g \in C(\Phi, A[X, X\inv], M[X, X\inv]) \subseteq G_M$ one has
+    \[ [(1, 1, 1)] = h_M(g) \cdot [(1, 1, 1)] = [(1, 1, g)].\]
+  It is clear now that $g$ lies in the image of $C(\Phi, A[X], M[X])$ under $g^+_M$ by~\cref{lem:one-one-z}.
 \end{proof}
