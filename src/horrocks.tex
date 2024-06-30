@@ -1,33 +1,60 @@
 \begin{dfn}
-    Let $k$ be commutative ring and $K$ be a functor $ \mathbf{Alg}_k \to \mathbf{Grp}$. $K$ is called \textit{locally acyclic (resp., locally acyclic for domains)}
-    if for every commutative local ring (resp., domain) $R \in \mathbf{Alg}_k$ the following diagram whose arrows are induced by natural embeddings is a pullback square:
-    \begin{equation}\label{eq:P1-square} \begin{tikzcd} K(R) \ar[r] \ar[d] & K(R[t]) \arrow{d} \\ K(R[t^{-1}]) \ar{r} & K(R[t, t^{-1}]). \end{tikzcd} \end{equation}
+    Let $K$ be a functor from commutative rings to groups.
+    Recall from~\cite{LSV2} that $K$ is called \textit{locally acyclic (resp., locally acylic for domains)} if for every commutative local ring (resp., domain) $A$ the following diagram whose arrows are induced by natural embeddings is a pullback square:
+    \begin{equation}\label{eq:P1-square} \begin{tikzcd} K(A) \ar[r] \ar[d] & K(A[X]) \arrow{d} \\ K(A[X\inv]) \ar{r} & K(A[X, X\inv]). \end{tikzcd} \end{equation}
 \end{dfn}
 
+Now we can formulate the main result of this section.
 \begin{thm}[Horrocks theorem for $\K_2$]\label{thm:horrocks-k2}
-Let $\Phi$ be a root system of simply-laced type of rank $\geq 3$ such that $\Phi \neq \rE_8$.
-Then the functor $\K_{2}(\Phi, R)$ is (locally) acyclic for domains.
+Let $\Phi$ be a root system of type $\rA_{\geq 4}$, $\rD_{\geq 5}$, $\rE_6$ or $\rE_7$.
+Then the functor $\K_{2}(\Phi, -)$ is locally acyclic for domains.
 \end{thm}
+Horrocks theorem for $\K_2$ has been previously known in the linear and even orthogonal case $\Phi=\rA_{\geq 4},\rD_{\geq 7}$, see~\cite[Theorem~1]{LS20},\cite[Proposition~4.3]{Tu83}.
+Notice also that the orthogonal version of Horrocks theorem for $\K_2$ was proved under the additional assumption that $2 \in A^\times$.
+Our theorem generalizes both these results and also improves them in the following respects:
+\begin{itemize}
+    \item It applies to exceptional root systems ($\Phi = \rE_6, \rE_7$);
+    \item In the orthogonal case it makes no assumptions on the invertibility of $2$ and also requires a weaker assumption on the rank of $\Phi$.
+\end{itemize}
 
-\subsection{Main structure theorem} \label{subsec:structure-theorem-overview}
+\subsection{Initial reductions} \label{subsec:structure-theorem-overview}
+Significant progress towards proving~\cref{thm:horrocks-k2} has already been achieved in~\cite{LS20}.
+In this subsection we reduce~\cref{thm:horrocks-k2} to a specific technical statement which will be addressed in the following sections.
+
+The following lemma provides the initial key reduction in the proof of~\cref{thm:horrocks-k2}.
+\begin{lemma} \label{lem:first-reduction}
 Let $A$ be a local ring with maximal ideal $M$ and residue field $k$.
-Recall from~\cite[\S~4]{Su77} or~\cite[\S~VI.6]{Lam10} that for $r \geq 3$ the elementary linear group $\E_r(A[X, X\inv])$ admits the following decomposition:
-\begin{equation}\label{eq:triple-decomposition}
-\E_r(A[X^{\pm 1}]) = \E_r(A[X]) \cdot B(A[X^{\pm 1}]) \cdot \E_r(A[X^{\pm 1}], M[X^{\pm 1}]).
-\end{equation}
-Here $\E_r(-)$ denotes the same object as $\Esc(\rA_{r - 1}, -)$ before.
-Recall that the relative elementary subgroup $\E_r(R, I)$ is defined as the kernel of canonical reduction homomorphism $\E_r(R) \to \E_r(R/I).$
-Recall also that $B(R)$ denotes the Borel subgroup (i.\,e. the semidirect product of the unipotent radical $\UU(\Phi^+, R)$ and the group of diagonal matrices).
-
-Decomposition~\eqref{eq:triple-decomposition} is a key tool in the study of the {$\K_1$-analogue of Serre's problem}.
-We want to devise some analogue of it which would be suitable for study of Steinberg groups.
+Let $\Phi$ be as in the statement of~\cref{thm:horrocks-k2}.
+Suppose that the canonical homomorphism
+\begin{equation} \label{eq:c-surj} C(\Phi, A[X], M[X]) \to C(\Phi, A[X, X\inv], M[X, X\inv]) \end{equation}
+is surjective.
+Then the square~\eqref{eq:P1-square} is pullback.
+\end{lemma}
+\begin{proof}
+    Denote by $R$ the Laurent polynomial ring $A[X, X\inv]$ and by $B$ the subring $A[X\inv] + M[X] \subseteq R$.
+    We also set $I \subseteq M[X, X\inv]$, which is clearly an ideal of both $B$ and $R$.
+    Consider the following diagram with rows obtained from~\eqref{eq:relative-Steinberg}:
+    \[\begin{tikzcd}
+          C(\Phi, B, I) \arrow{r} \arrow[d, swap, twoheadrightarrow] & \St(\Phi, B, I) \arrow{r}{\mu_B} \arrow{d} & \St(\Phi, B) \arrow{r} \arrow{d} & \St(\Phi, k[X^{-1}]) \arrow[hookrightarrow]{d} \\
+          C(\Phi, R, I) \arrow{r} & \St(\Phi, R, I) \arrow{r}{\mu_R} \arrow[ur, "t", dashrightarrow] & \St(\Phi, R) \arrow{r} & \St(\Phi, k[X, X^{-1}]).
+    \end{tikzcd}\]
+    The lifting $t$ is obtained from~\cite[Lemma~3.3]{LS20}.
+    The right-hand side vertical arrow is injective by~\cite[Lemma~2.2]{LS20}.
+    The left-hand side vertical arrow is surjective since the composite arrow
+    $\xymatrix{ C(\Phi, A[X], M[X]) \ar[r] & C(\Phi, B, I) \ar[r] & C(\Phi, R, I) }$
+    is surjective by lemma's assumption.
+    It remains to repeat the diagram chasing argument of~\cite[Theorem~1]{LS20} to conclude that the homomorphism $\St(\Phi, B) \to \St(\Phi, A[X, X\inv])$ is injective.
+    The assertion of the lemma will then follow from~\cite[Theorem~3]{LS20}.
+\end{proof}
+The proof of Horrocks theorem is, thus, reduced to showing that~\eqref{eq:c-surj} is surjective for every local domain $(A, M)$.
+In order to formulate the second reduction we need to recollect some notation pertaining to subgroups of $\St(\Phi, R)$.
 
 For a \textit{special} subset of $\Phi$ (i.\,e. a subset $S \subseteq \Phi$ such that $S \cap -S = \varnothing$)
 we denote by $\UU(S, R)$ the subgroup of $\St(\Phi, R)$ generated by $x_\alpha(a)$, where $a \in R$, $\alpha \in S$.
 Similarly, for an ideal $I \trianglelefteq R$ we denote by $\UU(S, I)$ the subgroup of $\St(\Phi, R, I)$ generated by $x_\alpha((0;m))C$, $m \in I$, $\alpha \in S$.
-Notice that the restriction of $\pi$ to $\UU_r(S, R)$ is a monomorphism, so $\UU(S, R)$ is isomorphic to a unipotent subgroup of $\Gsc(\Phi, R)$.
+Notice that the restriction of $\pi$ to $\UU(S, R)$ is a monomorphism, so $\UU(S, R)$ is isomorphic to a unipotent subgroup of $\Gsc(\Phi, R)$.
 
-Not let us introduce short notation for the Steinberg groups and their subgroups that will be relevant for us.
+Not let us introduce shorter notation for Steinberg groups and their subgroups that will be relevant for the proof of Horrocks theorem.
 \begin{align*}
     G     =& \St(\Phi, A[X, X^{-1}]),\\
     G^+   =& \St(\Phi, A[X]),\\
@@ -56,17 +83,31 @@ Both homomorphisms $g_+^M$ and $h_M$ are crossed modules by~\cref{lem:rel-Steinb
 The fact that $(g^+_M, h_+)$ is a map of precrossed modules is obvious.
 Thus, we find ourselves in the situation of~\cref{subsec:triples}.
 
-The following lemma explains the strategy behind our proof of Horrocks theorem.
+The following lemma provides the second key reduction in the proof of Horrocks theorem.
 \begin{lemma}
     Suppose that $A$ is a domain.
     Suppose that $V/\sim_W$ admits an action of $G$ with the only property that
-      for $g \in G_M$ one has \[ h_M(g) \cdot [(1, 1, 1)] = [(1, 1, g)]. \]
-    Then the canonical homomorphism \[C(\Phi, A[X], M[X]) \to C(\Phi, A[X, X\inv], M[X, X\inv])\] is surjective.
+      for $g \in G_M$ one has \[ h_M(g) \cdot [1, 1, 1] = [1, 1, g]. \]
+    Then the canonical homomorphism~\eqref{eq:c-surj} is surjective.
 \end{lemma}
 \begin{proof}
   Since $A$ is a domain, $g^M_B$ is injective by~\cref{lem:symbols}.
     Thus, the back face of~\eqref{eq:cube-Steinberg} is pull-back.
   Notice that for any $g \in C(\Phi, A[X, X\inv], M[X, X\inv]) \subseteq G_M$ one has
-    \[ [(1, 1, 1)] = h_M(g) \cdot [(1, 1, 1)] = [(1, 1, g)].\]
+    \[ [1, 1, 1] = h_M(g) \cdot [1, 1, 1] = [1, 1, g].\]
   It is clear now that $g$ lies in the image of $C(\Phi, A[X], M[X])$ under $g^+_M$ by~\cref{lem:one-one-z}.
 \end{proof}
+
+\subsection{Overview of Main structure theorem}
+
+Let $A$ be a local ring with maximal ideal $M$ and residue field $k$.
+Recall from~\cite[\S~4]{Su77} or~\cite[\S~VI.6]{Lam10} that for $r \geq 3$ the elementary linear group $\E_r(A[X, X\inv])$ admits the following decomposition:
+\begin{equation}\label{eq:triple-decomposition}
+\E_r(A[X^{\pm 1}]) = \E_r(A[X]) \cdot B(A[X^{\pm 1}]) \cdot \E_r(A[X^{\pm 1}], M[X^{\pm 1}]).
+\end{equation}
+Here $\E_r(-)$ denotes the same object as $\Esc(\rA_{r - 1}, -)$ before.
+Recall that the relative elementary subgroup $\E_r(R, I)$ is defined as the kernel of canonical reduction homomorphism $\E_r(R) \to \E_r(R/I).$
+Recall also that $B(R)$ denotes the Borel subgroup (i.\,e. the semidirect product of the unipotent radical $\UU(\Phi^+, R)$ and the group of diagonal matrices).
+
+Decomposition~\eqref{eq:triple-decomposition} is a key tool in the study of the {$\K_1$-analogue of Serre's problem}.
+We want to devise some analogue of it which would be suitable for study of Steinberg groups.
