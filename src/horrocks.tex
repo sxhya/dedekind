@@ -111,3 +111,57 @@ Recall also that $B(R)$ denotes the Borel subgroup (i.\,e. the semidirect produc
 
 Decomposition~\eqref{eq:triple-decomposition} is a key tool in the study of the {$\K_1$-analogue of Serre's problem}.
 We want to devise some analogue of it which would be suitable for study of Steinberg groups.
+
+\subsection{Hermitian presentation of affine Steinberg groups}
+$\Delta$, $\Sigma^+$, $\Sigma^-$.
+
+By our assumption $\UU(\Sigma^+, R)$ is an abelian group.
+
+Denote by $G$ the amalgamated product of $\St(\Phi, A[X])$ and the cyclic group $\mathbb{Z}$, whose generator we denote by $\sigma$ amalgamated over the following relations:
+\begin{align}
+    \sigma \cdot x_{\alpha}(Xf) \sigma^{-1} =& x_{\alpha} (f), & \alpha \in \Sigma^+, f \in A[X], \\
+    \sigma \cdot x_{\beta}(f) \sigma^{-1}   =& x_{\beta} (Xf), & \beta \in \Sigma^-, f \in A[X], \\
+    \sigma \cdot x_\gamma(f) \sigma^{-1}    =& x_\gamma(f), & \gamma \in \Delta, f \in A[X].
+\end{align}
+We denote by $i_+$ the canonical homomorphism $\St(\Phi, A[X]) \to G$.
+
+The main result of this subsection is the following
+\begin{prop}
+    There exists an arrow $j$ making the diagram below commute:
+    \[\begin{tikzcd}           & \St(\Phi, A[X, X\inv]) \arrow[rd, dashrightarrow, "j"] & \\
+           \St(\Phi, A[X]) \arrow{ru}{h_+} \arrow{rr}{i_+} &                                & G.
+    \end{tikzcd}\]
+\end{prop}
+
+To construct the arrow $j$ we will use an alternative presentation of $\St(\Phi, A[X, X\inv])$ with fewer generators from~\cite{LS20}.
+To formulate it we need to introduce additional notation.
+
+Recall that the Laurent polynomial ring $R = A[X, X\inv]$ can be reinterpreted as a $\ZZ$-graded ring in which $X^{-1}$ has degree $1$.
+We denote by $R_d$ the degree $d$ component of $R$.
+It is clear that $R_d$ is isomorphic to $A$ as additive group.
+
+We call a generator $x_\alpha(r)$ of the group $\St(\Phi, R)$ \textit{homogeneous of degree $d$} if $r = aX^d \in R_d$ for some $a\in A$.
+We denote by $\St^{\leq n}(\Phi, R)$ the group presented by all homogeneous generators of degree $\leq d$ and the following 4 families of homogeneous relations (in which $d, e \leq n$):
+\begin{align}
+    x_{\alpha}(r) x_{\alpha}(s)    &= x_{\alpha}(a + b), & \text{ for } r, s \in R_d; \tag{R$1_d$} \\
+    [x_{\alpha}(r),\ x_{\beta}(s)] &= x_{\alpha + \beta}(N_{\alpha, \beta} \cdot rs), &\text{ for } \alpha + \beta \in \Phi,\ r \in R_d, s \in R_e; \tag{R$2_{d, e}$} \\
+    [x_{\alpha}(r),\ x_{\beta}(s)] &= 1, &\text{ for }\alpha - \beta \in \Phi, r \in R_d, s \in R_e; \tag{R$3_{d, e}^\angle$} \\
+    [x_{\alpha}(r),\ x_{\beta}(s)] &= 1, &\text{ for }\alpha \perp \beta, r \in R_d, s \in R_e. \tag{R$3_{d,e}^\perp$}
+\end{align}
+By a \textit{degree of a relation} we mean the maximum of degrees of generators appearing in the relation.
+For example, the degree of R$3_{d, e}$ is $\max(d, e)$, while the degree of R$2_{d, e}$ is $\max(d, e, d+e).$
+
+\begin{lemma} \label{lem:homog-presentation}
+    Let $\Phi$ be a simply-laced root system of rank $\geq 3$. %TODO: Check if we may have such generality.
+    The group $\St(\Phi, R)$ admits presentation by homogeneous generators and homogeneous relations of degree $\leq 1$.
+    Moreover, we may omit from this presentation all relations of type $R3^\perp_{1, 1}$.
+\end{lemma}
+\begin{proof}
+    This is precisely the assertion of~\cite[Proposition~5.3]{LS20} combined with~\cite[Lemma~5.2]{LS20} and~\cite[Remark~5.5]{LS20}.
+\end{proof}
+
+We now proceed with the construction of homomorphism $j$.
+\begin{align}
+    j(x_\alpha(a)) = & x_\alpha(a) & \text{ for } a \in R_d, $d \geq 0$ \\
+    j(x_\alpha(a X\inv)) = & x_\alpha(a) & \text{ for }
+\end{align}
