@@ -143,9 +143,9 @@ It is clear that $R_d$ is isomorphic to $A$ as additive group.
 We call a generator $x_\alpha(r)$ of the group $\St(\Phi, R)$ \textit{homogeneous of degree $d$} if $r = aX^d \in R_d$ for some $a\in A$.
 We denote by $\St^{\leq n}(\Phi, R)$ the group presented by all homogeneous generators of degree $\leq d$ and the following 4 families of homogeneous relations (in which $d, e \leq n$):
 \begin{align}
-    x_{\alpha}(r) x_{\alpha}(s)    &= x_{\alpha}(a + b), & \text{ for } r, s \in R_d; \tag{R$1_d$} \\
-    [x_{\alpha}(r),\ x_{\beta}(s)] &= x_{\alpha + \beta}(N_{\alpha, \beta} \cdot rs), &\text{ for } \alpha + \beta \in \Phi,\ r \in R_d, s \in R_e; \tag{R$2_{d, e}$} \\
-    [x_{\alpha}(r),\ x_{\beta}(s)] &= 1, &\text{ for }\alpha - \beta \in \Phi, r \in R_d, s \in R_e; \tag{R$3_{d, e}^\angle$} \\
+    x_{\alpha}(r) x_{\alpha}(s)    &= x_{\alpha}(a + b), & \text{ for } r, s \in R_d, \tag{R$1_d$} \\
+    [x_{\alpha}(r),\ x_{\beta}(s)] &= x_{\alpha + \beta}(N_{\alpha, \beta} \cdot rs), &\text{ for } \alpha + \beta \in \Phi,\ r \in R_d, s \in R_e, \tag{R$2_{d, e}$} \\
+    [x_{\alpha}(r),\ x_{\beta}(s)] &= 1, &\text{ for }\alpha - \beta \in \Phi, r \in R_d, s \in R_e, \tag{R$3_{d, e}^\angle$} \\
     [x_{\alpha}(r),\ x_{\beta}(s)] &= 1, &\text{ for }\alpha \perp \beta, r \in R_d, s \in R_e. \tag{R$3_{d,e}^\perp$}
 \end{align}
 By a \textit{degree of a relation} we mean the maximum of degrees of generators appearing in the relation.
@@ -161,7 +161,16 @@ For example, the degree of R$3_{d, e}$ is $\max(d, e)$, while the degree of R$2_
 \end{proof}
 
 We now proceed with the construction of homomorphism $j$.
+First of all, we set
 \begin{align}
-    j(x_\alpha(a)) = & x_\alpha(a) & \text{ for } a \in R_d, $d \geq 0$ \\
-    j(x_\alpha(a X\inv)) = & x_\alpha(a) & \text{ for }
+    j(x_\alpha(a))       & = x_\alpha(a) & \text{ for } r \in R_d,\, d \geq 0, \\
+    j(x_\alpha(a X\inv)) & = \sigma \cdot x_\alpha(a) \sigma\inv & \text{ for } a \in A,\, \alpha \in \Sigma^+, \\
+    j(x_\beta(bX \inv))  & = \sigma^{-1} \cdot x_\beta(b) \sigma & \text{ for } b \in A,\, \alpha \in \Sigma^-.
 \end{align}
+
+It remains to define the value of $j$ on the generator $x_\gamma(cX\inv)$ for $\gamma \in \Delta$.
+To achieve this we decompose $\gamma$ as a sum $\alpha + \beta$ for some $\alpha \in \Sigma^+$ and $\Sigma^-$
+ and present $c$ as a product $N_{\alpha, \beta} \cdot a b$ for some $a, b \in A$. % TODO: (why is this possible?)
+Now we set $j(x_\gamma(c X\inv)) = [j(x_\alpha(a X\inv)), x_\beta(b)]$.
+We need to check that this definition is unambiguous.
+It is \textbf{NOT} clear if $j(x_\gamma(c X\inv)) = [x_\alpha(a), j(x_\beta(bX\inv))]$.
