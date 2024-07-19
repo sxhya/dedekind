@@ -246,10 +246,14 @@ Moreover, $\delta(\omega), \delta(-\omega)$ always make the following diagram co
           \St(\Phi, A[X^{\pm 1}]) \ar@<-0.0ex>[r]_{\chi_{\omega, X}} \ar@/_1.5pc/[rr]^{\mathrm{id}} & \St(\Phi, A[X^{\pm 1}]) \ar@<-0.0ex>[r]_{\chi_{-\omega, X}} & \St(\Phi, A[X^{\pm 1}]).} \end{equation}
 The question of existence of an $\omega$-pair is rather complicated and will be addressed in the sequel.
 One of the necessary technical ingredients needed for this is the technique of another presentation, which we recall in detail in the following subsection.
-\subsection{Another presentation of $\St(\rA_3, R)$.} \label{subsec:another-presentation}
-Throughout this subsection $R$ denotes a commutative ring and $n \geq 4$.
 
-For $u \in R^n$ we denote by $D(u)$ the subset of $R^n$ consisting of all vectors $v$ which are orthogonal to $u$
+
+\subsection{Van der Kallen-type presentation of linear Steinberg groups.} \label{subsec:another-presentation}
+Throughout this subsection $R$ denotes a commutative ring with ideal $I$.
+The aim of this subsection is to recall the details pertaining to the presentation of the relative linear Steinberg group $\St(\rA_\ell, R, I)$, $\ell \geq 3$ introduced in~\cite{LS17}.
+This presentation is formulated in terms of orthogonal rows, columns and transvections, which makes it a powerful tool in the study of $\K$-theoretic problems such as Quillen--Suslin local-to-global principle (cf.~\cite{Tu83, S15, LS17}).
+
+Let $n \geq 4$. For $u \in R^n$ we denote by $D(u)$ the subset of $R^n$ consisting of all vectors $v$ which are orthogonal to $u$
 (i.\,e. $u^{t} v = 0$) and have at least two zero entries.
 Recall from 3.2 of~\cite{Ka77} that for every $u, v, w \in R^n$ such that $u^t v = 0$ there
 is a decomposition of $(w^t u) \cdot v$ into a sum of elements of $D(u)$, called \textit{canonical decomposition}:
@@ -323,7 +327,7 @@ We now define two families of elements of $\St(n, R)$.
     Direct computation using~\cref{lem:xsmall-properties} (cf. with~\cite[3.14]{Ka77} or~\cite[Lemma~4.4d]{LS17}).
 \end{proof}
 
-We will need the following explicit presentation of the relative linear Steinberg group.
+The following result is the key result of~\cite{LS17}.
 \begin{prop}[\text{\cite[Proposition 3.10]{LS17}}]
     \label{prop:rel-presentation}
     Assume that $I$ is a splitting ideal of a commutative ring $R$.
@@ -333,6 +337,15 @@ We will need the following explicit presentation of the relative linear Steinber
         &F(u,\,v)F(u,\,w)=F(u,\,v+w), \label{add4}\\
         &S(u,\,v)S(w,\,v)=S(u+w,\,v), \label{add5}\\
         &F(u,\,v)F(u',\,v')F(u,\,v)^{-1}=F(t(u,\,v)u',\,t(v,\,u)^{-1} v'), \label{conj3} \\
-        &F(me_1,\,m^{*}e_{2}a)=S(me_{1}a,\,m^{*}e_{2}),\ \text{for all $a\in I$}\, m \in \E(n, R). \label{coef-move}
+        &F(me_1,\,m^{*}e_{2}a)=S(me_{1}a,\,m^{*}e_{2}),\ \text{for all $a\in I$,}\, m \in \E(n, R). \label{coef-move}
     \end{align}
 \end{prop}
+Historically, the first presentation of such type has been obtained by W.~van der Kallen in~\cite{Ka77} in the context of linear Steinberg groups ($\Phi = \rA_\ell$),
+ where such presentations has been called \textit{"another presentation"}.
+The main advantage of the above presentation as compared to the presentation of the relative Steinberg group from~\cite{Tu83} is that it remains useful
+ in the case $\Phi = \rA_3$ (or what is the same $n = 4$).
+
+Finding such presentation for the other types of $\Phi$ is a hard problem.
+Except the linear case over a general commutative ring such presentation has only been obtained in the symplectic case (i.\,e. $\Phi = \rC_\ell$) in~\cite{La15}.
+
+\subsection{Curtis--Tits type presentation of Steinberg group} \label{subsec:curtis-tits}
