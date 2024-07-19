@@ -125,13 +125,13 @@ We want to devise some analogue of it which would be suitable for study of Stein
 
 \begin{longtable}{ c c c }
     \scalebox{0.69}{\begin{tikzpicture}
-          \node[root, highlighted, label=left:{$k=1$}] (d1) at (0,0.5) {};
-          \node[root, label=$j$] (d2) at (1,0) {};
-          \node[root] (d3) at (2,0) {};
+          \node[root, highlighted, label=$1$] (d1) at (0,0.5) {};
+          \node[root, label=$2$] (d2) at (1,0) {};
+          \node[root, label=$3$] (d3) at (2,0) {};
           \node at (3,0) {\ldots};
-          \node[root] (dl2) at (4,0) {};
-          \node[root] (dl1) at (5,0.5) {};
-          \node[root] (dl) at (5,-0.5) {};
+          \node[root, label={[xshift=-0.5cm, yshift=-0.6cm]$\ell-2$}] (dl2) at (4,0) {};
+          \node[root, label={[xshift=-0.6cm, yshift=-0.35cm]$\ell-1$}] (dl1) at (5,0.5) {};
+          \node[root, label={[xshift=-0.5cm, yshift=-0.3cm]$\ell$}] (dl) at (5,-0.5) {};
           \node[root, zeroroot, label=below:{$0$}] (d0) at (0,-0.5) {};
 
           \draw (d1) -- (d2) -- (d3) -- (2.5,0);
@@ -139,25 +139,25 @@ We want to devise some analogue of it which would be suitable for study of Stein
           \draw (dl2) -- (dl);
           \draw[dottededge] (d2) -- (d0);
 
-          \begin{scope}[on background layer]
+          \begin{scope}
               \node[levi, fit=(d2) (d3) (dl) (dl1) (dl2), label=above:{$\Delta$}] {};
           \end{scope}
     \end{tikzpicture}}
     &
     \scalebox{0.69}{\begin{tikzpicture}
         \begin{scope}
-            \node[root, highlighted, label=below:{$k=1$}] (e1) at (0,0) {};
-            \node[root] (e3) at (1,0) {};
-            \node[root] (e4) at (2,0) {};
-            \node[root] (e5) at (3,0) {};
-            \node[root] (e6) at (4,0) {};
-            \node[root, label=left:{$j$}] (e2) at (2,1) {};
-            \node[root, zeroroot, label=left:{$0$}] (e0) at (2,2) {};
+            \node[root, highlighted, label=$1$] (e1) at (0,0) {};
+            \node[root, label=$3$] (e3) at (1,0) {};
+            \node[root, label={[xshift=-0.3cm]$4$}] (e4) at (2,0) {};
+            \node[root, label=$5$] (e5) at (3,0) {};
+            \node[root, label=$6$] (e6) at (4,0) {};
+            \node[root, label={[xshift=-0.3cm,yshift=-0.3cm]$2$}] (e2) at (2,1) {};
+            \node[root, zeroroot, label=left:$0$] (e0) at (2,2) {};
             \draw (e1) -- (e3) -- (e4) -- (e5) -- (e6);
             \draw (e2) -- (e4);
             \draw[dottededge] (e2) -- (e0);
 
-            \begin{scope}[on background layer]
+            \begin{scope}
                 \node[levi, fit= (e2) (e3) (e4) (e5) (e6), label=above:{$\Delta$}] {};
             \end{scope}
         \end{scope}
@@ -165,20 +165,20 @@ We want to devise some analogue of it which would be suitable for study of Stein
     &
     \scalebox{0.69}{\begin{tikzpicture}
         \begin{scope}
-            \node[root, zeroroot, label=below:{0}] (e0) at (0,0) {};
-            \node[root, label=below:{$j$}] (e1) at (1,0) {};
-            \node[root] (e3) at (2,0) {};
-            \node[root] (e4) at (3,0) {};
-            \node[root] (e5) at (4,0) {};
-            \node[root] (e6) at (5,0) {};
-            \node[root] (e2) at (3,1) {};
-            \node[root, highlighted, label=below:{$k=7$}] (e7) at (6,0) {};
+            \node[root, zeroroot, label={0}] (e0) at (0,0) {};
+            \node[root, label={$1$}] (e1) at (1,0) {};
+            \node[root, label={$3$}] (e3) at (2,0) {};
+            \node[root, label={[xshift=-0.3cm]$4$}] (e4) at (3,0) {};
+            \node[root, label={$5$}] (e5) at (4,0) {};
+            \node[root, label={$6$}] (e6) at (5,0) {};
+            \node[root, label={[xshift=-0.3cm,yshift=-0.3cm]$2$}] (e2) at (3,1) {};
+            \node[root, highlighted, label={$7$}] (e7) at (6,0) {};
 
             \draw (e1) -- (e3) -- (e4) -- (e5) -- (e6) -- (e7);
-            \draw (e2) -- (e4)
+            \draw (e2) -- (e4);
             \draw[dottededge] (e0) -- (e1);
 
-            \begin{scope}[on background layer]
+            \begin{scope}
                 \node[levi, fit=(e1) (e2) (e3) (e4) (e5) (e6), label=above:{$\Delta$}] {};
             \end{scope}
         \end{scope}
