@@ -4,10 +4,12 @@
 \usepackage[capitalize]{cleveref}
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage[notref,notcite]{showkeys}
+\usepackage{longtable}
 \usetikzlibrary{shapes, arrows, calc, arrows.meta, fit, positioning, decorations.markings}
 \usepackage[backend=bibtex, firstinits=true, citestyle=numeric-comp, sortlocale=en_US, url=false, doi=false, eprint=true, maxbibnames=4]{biblatex}
 \usepackage{amssymb}
 \usepackage{mathtools}
+\usepackage{tikz}
 \addbibresource{main.bib}
 
 \DeclareMathOperator{\St}{St}
@@ -41,6 +43,13 @@
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\inv}{^{-1}}
 \newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+\newcommand{\card}[1]{
+    \begin{tikzpicture}
+    \draw (0,0) rectangle (40mm, 40mm);
+    \node (title) at (20mm, 35mm){ #1 };
+    \end{tikzpicture}
+}
 
 \newtheorem{thm}{Theorem}
 \Crefname{thm}{Theorem}{Theorems}

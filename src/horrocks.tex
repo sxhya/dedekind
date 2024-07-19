@@ -113,6 +113,86 @@ Decomposition~\eqref{eq:triple-decomposition} is a key tool in the study of the 
 We want to devise some analogue of it which would be suitable for study of Steinberg groups.
 
 \subsection{Hermitian presentation of affine Steinberg groups}
+
+\tikzset{
+    root/.style={circle, draw, minimum size=0.2cm, inner sep=0},
+    zeroroot/.style={circle, draw, minimum size=0.2cm, inner sep=0, fill=yellow},
+    highlighted/.style={circle, draw, minimum size=0.2cm, inner sep=0, fill=green},
+    levi/.style={draw, dashed, rounded corners},
+    dottededge/.style={dotted},
+    labeled/.style={below}
+}
+
+\begin{longtable}{ c c c }
+    \scalebox{0.69}{\begin{tikzpicture}
+          \node[root, highlighted, label=left:{$k=1$}] (d1) at (0,0.5) {};
+          \node[root, label=$j$] (d2) at (1,0) {};
+          \node[root] (d3) at (2,0) {};
+          \node at (3,0) {\ldots};
+          \node[root] (dl2) at (4,0) {};
+          \node[root] (dl1) at (5,0.5) {};
+          \node[root] (dl) at (5,-0.5) {};
+          \node[root, zeroroot, label=below:{$0$}] (d0) at (0,-0.5) {};
+
+          \draw (d1) -- (d2) -- (d3) -- (2.5,0);
+          \draw (3.5,0) -- (dl2) -- (dl1);
+          \draw (dl2) -- (dl);
+          \draw[dottededge] (d2) -- (d0);
+
+          \begin{scope}[on background layer]
+              \node[levi, fit=(d2) (d3) (dl) (dl1) (dl2), label=above:{$\Delta$}] {};
+          \end{scope}
+    \end{tikzpicture}}
+    &
+    \scalebox{0.69}{\begin{tikzpicture}
+        \begin{scope}
+            \node[root, highlighted, label=below:{$k=1$}] (e1) at (0,0) {};
+            \node[root] (e3) at (1,0) {};
+            \node[root] (e4) at (2,0) {};
+            \node[root] (e5) at (3,0) {};
+            \node[root] (e6) at (4,0) {};
+            \node[root, label=left:{$j$}] (e2) at (2,1) {};
+            \node[root, zeroroot, label=left:{$0$}] (e0) at (2,2) {};
+            \draw (e1) -- (e3) -- (e4) -- (e5) -- (e6);
+            \draw (e2) -- (e4);
+            \draw[dottededge] (e2) -- (e0);
+
+            \begin{scope}[on background layer]
+                \node[levi, fit= (e2) (e3) (e4) (e5) (e6), label=above:{$\Delta$}] {};
+            \end{scope}
+        \end{scope}
+    \end{tikzpicture}}
+    &
+    \scalebox{0.69}{\begin{tikzpicture}
+        \begin{scope}
+            \node[root, zeroroot, label=below:{0}] (e0) at (0,0) {};
+            \node[root, label=below:{$j$}] (e1) at (1,0) {};
+            \node[root] (e3) at (2,0) {};
+            \node[root] (e4) at (3,0) {};
+            \node[root] (e5) at (4,0) {};
+            \node[root] (e6) at (5,0) {};
+            \node[root] (e2) at (3,1) {};
+            \node[root, highlighted, label=below:{$k=7$}] (e7) at (6,0) {};
+
+            \draw (e1) -- (e3) -- (e4) -- (e5) -- (e6) -- (e7);
+            \draw (e2) -- (e4)
+            \draw[dottededge] (e0) -- (e1);
+
+            \begin{scope}[on background layer]
+                \node[levi, fit=(e1) (e2) (e3) (e4) (e5) (e6), label=above:{$\Delta$}] {};
+            \end{scope}
+        \end{scope}
+    \end{tikzpicture}} \\
+    \text{$\rD_\ell$} &
+    \text{$\rE_6$} &
+    \text{$\rE_7$}
+\end{longtable}
+
+
+
+
+
+
 $\Delta$, $\Sigma^+$, $\Sigma^-$.
 
 By our assumption $\UU(\Sigma^+, R)$ is an abelian group.
