@@ -119,6 +119,24 @@ Steinberg symbols are central elements of $\St(\Phi, R)$.
 Our assumptions on $\Phi$ guarantee that Steinberg symbols are antisymmetric and bimultiplicative, i.\,e. they satisfy the following identities:
 \begin{equation} \label{eq:symbol-properties} \{ u, st \} = \{ u, s\} \{ u, t \}, \ \{ u, v \} = \{ v, u\}^{-1}. \end{equation}
 
+\subsection{Curtis--Tits type presentation of Steinberg groups} \label{subsec:curtis-tits}
+In this subsection we briefly recall generalization of Steinberg groups to the Kac--Moody setting and their presentations.
+For more details we refer the reader to \textbf{???}.
+Recall from~\textbf{???} that to any generalized Cartan matrix $A$ and a commutative ring $R$ one can associate two groups:
+ the so-called \textit{Steinberg group} $\St(A, R)$ and $\mathrm{PSt}(A, R)$, called the \textit{pre-Steinberg group} (or Steinberg group a la Tits) of type $A$ over $R$.
+Steinberg and pre-Steinberg group differ from each other in the list of defining relations:
+ the former definition imposes commutator relations over all prenilpotent pairs of real roots while the latter involves only classically prenilpotent pairs, cf.~\textbf{???}.
+
+In the case when $A(\Phi)$ is the Cartan matrix of a spherical root system $\Phi$
+ both these definitions agree with the previous one, i.\,e. $\St(\Phi, R) \cong \mathrm{PSt}(\Phi, R) \cong \St(A(\Phi), R)$.
+
+Now let us briefly recall what happens in the affine case.
+Denote by $\widetilde{A}(\Phi)$ the affine Cartan matrix corresponding to $\Phi$.
+\begin{lemma} $\mathrm{PSt}(\widetilde{A}(\Phi), R) \cong \St(\widetilde{A}(\Phi), R) \cong \St(\Phi, R[X, X\inv])$.
+\end{lemma}
+
+
+\subsection{Relative Steinberg groups and their presentations} \label{subsec:another-presentation}
 In this paper we will use also use the concept of a \textit{relative Steinberg group} introduced by F.~Keune and J.-L.~Loday in~\cite{Ke78, Lo78}.
 We will only briefly mention the definition and basic properties of these groups and refer the reader to~\cite[\S~2.3]{LS20} for a more detailed exposition.
 
@@ -127,13 +145,13 @@ Denote by $D_{R, I}$ the pullback of two copies of $p$ i.\,e. the ring $R \times
 Elements of $D_{R, I}$ are pairs $(a; b)$ such that $a-b \in I$.
 We also denote by $p_1$, $p_2$ the canonical projections $D_{R, I} \to R$ and by $p_1^*$, $p_2^*$ the corresponding homomorphisms of Steinberg groups induced by them.
 Recall from~\cite[Definition~2.5]{LS20} that the relative Steinberg group $\St(\Phi, R, I)$ is defined as the quotient
- $\Ker(p_1^*) / C$, where $C = [\Ker(p_1^*), \Ker(p_2^*)]$.
+$\Ker(p_1^*) / C$, where $C = [\Ker(p_1^*), \Ker(p_2^*)]$.
 If we denote by $\mu$ the homomorphism $\St(\Phi, R, I) \to \St(\Phi, R)$ induced by $p_2^*$, we obtain an exact sequence
 \begin{equation}
     \xymatrix{1 \ar[r] & C(\Phi, R, I) \ar[r] & \St(\Phi, R, I) \ar[r]^\mu & \St(\Phi, R) \ar[r]^-{p^*} & \St(\Phi, R/I) \ar[r] & 1. }\label{eq:relative-Steinberg}
 \end{equation}
 Alternatively, the group $\St(\Phi, R, I)$ can be defined via generators and relations as an $\St(\Phi, R)$-group, cf.~\cite[Proposition~6]{S15}
- or even as an abstract group, see~\cite{V22}.
+or even as an abstract group, see~\cite{V22}.
 The relative group $\K_2(\Phi, R, I)$ is defined as the kernel of the homomorphism $\pi \mu$.
 
 \begin{lemma} \label{lem:rel-Steinberg-crossed-module}
@@ -160,100 +178,23 @@ Denote by $R$ the Laurent polynomial ring $A[X, X\inv]$.
 Then the intersection of the image of the relative symbol map $\{X, -\}_r$ with $C(\Phi, R, M[X, X\inv])$ is trivial.
 \end{lemma}
 \begin{proof}
-Set $F = \mathrm{Frac}(A)$.
-Consider the following diagram:
-\[\begin{tikzcd}
- (1+M)^\times \ar[hookrightarrow, rr] \ar[d] &  & F^\times \ar[hookrightarrow, d] \\
-  \K_2(\Phi ,R, M[X^{\pm 1}]) \ar[r] & \K_2(\Phi, R) \ar[r] & \K_2(\Phi, F[X^{\pm 1}]).
-\end{tikzcd}\]
-Since the right vertical arrow is injective by~\cite[Lemma~2.2]{LS20}, so is the left arrow.
+    Set $F = \mathrm{Frac}(A)$.
+    Consider the following diagram:
+    \[\begin{tikzcd}
+    (1+M)^\times \ar[hookrightarrow, rr] \ar[d] &  & F^\times \ar[hookrightarrow, d] \\
+    \K_2(\Phi ,R, M[X^{\pm 1}]) \ar[r] & \K_2(\Phi, R) \ar[r] & \K_2(\Phi, F[X^{\pm 1}]).
+    \end{tikzcd}\]
+    Since the right vertical arrow is injective by~\cite[Lemma~2.2]{LS20}, so is the left arrow.
 \end{proof}
 
-\subsection{Weight automorphisms}\label{subsec:weight-automorphisms}
-Recall that for every coweight $\omega \in P(\Phi^\vee)$ and $\beta \in \ZZ \Phi$ the scalar product $(\omega, \beta)$ is an integer.
-Thus, a choice of $u \in R^\times$ and $\omega \in P(\Phi^\vee)$ specifies a permutation of the generating set for $\St(\Phi, R)$ via the following mapping:
-\begin{equation*} x_\alpha(a) \mapsto x_\alpha(u^{(\omega, \alpha)} \cdot a),\ \alpha\in \Phi,\ a \in R. \end{equation*}
-It is not hard to check that this action is compatible with relations~\eqref{x-additivity}--\eqref{R3} and hence specifies a well-defined automorphism of $\St(\Phi, R)$, which we denote by $\chi_{\omega, u}$.
+Our next goal is to recall an explicit presentation of the relative linear Steinberg group from~\cite{LS17}.
+This presentation is formulated in terms of rows and columns rather than root unipotents and is similar to
+ Tulenbaev's presentation of the relative linear Steinberg group from~\cite[Definition~1.5]{Tu83}.
+Unlike Tulenbaev's presentation, however, our presentation applies to the group $\St(\rA_\ell, R, I)$ with $\ell \geq 3$ rather than $4$,
+ which will be important in the sequel.
 
-In the following lemma we check that an analogue of $\chi_{\omega, u}$ can also be defined for relative Steinberg groups.
-\begin{lemma} \label{lem:relative-chi}
-Let $R$ be a commutative ring, $I$ be its ideal and let $u \in R^\times$.
-For every coweight $\omega \in P(\Phi^\vee)$ there exists a well-defined automorphism $\widetilde{\chi}_{\omega, u}$ of the relative Steinberg group $\St(\Phi, R, I)$ making the following diagram commute:
-\[\begin{tikzcd} \St(\Phi, R, I) \ar[r, "\widetilde{\chi}_{\omega, u}"] \ar[d] & \St(\Phi, R, I) \ar[d] \\
-                 \St(\Phi, R) \ar[r, "\chi_{\omega, X}"] & \St(\Phi, R]). \end{tikzcd}\]
-\end{lemma}
-\begin{proof}
-    Observe that the automorphism $\chi_{\omega, (u; u)}$ of $\St(\Phi, D_{R, I})$ preserves subgroups
-     $\Ker(p_i^*)$, $i=1, 2$ and hence their commutator subgroup $C$.
-    The required automorphism $\widetilde{\chi}_{\omega, u}$ now can be obtained by restricting $\chi_{\omega, (u; u)}$ to $\Ker(p_1^*)$.
-    The commutativity of the diagram is obvious.
-\end{proof}
-
-In the sequel we will use the following formulae describing the action of $\chi_{\omega, u}$ on the elements $w_\alpha(u)$, $h_\alpha(u)$:
-\begin{align}
-    \label{eq:chi-w} \chi_{\omega, u}\left(w_\alpha(v)\right) &= w_\alpha(u^{(\omega, \alpha)} \cdot v), \\
-    \label{eq:chi-h} \chi_{\omega, u} (h_\alpha(v)) &= h_\alpha(u^{(\omega, \alpha)} \cdot v) \cdot h_\alpha(u^{(\omega, \alpha)})^{-1} = \{u^{(\omega, \alpha)}, v\} \cdot h_\alpha(v).
-\end{align}
-
-The following lemma is analogous to~\cite[Lemma~3.1(c)]{Tu83}.
-\begin{lemma} \label{lem:winv-chiw}
-For any $w \in \StW(\Phi, A[X^{\pm 1}])$ the element $w^{-1} \cdot \chi_{\omega, X}(w)$ belongs to $\StH(\Phi, A[X^{\pm 1}])$.
-\end{lemma}
-\begin{proof}
-Since $\StH(\Phi, A[X^{\pm 1}])$ is a normal subgroup of $\StW(\Phi, A[X^{\pm 1}])$, it suffices to verify the assertion for $w = w_\alpha(u)$.
-Set $h = w^{-1} \cdot \chi_{\omega, X}(w)$.
-Notice that
-\begin{multline*} w_\alpha(1) \cdot h\cdot  w_\alpha(-1) = w_\alpha(-1)^{-1} \cdot w_\alpha(u)^{-1} \cdot w_{\alpha}(X^{(\omega, \alpha)} u) \cdot w_\alpha(-1) = \\
-= h_\alpha(u)^{-1} \cdot h_\alpha(X^{(\omega, \alpha)}u) \in \StH(\Phi, A[X^{\pm 1}]).\end{multline*}
-Thus, we get from\cite[Lemme~5.2(b,g)]{Ma69} and~\eqref{eq:steinberg} that \[h = h_{\alpha}^{-1}(u^{-1}) \cdot h_{\alpha}(X^{-(\omega, \alpha)}u^{-1}) = h_{\alpha}^{-1}(X^{(\omega, \alpha)}) \cdot \{ X^{(\omega, \alpha)}, u^{-1} \}. \qedhere\]
-\end{proof}
-
-\begin{example} \label{exm:chi-linear}
-Set $R = A[X^{\pm 1}]$.
-Consider the following coweights:
-\[\varepsilon_1 = \varpi_1^\vee,\ \varepsilon_2 = \varpi_2^\vee - \varpi_1^\vee,\ \ldots,\ \varepsilon_{\ell+1} = -\varpi^\vee_\ell.\]
-For $1\leq k\leq \ell+1$ and $u \in R^\times$ denote by $d_k(u)$ the matrix from $\GL(\ell+1, R)$ which differs from the unit matrix only in that it has the element $u$ on the $k$-th place of its diagonal.
-Recall from~\cite[Corollary~4]{Ka77} that for any $g \in \GL(\ell+1, R)$ there exists an automorphism $\beta_g$ of $\St(\ell+1, R)$ ''modeling`` the automorphism $\alpha_g \colon \GL(\ell+1, R) \to \GL(\ell+1, R)$ of inner conjugation by $g$, i.\,e. such that $\phi \beta_g = \alpha_g \phi$.
-
-
-It is clear that in the linear case the map $\chi_{\varepsilon_k, u}$ coincides with $\beta_{d_k(u)}$,
- while for other Chevalley groups the maps $\chi_{\omega, u}$ model automorphisms of inner conjugation by weight elements $h_\omega(u)$ in the sense of~\cite[\S~4]{Vav09}.
-\end{example}
-
-
-Let $\omega \in P(\Phi^\vee)$ be a coweight of $\Phi$.
-Consider the subset $\mathcal{X}_\omega$ of the generating set of $\St(\Phi, A[X])$ consisting of those generators $x_{\alpha}(a) \in \St(\Phi, A[X])$ for which
-$(\alpha, \omega) < 0$ implies that $a \in A[X]$ is divisible by $X^{-(\alpha, \omega)}$.
-\begin{rem}
-Notice that according to this condition if $(\alpha, \omega) \geq 0$ then $\mathcal{X}$ contains $x_\alpha(a)$ for all $a \in A[X]$.
-\end{rem}
-Denote by $N_\omega$ the subgroup of $\St(\Phi, A[X])$ generated by $\mathcal{X}_\omega$.
-
-
-\begin{dfn} \label{dfn:delta-pair}
-Let $\omega \in P(\Phi^\vee)$ be a coweight.
-By definition, an {\it $\omega$-pair} is a pair of mutually inverse group homomorphisms
-$\xymatrix{ \sigma(\omega)\colon N_\omega \ar[r] & \ar@<-1.0ex>[l] N_{-\omega}\colon \sigma(-\omega) }$ satisfying the following identity:
-\begin{equation} \label{eq:sigmadef}
-\sigma(\pm \omega)(x_\alpha(\xi)) = x_\alpha(X^{(\pm \omega, \alpha)}\cdot \xi),
- \text{ for all } x_\alpha(\xi) \in \mathcal{X}_{\pm\omega}.
-\end{equation}\end{dfn}
-It is clear that the maps $\delta(\omega)$, $\delta(-\omega)$ are uniquely determined by~\eqref{eq:sigmadef}, so at most one $\omega$-pair may exist for any given $\omega$.
-Moreover, $\delta(\omega), \delta(-\omega)$ always make the following diagram commute:
-\begin{equation} \label{eq:sigma-diagram}
-\xymatrix{ N_\omega \ar[r]_{\sigma(\omega)}\ar@{^{(}->}[d] \ar@/^1.5pc/[rr]^{\mathrm{id}} & N_{-\omega} \ar@{^{(}->}[d] \ar[r]_{\sigma(-\omega)} & N_\omega \ar@{^{(}->}[d] \\
-          \St(\Phi, A[X]) \ar[d] & \St(\Phi, A[X]) \ar[d] & \St(\Phi, A[X]) \ar[d] \\
-          \St(\Phi, A[X^{\pm 1}]) \ar@<-0.0ex>[r]_{\chi_{\omega, X}} \ar@/_1.5pc/[rr]^{\mathrm{id}} & \St(\Phi, A[X^{\pm 1}]) \ar@<-0.0ex>[r]_{\chi_{-\omega, X}} & \St(\Phi, A[X^{\pm 1}]).} \end{equation}
-The question of existence of an $\omega$-pair is rather complicated and will be addressed in the sequel.
-One of the necessary technical ingredients needed for this is the technique of another presentation, which we recall in detail in the following subsection.
-
-
-\subsection{Van der Kallen-type presentation of linear Steinberg groups.} \label{subsec:another-presentation}
-Throughout this subsection $R$ denotes a commutative ring with ideal $I$.
-The aim of this subsection is to recall the details pertaining to the presentation of the relative linear Steinberg group $\St(\rA_\ell, R, I)$, $\ell \geq 3$ introduced in~\cite{LS17}.
-This presentation is formulated in terms of orthogonal rows, columns and transvections, which makes it a powerful tool in the study of $\K$-theoretic problems such as Quillen--Suslin local-to-global principle (cf.~\cite{Tu83, S15, LS17}).
-
-Let $n \geq 4$. For $u \in R^n$ we denote by $D(u)$ the subset of $R^n$ consisting of all vectors $v$ which are orthogonal to $u$
+Let $n \geq 4$.
+For $u \in R^n$ we denote by $D(u)$ the subset of $R^n$ consisting of all vectors $v$ which are orthogonal to $u$
 (i.\,e. $u^{t} v = 0$) and have at least two zero entries.
 Recall from 3.2 of~\cite{Ka77} that for every $u, v, w \in R^n$ such that $u^t v = 0$ there
 is a decomposition of $(w^t u) \cdot v$ into a sum of elements of $D(u)$, called \textit{canonical decomposition}:
@@ -340,12 +281,82 @@ The following result is the key result of~\cite{LS17}.
         &F(me_1,\,m^{*}e_{2}a)=S(me_{1}a,\,m^{*}e_{2}),\ \text{for all $a\in I$,}\, m \in \E(n, R). \label{coef-move}
     \end{align}
 \end{prop}
-Historically, the first presentation of such type has been obtained by W.~van der Kallen in~\cite{Ka77} in the context of linear Steinberg groups ($\Phi = \rA_\ell$),
- where such presentations has been called \textit{"another presentation"}.
-The main advantage of the above presentation as compared to the presentation of the relative Steinberg group from~\cite{Tu83} is that it remains useful
- in the case $\Phi = \rA_3$ (or what is the same $n = 4$).
 
-Finding such presentation for the other types of $\Phi$ is a hard problem.
-Except the linear case over a general commutative ring such presentation has only been obtained in the symplectic case (i.\,e. $\Phi = \rC_\ell$) in~\cite{La15}.
+\subsection{Weight automorphisms}\label{subsec:weight-automorphisms}
+Recall that for every coweight $\omega \in P(\Phi^\vee)$ and $\beta \in \ZZ \Phi$ the scalar product $(\omega, \beta)$ is an integer.
+Thus, a choice of $u \in R^\times$ and $\omega \in P(\Phi^\vee)$ specifies a permutation of the generating set for $\St(\Phi, R)$ via the following mapping:
+\begin{equation*} x_\alpha(a) \mapsto x_\alpha(u^{(\omega, \alpha)} \cdot a),\ \alpha\in \Phi,\ a \in R. \end{equation*}
+It is not hard to check that this action is compatible with relations~\eqref{x-additivity}--\eqref{R3} and hence specifies a well-defined automorphism of $\St(\Phi, R)$, which we denote by $\chi_{\omega, u}$.
 
-\subsection{Curtis--Tits type presentation of Steinberg group} \label{subsec:curtis-tits}
+In the following lemma we check that an analogue of $\chi_{\omega, u}$ can also be defined for relative Steinberg groups.
+\begin{lemma} \label{lem:relative-chi}
+Let $R$ be a commutative ring, $I$ be its ideal and let $u \in R^\times$.
+For every coweight $\omega \in P(\Phi^\vee)$ there exists a well-defined automorphism $\widetilde{\chi}_{\omega, u}$ of the relative Steinberg group $\St(\Phi, R, I)$ making the following diagram commute:
+\[\begin{tikzcd} \St(\Phi, R, I) \ar[r, "\widetilde{\chi}_{\omega, u}"] \ar[d] & \St(\Phi, R, I) \ar[d] \\
+\St(\Phi, R) \ar[r, "\chi_{\omega, X}"] & \St(\Phi, R]). \end{tikzcd}\]
+\end{lemma}
+\begin{proof}
+    Observe that the automorphism $\chi_{\omega, (u; u)}$ of $\St(\Phi, D_{R, I})$ preserves subgroups
+    $\Ker(p_i^*)$, $i=1, 2$ and hence their commutator subgroup $C$.
+    The required automorphism $\widetilde{\chi}_{\omega, u}$ now can be obtained by restricting $\chi_{\omega, (u; u)}$ to $\Ker(p_1^*)$.
+    The commutativity of the diagram is obvious.
+\end{proof}
+
+In the sequel we will use the following formulae describing the action of $\chi_{\omega, u}$ on the elements $w_\alpha(u)$, $h_\alpha(u)$:
+\begin{align}
+    \label{eq:chi-w} \chi_{\omega, u}\left(w_\alpha(v)\right) &= w_\alpha(u^{(\omega, \alpha)} \cdot v), \\
+    \label{eq:chi-h} \chi_{\omega, u} (h_\alpha(v)) &= h_\alpha(u^{(\omega, \alpha)} \cdot v) \cdot h_\alpha(u^{(\omega, \alpha)})^{-1} = \{u^{(\omega, \alpha)}, v\} \cdot h_\alpha(v).
+\end{align}
+
+The following lemma is analogous to~\cite[Lemma~3.1(c)]{Tu83}.
+\begin{lemma} \label{lem:winv-chiw}
+For any $w \in \StW(\Phi, A[X^{\pm 1}])$ the element $w^{-1} \cdot \chi_{\omega, X}(w)$ belongs to $\StH(\Phi, A[X^{\pm 1}])$.
+\end{lemma}
+\begin{proof}
+    Since $\StH(\Phi, A[X^{\pm 1}])$ is a normal subgroup of $\StW(\Phi, A[X^{\pm 1}])$, it suffices to verify the assertion for $w = w_\alpha(u)$.
+    Set $h = w^{-1} \cdot \chi_{\omega, X}(w)$.
+    Notice that
+    \begin{multline*} w_\alpha(1) \cdot h\cdot  w_\alpha(-1) = w_\alpha(-1)^{-1} \cdot w_\alpha(u)^{-1} \cdot w_{\alpha}(X^{(\omega, \alpha)} u) \cdot w_\alpha(-1) = \\
+    = h_\alpha(u)^{-1} \cdot h_\alpha(X^{(\omega, \alpha)}u) \in \StH(\Phi, A[X^{\pm 1}]).\end{multline*}
+    Thus, we get from\cite[Lemme~5.2(b,g)]{Ma69} and~\eqref{eq:steinberg} that \[h = h_{\alpha}^{-1}(u^{-1}) \cdot h_{\alpha}(X^{-(\omega, \alpha)}u^{-1}) = h_{\alpha}^{-1}(X^{(\omega, \alpha)}) \cdot \{ X^{(\omega, \alpha)}, u^{-1} \}. \qedhere\]
+\end{proof}
+
+\begin{example} \label{exm:chi-linear}
+Set $R = A[X^{\pm 1}]$.
+Consider the following coweights:
+\[\varepsilon_1 = \varpi_1^\vee,\ \varepsilon_2 = \varpi_2^\vee - \varpi_1^\vee,\ \ldots,\ \varepsilon_{\ell+1} = -\varpi^\vee_\ell.\]
+For $1\leq k\leq \ell+1$ and $u \in R^\times$ denote by $d_k(u)$ the matrix from $\GL(\ell+1, R)$ which differs from the unit matrix only in that it has the element $u$ on the $k$-th place of its diagonal.
+Recall from~\cite[Corollary~4]{Ka77} that for any $g \in \GL(\ell+1, R)$ there exists an automorphism $\beta_g$ of $\St(\ell+1, R)$ ''modeling`` the automorphism $\alpha_g \colon \GL(\ell+1, R) \to \GL(\ell+1, R)$ of inner conjugation by $g$, i.\,e. such that $\phi \beta_g = \alpha_g \phi$.
+
+
+It is clear that in the linear case the map $\chi_{\varepsilon_k, u}$ coincides with $\beta_{d_k(u)}$,
+while for other Chevalley groups the maps $\chi_{\omega, u}$ model automorphisms of inner conjugation by weight elements $h_\omega(u)$ in the sense of~\cite[\S~4]{Vav09}.
+\end{example}
+
+
+Let $\omega \in P(\Phi^\vee)$ be a coweight of $\Phi$.
+Consider the subset $\mathcal{X}_\omega$ of the generating set of $\St(\Phi, A[X])$ consisting of those generators $x_{\alpha}(a) \in \St(\Phi, A[X])$ for which
+$(\alpha, \omega) < 0$ implies that $a \in A[X]$ is divisible by $X^{-(\alpha, \omega)}$.
+\begin{rem}
+    Notice that according to this condition if $(\alpha, \omega) \geq 0$ then $\mathcal{X}$ contains $x_\alpha(a)$ for all $a \in A[X]$.
+\end{rem}
+Denote by $N_\omega$ the subgroup of $\St(\Phi, A[X])$ generated by $\mathcal{X}_\omega$.
+
+
+\begin{dfn} \label{dfn:delta-pair}
+Let $\omega \in P(\Phi^\vee)$ be a coweight.
+By definition, an {\it $\omega$-pair} is a pair of mutually inverse group homomorphisms
+$\xymatrix{ \sigma(\omega)\colon N_\omega \ar[r] & \ar@<-1.0ex>[l] N_{-\omega}\colon \sigma(-\omega) }$ satisfying the following identity:
+\begin{equation} \label{eq:sigmadef}
+\sigma(\pm \omega)(x_\alpha(\xi)) = x_\alpha(X^{(\pm \omega, \alpha)}\cdot \xi),
+\text{ for all } x_\alpha(\xi) \in \mathcal{X}_{\pm\omega}.
+\end{equation}\end{dfn}
+It is clear that the maps $\delta(\omega)$, $\delta(-\omega)$ are uniquely determined by~\eqref{eq:sigmadef}, so at most one $\omega$-pair may exist for any given $\omega$.
+Moreover, $\delta(\omega), \delta(-\omega)$ always make the following diagram commute:
+\begin{equation} \label{eq:sigma-diagram}
+\xymatrix{ N_\omega \ar[r]_{\sigma(\omega)}\ar@{^{(}->}[d] \ar@/^1.5pc/[rr]^{\mathrm{id}} & N_{-\omega} \ar@{^{(}->}[d] \ar[r]_{\sigma(-\omega)} & N_\omega \ar@{^{(}->}[d] \\
+\St(\Phi, A[X]) \ar[d] & \St(\Phi, A[X]) \ar[d] & \St(\Phi, A[X]) \ar[d] \\
+\St(\Phi, A[X^{\pm 1}]) \ar@<-0.0ex>[r]_{\chi_{\omega, X}} \ar@/_1.5pc/[rr]^{\mathrm{id}} & \St(\Phi, A[X^{\pm 1}]) \ar@<-0.0ex>[r]_{\chi_{-\omega, X}} & \St(\Phi, A[X^{\pm 1}]).} \end{equation}
+The question of existence of an $\omega$-pair is rather complicated and will be addressed in the sequel.
+One of the necessary technical ingredients needed for this is the technique of another presentation, which we recall in detail in the following subsection.
+

@@ -1,16 +1,33 @@
+\subsection{Homotopy invariance of unstable $\K_2$}
+
 \subsection{Early stability}
-Throughout this subsection $j$ denotes an embedding $\Psi \to \Phi$ of simply-laced root systems of rank $\geq 3$ and the corresponding
- homomorphism of Steinberg groups induced by it.
+We start by recalling the so-called Zariski excision property of Steinberg groups.
+\begin{lemma} \label{lem:zariski-glueing}
+Let $\Phi$ be any simply-laced root system of rank $\geq 3$.
+Let $A$ be a commutative domain and $a, b \in A$ be a pair of coprime elements.
+\begin{enumerate}
+    \item Let $\delta$ be an element of $\St(\Phi, A_{ab})$.
+    Then $\delta$ can be presented as $\lambda_b(\alpha) \cdot \lambda_a(\beta)$ for some
+    $\alpha \in \St(\Phi, A_a)$ and $\beta \in \St(\Phi, A_b)$.
+    \item  Let $\alpha \in \St(\Phi, A_a)$ and $\beta \in \St(\Phi, A_b)$ be such that the equality $\lambda_b(\alpha) = \lambda_a(\beta)$ holds in $\St(\Phi, A_{ab})$.
+    Then there exists $\gamma \in \St(\Phi, A)$ such that $\alpha = \lambda_a(\gamma)$, $\beta = \lambda_b(\gamma)$.
+\end{enumerate}
 
-
-\begin{lemma} \label{lem:qs-b}
-  Analogue of Quillen--Suslin for $\K_2$ but for subsystems.
 \end{lemma}
+\begin{proof}
+    This is a special case of Nisnevich excision for domains, see~\cite[Proposition~4.5]{LSV2}
+    (cf. also the proof of~\cite[Lemma~2.6]{LSV2}).
+\end{proof}
+
+For the rest of this subsection $\Psi$ is an arbitrary simply-laced root system of rank $\geq 3$
+ embedded into another simply-laced root system $\Phi$.
+We denote by $j$ the corresponding homomorphism of Steinberg groups $\St(\Psi, R) \to \St(\Phi, R)$.
 
 \begin{lemma} \label{lem:horrocks-b}
  Let $A$ be a commutative domain and $f \in A[X]$ be a unitary polynomial.
- Let $\alpha \in \K_2(\Phi, A[X], XA[X])$ be such that $\lambda_f(\alpha)$ belongs to the image of the stabilization map
- $\St(\Psi, A[X]_f) \to \St(\Phi, A[X]_f)$ then $\alpha$ lies in the image of $\St(\Psi, A[X]) \to \St(\Phi, A[X])$.
+ Let $\alpha$ be an element of $\K_2(\Phi, A[X], XA[X])$ such that $\lambda_f(\alpha)$ belongs to the image of the stabilization map
+ $\St(\Psi, A[X]_f) \to \St(\Phi, A[X]_f)$.
+ Then $\alpha$ lies in the image of $\St(\Psi, A[X]) \to \St(\Phi, A[X])$.
 \end{lemma}
 \begin{proof}
     Suppose that $f(X) = X^n + a_1 X^{n-1} \ldots + a_n$.
@@ -64,22 +81,7 @@ Then for any $n \geq 0$ the obvious inclusion $\rA_4 \subseteq \Phi$ induces a s
 
 
 \subsection{Horrocks ingredient}\label{subsec:horrocks-ingredient}
-\begin{lemma} \label{lem:zariski-glueing}
-Let $\Phi$ be any simply-laced root system of rank $\geq 3$.
-Let $A$ be a commutative domain and $a, b \in A$ be a pair of coprime elements.
-\begin{enumerate}
-    \item Let $\delta$ be an element of $\St(\Phi, A_{ab})$.
-    Then $\delta$ can be presented as $\lambda_b(\alpha) \cdot \lambda_a(\beta)$ for some
-    $\alpha \in \St(\Phi, A_a)$ and \beta \in $\St(\Phi, A_b)$.
-    \item  Let $\alpha \in \St(\Phi, A_a)$ and $\beta \in \St(\Phi, A_b)$ be such that the equality $\lambda_b(\alpha) = \lambda_a(\beta)$ holds in $\St(\Phi, A_{ab})$.
-    Then there exists $\gamma \in \St(\Phi, A)$ such that $\alpha = \lambda_a(\gamma)$, $\beta = \lambda_b(\gamma)$.
-\end{enumerate}
 
-\end{lemma}
-\begin{proof}
-    This is a special case of Nisnevich excision for domains, see~\cite[Proposition~4.5]{LSV2}
-    (cf. also the proof of~\cite[Lemma~2.6]{LSV2}).
-\end{proof}
 
 Now let $A$ be a local ring with maximal ideal $M$.
 Set $B \coloneqq A[X\inv] + M[X],\ R \coloneqq A[X, X\inv]$.

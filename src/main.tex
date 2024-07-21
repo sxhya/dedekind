@@ -6,11 +6,11 @@
 \usepackage[notref,notcite]{showkeys}
 \usepackage{longtable}
 \usetikzlibrary{shapes, arrows, calc, arrows.meta, fit, positioning, decorations.markings}
-\usepackage[backend=bibtex, firstinits=true, citestyle=numeric-comp, sortlocale=en_US, url=false, doi=false, eprint=true, maxbibnames=4]{biblatex}
-\usepackage{amssymb}
+\usepackage[natbib=true, backend=biber, firstinits=true, style=numeric, sortlocale=en_US, url=false, doi=false, eprint=true, maxbibnames=4]{biblatex}
 \usepackage{mathtools}
 \usepackage{tikz}
 \addbibresource{main.bib}
+\bibliographystyle{authordate1}
 
 \DeclareMathOperator{\St}{St}
 \DeclareMathOperator{\GL}{GL}
@@ -30,6 +30,7 @@
 \DeclareMathOperator{\rk}{rk}
 \DeclareMathOperator{\sr}{sr}
 \DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Stab}{Stab}
 \DeclareMathOperator{\Img}{Im}
 \newcommand{\catname}[1]{{\normalfont\textbf{#1}}}
 
@@ -120,10 +121,5 @@
     \section{Proof of main results} \label{sec:main}
     \input{proofs}
 
-    \appendix
-
-
-    \section{On the existence of the homomorphism $\delta_1$}\label{sec:delta1}
-    \input{appendix}
-
+    \printbibliography
 \end{document}

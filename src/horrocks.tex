@@ -1,6 +1,6 @@
 \begin{dfn}
     Let $K$ be a functor from commutative rings to groups.
-    Recall from~\cite{LSV2} that $K$ is called \textit{locally acyclic (resp., locally acylic for domains)} if for every commutative local ring (resp., domain) $A$ the following diagram whose arrows are induced by natural embeddings is a pullback square:
+    Recall from~\cite{LSV2} that $K$ is called \textit{locally acyclic (resp., locally acyclic for domains)} if for every commutative local ring (resp., domain) $A$ the following diagram whose arrows are induced by natural embeddings is a pullback square:
     \begin{equation}\label{eq:P1-square} \begin{tikzcd} K(A) \ar[r] \ar[d] & K(A[X]) \arrow{d} \\ K(A[X\inv]) \ar{r} & K(A[X, X\inv]). \end{tikzcd} \end{equation}
 \end{dfn}
 
@@ -15,6 +15,27 @@ Our theorem generalizes both these results and also improves them in the followi
 \begin{itemize}
     \item It applies to exceptional root systems ($\Phi = \rE_6, \rE_7$);
     \item In the orthogonal case it makes no assumptions on the invertibility of $2$ and also requires a weaker assumption on the rank of $\Phi$.
+\end{itemize}
+
+Since our proof of Horrocks theorem is rather long and technical we at first will try to illustrate its strategy
+ by comparison with the existing proofs of Horrocks theorem for $\K_1$ (cf.~\cite{Abe83, St-poly},~\cite[\S~VI.6]{Lam10}).
+
+Let $A$ be a local ring with maximal ideal $M$ and residue field $k$.
+Recall from~\cite[\S~4]{Su77} or~\cite[\S~VI.6]{Lam10} that for $r \geq 3$ the elementary linear group $\E_r(A[X, X\inv])$ admits the following decomposition:
+\begin{equation}\label{eq:triple-decomposition}
+\E_r(A[X^{\pm 1}]) = \E_r(A[X]) \cdot B(A[X^{\pm 1}]) \cdot \E_r(A[X^{\pm 1}], M[X^{\pm 1}]).
+\end{equation}
+Here $\E_r(-)$ denotes the same object as $\Esc(\rA_{r - 1}, -)$ before.
+Recall that the relative elementary subgroup $\E_r(R, I)$ is defined as the kernel of canonical reduction homomorphism $\E_r(R) \to \E_r(R/I).$
+Recall also that $B(R)$ denotes the Borel subgroup (i.\,e. the semidirect product of the unipotent radical $\UU(\Phi^+, R)$ and the group of diagonal matrices).
+
+Decomposition~\eqref{eq:triple-decomposition} is a key tool in the study of the {$\K_1$-analogue of Serre's problem}.
+We want to devise some analogue of it which would be suitable for study of Steinberg groups.
+
+Now let us list the key steps of the proof:
+\begin{itemize}
+    \item Step 1. We use the formalism of triples discussed in~\cref{subsec:triples} to reduce the problem of
+    \item Step 2.
 \end{itemize}
 
 \subsection{Initial reductions} \label{subsec:structure-theorem-overview}
@@ -99,26 +120,12 @@ The following lemma provides the second key reduction in the proof of Horrocks t
 \end{proof}
 
 \begin{rem}
-    In the linear case ($\Phi = \rA_\ell$) the assertion of the lemma remains true without the assumption that $A$ is a domain.
+    Notice that in the linear case the symbol homomorphism $A^\times \to \K_2(A[X, X\inv])$, $a \mapsto \{a, X\}$ admits section
+     for a general commutative ring $A$, cf~\cite{Wa71}.
+    Thus, the linear case ($\Phi = \rA_\ell$) the assertion of the lemma remains true without the assumption that $A$ is a domain, see~\cite[Lemma~3.1g]{Tu83}.
 \end{rem}
 
-\begin{comment}
-\subsection{Overview of Main structure theorem}
-
-Let $A$ be a local ring with maximal ideal $M$ and residue field $k$.
-Recall from~\cite[\S~4]{Su77} or~\cite[\S~VI.6]{Lam10} that for $r \geq 3$ the elementary linear group $\E_r(A[X, X\inv])$ admits the following decomposition:
-\begin{equation}\label{eq:triple-decomposition}
-\E_r(A[X^{\pm 1}]) = \E_r(A[X]) \cdot B(A[X^{\pm 1}]) \cdot \E_r(A[X^{\pm 1}], M[X^{\pm 1}]).
-\end{equation}
-Here $\E_r(-)$ denotes the same object as $\Esc(\rA_{r - 1}, -)$ before.
-Recall that the relative elementary subgroup $\E_r(R, I)$ is defined as the kernel of canonical reduction homomorphism $\E_r(R) \to \E_r(R/I).$
-Recall also that $B(R)$ denotes the Borel subgroup (i.\,e. the semidirect product of the unipotent radical $\UU(\Phi^+, R)$ and the group of diagonal matrices).
-
-Decomposition~\eqref{eq:triple-decomposition} is a key tool in the study of the {$\K_1$-analogue of Serre's problem}.
-We want to devise some analogue of it which would be suitable for study of Steinberg groups.
-\end{comment}
-
-\subsection{Hermitian presentation of affine Steinberg groups}
+\textbf{TODO}: Use Curtis--Tits to reduce everything to a short list of relations that need to be verified
 
 \tikzset{
     root/.style={circle, draw, minimum size=0.2cm, inner sep=0},
@@ -219,44 +226,135 @@ The main result of this subsection is the following
     \end{tikzcd}\]
 \end{prop}
 
-To construct the arrow $j$ we will use an alternative presentation of $\St(\Phi, A[X, X\inv])$ with fewer generators from~\cite{LS20}.
-To formulate it we need to introduce additional notation.
+\subsection{Construction of the relevant action}
 
-Recall that the Laurent polynomial ring $R = A[X, X\inv]$ can be reinterpreted as a $\ZZ$-graded ring in which $X^{-1}$ has degree $1$.
-We denote by $R_d$ the degree $d$ component of $R$.
-It is clear that $R_d$ is isomorphic to $A$ as additive group.
 
-We call a generator $x_\alpha(r)$ of the group $\St(\Phi, R)$ \textit{homogeneous of degree $d$} if $r = aX^d \in R_d$ for some $a\in A$.
-We denote by $\St^{\leq n}(\Phi, R)$ the group presented by all homogeneous generators of degree $\leq d$ and the following 4 families of homogeneous relations (in which $d, e \leq n$):
-\begin{align}
-    x_{\alpha}(r) x_{\alpha}(s)    &= x_{\alpha}(a + b), & \text{ for } r, s \in R_d, \tag{R$1_d$} \\
-    [x_{\alpha}(r),\ x_{\beta}(s)] &= x_{\alpha + \beta}(N_{\alpha, \beta} \cdot rs), &\text{ for } \alpha + \beta \in \Phi,\ r \in R_d, s \in R_e, \tag{R$2_{d, e}$} \\
-    [x_{\alpha}(r),\ x_{\beta}(s)] &= 1, &\text{ for }\alpha - \beta \in \Phi, r \in R_d, s \in R_e, \tag{R$3_{d, e}^\angle$} \\
-    [x_{\alpha}(r),\ x_{\beta}(s)] &= 1, &\text{ for }\alpha \perp \beta, r \in R_d, s \in R_e. \tag{R$3_{d,e}^\perp$}
-\end{align}
-By a \textit{degree of a relation} we mean the maximum of degrees of generators appearing in the relation.
-For example, the degree of R$3_{d, e}$ is $\max(d, e)$, while the degree of R$2_{d, e}$ is $\max(d, e, d+e).$
 
-\begin{lemma} \label{lem:homog-presentation}
-    Let $\Phi$ be a simply-laced root system of rank $\geq 3$. %TODO: Check if we may have such generality.
-    The group $\St(\Phi, R)$ admits presentation by homogeneous generators and homogeneous relations of degree $\leq 1$.
-    Moreover, we may omit from this presentation all relations of type $R3^\perp_{1, 1}$.
+
+
+Denote by $w_{\lambda, u}$ an element of the form $\prod w_{\alpha_i}(u_i) \in W(\Phi, A)$ such that $\prod u_i = u$, $\alpha_i \in \Sigma_k$ and $\varpi_k + \sum \alpha_i = \lambda$.
+{\bf In this sum all $\alpha_i$'s are different!}
+If $\lambda = \varpi_k$ set $w_{\lambda, \varpi_k}(u) = h_\alpha(u)$ for some $\alpha \in \Sigma_k$.
+%There is a map $\iota \colon W(\Phi) \to W(\Phi, A)$ given by $s_{\alpha_i} \mapsto w_{\alpha_i}(\pm 1)$ (this does not depend on the choice of the set $S = \{s_{\alpha_i}\}_{\alpha_i \in \Pi}$ of simple reflections of $W(\Phi)$, however, it is {\it not} a homomorphism of groups).
+
+
+\begin{lemma} \label{lem:can-repr} One has \[N(\varpi_k^\vee) \cdot \StW(\Phi, A) = \bigsqcup\limits_{(u, \lambda) \in A^\times \times \Lambda} N(\varpi_k^\vee) \cdot w_{\lambda, u}. \]
 \end{lemma}
 \begin{proof}
-    This is precisely the assertion of~\cite[Proposition~5.3]{LS20} combined with~\cite[Lemma~5.2]{LS20} and~\cite[Remark~5.5]{LS20}.
+ First, we construct bijections between the following coset sets:
+ \begin{equation}\label{eq:repr} \StW(\Delta, A) \setminus \StW(\Phi, A) \cong W(\Delta, A) \setminus W(\Phi, A) \xrightarrow{\cong} A^\times \times \Lambda.\end{equation}
+ The first bijection exists since $A$ is local and $\K_2(\Phi, A) \cong \K_2(\Delta, A)$.
+
+ Notice that for $w \in W(\Phi, A)$ there exists a unique weight $\lambda \in \Lambda$ such that the coordinate $(w \cdot v^+)_{\lambda, \varpi_k}$ is nonzero (here $v^+$ denotes the highest-weight vector). Denote this coordinate by $u$. Thus, the second map can be given by $w \mapsto (u, \lambda)$. Conversely, we can send each pair $(u, \lambda)$ to a representative $w_{\lambda, u}$. It is easy to see that the resulting $N(\varpi_k^\vee)$ does not depend on this choice.
+
+
+ It remains to notice that $N(\varpi_k) \supseteq \StW(\Delta, A)$ and that for each $g \in N(\varpi_k)$ the element $\pi(g(0))$ stabilizes the highest weight vector $v^+$.
 \end{proof}
 
-We now proceed with the construction of homomorphism $j$.
-First of all, we set
-\begin{align}
-    j(x_\alpha(a))       & = x_\alpha(a) & \text{ for } r \in R_d,\, d \geq 0, \\
-    j(x_\alpha(a X\inv)) & = \sigma \cdot x_\alpha(a) \sigma\inv & \text{ for } a \in A,\, \alpha \in \Sigma^+, \\
-    j(x_\beta(bX \inv))  & = \sigma^{-1} \cdot x_\beta(b) \sigma & \text{ for } b \in A,\, \alpha \in \Sigma^-.
-\end{align}
 
-It remains to define the value of $j$ on the generator $x_\gamma(cX\inv)$ for $\gamma \in \Delta$.
-To achieve this we decompose $\gamma$ as a sum $\alpha + \beta$ for some $\alpha \in \Sigma^+$ and $\Sigma^-$
- and present $c$ as a product $N_{\alpha, \beta} \cdot a b$ for some $a, b \in A$. % TODO: (why is this possible?)
-Now we set $j(x_\gamma(c X\inv)) = [j(x_\alpha(a X\inv)), x_\beta(b)]$.
-We need to check that this definition is unambiguous.
-It is \textbf{NOT} clear if $j(x_\gamma(c X\inv)) = [x_\alpha(a), j(x_\beta(bX\inv))]$.
+Notice that for $g \in \StW(\Delta, A)$ one has $\chi_{\omega, X}(g) = g$ therefore we obtain the following
+\begin{cor}
+ The right-hand side of~\eqref{eq:sigma-def} does not depend on the choice of decomposition $x = x_1 \cdot x_2$, so $\sigma(\omega)$ is defined unambigously.
+\end{cor}
+
+
+\begin{comment}
+We will also need to compute $x^{-1} \cdot \chi_{\omega, X}(x)$ for the representative $x = h_{\alpha_k}(u)\iota(w_\lambda)$. For simplicity, we may assume $w_\lambda = w_\beta(1)$, $\beta \in \Sigma_k$.
+\begin{multline} x^{-1} \cdot \chi_{\omega, X}(x) = \{ X, u\} \cdot \iota(w_\lambda)^{-1} \chi_{\omega, X}(w_\lambda) = \\ = \{X, u\} \cdot w_\beta(1)^{-1} w_\beta(X)
+\end{multline}
+\end{comment}
+
+
+Our next goal is to show that the function $\sigma(\omega)$ gives rise to a well-defined function
+ \[\sigma(\omega)\colon V/\sim \to V/\sim.\]
+The first ingredient is the following
+\begin{lemma}
+ For every $v \in V$ there exists $(a, b, 1) \in W$ such that $(a, b, 1) \star v \in V_\omega$.
+\end{lemma}
+\begin{proof}
+ Choose some system of positive roots $\Phi^{+'}$ in such a way that $(\alpha, \omega) \geq 0$ for all $\alpha \in \Phi^{+'}$, i.\,e. $\UU(\Phi^{+'}, A) \subseteq N(\omega)$.
+ From~\eqref{eq:bruhat} we obtain that \[G^+ = \UU(\Phi^{+'}, A)\cdot \St(\Phi, A[X], XA[X]) \cdot \StW(\Phi,A)\cdot \overline{\St}(\Phi, A, M) \cdot\UU(\Phi^+, A).\]
+ The first two factors in the above decomposition are contained in $N(\omega)$, so the assertion follows from the definition of $\star$.
+\end{proof}
+
+
+\begin{lemma} \label{h-computation} Set $ x = w_{\lambda, u} = w_{\alpha'}(u) \cdot [w_{\alpha''}(1) \cdot w_{\alpha'''}(1)]$ for some $\alpha', \alpha'', \alpha''' \in \Sigma_k$ (or $x = h_{\alpha'}(u)$ if $\lambda = \varpi_k$). We claim that:
+ \begin{equation*} h_{\alpha'}(1+m)^{x^{-1} \cdot \chi_{\varpi_k, X}(x)} = \left\{\begin{array}{ll} h_{\alpha'}(1+m) & \text{if $\lambda = \varpi_k$,}\\ \{X^2, 1+m\} \cdot h_{\alpha'}(1+m) & \text{otherwise.}\end{array}\right. \end{equation*}
+\end{lemma}
+\begin{proof}
+In the case $\lambda = \varpi_k$ it is clear that $x^{-1} \cdot \chi_{\varpi_k, X}(x) \in \K_2(\Phi, A[X^{\pm 1}])$, so the assertion of the lemma is clear in this case.
+
+
+Now suppose that $\lambda \neq \varpi_k$. We claim that $x^{-1} \cdot \widetilde{\chi}_{\omega, X}(x) \equiv h_{\alpha'}^{-1}(X)$ modulo $\K_2(\Phi, A[X^{\pm 1}])$. It is clear that lemma's assertion would follow from this.
+
+
+We already know from~\cref{lem:winv-chiw} that
+\[x_2^{-1} \cdot \widetilde{\chi}_{\omega, X}(x_2) \equiv w_{\alpha'}(u)^{-1} \cdot \widetilde{\chi}_{\omega, X}(w_{\alpha'}(u)) \equiv h_{\alpha'}^{-1}(X). \]
+Now suppose that $x = w_{\alpha'}(u)\cdot w_{\alpha''}(1)$. Using the already established case we obtain that
+\begin{multline*} x^{-1} \cdot \chi_{\omega, X}(x) \equiv w_{\alpha''}^{-1}(1) \cdot h_{\alpha'}^{-1}(X) \cdot \chi_{\omega, X}(w_{\alpha''}(1)) \equiv \\
+\equiv h_{\alpha'}^{-1}(X) \cdot w_{\alpha''}^{-1}(X) \cdot \chi_{\omega, X}(w_{\alpha''}(1)) \equiv h_\alpha^{-1}(X). \end{multline*}
+Here we use the fact that $\alpha' \neq \alpha''$.
+Similar computation also applies in the case when $w_{\lambda, u}$ is a product of three Weyl elements.
+\end{proof}
+
+
+\begin{lemma}
+ For every $w \in W$, $v \in V_\omega$ such that $v' = w \star v \in V_\omega$ there exists $w' \in W$ such that $\sigma(\omega)(w \star v) = w' \star \sigma(\omega)(v)$.
+\end{lemma}
+\begin{proof}
+ It suffices to consider the case $\omega = \varpi_k^\vee$. Suppose that $v' = (x_1' x_2', y', z') = (a, b, 1) \star v$, where $v = (x_1 x_2, y, z)$. We have that
+ \begin{equation}\label{eq:x-xprime} x_1' x_2' = x_1 x_2 \cdot \pi(b) \cdot a  \text{ for some }x_1, x_1' \in N(\omega),\ x_2, x_2' \in \StW(\Phi, A) \end{equation}
+ and some $a \in \UU(\Phi^+, A[X]),\ b \in \St(\Phi, A[X], M[X])$. Thanks to~\cref{lem:can-repr} we may assume, without loss of generality, that $x_2 = w_{\lambda, u}$, $x_2' = w_{\lambda', u'}$
+for some $u, u' \in A^\times$, $\lambda, \lambda' \in \Lambda$.
+
+
+Evaluating both sides of~\eqref{eq:x-xprime} at $X=0$ and projecting them to $\St(\Phi, k)$ we obtain the equality $\overline{x_1'}(0) \cdot \overline{x_2'} = \overline{x_1}(0) \cdot \overline{x_2}\cdot \overline{a}(0).$
+Since $x_1(0)$, $x_1'(0)$ and $a$ stabilize the highest weight vector we obtain that $\lambda = \lambda'$ and that $u - u' \in M$ (cf. the proof of~\cref{lem:can-repr}).
+Again, without loss of generality we may assume $w_{\lambda, u} = w_{\alpha'}(u) \cdot [ w_{\alpha''}(1) \cdot w_{\alpha'''}(1)]$. Set $m = 1 - u/u'$, clearly $x_2 = c \cdot x_2' \cdot h_{\alpha'}(1 + m)$ for some $c \in \K_2(\Phi, A)$.
+
+
+Set $\epsilon = 1$ if $\lambda\neq \varpi_k$, otherwise set $\epsilon = -1$.
+From~\eqref{eq:chi-h},~\cref{lem:delta-k2-trivial} and~\cref{h-computation} we obtain that
+\begin{equation}\label{eq:central-term} {x_2}^{-1} \cdot \chi_{\omega, X}(x_2) = \{1+m, X^\epsilon\} \cdot \bigl({x_2'}^{-1} \cdot \chi(\omega, x_2')\bigr), \end{equation}
+while from~\eqref{eq:x-xprime} and \cref{delta-weyl} we get that
+$\pi(b) \cdot a \cdot h_{\alpha'}(1 + m) \in N(\omega')$ for $\omega' = w_\lambda^{-1} \cdot \omega$. By~\cref{lem:q} we can find $q \in \UU(\Phi^+, M[X])$ such that $a q^{-1}$ and the image of $b' = q \cdot b^a \cdot h_{\alpha'}(1+m) \in \St(\Phi, A[X], M[X])$ under $\pi$ both belong to $N(\omega')$.
+
+
+\begin{multline} \label{eq:computation1}
+ \sigma(\omega)(x_1'x_2', y', z') =
+ \bigl(\delta_\omega(x_1') \cdot x_2',\, x_2'^{-1}\cdot \chi_{\omega, X}(x_2' y'),\, \chi_{\omega, X}(z')\bigr) = \\
+ = \bigl(\delta_\omega(x_1) \cdot \delta_\omega(x_2 \pi(b) a {x_2'}^{-1}) \cdot x_2',\, \{X^\epsilon, 1+m\} \cdot x_2^{-1}\cdot \chi_{\omega, X}(x_2 y'), \chi_{\omega, X}(z') \bigr) = \\
+ = \bigl(\delta_\omega(x_1) \cdot x_2 \cdot \delta_{\omega'}(aq^{-1}) \cdot \delta_{\omega'}(\pi(b')) \cdot h^{-1}_{\alpha'}(1+m),\, \{X^\epsilon, 1+m\} \cdot x_2^{-1}\cdot \chi_{\omega, X}(x_2 y'), \widetilde{\chi}_{\omega, X}(z') \bigr) = \\
+ = (1, 1, \widetilde{\chi}_{\omega', X}(b') \cdot h_{\alpha'}^{-1}(1+m)) \star \\ \star \bigl(\delta_\omega(x_1) \cdot x_2 \cdot \delta_{\omega'}(aq^{-1}),\, \{X^\epsilon, 1+m\} \cdot x_2^{-1}\cdot \chi_{\omega, X}(x_2 y'), \bigl(\widetilde{\chi}_{\omega', X}(b') h^{-1}_{\alpha'}(1+m)\bigr)^{x_2^{-1} \cdot \chi_{\omega, X}(x_2 y')} \widetilde{\chi}_{\omega, X}(z') \bigr).
+\end{multline}
+
+
+Now let us compute the third coordinate:
+\begin{multline} \bigl(\widetilde{\chi}_{\omega', X}(b') \cdot h^{-1}_{\alpha'}(1+m)\bigr)^{x_2^{-1} \cdot \chi_{\omega, X}(x_2 y')} \widetilde{\chi}_{\omega, X}(z') = \\ =
+\bigl(\widetilde{\chi}_{\omega', X}(q \cdot b^a \cdot h_{\alpha'}(1+m)) \cdot h^{-1}_{\alpha'}(1+m)\bigr)^{x_2^{-1} \cdot \chi_{\omega, X}(x_2 y')} \widetilde{\chi}_{\omega, X}(b^{-y}z) = \text{by~\cref{h-computation}}  \\ = \bigl(\widetilde{\chi}_{\omega, X}((q \cdot b^a \cdot h_{\alpha'}(1+m))^{x_2^{-1}}) \bigr)^{\chi_{\omega, X}(x_2 y')} \cdot h_{\alpha'}(1+m)^{-\chi_{\omega, X}(y')} \cdot \{1 + m, X^{\epsilon + 1} \} \cdot \widetilde{\chi}_{\omega, X}(b^{-y}z) = \\ = \widetilde{\chi}_{\omega, X}\bigl((q \cdot b^a \cdot h_{\alpha'}(1+m))^{y'}\bigr) \cdot \widetilde{\chi}_{\omega, X}\bigl(h_{\alpha'}(1+m)\bigr)^{-\chi_{\omega, X}(y')} \cdot \{1 + m, X^\epsilon \} \cdot \widetilde{\chi}_{\omega, X}(b^{-y}z) = \\ = \{ 1+m, X^\epsilon \} \cdot \widetilde{\chi}_{\omega, X}(q^{y'} \cdot z).
+\end{multline}
+
+
+Now recalling that $y' = a ^{-1} y, z' = b^{-y} z$ we can continue~\eqref{eq:computation1} as follows:
+\begin{multline*}
+ \bigl(\delta_\omega(x_1) \cdot x_2 \cdot \delta_{\omega'}(aq^{-1}),\, x_2^{-1}\cdot \chi_{\omega, X}(x_2 y'), \widetilde{\chi}_{\omega, X}(q^{y'} z) \bigr) = \\ = (\delta_{\omega'}(qa^{-1}), 1, \chi_{\omega, X}(q^{y'})) \star \bigl(\delta_\omega(x_1) \cdot x_2,\, \cdot \chi_{\omega', X}(aq^{-1}) \cdot x_2^{-1}\cdot \chi_{\omega, X}(x_2 q a^{-1} \cdot y ), \widetilde{\chi}_{\omega, X}(z) \bigr) = \\ = (\ldots) \star (\delta_\omega(x_1) \cdot x_2,\, x_2^{-1} \chi_{\omega, X}(x_2y), \widetilde{\chi}_{\omega, X}(z)) \end{multline*} \end{proof}
+
+
+ For $w\in W(\Phi)$ denote by $\Stab_{w}$ the algebraic subgroup of $\G_{sc}(\Phi, -)$ consisting of elements stabilizing the vector $\iota(w) \cdot v^+$. It is clear that the resulting subgroup does not depend on the exact choice of $\iota$. Recall that the projection $\varphi \colon \St(\Phi, R) \to \G_{sc}(\Phi, R)$ is always injective on unipotent subgroups. Moreover, it is clear that $N(w \cdot \varpi_k)(0) = \varphi^{-1}(\Stab_w(A[X]))$.
+
+\begin{lemma} \label{lem:q}
+Let $R$ be a commutative ring, $I$ be an ideal of $R$.
+Suppose that $a \in \UU(\Phi^+, R)$ is such that its image $\varphi(\overline{a})$ lies in $\Stab_{w}(R/I)$ for some $w \in W(\Phi)$.
+Then there exists $q \in \UU(\Phi^+, I)$ such that $\varphi(aq)$ lies in $\Stab_{w}(R)$.
+\end{lemma}
+\begin{proof}
+Set $b = a^{\iota(w)}$.
+Notice that $(b \cdot v_+)_{\varpi_k} = 1$, therefore by the Chevalley--Matsumoto decomposition we can write $b = b_1 \cdot b_2$ for some $b_1$ such that $\varphi(b_1) \in \Stab_1(R)$ and $b_2 \in \UU(\Sigma_k^-, R)$.
+It is also clear from our assumptions that $b_2$, in fact, belongs to $\UU(\Sigma_k^-, I)$.
+Set $a_i = {}^{\iota(w)}b_i$.
+It is clear that $\varphi(a_1) \in \Stab_w(R)$, $\varphi(a_2) \in \UU(\Phi^+ \cap w(\Sigma_k^-), I)$ and $a = a_1 \cdot a_2$ as claimed.
+\end{proof}
+\subsection{Construct sigma-morphisms by amalgamating relevant sigma-morphisms}
+
+\subsection{Construction of sigma-morphisms in rank 3}
+\input{appendix}
