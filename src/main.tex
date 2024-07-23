@@ -1,5 +1,8 @@
 \documentclass[oneside, 10pt]{amsart}
-\usepackage{amscd, amsfonts, amsmath, amsthm, amstext, amssymb, comment, enumitem, verbatim, mathtools, xfrac, microtype, nameref, thmtools, tikz, tikz-cd}
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm, amstext, amssymb, comment, enumitem, verbatim, mathtools, xfrac, microtype, nameref, thmtools, tikz, tikz-cd}
 \usepackage[breaklinks=true]{hyperref}
 \usepackage[capitalize]{cleveref}
 \usepackage[matrix,arrow,curve]{xy}
@@ -11,6 +14,11 @@
 \usepackage{tikz}
 \addbibresource{main.bib}
 \bibliographystyle{authordate1}
+\renewbibmacro*{volume+number+eid}{\ifentrytype{article}{\- \iffieldundef{volume}{}{Vol.~\printfield{volume},}\iffieldundef{number}{}{ No.~\printfield{number},}}}
+\renewbibmacro{in:}{\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
+\newbibmacro{string+doi}[1]{\iffieldundef{doi}{\iffieldundef{url}{#1}{\href{\thefield{url}}{#1}}}{\href{https://dx.doi.org/\thefield{doi}}{#1}}}
+\DeclareFieldFormat[article, inproceedings, inbook, book, online]{title}{\usebibmacro{string+doi}{\mkbibquote{#1}}}
+\renewcommand*{\bibfont}{\footnotesize}
 
 \DeclareMathOperator{\St}{St}
 \DeclareMathOperator{\GL}{GL}

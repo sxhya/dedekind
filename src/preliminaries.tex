@@ -66,7 +66,7 @@ By the Lemma's assumption there exists $e \in G_{123}$ such that $f_{12}(e) = a$
 \[ 1 = g_1^3(b) \cdot g_1^2(f_{12}(e)) = g_1^3(b \cdot f_{13}(e)),\ z = g_3^2(f_{23}(e))^{-1} \cdot g_3^1(b)^{-1} = g_3^1(b \cdot f_{13}(e))^{-1}. \qedhere\] \end{proof}
 
 \subsection{Steinberg groups, $\K_2$-groups and symbols}\label{subsec:steinberg-preliminaries}
-Let $\Phi$ be a root system of rank $\ell \geq 1$.
+Let $\Phi$ be a finite root system of rank $\ell > 1$.
 We assume that $\Phi$ is embedded into $\mathbb{R}^\ell$ whose scalar product we denote by $(\text{-}, \text{-})$.
 We also fix some system of simple roots $\Pi = \{\alpha_1, \ldots, \alpha_\ell\} \subset \Phi$.
 For a root $\alpha\in\Phi$ we denote by $m_i(\alpha)$ the $i$-th coefficient in the expansion of $\alpha$ in $\Pi$,
@@ -119,22 +119,118 @@ Steinberg symbols are central elements of $\St(\Phi, R)$.
 Our assumptions on $\Phi$ guarantee that Steinberg symbols are antisymmetric and bimultiplicative, i.\,e. they satisfy the following identities:
 \begin{equation} \label{eq:symbol-properties} \{ u, st \} = \{ u, s\} \{ u, t \}, \ \{ u, v \} = \{ v, u\}^{-1}. \end{equation}
 
-\subsection{Curtis--Tits type presentation of Steinberg groups} \label{subsec:curtis-tits}
-In this subsection we briefly recall generalization of Steinberg groups to the Kac--Moody setting and their presentations.
-For more details we refer the reader to \textbf{???}.
-Recall from~\textbf{???} that to any generalized Cartan matrix $A$ and a commutative ring $R$ one can associate two groups:
- the so-called \textit{Steinberg group} $\St(A, R)$ and $\mathrm{PSt}(A, R)$, called the \textit{pre-Steinberg group} (or Steinberg group a la Tits) of type $A$ over $R$.
-Steinberg and pre-Steinberg group differ from each other in the list of defining relations:
- the former definition imposes commutator relations over all prenilpotent pairs of real roots while the latter involves only classically prenilpotent pairs, cf.~\textbf{???}.
+\subsection{Curtis--Tits type presentation of affine Steinberg groups} \label{subsec:curtis-tits}
+In this subsection we briefly recall generalization of Steinberg groups to the Kac--Moody setting.
+Only in this section we allow root systems to be infinite.
 
-In the case when $A(\Phi)$ is the Cartan matrix of a spherical root system $\Phi$
- both these definitions agree with the previous one, i.\,e. $\St(\Phi, R) \cong \mathrm{PSt}(\Phi, R) \cong \St(A(\Phi), R)$.
+Recall that to any generalized Cartan matrix $A$ one can associate (possibly infinite) root system $\Phi$ and the Steinberg group functor $\St(\Phi, -)$.
+Two definitions of this functor have been proposed: the definition of Tits~\cite[\S~3.6]{Ti87} and the definition of Morita--Rehmann~\cite[\S~2]{MR90}.
+These definitions agree if the Dynkin diagram of $A$ does not contain connected components of type $\rA_1$, see~\cite[\S~6]{A13}.
 
-Now let us briefly recall what happens in the affine case.
-Denote by $\widetilde{A}(\Phi)$ the affine Cartan matrix corresponding to $\Phi$.
-\begin{lemma} $\mathrm{PSt}(\widetilde{A}(\Phi), R) \cong \St(\widetilde{A}(\Phi), R) \cong \St(\Phi, R[X, X\inv])$.
+For our purposes it will be sufficient to restrict attention to the case when $A$ is the GCM corresponding to the extended Dynkin diagram of a finite irreducible simply-laced root system $\Phi$ of rank $>1$.
+Such digrams for $\Phi$ of type $\rD_\ell$, $\rE_6$ and $\rE_7$ are depicted on Figure 1 (the added root is marked with yellow color).
+
+\tikzset{
+    root/.style={circle, draw, minimum size=0.2cm, inner sep=0},
+    zeroroot/.style={circle, draw, minimum size=0.2cm, inner sep=0, fill=yellow},
+    highlighted/.style={circle, draw, minimum size=0.2cm, inner sep=0, fill=green},
+    levi/.style={draw, dashed, rounded corners},
+    dottededge/.style={dotted},
+    labeled/.style={below}
+}
+\begin{figure}[hb]\label{fig:dynkin-diagrams}
+\begin{longtable}{ c c c }
+    \scalebox{0.69}{\begin{tikzpicture}
+                        \node[root, highlighted, label=$1$] (d1) at (0,0.5) {};
+                        \node[root, label=$2$] (d2) at (1,0) {};
+                        \node[root, label=$3$] (d3) at (2,0) {};
+                        \node at (3,0) {\ldots};
+                        \node[root, label={[xshift=-0.5cm, yshift=-0.6cm]$\ell-2$}] (dl2) at (4,0) {};
+                        \node[root, label={[xshift=-0.6cm, yshift=-0.35cm]$\ell-1$}] (dl1) at (5,0.5) {};
+                        \node[root, label={[xshift=-0.5cm, yshift=-0.3cm]$\ell$}] (dl) at (5,-0.5) {};
+                        \node[root, zeroroot, label=below:{$0$}] (d0) at (0,-0.5) {};
+
+                        \draw (d1) -- (d2) -- (d3) -- (2.5,0);
+                        \draw (3.5,0) -- (dl2) -- (dl1);
+                        \draw (dl2) -- (dl);
+                        \draw[dottededge] (d2) -- (d0);
+
+                        \begin{scope}
+                            \node[levi, fit=(d2) (d3) (dl) (dl1) (dl2), label=above:{$\Delta$}] {};
+                        \end{scope}
+    \end{tikzpicture}}
+    &
+    \scalebox{0.69}{\begin{tikzpicture}
+                        \begin{scope}
+                            \node[root, highlighted, label=$1$] (e1) at (0,0) {};
+                            \node[root, label=$3$] (e3) at (1,0) {};
+                            \node[root, label={[xshift=-0.3cm]$4$}] (e4) at (2,0) {};
+                            \node[root, label=$5$] (e5) at (3,0) {};
+                            \node[root, label=$6$] (e6) at (4,0) {};
+                            \node[root, label={[xshift=-0.3cm,yshift=-0.3cm]$2$}] (e2) at (2,1) {};
+                            \node[root, zeroroot, label=left:$0$] (e0) at (2,2) {};
+                            \draw (e1) -- (e3) -- (e4) -- (e5) -- (e6);
+                            \draw (e2) -- (e4);
+                            \draw[dottededge] (e2) -- (e0);
+
+                            \begin{scope}
+                                \node[levi, fit= (e2) (e3) (e4) (e5) (e6), label=above:{$\Delta$}] {};
+                            \end{scope}
+                        \end{scope}
+    \end{tikzpicture}}
+    &
+    \scalebox{0.69}{\begin{tikzpicture}
+                        \begin{scope}
+                            \node[root, zeroroot, label={0}] (e0) at (0,0) {};
+                            \node[root, label={$1$}] (e1) at (1,0) {};
+                            \node[root, label={$3$}] (e3) at (2,0) {};
+                            \node[root, label={[xshift=-0.3cm]$4$}] (e4) at (3,0) {};
+                            \node[root, label={$5$}] (e5) at (4,0) {};
+                            \node[root, label={$6$}] (e6) at (5,0) {};
+                            \node[root, label={[xshift=-0.3cm,yshift=-0.3cm]$2$}] (e2) at (3,1) {};
+                            \node[root, highlighted, label={$7$}] (e7) at (6,0) {};
+
+                            \draw (e1) -- (e3) -- (e4) -- (e5) -- (e6) -- (e7);
+                            \draw (e2) -- (e4);
+                            \draw[dottededge] (e0) -- (e1);
+
+                            \begin{scope}
+                                \node[levi, fit=(e1) (e2) (e3) (e4) (e5) (e6), label=above:{$\Delta$}] {};
+                            \end{scope}
+                        \end{scope}
+    \end{tikzpicture}} \\
+    \text{$\rD_\ell$} &
+    \text{$\rE_6$} &
+    \text{$\rE_7$}
+\end{longtable}
+\caption{Root markings on extended Dynkin diagrams}
+\end{figure}
+
+Denote by $\widetilde{\Phi}$ the affine root system corresponding to $\Phi$.
+Recall from~\cite[\S~4]{A16} that the set of real roots of $\widetilde{\Phi}$ is isomorphic to $\Phi \times \ZZ$.
+\begin{lemma} $\St(\widetilde{\Phi}, A) \cong \St(\Phi, A[X, X\inv])$.
 \end{lemma}
+\begin{proof}
+    By definition, the group $\mathrm{St}(\widetilde{\Phi}, A)$ is presented by generators $x_{(\alpha, m)}(a)$, $a \in A$, $\alpha \in \Phi$ and
+    the following relations:
+    \begin{align}
+        x_{(\alpha, m)}(a)\cdot x_{(\alpha, m)}(b)&=x_{(\alpha, m)}(a+b),  \label{AR1}\\
+        [x_{(\alpha, m)}(a),\,x_{(\beta, n)}(b)]  &=x_{(\alpha+\beta, n+m)}(N_{\alpha,\beta} \cdot ab),\text{ for }\alpha+\beta\in\Phi, \label{AR2} \\
+        [x_{(\alpha, m)}(a),\,x_{(\beta, n)}(b)]  &=1,\text{ for }\alpha+\beta\not\in\Phi\cup0. \label{AR3}
+    \end{align}
+    It is not hard to check that the map $x_{(\alpha, m)}(a) \mapsto x_\alpha(aX^m)$ is a well-defined homomorphism with the inverse given by
+     $x_\alpha(a_{n}X^n + \ldots + a_m X^m) \mapsto \Pi\limits_{i=n}^m x_{(\alpha, i)}(a_i)$, $a_i \in A$, $n \leq m$, $n, m\in \ZZ$.
+\end{proof}
 
+We will finish with yet another presentation of affine Steinberg group.
+\begin{prop}
+    For a finite simply-laced irreducible root system $\Phi$ and an arbitrary commutative ring $A$ the Steinberg group $\St(\Phi, A[X, X\inv])$ is isomorphic
+    to the free product of $\St(\Phi, A[X])$ and the cyclic group $\langle S \rangle$ amalgamted over the following list relations:
+    \begin{align}
+        lol & lol \\
+        foo & bar
+    \end{align}
+\end{prop}
 
 \subsection{Relative Steinberg groups and their presentations} \label{subsec:another-presentation}
 In this paper we will use also use the concept of a \textit{relative Steinberg group} introduced by F.~Keune and J.-L.~Loday in~\cite{Ke78, Lo78}.
@@ -281,6 +377,18 @@ The following result is the key result of~\cite{LS17}.
         &F(me_1,\,m^{*}e_{2}a)=S(me_{1}a,\,m^{*}e_{2}),\ \text{for all $a\in I$,}\, m \in \E(n, R). \label{coef-move}
     \end{align}
 \end{prop}
+
+We conclude this subsection with a weak analogue of Curtis--Tits theorem which holds for relative Steinberg groups.
+Let $\Phi$ be an arbitrary simply-laced root system of rank $\geq 3$.
+Consider the subset $A_3(\Phi)$ consisting of all root subsystems of type $\rA_3$ of $\Phi$.
+Recall that the relative Steinberg group $\St(\Phi, R, I)$ is generated by elements $z_\alpha(m, a) = x_\alpha(m)^{x_{-\alpha}(a)}$, $\alpha \in \Phi$, $a \in R$, $m \in I$, see~\textbf{???}.
+
+Denote by $\widetilde{G}$ the free product of relative Steinberg groups $\St(\Psi, R, I)$, where $\Psi \in A_3(\Phi)$.
+For $\Psi \in A_3(\Phi)$ by $i_\Psi$ the canonical embeddings $\St(\Psi, R, I) \to \widetilde{G}$.
+We denote by $G$ the quotient of $G$ modulo all relations of the form $i_{\Psi_1}(z_\alpha(m, a)) = i_{\Psi_2}(z_\alpha(m, a))$,
+ where $\Psi_1, \Psi_2 \in A_3(\Phi)$ both contain a common root $\alpha$, $\alpha \in \Phi$, $a\in R$, $m \in I$.
+
+\begin{thm}\label{relPres} The group $\St(\Phi, R, I)$ is isomorphic to $G$ as an abstract group. \end{thm}
 
 \subsection{Weight automorphisms}\label{subsec:weight-automorphisms}
 Recall that for every coweight $\omega \in P(\Phi^\vee)$ and $\beta \in \ZZ \Phi$ the scalar product $(\omega, \beta)$ is an integer.

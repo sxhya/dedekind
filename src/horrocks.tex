@@ -127,82 +127,6 @@ The following lemma provides the second key reduction in the proof of Horrocks t
 
 \textbf{TODO}: Use Curtis--Tits to reduce everything to a short list of relations that need to be verified
 
-\tikzset{
-    root/.style={circle, draw, minimum size=0.2cm, inner sep=0},
-    zeroroot/.style={circle, draw, minimum size=0.2cm, inner sep=0, fill=yellow},
-    highlighted/.style={circle, draw, minimum size=0.2cm, inner sep=0, fill=green},
-    levi/.style={draw, dashed, rounded corners},
-    dottededge/.style={dotted},
-    labeled/.style={below}
-}
-
-\begin{longtable}{ c c c }
-    \scalebox{0.69}{\begin{tikzpicture}
-          \node[root, highlighted, label=$1$] (d1) at (0,0.5) {};
-          \node[root, label=$2$] (d2) at (1,0) {};
-          \node[root, label=$3$] (d3) at (2,0) {};
-          \node at (3,0) {\ldots};
-          \node[root, label={[xshift=-0.5cm, yshift=-0.6cm]$\ell-2$}] (dl2) at (4,0) {};
-          \node[root, label={[xshift=-0.6cm, yshift=-0.35cm]$\ell-1$}] (dl1) at (5,0.5) {};
-          \node[root, label={[xshift=-0.5cm, yshift=-0.3cm]$\ell$}] (dl) at (5,-0.5) {};
-          \node[root, zeroroot, label=below:{$0$}] (d0) at (0,-0.5) {};
-
-          \draw (d1) -- (d2) -- (d3) -- (2.5,0);
-          \draw (3.5,0) -- (dl2) -- (dl1);
-          \draw (dl2) -- (dl);
-          \draw[dottededge] (d2) -- (d0);
-
-          \begin{scope}
-              \node[levi, fit=(d2) (d3) (dl) (dl1) (dl2), label=above:{$\Delta$}] {};
-          \end{scope}
-    \end{tikzpicture}}
-    &
-    \scalebox{0.69}{\begin{tikzpicture}
-        \begin{scope}
-            \node[root, highlighted, label=$1$] (e1) at (0,0) {};
-            \node[root, label=$3$] (e3) at (1,0) {};
-            \node[root, label={[xshift=-0.3cm]$4$}] (e4) at (2,0) {};
-            \node[root, label=$5$] (e5) at (3,0) {};
-            \node[root, label=$6$] (e6) at (4,0) {};
-            \node[root, label={[xshift=-0.3cm,yshift=-0.3cm]$2$}] (e2) at (2,1) {};
-            \node[root, zeroroot, label=left:$0$] (e0) at (2,2) {};
-            \draw (e1) -- (e3) -- (e4) -- (e5) -- (e6);
-            \draw (e2) -- (e4);
-            \draw[dottededge] (e2) -- (e0);
-
-            \begin{scope}
-                \node[levi, fit= (e2) (e3) (e4) (e5) (e6), label=above:{$\Delta$}] {};
-            \end{scope}
-        \end{scope}
-    \end{tikzpicture}}
-    &
-    \scalebox{0.69}{\begin{tikzpicture}
-        \begin{scope}
-            \node[root, zeroroot, label={0}] (e0) at (0,0) {};
-            \node[root, label={$1$}] (e1) at (1,0) {};
-            \node[root, label={$3$}] (e3) at (2,0) {};
-            \node[root, label={[xshift=-0.3cm]$4$}] (e4) at (3,0) {};
-            \node[root, label={$5$}] (e5) at (4,0) {};
-            \node[root, label={$6$}] (e6) at (5,0) {};
-            \node[root, label={[xshift=-0.3cm,yshift=-0.3cm]$2$}] (e2) at (3,1) {};
-            \node[root, highlighted, label={$7$}] (e7) at (6,0) {};
-
-            \draw (e1) -- (e3) -- (e4) -- (e5) -- (e6) -- (e7);
-            \draw (e2) -- (e4);
-            \draw[dottededge] (e0) -- (e1);
-
-            \begin{scope}
-                \node[levi, fit=(e1) (e2) (e3) (e4) (e5) (e6), label=above:{$\Delta$}] {};
-            \end{scope}
-        \end{scope}
-    \end{tikzpicture}} \\
-    \text{$\rD_\ell$} &
-    \text{$\rE_6$} &
-    \text{$\rE_7$}
-\end{longtable}
-
-
-
 
 
 
@@ -226,11 +150,25 @@ The main result of this subsection is the following
     \end{tikzcd}\]
 \end{prop}
 
-\subsection{Construction of the relevant action}
+\subsection{Construction of the relevant action} \label{sec:construction-delta}
+Recall that \[V = G^+ \times B \times G_M,\ W = U^+ \times G_M^+ \times B_M\]
+and that $W$ acts upon $V$ via $\star$.
+Denote by $V_\omega$ the subset of $V$ consisting of those triples $v = (x, y, z)$ for which $x \in N(\omega)\cdot \StW(\Phi, A)$.
 
 
+\begin{dfn} \label{sigma-def}
+  Define a function $\sigma(\omega) \colon V_\omega \to V_{-\omega}$ via the following formula:
+  \begin{equation} \label{eq:sigma-def} \sigma(\omega)(x_1 \cdot x_2, y, z) \mapsto (\delta(\omega)(x_1)\cdot x_2, x_2^{-1} \cdot \chi_{\omega, X}(x_2 \cdot y), \widetilde{\chi}(\omega, X)(z)), \end{equation}
+  where $x_1 \in N(\omega)$, $x_2 \in \StW(\Phi, A)$,  $y \in B$, $z \in G_M$.
+
+  By~\cref{lem:winv-chiw} the factor $x_2^{-1} \cdot \chi_{\omega, X}(x_2)$ lies in $\StH(\Phi, A[X^{\pm 1}])$, so the second component of the above triple belongs to $B$. At this point, it is not immediately clear why the above definition does not depend on the choice of decomposition $x = x_1 \cdot x_2$.
+\end{dfn}
 
 
+Set $\Delta = \Delta_k$ (the symmetric subset of $\Phi$ consisting of $\alpha$ with $m_k(\alpha)=0$). Recall that the coset set $W(\Delta) \setminus W(\Phi)$ is in one-to-one correspondence with $\Lambda$ (the set of minuscule weights of the representation $\pi$ with highest weight $\varpi_k^\vee$). For each minuscule weight $\lambda \in \Lambda = W(\Phi)\cdot \varpi_k$ we choose a representative $w_\lambda \in W(\Phi)$ a representative for the coset $W(\Delta) w_\lambda$.
+
+
+\begin{rem} Each $w_\lambda$ can be chosen to be a product of at most $p$ reflections $w_\beta(1)$ for $\beta\in\Sigma_k$, where $p = 2$ for $\Phi = \rD_\ell, \rE_6$ or $p = 3$ for $\Phi = \rE_7$. \end{rem}
 
 Denote by $w_{\lambda, u}$ an element of the form $\prod w_{\alpha_i}(u_i) \in W(\Phi, A)$ such that $\prod u_i = u$, $\alpha_i \in \Sigma_k$ and $\varpi_k + \sum \alpha_i = \lambda$.
 {\bf In this sum all $\alpha_i$'s are different!}
