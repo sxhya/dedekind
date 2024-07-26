@@ -1,0 +1,230 @@
+\subsection{Curtis--Tits type presentation of affine Steinberg groups} \label{subsec:curtis-tits}
+In this subsection we briefly recall generalization of Steinberg groups to the Kac--Moody setting.
+Only in this section we allow root systems to be infinite.
+
+Recall that to any generalized Cartan matrix $A$ one can associate (possibly infinite) root system $\Phi$ and the Steinberg group functor $\St(\Phi, -)$.
+Two definitions of this functor have been proposed: the definition of Tits~\cite[\S~3.6]{Ti87} and the definition of Morita--Rehmann~\cite[\S~2]{MR90}.
+These definitions agree if the Dynkin diagram of $A$ does not contain connected components of type $\rA_1$, see~\cite[\S~6]{A13}.
+
+For our purposes it will be sufficient to restrict attention to the case when $A$ is the GCM corresponding to the extended Dynkin diagram of a finite irreducible simply-laced root system $\Phi$ of rank $>1$.
+Such digrams for $\Phi$ of type $\rD_\ell$, $\rE_6$ and $\rE_7$ are depicted on Figure 1 (the added root is marked with index $0$).
+
+\tikzset{
+    root/.style={circle, draw, minimum size=0.2cm, inner sep=0},
+    zeroroot/.style={circle, draw, minimum size=0.2cm, inner sep=0, fill=yellow},
+    highlighted/.style={circle, draw, minimum size=0.2cm, inner sep=0, fill=green},
+    levi/.style={draw, dashed, rounded corners},
+    dottededge/.style={dotted},
+    labeled/.style={below}
+}
+\begin{figure}[hb]\label{fig:dynkin-diagrams}
+\begin{longtable}{ c c c }
+    \scalebox{0.69}{\begin{tikzpicture}
+                        \node[root, highlighted, label=$1$] (d1) at (0,0.5) {};
+                        \node[root, label=$2$] (d2) at (1,0) {};
+                        \node[root, label=$3$] (d3) at (2,0) {};
+                        \node at (3,0) {\ldots};
+                        \node[root, label={[xshift=-0.5cm, yshift=-0.6cm]$\ell-2$}] (dl2) at (4,0) {};
+                        \node[root, label={[xshift=-0.6cm, yshift=-0.35cm]$\ell-1$}] (dl1) at (5,0.5) {};
+                        \node[root, label={[xshift=-0.5cm, yshift=-0.3cm]$\ell$}] (dl) at (5,-0.5) {};
+                        \node[root, zeroroot, label=below:{$0$}] (d0) at (0,-0.5) {};
+
+                        \draw (d1) -- (d2) -- (d3) -- (2.5,0);
+                        \draw (3.5,0) -- (dl2) -- (dl1);
+                        \draw (dl2) -- (dl);
+                        \draw[dottededge] (d2) -- (d0);
+
+                        \begin{scope}
+                            \node[levi, fit=(d2) (d3) (dl) (dl1) (dl2), label=above:{$\Delta$}] {};
+                        \end{scope}
+    \end{tikzpicture}}
+    &
+    \scalebox{0.69}{\begin{tikzpicture}
+                        \begin{scope}
+                            \node[root, highlighted, label=$1$] (e1) at (0,0) {};
+                            \node[root, label=$3$] (e3) at (1,0) {};
+                            \node[root, label={[xshift=-0.3cm]$4$}] (e4) at (2,0) {};
+                            \node[root, label=$5$] (e5) at (3,0) {};
+                            \node[root, label=$6$] (e6) at (4,0) {};
+                            \node[root, label={[xshift=-0.3cm,yshift=-0.3cm]$2$}] (e2) at (2,1) {};
+                            \node[root, zeroroot, label=left:$0$] (e0) at (2,2) {};
+                            \draw (e1) -- (e3) -- (e4) -- (e5) -- (e6);
+                            \draw (e2) -- (e4);
+                            \draw[dottededge] (e2) -- (e0);
+
+                            \begin{scope}
+                                \node[levi, fit= (e2) (e3) (e4) (e5) (e6), label=above:{$\Delta$}] {};
+                            \end{scope}
+                        \end{scope}
+    \end{tikzpicture}}
+    &
+    \scalebox{0.69}{\begin{tikzpicture}
+                        \begin{scope}
+                            \node[root, zeroroot, label={0}] (e0) at (0,0) {};
+                            \node[root, label={$1$}] (e1) at (1,0) {};
+                            \node[root, label={$3$}] (e3) at (2,0) {};
+                            \node[root, label={[xshift=-0.3cm]$4$}] (e4) at (3,0) {};
+                            \node[root, label={$5$}] (e5) at (4,0) {};
+                            \node[root, label={$6$}] (e6) at (5,0) {};
+                            \node[root, label={[xshift=-0.3cm,yshift=-0.3cm]$2$}] (e2) at (3,1) {};
+                            \node[root, highlighted, label={$7$}] (e7) at (6,0) {};
+
+                            \draw (e1) -- (e3) -- (e4) -- (e5) -- (e6) -- (e7);
+                            \draw (e2) -- (e4);
+                            \draw[dottededge] (e0) -- (e1);
+
+                            \begin{scope}
+                                \node[levi, fit=(e1) (e2) (e3) (e4) (e5) (e6), label=above:{$\Delta$}] {};
+                            \end{scope}
+                        \end{scope}
+    \end{tikzpicture}} \\
+    \text{$\rD_\ell$} &
+    \text{$\rE_6$} &
+    \text{$\rE_7$}
+\end{longtable}
+\caption{Root markings on extended Dynkin diagrams}
+\end{figure}
+
+Denote by $\widetilde{\Phi}$ the affine root system corresponding to $\Phi$.
+Recall from~\cite[\S~4]{A16} that the set of real roots of $\widetilde{\Phi}$ is isomorphic to $\Phi \times \ZZ$.
+\begin{lemma} \label{lem:affine-vs-loop} $\St(\widetilde{\Phi}, A) \cong \St(\Phi, A[X, X\inv])$.
+\end{lemma}
+\begin{proof}
+    By definition, the group $\mathrm{St}(\widetilde{\Phi}, A)$ is presented by generators $x_{(\alpha, m)}(a)$, $a \in A$, $\alpha \in \Phi$ and
+    the following relations:
+    \begin{align}
+        x_{(\alpha, m)}(a)\cdot x_{(\alpha, m)}(b)&=x_{(\alpha, m)}(a+b),  \label{AR1}\\
+        [x_{(\alpha, m)}(a),\,x_{(\beta, n)}(b)]  &=x_{(\alpha+\beta, n+m)}(N_{\alpha,\beta} \cdot ab),\text{ for }\alpha+\beta\in\Phi, \label{AR2} \\
+        [x_{(\alpha, m)}(a),\,x_{(\beta, n)}(b)]  &=1,\text{ for }\alpha+\beta\not\in\Phi\cup0. \label{AR3}
+    \end{align}
+    It is not hard to check that the homomorphism given by $x_{(\alpha, m)}(a) \mapsto x_\alpha(aX^m)$ is an isomorphism with the inverse given by
+    $x_\alpha(a_{n}X^n + \ldots + a_m X^m) \mapsto \Pi\limits_{i=n}^m x_{(\alpha, i)}(a_i)$, $a_i \in A$, $n \leq m$, $n, m\in \ZZ$.
+\end{proof}
+
+Our next goal is to formulate the so-called \textit{Curtis--Tits presentation} of affine Steinberg groups discovered by D.~Allcock in~\cite{A16, A13}.
+This presentation has the advantage of being formulated in terms of the Dynkin diagram of $\Phi$ rather than the (possibly infinite) set of real roots of $\Phi$.
+Its other advantage is that it requires no choice of structure constants in its statement.
+Allcock's result is the generalization of Curtis--Tits presentations of finite root system, which have been known since 1960's, see e.\,g.~\cite[Theorem~B]{DS74}.
+
+Recall that $\{ \alpha_1, \ldots \alpha_\ell \}$ is the set of simple roots of $\Phi$.
+We denote by $\alpha_0$ the opposite root to the maximal root of $\Phi$ (i.\,e. $\alpha_0 := -\alpha_\mathrm{max}$).
+This roots corresponds to the added $0$ node of the extended Dynkin diagram depicted on Figure 1.
+We denote by $X_0(A)$ the root group $\{ X_0(a) \mid a \in A\}$ (as a group it is isomorphic to the additive group of $A$).
+We also denote by $j$ the root adjacent to $0$.
+\begin{prop} \label{prop:Allcock-affine} The group $\St(\Phi, A[X, X\inv])$ is isomorphic to the free product of $\St(\Phi, A)$, the group $X_0(A)$ and the free cyclic group $\langle S_0 \rangle$
+     amalgamated over the subgroup generated by the following relations:
+    \begin{align}
+        [S_0^2, X_0(a)] & = 1 & \text{ for $a \in A$; } \label{eq:Allcock-2} \\
+        X_0(1) \cdot {}^{S_0} X_0(1) \cdot X_0(1) & = S_0; \label{eq:Allcock-3} \\
+        [S_0, w_{\alpha_j}(1)] & = 1; &  \label{eq:Allcock-4} \\
+        [S_0, x_{\alpha_i}(a)] & = 1, &  \label{eq:Allcock-5-1}\\
+        [w_{\alpha_i}(1), X_0(a)] & = 1 & \text{$i$ unjoined with $0$, $a \in A;$} \label{eq:Allcock-5-2} \\
+        [X_0(a), x_{\alpha_i}(b)] & = 1 & \text{$i$ unjoined with $0$, $a, b \in A;$} \label{eq:Allcock-6} \\
+        S_0 \cdot w_{\alpha_j}(1) \cdot S_0 & = w_{\alpha_j}(1) \cdot S_0 \cdot w_{\alpha_j}(1); \label{eq:Allcock-7} \\
+        {}^{S_0^2} w_{\alpha_j}(1) & = w_{\alpha_j}(-1); \label{eq:Allcock-8-1} \\
+        {}^{w_{\alpha_j}^2(1)} S_0 & = S_0^{-1}; \label{eq:Allcock-8-2} \\
+        x_{\alpha_j}(a) \cdot S_0 \cdot w_{\alpha_j}(1) & = S_0 \cdot w_{\alpha_j}(1) \cdot X_0(a), & \label{eq:Allcock-9-1} \\
+        X_0(a) \cdot w_{\alpha_j}(1) \cdot S_0 & = w_{\alpha_j}(1) \cdot S_0 \cdot x_{\alpha_j}(a), & \label{eq:Allcock-9-2} \\
+        {}^{S_0^2} X_{\alpha_j}(a) & = x_{\alpha_j}(-a), & \label{eq:Allcock-10-1} \\
+        {}^{w_{\alpha_j}^2(1)} X_0(a) & = X_0(-a) & \text{for $a \in A;$} \label{eq:Allcock-10-2} \\
+        [X_0(a), {}^{S_0} x_{\alpha_j}(b)] &= 1, & \label{eq:Allcock-11-1} \\
+        [x_{\alpha_j}(a), {}^{w_{\alpha_j}(1)}X_0(b)] &= 1, & \label{eq:Allcock-11-2} \\
+        [X_0(a), x_{\alpha_j}(b)] &= {}^{S_0} x_{\alpha_j}(ab) & \text{for $a, b \in A.$} \label{eq:Allcock-12}
+    \end{align}
+\end{prop}
+\begin{proof}
+    This is a direct consequence of our~\cref{lem:affine-vs-loop} and the presentation of~\cite[Theorem~1]{A16} (or, alternatively, \cite[Theorem~1.1]{A13} combined with~\cite[Theorem~1.3]{A13}).
+    The list of relations in the statement is obtained from \cite[Table~1]{A16} by substituting concrete values of $i, j$, identifying Allcock's $X_{i}(a)$ with  $x_{\alpha_i}(a)$ and $S_i$ with $w_{\alpha_i}(a)$ for all $i\neq 0$ and then omitting all the relations which already hold true in $\St(\Phi, A)$.
+    The only further simplification is that we have omitted the relation $[X_{\alpha_j}(b), X_0(a)] = {}^{w_{\alpha_j}(1)} X_0(ab)$ (the relation symmetric to~\eqref{eq:Allcock-12})
+    because it is a consequence of~\eqref{eq:Allcock-9-2} and~\eqref{eq:Allcock-12}.
+\end{proof}
+
+Our next goal is to simplify the presentation of~\cref{prop:Allcock-affine} by using the larger group $\St(\Phi, A[X])$ instead of $\St(\Phi, A)$.
+\begin{prop}
+    For a finite simply-laced irreducible root system $\Phi$ and an arbitrary commutative ring $A$ the Steinberg group $\St(\Phi, A[X, X\inv])$ is isomorphic
+    to the free product of $\St(\Phi, A[X])$ and the cyclic group $\langle S \rangle$ amalgamated over the following list relations:
+    \begin{align}
+        lol & lol \\
+        foo & bar
+    \end{align}
+\end{prop}
+
+\subsection{Weight automorphisms}\label{subsec:weight-automorphisms}
+Recall that for every coweight $\omega \in P(\Phi^\vee)$ and $\beta \in \ZZ \Phi$ the scalar product $(\omega, \beta)$ is an integer.
+Thus, a choice of $u \in R^\times$ and $\omega \in P(\Phi^\vee)$ specifies a permutation of the generating set for $\St(\Phi, R)$ via the following mapping:
+\begin{equation*} x_\alpha(a) \mapsto x_\alpha(u^{(\omega, \alpha)} \cdot a),\ \alpha\in \Phi,\ a \in R. \end{equation*}
+It is not hard to check that this action is compatible with relations~\eqref{x-additivity}--\eqref{R3} and hence specifies a well-defined automorphism of $\St(\Phi, R)$, which we denote by $\chi_{\omega, u}$.
+
+In the following lemma we check that an analogue of $\chi_{\omega, u}$ can also be defined for relative Steinberg groups.
+\begin{lemma} \label{lem:relative-chi}
+Let $R$ be a commutative ring, $I$ be its ideal and let $u \in R^\times$.
+For every coweight $\omega \in P(\Phi^\vee)$ there exists a well-defined automorphism $\widetilde{\chi}_{\omega, u}$ of the relative Steinberg group $\St(\Phi, R, I)$ making the following diagram commute:
+\[\begin{tikzcd} \St(\Phi, R, I) \ar[r, "\widetilde{\chi}_{\omega, u}"] \ar[d] & \St(\Phi, R, I) \ar[d] \\
+\St(\Phi, R) \ar[r, "\chi_{\omega, X}"] & \St(\Phi, R]). \end{tikzcd}\]
+\end{lemma}
+\begin{proof}
+    Observe that the automorphism $\chi_{\omega, (u; u)}$ of $\St(\Phi, D_{R, I})$ preserves subgroups
+    $\Ker(p_i^*)$, $i=1, 2$ and hence their commutator subgroup $C$.
+    The required automorphism $\widetilde{\chi}_{\omega, u}$ now can be obtained by restricting $\chi_{\omega, (u; u)}$ to $\Ker(p_1^*)$.
+    The commutativity of the diagram is obvious.
+\end{proof}
+
+In the sequel we will use the following formulae describing the action of $\chi_{\omega, u}$ on the elements $w_\alpha(u)$, $h_\alpha(u)$:
+\begin{align}
+    \label{eq:chi-w} \chi_{\omega, u}\left(w_\alpha(v)\right) &= w_\alpha(u^{(\omega, \alpha)} \cdot v), \\
+    \label{eq:chi-h} \chi_{\omega, u} (h_\alpha(v)) &= h_\alpha(u^{(\omega, \alpha)} \cdot v) \cdot h_\alpha(u^{(\omega, \alpha)})^{-1} = \{u^{(\omega, \alpha)}, v\} \cdot h_\alpha(v).
+\end{align}
+
+The following lemma is analogous to~\cite[Lemma~3.1(c)]{Tu83}.
+\begin{lemma} \label{lem:winv-chiw}
+For any $w \in \StW(\Phi, A[X^{\pm 1}])$ the element $w^{-1} \cdot \chi_{\omega, X}(w)$ belongs to $\StH(\Phi, A[X^{\pm 1}])$.
+\end{lemma}
+\begin{proof}
+    Since $\StH(\Phi, A[X^{\pm 1}])$ is a normal subgroup of $\StW(\Phi, A[X^{\pm 1}])$, it suffices to verify the assertion for $w = w_\alpha(u)$.
+    Set $h = w^{-1} \cdot \chi_{\omega, X}(w)$.
+    Notice that
+    \begin{multline*} w_\alpha(1) \cdot h\cdot  w_\alpha(-1) = w_\alpha(-1)^{-1} \cdot w_\alpha(u)^{-1} \cdot w_{\alpha}(X^{(\omega, \alpha)} u) \cdot w_\alpha(-1) = \\
+    = h_\alpha(u)^{-1} \cdot h_\alpha(X^{(\omega, \alpha)}u) \in \StH(\Phi, A[X^{\pm 1}]).\end{multline*}
+    Thus, we get from\cite[Lemme~5.2(b,g)]{Ma69} and~\eqref{eq:steinberg} that \[h = h_{\alpha}^{-1}(u^{-1}) \cdot h_{\alpha}(X^{-(\omega, \alpha)}u^{-1}) = h_{\alpha}^{-1}(X^{(\omega, \alpha)}) \cdot \{ X^{(\omega, \alpha)}, u^{-1} \}. \qedhere\]
+\end{proof}
+
+\begin{example} \label{exm:chi-linear}
+Set $R = A[X^{\pm 1}]$.
+Consider the following coweights:
+\[\varepsilon_1 = \varpi_1^\vee,\ \varepsilon_2 = \varpi_2^\vee - \varpi_1^\vee,\ \ldots,\ \varepsilon_{\ell+1} = -\varpi^\vee_\ell.\]
+For $1\leq k\leq \ell+1$ and $u \in R^\times$ denote by $d_k(u)$ the matrix from $\GL(\ell+1, R)$ which differs from the unit matrix only in that it has the element $u$ on the $k$-th place of its diagonal.
+Recall from~\cite[Corollary~4]{Ka77} that for any $g \in \GL(\ell+1, R)$ there exists an automorphism $\beta_g$ of $\St(\ell+1, R)$ ''modeling`` the automorphism $\alpha_g \colon \GL(\ell+1, R) \to \GL(\ell+1, R)$ of inner conjugation by $g$, i.\,e. such that $\phi \beta_g = \alpha_g \phi$.
+
+
+It is clear that in the linear case the map $\chi_{\varepsilon_k, u}$ coincides with $\beta_{d_k(u)}$,
+while for other Chevalley groups the maps $\chi_{\omega, u}$ model automorphisms of inner conjugation by weight elements $h_\omega(u)$ in the sense of~\cite[\S~4]{Vav09}.
+\end{example}
+
+
+Let $\omega \in P(\Phi^\vee)$ be a coweight of $\Phi$.
+Consider the subset $\mathcal{X}_\omega$ of the generating set of $\St(\Phi, A[X])$ consisting of those generators $x_{\alpha}(a) \in \St(\Phi, A[X])$ for which
+$(\alpha, \omega) < 0$ implies that $a \in A[X]$ is divisible by $X^{-(\alpha, \omega)}$.
+\begin{rem}
+    Notice that according to this condition if $(\alpha, \omega) \geq 0$ then $\mathcal{X}$ contains $x_\alpha(a)$ for all $a \in A[X]$.
+\end{rem}
+Denote by $N_\omega$ the subgroup of $\St(\Phi, A[X])$ generated by $\mathcal{X}_\omega$.
+
+
+\begin{dfn} \label{dfn:delta-pair}
+Let $\omega \in P(\Phi^\vee)$ be a coweight.
+By definition, an {\it $\omega$-pair} is a pair of mutually inverse group homomorphisms
+$\xymatrix{ \sigma(\omega)\colon N_\omega \ar[r] & \ar@<-1.0ex>[l] N_{-\omega}\colon \sigma(-\omega) }$ satisfying the following identity:
+\begin{equation} \label{eq:sigmadef}
+\sigma(\pm \omega)(x_\alpha(\xi)) = x_\alpha(X^{(\pm \omega, \alpha)}\cdot \xi),
+\text{ for all } x_\alpha(\xi) \in \mathcal{X}_{\pm\omega}.
+\end{equation}\end{dfn}
+It is clear that the maps $\delta(\omega)$, $\delta(-\omega)$ are uniquely determined by~\eqref{eq:sigmadef}, so at most one $\omega$-pair may exist for any given $\omega$.
+Moreover, $\delta(\omega), \delta(-\omega)$ always make the following diagram commute:
+\begin{equation} \label{eq:sigma-diagram}
+\xymatrix{ N_\omega \ar[r]_{\sigma(\omega)}\ar@{^{(}->}[d] \ar@/^1.5pc/[rr]^{\mathrm{id}} & N_{-\omega} \ar@{^{(}->}[d] \ar[r]_{\sigma(-\omega)} & N_\omega \ar@{^{(}->}[d] \\
+\St(\Phi, A[X]) \ar[d] & \St(\Phi, A[X]) \ar[d] & \St(\Phi, A[X]) \ar[d] \\
+\St(\Phi, A[X^{\pm 1}]) \ar@<-0.0ex>[r]_{\chi_{\omega, X}} \ar@/_1.5pc/[rr]^{\mathrm{id}} & \St(\Phi, A[X^{\pm 1}]) \ar@<-0.0ex>[r]_{\chi_{-\omega, X}} & \St(\Phi, A[X^{\pm 1}]).} \end{equation}
+The question of existence of an $\omega$-pair is rather complicated and will be addressed in the sequel.
+One of the necessary technical ingredients needed for this is the technique of another presentation, which we recall in detail in the following subsection.
+
+\subsection{Presentations of affine Steinberg groups using weight elements}
