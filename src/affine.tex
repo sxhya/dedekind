@@ -163,82 +163,30 @@ Our next goal is to simplify the presentation of~\cref{prop:Allcock-affine} by u
      which are satisfied in the group $\St(\Phi, A[X])$ by virtue of Lemmas 5.1--5.2 of ~\cite{Ma69}.
 \end{proof}
 
-\subsection{Weight automorphisms}\label{subsec:weight-automorphisms}
-Recall that for every coweight $\omega \in P(\Phi^\vee)$ and $\beta \in \ZZ \Phi$ the scalar product $(\omega, \beta)$ is an integer.
-Thus, a choice of $u \in R^\times$ and $\omega \in P(\Phi^\vee)$ specifies a permutation of the generating set for $\St(\Phi, R)$ via the following mapping:
-\begin{equation*} x_\alpha(a) \mapsto x_\alpha(u^{(\omega, \alpha)} \cdot a),\ \alpha\in \Phi,\ a \in R. \end{equation*}
-It is not hard to check that this action is compatible with relations~\eqref{x-additivity}--\eqref{R3} and hence specifies a well-defined automorphism of $\St(\Phi, R)$, which we denote by $\chi_{\omega, u}$.
+Our next step is to further simplify the relations
 
-In the following lemma we check that an analogue of $\chi_{\omega, u}$ can also be defined for relative Steinberg groups.
-\begin{lemma} \label{lem:relative-chi}
-Let $R$ be a commutative ring, $I$ be its ideal and let $u \in R^\times$.
-For every coweight $\omega \in P(\Phi^\vee)$ there exists a well-defined automorphism $\widetilde{\chi}_{\omega, u}$ of the relative Steinberg group $\St(\Phi, R, I)$ making the following diagram commute:
-\[\begin{tikzcd} \St(\Phi, R, I) \ar[r, "\widetilde{\chi}_{\omega, u}"] \ar[d] & \St(\Phi, R, I) \ar[d] \\
-\St(\Phi, R) \ar[r, "\chi_{\omega, X}"] & \St(\Phi, R]). \end{tikzcd}\]
-\end{lemma}
-\begin{proof}
-    Observe that the automorphism $\chi_{\omega, (u; u)}$ of $\St(\Phi, D_{R, I})$ preserves subgroups
-    $\Ker(p_i^*)$, $i=1, 2$ and hence their commutator subgroup $C$.
-    The required automorphism $\widetilde{\chi}_{\omega, u}$ now can be obtained by restricting $\chi_{\omega, (u; u)}$ to $\Ker(p_1^*)$.
-    The commutativity of the diagram is obvious.
-\end{proof}
+By our assumption $\UU(\Sigma^+, R)$ is an abelian group.
 
-In the sequel we will use the following formulae describing the action of $\chi_{\omega, u}$ on the elements $w_\alpha(u)$, $h_\alpha(u)$:
+Denote by $G$ the amalgamated product of $\St(\Phi, A[X])$ and the cyclic group $\langle  \rangle$,
+ whose generator we denote by $\sigma$ amalgamated over the following relations:
 \begin{align}
-    \label{eq:chi-w} \chi_{\omega, u}\left(w_\alpha(v)\right) &= w_\alpha(u^{(\omega, \alpha)} \cdot v), \\
-    \label{eq:chi-h} \chi_{\omega, u} (h_\alpha(v)) &= h_\alpha(u^{(\omega, \alpha)} \cdot v) \cdot h_\alpha(u^{(\omega, \alpha)})^{-1} = \{u^{(\omega, \alpha)}, v\} \cdot h_\alpha(v).
+    \sigma \cdot x_{\alpha}(Xf) \sigma^{-1} =& x_{\alpha} (f), & \alpha \in \Sigma^+, f \in A[X], \\
+    \sigma \cdot x_{\beta}(f) \sigma^{-1}   =& x_{\beta} (Xf), & \beta \in \Sigma^-, f \in A[X], \\
+    \sigma \cdot x_\gamma(f) \sigma^{-1}    =& x_\gamma(f), & \gamma \in \Delta, f \in A[X].
 \end{align}
+We denote by $i_+$ the canonical homomorphism $\St(\Phi, A[X]) \to G$.
 
-The following lemma is analogous to~\cite[Lemma~3.1(c)]{Tu83}.
-\begin{lemma} \label{lem:winv-chiw}
-For any $w \in \StW(\Phi, A[X^{\pm 1}])$ the element $w^{-1} \cdot \chi_{\omega, X}(w)$ belongs to $\StH(\Phi, A[X^{\pm 1}])$.
-\end{lemma}
-\begin{proof}
-    Since $\StH(\Phi, A[X^{\pm 1}])$ is a normal subgroup of $\StW(\Phi, A[X^{\pm 1}])$, it suffices to verify the assertion for $w = w_\alpha(u)$.
-    Set $h = w^{-1} \cdot \chi_{\omega, X}(w)$.
-    Notice that
-    \begin{multline*} w_\alpha(1) \cdot h\cdot  w_\alpha(-1) = w_\alpha(-1)^{-1} \cdot w_\alpha(u)^{-1} \cdot w_{\alpha}(X^{(\omega, \alpha)} u) \cdot w_\alpha(-1) = \\
-    = h_\alpha(u)^{-1} \cdot h_\alpha(X^{(\omega, \alpha)}u) \in \StH(\Phi, A[X^{\pm 1}]).\end{multline*}
-    Thus, we get from\cite[Lemme~5.2(b,g)]{Ma69} and~\eqref{eq:steinberg} that \[h = h_{\alpha}^{-1}(u^{-1}) \cdot h_{\alpha}(X^{-(\omega, \alpha)}u^{-1}) = h_{\alpha}^{-1}(X^{(\omega, \alpha)}) \cdot \{ X^{(\omega, \alpha)}, u^{-1} \}. \qedhere\]
-\end{proof}
+The main result of this subsection is the following
+\begin{prop}
+    There exists an arrow $j$ making the diagram below commute:
+    \[\begin{tikzcd}           & \St(\Phi, A[X, X\inv]) \arrow[rd, dashrightarrow, "j"] & \\
+    \St(\Phi, A[X]) \arrow{ru}{h_+} \arrow{rr}{i_+} &                                & G.
+    \end{tikzcd}\]
+\end{prop}
 
-\begin{example} \label{exm:chi-linear}
-Set $R = A[X^{\pm 1}]$.
-Consider the following coweights:
-\[\varepsilon_1 = \varpi_1^\vee,\ \varepsilon_2 = \varpi_2^\vee - \varpi_1^\vee,\ \ldots,\ \varepsilon_{\ell+1} = -\varpi^\vee_\ell.\]
-For $1\leq k\leq \ell+1$ and $u \in R^\times$ denote by $d_k(u)$ the matrix from $\GL(\ell+1, R)$ which differs from the unit matrix only in that it has the element $u$ on the $k$-th place of its diagonal.
-Recall from~\cite[Corollary~4]{Ka77} that for any $g \in \GL(\ell+1, R)$ there exists an automorphism $\beta_g$ of $\St(\ell+1, R)$ ''modeling`` the automorphism $\alpha_g \colon \GL(\ell+1, R) \to \GL(\ell+1, R)$ of inner conjugation by $g$, i.\,e. such that $\phi \beta_g = \alpha_g \phi$.
+$S = x_{\alpha_0}(X) \cdot {}^\sigma x_{-\alpha_0}(-1) \cdot x_{\alpha_0}(X) = {}^\sigma w_{\alpha_0}(1)$
 
-
-It is clear that in the linear case the map $\chi_{\varepsilon_k, u}$ coincides with $\beta_{d_k(u)}$,
-while for other Chevalley groups the maps $\chi_{\omega, u}$ model automorphisms of inner conjugation by weight elements $h_\omega(u)$ in the sense of~\cite[\S~4]{Vav09}.
-\end{example}
-
-
-Let $\omega \in P(\Phi^\vee)$ be a coweight of $\Phi$.
-Consider the subset $\mathcal{X}_\omega$ of the generating set of $\St(\Phi, A[X])$ consisting of those generators $x_{\alpha}(a) \in \St(\Phi, A[X])$ for which
-$(\alpha, \omega) < 0$ implies that $a \in A[X]$ is divisible by $X^{-(\alpha, \omega)}$.
-\begin{rem}
-    Notice that according to this condition if $(\alpha, \omega) \geq 0$ then $\mathcal{X}$ contains $x_\alpha(a)$ for all $a \in A[X]$.
-\end{rem}
-Denote by $N_\omega$ the subgroup of $\St(\Phi, A[X])$ generated by $\mathcal{X}_\omega$.
-
-
-\begin{dfn} \label{dfn:delta-pair}
-Let $\omega \in P(\Phi^\vee)$ be a coweight.
-By definition, an {\it $\omega$-pair} is a pair of mutually inverse group homomorphisms
-$\xymatrix{ \sigma(\omega)\colon N_\omega \ar[r] & \ar@<-1.0ex>[l] N_{-\omega}\colon \sigma(-\omega) }$ satisfying the following identity:
-\begin{equation} \label{eq:sigmadef}
-\sigma(\pm \omega)(x_\alpha(\xi)) = x_\alpha(X^{(\pm \omega, \alpha)}\cdot \xi),
-\text{ for all } x_\alpha(\xi) \in \mathcal{X}_{\pm\omega}.
-\end{equation}\end{dfn}
-It is clear that the maps $\delta(\omega)$, $\delta(-\omega)$ are uniquely determined by~\eqref{eq:sigmadef}, so at most one $\omega$-pair may exist for any given $\omega$.
-Moreover, $\delta(\omega), \delta(-\omega)$ always make the following diagram commute:
-\begin{equation} \label{eq:sigma-diagram}
-\xymatrix{ N_\omega \ar[r]_{\sigma(\omega)}\ar@{^{(}->}[d] \ar@/^1.5pc/[rr]^{\mathrm{id}} & N_{-\omega} \ar@{^{(}->}[d] \ar[r]_{\sigma(-\omega)} & N_\omega \ar@{^{(}->}[d] \\
-\St(\Phi, A[X]) \ar[d] & \St(\Phi, A[X]) \ar[d] & \St(\Phi, A[X]) \ar[d] \\
-\St(\Phi, A[X^{\pm 1}]) \ar@<-0.0ex>[r]_{\chi_{\omega, X}} \ar@/_1.5pc/[rr]^{\mathrm{id}} & \St(\Phi, A[X^{\pm 1}]) \ar@<-0.0ex>[r]_{\chi_{-\omega, X}} & \St(\Phi, A[X^{\pm 1}]).} \end{equation}
-The question of existence of an $\omega$-pair is rather complicated and will be addressed in the sequel.
-One of the necessary technical ingredients needed for this is the technique of another presentation, which we recall in detail in the following subsection.
-
-\subsection{Presentations of affine Steinberg groups using weight elements}
+\begin{align}
+[{}^\sigma w_{\alpha_0}(1), w_{\alpha_i}(1)] & = 1 & \text{ for $i$ unjoined with $0$;} \label{eq:simpler-4} \\
+[{}^\sigma w_{\alpha_0}(1), x_{\alpha_i}(a)] & = 1 &  \text{ $i$ unj. with $0$, $a \in A$; } \label{eq:simpler-5-1}
+\end{align}

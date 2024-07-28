@@ -125,31 +125,6 @@ The following lemma provides the second key reduction in the proof of Horrocks t
     Thus, the linear case ($\Phi = \rA_\ell$) the assertion of the lemma remains true without the assumption that $A$ is a domain, see~\cite[Lemma~3.1g]{Tu83}.
 \end{rem}
 
-\textbf{TODO}: Use Curtis--Tits to reduce everything to a short list of relations that need to be verified
-
-
-
-
-$\Delta$, $\Sigma^+$, $\Sigma^-$.
-
-By our assumption $\UU(\Sigma^+, R)$ is an abelian group.
-
-Denote by $G$ the amalgamated product of $\St(\Phi, A[X])$ and the cyclic group $\mathbb{Z}$, whose generator we denote by $\sigma$ amalgamated over the following relations:
-\begin{align}
-    \sigma \cdot x_{\alpha}(Xf) \sigma^{-1} =& x_{\alpha} (f), & \alpha \in \Sigma^+, f \in A[X], \\
-    \sigma \cdot x_{\beta}(f) \sigma^{-1}   =& x_{\beta} (Xf), & \beta \in \Sigma^-, f \in A[X], \\
-    \sigma \cdot x_\gamma(f) \sigma^{-1}    =& x_\gamma(f), & \gamma \in \Delta, f \in A[X].
-\end{align}
-We denote by $i_+$ the canonical homomorphism $\St(\Phi, A[X]) \to G$.
-
-The main result of this subsection is the following
-\begin{prop}
-    There exists an arrow $j$ making the diagram below commute:
-    \[\begin{tikzcd}           & \St(\Phi, A[X, X\inv]) \arrow[rd, dashrightarrow, "j"] & \\
-           \St(\Phi, A[X]) \arrow{ru}{h_+} \arrow{rr}{i_+} &                                & G.
-    \end{tikzcd}\]
-\end{prop}
-
 \subsection{Construction of the relevant action} \label{sec:construction-delta}
 Recall that \[V = G^+ \times B \times G_M,\ W = U^+ \times G_M^+ \times B_M\]
 and that $W$ acts upon $V$ via $\star$.
