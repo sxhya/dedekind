@@ -110,7 +110,7 @@ Allcock's result is the generalization of Curtis--Tits presentations of finite r
 
 Recall that $\{ \alpha_1, \ldots \alpha_\ell \}$ is the set of simple roots of $\Phi$.
 We denote by $\alpha_0$ the opposite root to the maximal root of $\Phi$ (i.\,e. $\alpha_0 := -\alpha_\mathrm{max}$).
-This roots corresponds to the added $0$ node of the extended Dynkin diagram depicted on Figure 1.
+This root corresponds to the added $0$ node of the extended Dynkin diagram depicted on Figure 1.
 We denote by $X_0(A)$ the root group $\{ X_0(a) \mid a \in A\}$ (as a group it is isomorphic to the additive group of $A$).
 We also denote by $j$ the root adjacent to $0$ on the extended Dynkin diagram of $\Phi$.
 \begin{prop} \label{prop:Allcock-affine} The group $\St(\Phi, A[X, X\inv])$ is isomorphic to the free product of $\St(\Phi, A)$, the group $X_0(A)$ and the free cyclic group $\langle S_0 \rangle$
@@ -190,9 +190,12 @@ The main result of this subsection is the following
 \end{prop}
 \begin{proof}
  We will use the presentation of~\cref{cor:Allcock-simpler} for $\St(\Phi, A[X, X\inv])$.
- We only need to specify where to send the generator $S$.
- Observe that $-\alpha_0 = \alpha_{\max} \in \Sigma_k^+$, therefore the obvious candidate for the role of $\varphi(x_{-\alpha_0}(aX\inv))$ would be $x_{-\alpha_0}(a)^\sigma$, cf.~\eqref{eq:sigma-sigma-plus}.
- Now we can write the following definition for $\varphi(S)$ mimicking~\eqref{eq:w-definition}.
- Set \[\varphi(S) = x_{\alpha_0}(X) \cdot x_{-\alpha_0}(-1)^\sigma \cdot x_{\alpha_0}(X) = w_{\alpha_0}(1)^\sigma.\]
- %TODO: Analyze couple of examples
+ We only need to specify the value of $\varphi$ on the generator $S$.
+ Observe that $-\alpha_0 = \alpha_{\max} \in \Sigma_k^+$, therefore the obvious candidate for the role of $\varphi(x_{-\alpha_0}(aX\inv))$ would be $x_{-\alpha_0}(a)^\sigma$, cf.~\eqref{eq:sigma-sigma-plus},
+ which motivates the following definition for $\varphi(S)$:
+ Set \[\varphi(S) := x_{\alpha_0}(X) \cdot x_{-\alpha_0}(-1)^\sigma \cdot x_{\alpha_0}(X).\]
+ From~\eqref{eq:w-definition},\eqref{eq:sigma-sigma-minus} it follows that $\varphi(S) = w_{\alpha_0}(1)^\sigma$.
+
+ We need to check that our definition is correct, namely that $\varphi$ preserves all relations listed in~\cref{cor:Allcock-simpler}.
+ Indeed, replacing $$
 \end{proof}
