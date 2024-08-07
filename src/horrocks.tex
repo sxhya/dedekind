@@ -1,6 +1,7 @@
 \begin{dfn}
     Let $K$ be a functor from commutative rings to groups.
-    Recall from~\cite{LSV2} that $K$ is called \textit{locally acyclic (resp., locally acyclic for domains)} if for every commutative local ring (resp., domain) $A$ the following diagram whose arrows are induced by natural embeddings is a pullback square:
+    Recall from~\cite{LSV2} that $K$ is called \textit{locally acyclic (resp., locally acyclic for domains)} if for every commutative local ring (resp., domain)
+     $A$ the following diagram whose arrows are induced by natural embeddings is a pullback square:
     \begin{equation}\label{eq:P1-square} \begin{tikzcd} K(A) \ar[r] \ar[d] & K(A[X]) \arrow{d} \\ K(A[X\inv]) \ar{r} & K(A[X, X\inv]). \end{tikzcd} \end{equation}
 \end{dfn}
 
@@ -9,34 +10,114 @@ Now we can formulate the main result of this section.
 Let $\Phi$ be a root system of type $\rA_{\geq 4}$, $\rD_{\geq 5}$, $\rE_6$ or $\rE_7$.
 Then the functor $\K_{2}(\Phi, -)$ is locally acyclic for domains.
 \end{thm}
-Horrocks theorem for $\K_2$ has been previously known in the linear and even orthogonal case $\Phi=\rA_{\geq 4},\rD_{\geq 7}$, see~\cite[Theorem~1]{LS20},\cite[Proposition~4.3]{Tu83}.
-Notice also that the orthogonal version of Horrocks theorem for $\K_2$ was proved under the additional assumption that $2 \in A^\times$.
-Our theorem generalizes both these results and also improves them in the following respects:
-\begin{itemize}
-    \item It applies to exceptional root systems ($\Phi = \rE_6, \rE_7$);
-    \item In the orthogonal case it makes no assumptions on the invertibility of $2$ and also requires a weaker assumption on the rank of $\Phi$.
-\end{itemize}
+Horrocks theorem for $\K_2$ has been previously known in the linear and even orthogonal case $\Phi=\rA_{\geq 4},\rD_{\geq 7}$, see~\cite[Proposition~4.3]{Tu83} and~\cite[Theorem~1]{LS20}, respectively.
+Notice that the orthogonal Horrocks theorem for $\K_2$ \cite[Theorem~1]{LS20} was proved only under the additional assumption $2 \in A^\times$.
+Thus, the novelty of~\cref{thm:horrocks-k2} consists not only in the fact that it applies to root systems of types $\rD_5$, $\rD_6$, $\rE_6$, $\rE_7$ but also that
+ it is proved without the assumption $2 \in A^\times$.
 
-Since our proof of Horrocks theorem is rather long and technical we at first will try to illustrate its strategy
- by comparison with the existing proofs of Horrocks theorem for $\K_1$ (cf.~\cite{Abe83, St-poly},~\cite[\S~VI.6]{Lam10}).
+Since our proof of \cref{thm:horrocks-k2} is rather long and technical we will first try to describe the plan of our proof.
 
 Let $A$ be a local ring with maximal ideal $M$ and residue field $k$.
-Recall from~\cite[\S~4]{Su77} or~\cite[\S~VI.6]{Lam10} that for $r \geq 3$ the elementary linear group $\E_r(A[X, X\inv])$ admits the following decomposition:
+Recall that proofs of the Horrocks theorem for $\K_1$ are usually based on the decomposition of the elementary subgroup over Laurent polynomial ring
+ called \textit{Suslin's lemma} or \textit{Suslin's structure theorem}, cf.~\cite{Abe83, Su77}, \cite[\S~VI.6]{Lam10}.
+In the linear case this decomposition asserts that the elementary linear group $\E_r(A[X, X\inv]) = \Esc(\rA_{r-1}, A[X, X\inv])$ admits the following group factorization for $r \geq 3$:
 \begin{equation}\label{eq:triple-decomposition}
 \E_r(A[X^{\pm 1}]) = \E_r(A[X]) \cdot B(A[X^{\pm 1}]) \cdot \E_r(A[X^{\pm 1}], M[X^{\pm 1}]).
 \end{equation}
-Here $\E_r(-)$ denotes the same object as $\Esc(\rA_{r - 1}, -)$ before.
-Recall that the relative elementary subgroup $\E_r(R, I)$ is defined as the kernel of canonical reduction homomorphism $\E_r(R) \to \E_r(R/I).$
-Recall also that $B(R)$ denotes the Borel subgroup (i.\,e. the semidirect product of the unipotent radical $\UU(\Phi^+, R)$ and the group of diagonal matrices).
+In the above formula $\E_r(R, I)$ denotes the relative elementary subgroup, i.\,e. the kernel of the canonical reduction homomorphism $\E_r(R) \to \E_r(R/I),$
+ while $B(R)$ denotes the Borel subgroup (i.\,e. the semidirect product of the unipotent radical $\UU(\Phi^+, R)$ and the group of diagonal matrices).
 
-Decomposition~\eqref{eq:triple-decomposition} is a key tool in the study of the {$\K_1$-analogue of Serre's problem}.
-We want to devise some analogue of it which would be suitable for study of Steinberg groups.
+To prove the Suslin's structure theorem one constructs a collection of diagonal automorphisms $\delta_i$, $1\leq i\leq r$
+ and shows that the product $V$ of the three subgroups in the right-hand side of~\eqref{eq:triple-decomposition} is stabilized by these automorphisms.
+On the other hand, the product $V$ is clearly stabilized by left translations by elements of $\E_r(A[X])$.
+Since the minimal subgroup of $\E_r(A[X, X\inv])$ containing the image of $\E_r(A[X])$ and invariant with respect to conjugation by $\delta_i$
+ obviously coincides with whole $E_r(A[X, X\inv])$ the decomposition~\eqref{eq:triple-decomposition} follows.
+
+Ideologically, Tulenbaev's proof of the Horrocks theorem for $\K_2$ is based on the Suslin's proof of Horrocks theorem for $\K_1$.
+The key difference is that in the context of $\K_2$-groups one is more interested in finding the relationship between the sets of \textit{relations} in Steinberg groups over $A[X]$ and $A[X, X\inv]$
+ rather than simply trying to prove analogues of decompositions like~\eqref{eq:triple-decomposition} on the level of Steinberg groups (which would not be sufficient for the task).
+The standard technique to compare two groups presented by generators and relations is to construct the so-called ``set model''
+ of one group in terms of the other and then to prove that the the first group admits a translation action on this ``set model''.
+This technique probably dates back to~\cite{ST76}, where it was applied to the proof of the injective stability theorem for $\K_2$, it is also repeated
+ in Tulenbaev's proof of the Horrocks theorem for $\K_2$, cf.\ Propositions 4.1 and 4.3 in~\cite{Tu83}.
+The same technique is also used in the proof of~\cite[Theorem~3]{LS20}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}
+ and will be reused for the proof of~\cref{thm:horrocks-k2} (which, by analogy, should be thought of a direct generalization of~\cite[Proposition~4.1]{Tu83}).
 
 Now let us list the key steps of the proof:
 \begin{itemize}
-    \item Step 1. We use the formalism of triples discussed in~\cref{subsec:triples} to reduce the problem of
-    \item Step 2.
+    \item Step 1. First of all, in~\cref{subsec:triples} we introduce abstract formalism of group decompositions which will allow us to construct a set modeling the Steinberg group $\St(\Phi, A[X, X\inv])$.
+                  This should be thought of as preparatory work needed for the formulation of the $\K_2$-analogue of Suslin's structure theorem~\eqref{eq:triple-decomposition}.
+    \item Step 2. In~\cref{subsec:structure-theorem-overview} we use this formalism to formulate the $\K_2$-analogue of Suslin's structure theorem.
+                  We also show how the Horrocks' theorem~\cref{thm:horrocks-k2} can be reduced to a concrete technical statement, namely, the existence of the action of $\St(\Phi, A[X, X\inv])$ on the set model $V$ constructed on the previous step.
+    \item Step 3. \cref{prop:rel-poly-Laurent} reduces the problem of construction of the action of $\St(\Phi, A[X, X\inv])$ on $V$ to construction of a pair of automoprhisms of $V$
+                  corresponding to the weight automorphism $\chi_{\varpi_k, X}$ (cf.~\cref{subsec:weight-automorphisms}).
+
 \end{itemize}
+
+\subsection{Formalism of triples}\label{subsec:triples}
+Let $N$ be a group acting on itself by right conjugation.
+Let $M$ be a group with a right action of $N$.
+Recall that a group homomorphism $\mu\colon M \to N$ is called a \textit{precrossed module} if $\mu$ preserves the action of $N$, i.\,e.
+\[\mu(m^n) = \mu(m)^n, \text{for all $m \in M$, $n\in N;$} \]
+If, in addition, $\mu$ satisfies the so-called \textit{Peiffer identity}, i.\,e.
+\[{m}^{\mu(m')} = {m'}^{-1} m m', \text{for all $m, m' \in M$,}\]
+then $\mu$ is called a \textit{crossed module}.
+
+If $\mu\colon M \to N$ and $\mu' \colon M' \to N'$ is a pair of precrossed modules.
+A \textit{map of precrossed modules} $(f, g)\colon \mu \to \mu'$ is a pair of group homomorphisms $f\colon M \to M'$, $g\colon N \to N'$ such that
+$\mu'f = g \mu$ and that the action of $N$ is preserved, i.\,e. ${f(m)}^{g(n)} = f(m^n)$ for all $n \in N$, $m \in M$.
+
+Now suppose that we are given the following cube-like commutative diagram of abstract groups:
+\begin{equation} \label{eq:cube} \begin{split} \xymatrix{
+    G_{123} \ar[rr]_{f_{23}} \ar[dd]_{f_{12}} \ar[rd]_{f_{13}} &                        & G_{23} \ar@{-->}[dd]^(.3){g_2^3} \ar[rd]^{g^2_3} &           \\
+    & G_{13} \ar[rr]^(.3){g^1_3} \ar^(.3){g^3_1}[dd] &                   & G_3 \ar[dd]_{h_3} \\
+    G_{12} \ar@{-->}[rr]^(.3){g_2^1} \ar[rd]_{g_1^2}          &                        & G_2 \ar@{-->}[rd]_{h_2}         &           \\
+    & G_1 \ar[rr]_{h_1}              &                   & G.} \end{split} \end{equation}
+Additionally, we make the following assumptions:
+\begin{itemize}
+    \item $g_1^3$ is a precrossed module;
+    \item $h_3$ is a crossed module;
+    \item $(g_3^1, h_1) \colon g_1^3 \to h_3$ is a map of precrossed modules.
+\end{itemize}
+Set $V = G_1 \times G_2 \times G_3$, $W = G_{12} \times G_{13} \times G_{23}$.
+We define an operation $\star \colon W \times V \to V$ as follows.
+For $v = (x, y, z) \in V$ and $w = (a, b, c) \in W$ we set
+\[(a, b, c) \star (x, y, z) = (x \cdot g_1^3(b) \cdot g_1^2(a),\ g_2^1(a)^{-1} \cdot y \cdot g_2^3(c),\ g_3^2(c)^{-1} \cdot g_3^1(b)^{-h_2(y)} \cdot z).\]
+Consider the set-theoretic map $h \colon V \to G$ given by $(x, y, z) \mapsto h_1(x) \cdot h_2(y) \cdot h_3(z)$.
+It is clear from the definition of $\star$-operation that for $w \in W$ one has $h(w \star v) = h(v).$
+Now let us define the relation associated with $\star$-operation.
+We declare two elements $v, v' \in V$ congruent (denoted $v \sim_W v'$) if $v' = w \star v$ for some triple $w=(a, b, c) \in W$.
+As the following lemma shows, this relation is an equivalence relation.
+\begin{lemma} For every $v \in V$ one has
+\begin{equation*}(a', b', c') \star \left( (a, b, c) \star v \right) = (a \cdot a', b \cdot {b'}^{g_1^2(a)^{-1}}, c \cdot c') \star v.\end{equation*}
+\end{lemma}
+\begin{proof}
+    Set $v'=(x', y', z') = (a, b, c) \star v$ and $(x'', y'', z'') = (a', b', c') \star v'$.
+    Since $g_1^3$ is a precrossed module we immediately obtain that
+    \begin{align*}
+        x'' =& x' \cdot g_1^3(b') \cdot g_1^2(a') = x \cdot g_1^3(b) \cdot g_1^2(a) \cdot g_1^3(b') \cdot g_1^2(a') = x \cdot g_1^3(b \cdot b'^{g_1^2(a)^{-1}}) g_1^2(a \cdot a'),\\
+        y'' =& g_2^1(a')^{-1} \cdot g_2^1(a)^{-1} \cdot y \cdot g_2^3(c) \cdot g_2^3(c') = g_2^1(a\cdot a')^{-1} \cdot y \cdot g_2^{3}(c\cdot c'). \end{align*}
+    Since $(g_3^1, h_1)$ is a map of precrossed modules, for every $a \in G_{12}$, $b \in G_{13}$ one has $g_3^1(b^{g_1^2(a)}) = g_3^1(b)^{h_1 g_1^2(a)} = g_3^1(b)^{h_2g_2^1(a)}$.
+    Since $h_3$ satisfies Peiffer identity, for every $c \in G_{23}$ and $z \in G_3$ one has $z ^{h_2 g_2^3(c)} = z^{ h_3 g_3^2(c)} = g_3^2(c)^{-1} \cdot z \cdot g_3^2(c)$.
+    Using these identities we obtain that
+    \begin{multline*}
+        z'' = g_3^2(c')^{-1} \cdot g_3^1(b')^{-h_2(y')} \cdot z' = \\
+        = g_3^2(c')^{-1} \cdot g_3^1(b')^{- h_2 \left( g_2^1(a)^{-1} \cdot y \cdot g_2^3(c) \right)} g_3^2(c)^{-1} \cdot g_3^1(b)^{-h_2(y)} \cdot z = \\
+        = g_3^2(c \cdot c')^{-1} \cdot g_3^1(b')^{- h_2 \left( g_2^1(a)^{-1} \cdot y \right)} \cdot g_3^1(b)^{-h_2(y)} \cdot z = \\
+        = g_3^2(c \cdot c')^{-1} \cdot g_3^1(b \cdot {b'} ^ {g_1^2(a)^{-1}})^{- h_2 \left( y \right)} \cdot z. \qedhere
+    \end{multline*}
+\end{proof}
+Since $h$ is constant on the orbits of $\star$-action, $h$ gives rise to a well-defined map $\overline{h} \colon V/\sim_W \to G$.
+We use the notation $[a, b, c]$ to denote the equivalence class of the triple $(a, b, c) \in V$.
+
+\begin{lemma}\label{lem:one-one-z} Assume that the back face $(f_{12}, f_{23}, g_2^1, g_2^3)$ of~\eqref{eq:cube} is a pullback square.
+Assume additionally that $[1, 1, 1] = [1, 1, z]$ for some $z\in G_3$.
+Then $z \in g_3^1(\Ker(g_1^3)).$ \end{lemma}
+\begin{proof} By the definition of congruence relation there exists $(a, b, c)\in W$ such that
+\[ (a, b, c) \star (1, 1, 1) = ( g_1^3(b) \cdot g_1^2(a),\ g_2^1(a)^{-1} \cdot g_2^3(c),\ g_3^2(c)^{-1} \cdot g_3^1(b)^{-1}) = (1,1,z). \]
+By the Lemma's assumption there exists $e \in G_{123}$ such that $f_{12}(e) = a$, $f_{23}(e) = c$, hence
+\[ 1 = g_1^3(b) \cdot g_1^2(f_{12}(e)) = g_1^3(b \cdot f_{13}(e)),\ z = g_3^2(f_{23}(e))^{-1} \cdot g_3^1(b)^{-1} = g_3^1(b \cdot f_{13}(e))^{-1}. \qedhere\] \end{proof}
+
 
 \subsection{Initial reductions} \label{subsec:structure-theorem-overview}
 Significant progress towards proving~\cref{thm:horrocks-k2} has already been achieved in~\cite{LS20}.
