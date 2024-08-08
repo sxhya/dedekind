@@ -62,7 +62,7 @@ Steinberg symbols are central elements of $\St(\Phi, R)$.
 Our assumptions on $\Phi$ guarantee that Steinberg symbols are antisymmetric and bimultiplicative, i.\,e. they satisfy the following identities:
 \begin{equation} \label{eq:symbol-properties} \{ u, st \} = \{ u, s\} \{ u, t \}, \ \{ u, v \} = \{ v, u\}^{-1}. \end{equation}
 
-\subsection{Relative Steinberg groups and their presentations} \label{subsec:another-presentation}
+\subsection{Relative Steinberg groups} \label{subsec:another-presentation}
 In this paper we will use also use the concept of a \textit{relative Steinberg group} introduced by F.~Keune and J.-L.~Loday in~\cite{Ke78, Lo78}.
 We will only briefly mention the definition and basic properties of these groups and refer the reader to~\cite[\S~2.3]{LS20} for a more detailed exposition.
 
@@ -116,110 +116,16 @@ Then the intersection of the image of the relative symbol map $\{X, -\}_r$ with 
     Since the right vertical arrow is injective by~\cite[Lemma~2.2]{LS20}, so is the left arrow.
 \end{proof}
 
-Our next goal is to recall an explicit presentation of the relative linear Steinberg group from~\cite{LS17}.
-This presentation is formulated in terms of rows and columns rather than root unipotents and is similar to
- Tulenbaev's presentation of the relative linear Steinberg group from~\cite[Definition~1.5]{Tu83}.
-Unlike Tulenbaev's presentation, however, our presentation applies to the group $\St(\rA_\ell, R, I)$ with $\ell \geq 3$ rather than $4$,
- which will be important in the sequel.
-
-Let $n \geq 4$.
-For $u \in R^n$ we denote by $D(u)$ the subset of $R^n$ consisting of all vectors $v$ which are orthogonal to $u$
-(i.\,e. $u^{t} v = 0$) and have at least two zero entries.
-Recall from 3.2 of~\cite{Ka77} that for every $u, v, w \in R^n$ such that $u^t v = 0$ there
-is a decomposition of $(w^t u) \cdot v$ into a sum of elements of $D(u)$, called \textit{canonical decomposition}:
-\begin{equation}
-    \label{eq:canonical} (w^tu) \cdot v=\sum_{i<j}u_{ij} c_{ij}(v, w),
-\end{equation}
-where $u_{ij} =e_i u_j-e_j u_i \in D(u)$ and $c_{ij}(v, w) =v_i w_j-v_j w_i \in R$.
-
-\begin{lemma}
-    \label{lem:xsmall-properties}
-    Let $v, w \in R^n$ be such that $v^t w = 0$ and assume, moreover, that either $v$ or $w$ has at least one zero entry.
-    Under these assumptions one can define certain element $x(v, w) \in \St(n, R)$ such that $\phi(x(v, w)) = t(v, w) = 1 + vw^t$.
-    The elements $x(v, w)$ enjoy the following properties:
-    \begin{lemlist}
-        \item \label{itm:xsmall-scalar} If $v$ or $w$ has at least two zero entries, then $x(v, wa) = x(va, w)$ for $a\in R$.
-        \item \label{itm:xsmall-additivity} If $w_1$ and $w_2$ have at least two zero entries of which at least one entry is common
-        then $x(v, w_1) \cdot x(v, w_2) = x(v, w_1+w_2)$ and $x(w_1, v) \cdot x(w_2, v) = x(w_1 + w_2, v)$.
-        \item \label{itm:xsmall-commute} If $v$, $v'$ are simultaneously orthogonal to $w$ and $w'$, and the elements $w, w'$ both have at least two zero entries then
-        $[x(v, w),\ x(v', w')] = 1$.
-        \item \label{itm:xsmall-conj} If $g = x_{ij}(\xi)$ is a Steinberg generator and $v$ or $w$ has at least two zero entries then
-        $g \cdot x(v, w) \cdot g^{-1} = x(gv, g^*w)$.
-    \end{lemlist}
-\end{lemma}
-\begin{proof}
-    See~\cite[Lemma~1.1]{Tu83}.
-\end{proof}
-
-Now assume that $I$ is an ideal of a ring $R$ which itself is a subring of a ring $S$.
-We now define two families of elements of $\St(n, R)$.
-\begin{dfn}
-    Let $u \in \Um(n, R)$ and $v \in I^n$ be a vector such that $u^{t}v = 0$.
-    Let $v = \sum_r v_r$ be some decomposition for $v$ into sum of elements $v_r \in D(u) \cap I^n$
-    (under the assumptions on $u$ and $v$ such decomposition always exists, see~\eqref{eq:canonical}).
-
-    Let $d$ be an element of the subgroup $T(n, S)$ of diagonal matrices of $\GL(n, S)$ such that
-    $d^{-1}u \in R^n,\ d \cdot I^n \subseteq R^n.$
-    Under these assumptions we set
-    \begin{equation*}
-        X^d(u, v) \coloneqq \prod_i x(d^{-1}u, dv_i),
-    \end{equation*}
-
-    Not let $d'$ be an element of $T(n, S)$ such that $d' u\in R^n,\ {d'}^{-1} \cdot I^n \subseteq R^n$.
-    Under these assumptions we set
-    \begin{equation*}
-        Y^{d'}(v, u) \coloneqq \prod_i x({d'}^{-1} v_i, {d'}u).
-    \end{equation*}
-\end{dfn}
-
-\begin{lemma}
-    \label{lem:xy-wd}
-    The elements $X^d(u, v)$, $Y^{d'}(u, v)$ are well-defined, i.\,e. they do not depend on the choice of decomposition for $v$.
-\end{lemma}
-\begin{proof}
-    Let $v = \sum_r v^r$ be a decomposition as above.
-    Since each $v^r$ is orthogonal to $u$ we can write the canonical decomposition
-    $v^r = \sum_{i<j} u_{ij} c_{ij}(v^r, w)$, moreover $\sum_{r} c_{ij}(v^r, w) = c_{ij}(v, w)$.
-    Now using~\cref{lem:xsmall-properties} we obtain:
-    \begin{multline*}
-        \prod\limits_r x(d^{-1}u, dv^r) = \prod\limits_{r}\prod\limits_{i<j} x(d^{-1} u, du_{ij}c_{ij}(v^r, w)) =
-        \prod\limits_{i<j} x(d^{-1} u, d u_{ij}c_{ij}(v, w)). \qedhere
-    \end{multline*}
-\end{proof}
-
-\begin{lemma}
-    \label{lem:xy-conj} Suppose that $g = x_{hk}(\xi)$ is a generator of $\St(n, R)$ such that $m = d\phi(g)d^{-1} \in \E(n, R)$, then
-    \begin{equation*}
-        g \cdot X_d(u, v) \cdot g^{-1} = X_d(mu, m^*v) \text{ and } g \cdot Y_d(v, u) \cdot g^{-1} = Y_d(mv, m^*u).
-    \end{equation*}
-\end{lemma}
-\begin{proof}
-    Direct computation using~\cref{lem:xsmall-properties} (cf. with~\cite[3.14]{Ka77} or~\cite[Lemma~4.4d]{LS17}).
-\end{proof}
-
-The following result is the key result of~\cite{LS17}.
-\begin{prop}[\text{\cite[Proposition 3.10]{LS17}}]
-    \label{prop:rel-presentation}
-    Assume that $I$ is a splitting ideal of a commutative ring $R$.
-    Then for any $\ell\geq 3$ the group $\St(\rA_\ell,\,R,\,I)$ can be presented by means of two families of generators $F(u,\,v)$, $S(v,\,u)$
-    (where $u\in \E(n,\,R)e_1,$ and $v\in I^n$ are such that $u^{t}v=0$) subject to the following relations:
-    \begin{align}
-        &F(u,\,v)F(u,\,w)=F(u,\,v+w), \label{add4}\\
-        &S(u,\,v)S(w,\,v)=S(u+w,\,v), \label{add5}\\
-        &F(u,\,v)F(u',\,v')F(u,\,v)^{-1}=F(t(u,\,v)u',\,t(v,\,u)^{-1} v'), \label{conj3} \\
-        &F(me_1,\,m^{*}e_{2}a)=S(me_{1}a,\,m^{*}e_{2}),\ \text{for all $a\in I$,}\, m \in \E(n, R). \label{coef-move}
-    \end{align}
-\end{prop}
-
-We conclude this subsection with a weak analogue of Curtis--Tits theorem which holds for relative Steinberg groups.
+We finish this subsection with a weak analogue of Curtis--Tits decomposition for relative Steinberg groups.
 Let $\Phi$ be an arbitrary simply-laced root system of rank $\geq 3$.
 Consider the subset $A_3(\Phi)$ consisting of all root subsystems of type $\rA_3$ of $\Phi$.
-Recall that the relative Steinberg group $\St(\Phi, R, I)$ is generated by elements $z_\alpha(m, a) = x_\alpha(m)^{x_{-\alpha}(a)}$, $\alpha \in \Phi$, $a \in R$, $m \in I$, see~\textbf{???}.
+Recall that the relative Steinberg group $\St(\Phi, R, I)$ is generated by elements
+ $z_\alpha(m, a) = x_\alpha(m)^{x_{-\alpha}(a)}$, $\alpha \in \Phi$, $a \in R$, $m \in I$, see~\textbf{???}.
 
 Denote by $\widetilde{G}$ the free product of relative Steinberg groups $\St(\Psi, R, I)$, where $\Psi \in A_3(\Phi)$.
 For $\Psi \in A_3(\Phi)$ by $i_\Psi$ the canonical embeddings $\St(\Psi, R, I) \to \widetilde{G}$.
 We denote by $G$ the quotient of $G$ modulo all relations of the form $i_{\Psi_1}(z_\alpha(m, a)) = i_{\Psi_2}(z_\alpha(m, a))$,
- where $\Psi_1, \Psi_2 \in A_3(\Phi)$ both contain a common root $\alpha$, $\alpha \in \Phi$, $a\in R$, $m \in I$.
+where $\Psi_1, \Psi_2 \in A_3(\Phi)$ both contain a common root $\alpha$, $\alpha \in \Phi$, $a\in R$, $m \in I$.
 
 \begin{thm}\label{thm:relPres} The group $\St(\Phi, R, I)$ is isomorphic to $G$ as an abstract group. \end{thm}
 
@@ -299,4 +205,104 @@ Moreover, $\delta(\omega), \delta(-\omega)$ always make the following diagram co
 \St(\Phi, A[X]) \ar[d] & \St(\Phi, A[X]) \ar[d] & \St(\Phi, A[X]) \ar[d] \\
 \St(\Phi, A[X^{\pm 1}]) \ar@<-0.0ex>[r]_{\chi_{\omega, X}} \ar@/_1.5pc/[rr]^{\mathrm{id}} & \St(\Phi, A[X^{\pm 1}]) \ar@<-0.0ex>[r]_{\chi_{-\omega, X}} & \St(\Phi, A[X^{\pm 1}]).} \end{equation}
 The question of existence of an $\omega$-pair is rather complicated and will be addressed in the sequel.
-One of the necessary technical ingredients needed for this is the technique of another presentation, which we recall in detail in the following subsection.
+One of the necessary technical ingredients needed for this is the technique of "another presentation", which we recall in detail in the following subsection.
+
+\subsection{Another presentation of relative linear Steinberg groups}
+The aim of this subsection is to recall a presentation of the relative linear Steinberg group from~\cite{LS17}.
+This presentation is formulated in terms of rows and columns rather than root unipotents and is similar to
+ Tulenbaev's presentation of the relative linear Steinberg group from~\cite[Definition~1.5]{Tu83}.
+Unlike Tulenbaev's presentation, however, our presentation applies to the group $\St(\rA_\ell, R, I)$ with $\ell \geq 3$ rather than $4$,
+which will be important in the sequel.
+
+Let $n \geq 4$.
+For $u \in R^n$ we denote by $D(u)$ the subset of $R^n$ consisting of all vectors $v$ which are orthogonal to $u$
+(i.\,e. $u^{t} v = 0$) and have at least two zero entries.
+Recall from 3.2 of~\cite{Ka77} that for every $u, v, w \in R^n$ such that $u^t v = 0$ there
+is a decomposition of $(w^t u) \cdot v$ into a sum of elements of $D(u)$, called \textit{canonical decomposition}:
+\begin{equation}
+    \label{eq:canonical} (w^tu) \cdot v=\sum_{i<j}u_{ij} c_{ij}(v, w),
+\end{equation}
+where $u_{ij} =e_i u_j-e_j u_i \in D(u)$ and $c_{ij}(v, w) =v_i w_j-v_j w_i \in R$.
+
+\begin{lemma}
+    \label{lem:xsmall-properties}
+    Let $v, w \in R^n$ be such that $v^t w = 0$ and assume, moreover, that either $v$ or $w$ has at least one zero entry.
+    Under these assumptions one can define certain element $x(v, w) \in \St(n, R)$ such that $\phi(x(v, w)) = t(v, w) = 1 + vw^t$.
+    The elements $x(v, w)$ enjoy the following properties:
+    \begin{lemlist}
+        \item \label{itm:xsmall-scalar} If $v$ or $w$ has at least two zero entries, then $x(v, wa) = x(va, w)$ for $a\in R$.
+        \item \label{itm:xsmall-additivity} If $w_1$ and $w_2$ have at least two zero entries of which at least one entry is common
+        then $x(v, w_1) \cdot x(v, w_2) = x(v, w_1+w_2)$ and $x(w_1, v) \cdot x(w_2, v) = x(w_1 + w_2, v)$.
+        \item \label{itm:xsmall-commute} If $v$, $v'$ are simultaneously orthogonal to $w$ and $w'$, and the elements $w, w'$ both have at least two zero entries then
+        $[x(v, w),\ x(v', w')] = 1$.
+        \item \label{itm:xsmall-conj} If $g = x_{ij}(\xi)$ is a Steinberg generator and $v$ or $w$ has at least two zero entries then
+        $g \cdot x(v, w) \cdot g^{-1} = x(gv, g^*w)$.
+    \end{lemlist}
+\end{lemma}
+\begin{proof}
+    See~\cite[Lemma~1.1]{Tu83}.
+\end{proof}
+
+Now assume that $I$ is an ideal of a ring $R$ which itself is a subring of a ring $S$.
+We now define two families of elements of $\St(n, R)$.
+\begin{dfn}
+    Let $u \in \Um(n, R)$ and $v \in I^n$ be a vector such that $u^{t}v = 0$.
+    Let $v = \sum_r v_r$ be some decomposition for $v$ into sum of elements $v_r \in D(u) \cap I^n$
+    (under the assumptions on $u$ and $v$ such decomposition always exists, see~\eqref{eq:canonical}).
+
+    Let $d$ be an element of the subgroup $T(n, S)$ of diagonal matrices of $\GL(n, S)$ such that
+    $d^{-1}u \in R^n,\ d \cdot I^n \subseteq R^n.$
+    Under these assumptions we set
+    \begin{equation*}
+        X^d(u, v) \coloneqq \prod_i x(d^{-1}u, dv_i),
+    \end{equation*}
+
+    Not let $d'$ be an element of $T(n, S)$ such that $d' u\in R^n,\ {d'}^{-1} \cdot I^n \subseteq R^n$.
+    Under these assumptions we set
+    \begin{equation*}
+        Y^{d'}(v, u) \coloneqq \prod_i x({d'}^{-1} v_i, {d'}u).
+    \end{equation*}
+\end{dfn}
+
+\begin{lemma}
+    \label{lem:xy-wd}
+    The elements $X^d(u, v)$, $Y^{d'}(u, v)$ are well-defined, i.\,e. they do not depend on the choice of decomposition for $v$.
+\end{lemma}
+\begin{proof}
+    Let $v = \sum_r v^r$ be a decomposition as above.
+    Since each $v^r$ is orthogonal to $u$ we can write the canonical decomposition
+    $v^r = \sum_{i<j} u_{ij} c_{ij}(v^r, w)$, moreover $\sum_{r} c_{ij}(v^r, w) = c_{ij}(v, w)$.
+    Now using~\cref{lem:xsmall-properties} we obtain:
+    \begin{multline*}
+        \prod\limits_r x(d^{-1}u, dv^r) = \prod\limits_{r}\prod\limits_{i<j} x(d^{-1} u, du_{ij}c_{ij}(v^r, w)) =
+        \prod\limits_{i<j} x(d^{-1} u, d u_{ij}c_{ij}(v, w)). \qedhere
+    \end{multline*}
+\end{proof}
+
+\begin{lemma}
+    \label{lem:xy-conj} Suppose that $g = x_{hk}(\xi)$ is a generator of $\St(n, R)$ such that $m = d\phi(g)d^{-1} \in \E(n, R)$, then
+    \begin{equation*}
+        g \cdot X_d(u, v) \cdot g^{-1} = X_d(mu, m^*v) \text{ and } g \cdot Y_d(v, u) \cdot g^{-1} = Y_d(mv, m^*u).
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Direct computation using~\cref{lem:xsmall-properties} (cf. with~\cite[3.14]{Ka77} or~\cite[Lemma~4.4d]{LS17}).
+\end{proof}
+
+The following proposition is the key result of~\cite{LS17}.
+\begin{prop}[\text{\cite[Proposition 3.10]{LS17}}]
+    \label{prop:rel-presentation}
+    Assume that $I$ is a splitting ideal of a commutative ring $R$.
+    Then for any $\ell\geq 3$ the group $\St(\rA_\ell,\,R,\,I)$ can be presented by means of two families of generators $F(u,\,v)$, $S(v,\,u)$
+    (where $u\in \E(n,\,R)e_1,$ and $v\in I^n$ are such that $u^{t}v=0$) subject to the following relations:
+    \begin{align}
+        &F(u,\,v)F(u,\,w)=F(u,\,v+w), \label{add4}\\
+        &S(u,\,v)S(w,\,v)=S(u+w,\,v), \label{add5}\\
+        &F(u,\,v)F(u',\,v')F(u,\,v)^{-1}=F(t(u,\,v)u',\,t(v,\,u)^{-1} v'), \label{conj3} \\
+        &F(me_1,\,m^{*}e_{2}a)=S(me_{1}a,\,m^{*}e_{2}),\ \text{for all $a\in I$,}\, m \in \E(n, R). \label{coef-move}
+    \end{align}
+\end{prop}
+The above presentation should be thought of as a variant of the presentation of
+ the relative linear Steinberg group $\St(\rA_\ell, R, I)$ defined by M.~Tulenbaev in~\cite[Definition~1.5]{Tu83}
+ (see also~\cite[Proposition~8]{S15} for an explanation why Tulenbaev's relative Steinberg group coincides with
+  the relative linear Steinberg group defined in~\cref{subsec:another-presentation}).
