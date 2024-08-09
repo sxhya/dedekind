@@ -20,18 +20,18 @@ Since our proof of \cref{thm:horrocks-k2} is rather long and technical we will f
 Let $A$ be a local ring with maximal ideal $M$ and residue field $k$.
 Recall that proofs of the Horrocks theorem for $\K_1$ are usually based on the decomposition of the elementary subgroup over Laurent polynomial ring
  called \textit{Suslin's lemma} or \textit{Suslin's structure theorem}, cf.~\cite{Abe83, Su77}, \cite[\S~VI.6]{Lam10}.
-In the linear case this decomposition asserts that the elementary linear group $\E_r(A[X, X\inv]) = \Esc(\rA_{r-1}, A[X, X\inv])$ admits the following group factorization for $r \geq 3$:
+In the linear case this decomposition asserts that the elementary linear group $\E(r, A[X, X\inv]) = \Esc(\rA_{r-1}, A[X, X\inv])$ admits the following group factorization for $r \geq 3$:
 \begin{equation}\label{eq:triple-decomposition}
-\E_r(A[X^{\pm 1}]) = \E_r(A[X]) \cdot B(A[X^{\pm 1}]) \cdot \E_r(A[X^{\pm 1}], M[X^{\pm 1}]).
+\E(r, A[X^{\pm 1}]) = \E(r, A[X]) \cdot B(A[X^{\pm 1}]) \cdot \E(r, A[X^{\pm 1}], M[X^{\pm 1}]).
 \end{equation}
-In the above formula $\E_r(R, I)$ denotes the relative elementary subgroup, i.\,e. the kernel of the canonical reduction homomorphism $\E_r(R) \to \E_r(R/I),$
+In the above formula $\E(r, R, I)$ denotes the relative elementary subgroup, i.\,e. the kernel of the canonical reduction homomorphism $\E(r, R) \to \E(r, R/I),$
  while $B(R)$ denotes the Borel subgroup (i.\,e. the semidirect product of the unipotent radical $\UU(\Phi^+, R)$ and the group of diagonal matrices).
 
 To prove the Suslin's structure theorem one constructs a collection of diagonal automorphisms $\delta_i$, $1\leq i\leq r$
  and shows that the product $V$ of the three subgroups in the right-hand side of~\eqref{eq:triple-decomposition} is stabilized by these automorphisms.
-On the other hand, the product $V$ is clearly stabilized by left translations by elements of $\E_r(A[X])$.
-Since the minimal subgroup of $\E_r(A[X, X\inv])$ that contains the image of $\E_r(A[X])$ and is at the same time invariant with respect to conjugation by all $\delta_i$
- necessarily coincides with all of $\E_r(A[X, X\inv])$, the decomposition~\eqref{eq:triple-decomposition} follows.
+On the other hand, the product $V$ is clearly stabilized by left translations by elements of $\E(r, A[X])$.
+Since the minimal subgroup of $\E(r, A[X, X\inv])$ that contains the image of $\E(r, A[X])$ and is at the same time invariant with respect to conjugation by all $\delta_i$
+ necessarily coincides with all of $\E(r, A[X, X\inv])$, the decomposition~\eqref{eq:triple-decomposition} follows.
 
 Tulenbaev's proof of the Horrocks theorem for $\K_2$ is similar to Suslin's proof of Horrocks theorem for $\K_1$.
 The main difference, however, is that simply proving an analogue of decomposition~\eqref{eq:triple-decomposition} for the Steinberg group $\St(\Phi, A[X, X\inv])$
