@@ -15,32 +15,32 @@ Notice that the orthogonal Horrocks theorem for $\K_2$ \cite[Theorem~1]{LS20} wa
 Thus, the novelty of~\cref{thm:horrocks-k2} consists not only in the fact that it applies to root systems of types $\rD_5$, $\rD_6$, $\rE_6$, $\rE_7$ but also that
  it is proved without the assumption $2 \in A^\times$.
 
-Since our proof of \cref{thm:horrocks-k2} is rather long and technical we will first try to describe the plan of our proof.
+Since our proof of \cref{thm:horrocks-k2} is rather long and technical we will first try to describe its plan.
 
 Let $A$ be a local ring with maximal ideal $M$ and residue field $k$.
 Recall that proofs of the Horrocks theorem for $\K_1$ are usually based on the decomposition of the elementary subgroup over Laurent polynomial ring
  called \textit{Suslin's lemma} or \textit{Suslin's structure theorem}, cf.~\cite{Abe83, Su77}, \cite[\S~VI.6]{Lam10}.
-In the linear case this decomposition asserts that the elementary linear group $\E(r, A[X, X\inv]) = \Esc(\rA_{r-1}, A[X, X\inv])$ admits the following group factorization for $r \geq 3$:
+In the linear case this decomposition asserts that the elementary linear group $\E(n, A[X, X\inv]) = \Esc(\rA_{n-1}, A[X, X\inv])$ admits the following group factorization for $n \geq 3$:
 \begin{equation}\label{eq:triple-decomposition}
-\E(r, A[X^{\pm 1}]) = \E(r, A[X]) \cdot B(A[X^{\pm 1}]) \cdot \E(r, A[X^{\pm 1}], M[X^{\pm 1}]).
+\E(n, A[X^{\pm 1}]) = \E(n, A[X]) \cdot B(A[X^{\pm 1}]) \cdot \E(n, A[X^{\pm 1}], M[X^{\pm 1}]).
 \end{equation}
-In the above formula $\E(r, R, I)$ denotes the relative elementary subgroup, i.\,e. the kernel of the canonical reduction homomorphism $\E(r, R) \to \E(r, R/I),$
+In the above formula $\E(n, R, I)$ denotes the relative elementary subgroup, i.\,e. the kernel of the canonical reduction homomorphism $\E(n, R) \to \E(n, R/I),$
  while $B(R)$ denotes the Borel subgroup (i.\,e. the semidirect product of the unipotent radical $\UU(\Phi^+, R)$ and the group of diagonal matrices).
 
-To prove the Suslin's structure theorem one constructs a collection of diagonal automorphisms $\delta_i$, $1\leq i\leq r$
+To prove the Suslin's structure theorem one constructs a collection of diagonal automorphisms $\delta_i$, $1\leq i\leq n$
  and shows that the product $V$ of the three subgroups in the right-hand side of~\eqref{eq:triple-decomposition} is stabilized by these automorphisms.
-On the other hand, the product $V$ is clearly stabilized by left translations by elements of $\E(r, A[X])$.
-Since the minimal subgroup of $\E(r, A[X, X\inv])$ that contains the image of $\E(r, A[X])$ and is at the same time invariant with respect to conjugation by all $\delta_i$
- necessarily coincides with all of $\E(r, A[X, X\inv])$, the decomposition~\eqref{eq:triple-decomposition} follows.
+On the other hand, the product $V$ is clearly stabilized by left translations by elements of $\E(n, A[X])$.
+Since the minimal subgroup of $\E(n, A[X, X\inv])$ that contains the image of $\E(n, A[X])$ and at the same time is invariant with respect to the conjugation by all $\delta_i$
+  coincides with all of $\E(n, A[X, X\inv])$, the decomposition~\eqref{eq:triple-decomposition} follows.
 
-Tulenbaev's proof of the Horrocks theorem for $\K_2$ is similar to Suslin's proof of Horrocks theorem for $\K_1$.
-The main difference, however, is that simply proving an analogue of decomposition~\eqref{eq:triple-decomposition} for the Steinberg group $\St(\Phi, A[X, X\inv])$
+Tulenbaev's proof of the Horrocks theorem for $\K_2$ is similar to Suslin's proof of the Horrocks theorem for $\K_1$.
+The main difference, however, is that simply proving an factorization of the form~\eqref{eq:triple-decomposition} for the Steinberg group $\St(\Phi, A[X, X\inv])$
  would not be sufficient.
 Instead, one has to prove a much more precise result, namely one has to construct a ``model set'' $V$ for the group $\St(\Phi, A[X, X\inv])$
  out of the same three ingredient groups: $\St(\Phi, A[X])$, Borel subgroup and the relative group $\St(\Phi, A[X^\pm], M[X^\pm])$.
 By a ``model set'' we mean a set upon which $\St(\Phi, A[X, X\inv])$ would act simply-transitively.
 This technique probably dates back to~\cite{ST76}, where it was used to prove the injective stability theorem for $\K_2$, it was also reused
- by M.~Tulenbaev in his proof of Horrocks theorem for $\K_2$ in the linear case, cf.\ Propositions 4.1 and 4.3 in~\cite{Tu83}.
+ by M.~Tulenbaev in his proof of the Horrocks theorem for $\K_2$ in the linear case, cf.\ Propositions 4.1 and 4.3 in~\cite{Tu83}.
 The same technique is also used in the proof of~\cite[Theorem~3]{LS20}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}.
 We will use the same technique for the proof of~\cref{thm:horrocks-k2}, which, by analogy, should be thought of as a generalization of~\cite[Proposition~4.1]{Tu83}.
 
