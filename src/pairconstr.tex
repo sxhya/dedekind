@@ -1,4 +1,4 @@
-\usepackage{mathtools}Throughout this section $\Phi$ denotes a root system of type $\rD_{\geq 5}$, $\rE_6$ or $\rE_7$ and
+Throughout this section $\Phi$ denotes a root system of type $\rD_{\geq 5}$, $\rE_6$ or $\rE_7$ and
  $k$ has the same meaning as in~\cref{subsec:short-presentation}, namely
  it denotes the index of the simple root $\alpha_k$ corresponding to the vertex marked green on the Dynkin diagram from Figure 1.
 The aim of this section is to prove the existence of a $\varpi_k^\vee$-pair in the sense of~\cref{dfn:delta-pair}.
@@ -18,7 +18,7 @@ Recall that the universal property of semidirect products gives for any group $H
 a unique map $f\colon N \rtimes H \to G$ extending $f_N$ and $f_H$.
 
 Applying this universal property to our situation we reduce the problem of constructing $\sigma(\varpi_k^\vee) \colon N_{\varpi_k^\vee} \to N_{-\varpi_k^\vee}$
- to the problems of constructing restrictions $\sigma(\varpi_k^\vee)_{P_k}$ and $\sigma(\varpi_k^\vee)_{N_0}$.
+ to the construction problem for $\sigma(\varpi_k^\vee)_{P_k}$ and $\sigma(\varpi_k^\vee)_{N_0}$.
 Since $P_k = L_k \ltimes U_k$, where $L_k = \mathrm{Im}(\St(\Delta_k, A) \to \St(\Phi, A))$
 and $U_k = \UU(\Sigma_k^+, A)$ we may apply the universal property for the second time and further reduce the problem of constructing $\sigma(\varpi_k^\vee)_{P_k}$
  to the construction of $\sigma(\varpi_k^\vee)_{L_k}$ and $\sigma(\varpi_k^\vee)_{U_k}$.
@@ -26,9 +26,16 @@ The latter two homomorphisms can be constructed directly as follows:
 \[\sigma(\varpi_k^\vee)_{L_k} \coloneqq \mathrm{id}_{L_k},\ \sigma(\varpi_k^\vee)\left(\prod\limits_{\alpha \in \Sigma_k^+} x_\alpha(a_\alpha)\right) \coloneqq \prod\limits_{\alpha \in \Sigma_k^+} x_\alpha(Xa_\alpha).\]
 
 Thus, it remains to construct $\sigma({\varpi_k^\vee})_{N_0}$.
-With this end, we will use the amalgamation theorem \cref{thm:relPres}, which asserts that $N_0$ can be decomposed into the free product of subgroups $\St(\Psi, A[X], XA[X])$,
- where $\Psi$ ranges over all root subsystems of type $\rA_3$ in $\Phi$, amalgamated over embeddings of generator $z_\alpha(Xf(X), g(X))$ into different groups $\St(\Psi, A[X], XA[X])$ whose root system $\Psi$ contains $\alpha$.
-By the universal property of coproducts, thus, we are left with the construction of
+For this purpose, we will use the amalgamation theorem \cref{thm:relPres}, which asserts that $N_0$ can be decomposed into the free product of subgroups $\St(\Psi, A[X], XA[X])$,
+ where $\Psi$ ranges over the set $A_3(\Phi)$ of root subsystems of type $\rA_3$ in $\Phi$, amalgamated over embeddings of generators $z_\alpha(Xf, g)$ into different groups $\St(\Psi, A[X], XA[X])$, whose root system $\Psi \in A_3(\Phi)$ contains $\alpha$.
+Thus, we need to construct $\sigma(\varpi_k^\vee)_\Psi \colon \St(\Psi, A[X], XA[X]) \to N_{-\varpi_k^\vee}$ and then
+  verify that these homomorphisms agree on generators $z_\alpha(Xf, g)$ of different $\St(\Psi, A[X], XA[X])$.
+
+It is clear that for $\Psi \subseteq \Delta_k$ the homomorphism $\sigma(\varpi_k^\vee)_\Psi$ should act identically.
+In this case define $\sigma(\varpi_k^\vee)_\Psi$ to be the canonical map $\St(\Psi, A[X], XA[X]) \to N_{-\varpi_k^\vee}$
+induced by embedding $\Psi \subseteq \Phi$.
+
+Now consider the nontrivial case $\Psi \not\subseteq \Delta_k$.
 
 To simplify notation, throughout this section we set $N_1 = N(\varpi_1^\vee),$ $N^1 = N(-\varpi_1^\vee)$.
 We only construct one of the desired maps from the definition of $\sigma$-pair, namely $\sigma(\varpi_1^\vee) \colon N_1 \to N^1$,
