@@ -20,26 +20,38 @@ a unique map $f\colon N \rtimes H \to G$ extending $f_N$ and $f_H$.
 Applying this universal property to our situation we reduce the problem of constructing $\sigma(\varpi_k^\vee) \colon N_{\varpi_k^\vee} \to N_{-\varpi_k^\vee}$
  to the construction problem for $\sigma(\varpi_k^\vee)_{P_k}$ and $\sigma(\varpi_k^\vee)_{N_0}$.
 Since $P_k = L_k \ltimes U_k$, where $L_k = \mathrm{Im}(\St(\Delta_k, A) \to \St(\Phi, A))$
-and $U_k = \UU(\Sigma_k^+, A)$ we may apply the universal property for the second time and further reduce the problem of constructing $\sigma(\varpi_k^\vee)_{P_k}$
+and $U_k = \UU(\Sigma_k^+, A)$ we may apply the universal property once again and further reduce the problem of constructing $\sigma(\varpi_k^\vee)_{P_k}$
  to the construction of $\sigma(\varpi_k^\vee)_{L_k}$ and $\sigma(\varpi_k^\vee)_{U_k}$.
 The latter two homomorphisms can be constructed directly as follows:
 \[\sigma(\varpi_k^\vee)_{L_k} \coloneqq \mathrm{id}_{L_k},\ \sigma(\varpi_k^\vee)\left(\prod\limits_{\alpha \in \Sigma_k^+} x_\alpha(a_\alpha)\right) \coloneqq \prod\limits_{\alpha \in \Sigma_k^+} x_\alpha(Xa_\alpha).\]
 
 Thus, it remains to construct $\sigma({\varpi_k^\vee})_{N_0}$.
-For this purpose, we will use the amalgamation theorem \cref{thm:relPres}, which asserts that $N_0$ can be decomposed into the free product of subgroups $\St(\Psi, A[X], XA[X])$,
+We will use~\cref{thm:relPres} to reduce this problem to the special case $\Phi = \rA_3$.
+In our situation \cref{thm:relPres} asserts that $N_0$ can be decomposed into the free product of subgroups $\St(\Psi, A[X], XA[X])$,
  where $\Psi$ ranges over the set $A_3(\Phi)$ of root subsystems of type $\rA_3$ in $\Phi$, amalgamated over embeddings of generators $z_\alpha(Xf, g)$ into different groups $\St(\Psi, A[X], XA[X])$, whose root system $\Psi \in A_3(\Phi)$ contains $\alpha$.
-Thus, we need to construct $\sigma(\varpi_k^\vee)_\Psi \colon \St(\Psi, A[X], XA[X]) \to N_{-\varpi_k^\vee}$ and then
+Thus, by the universal property of coproducts it remains to construct $\sigma(\varpi_k^\vee)_\Psi \colon \St(\Psi, A[X], XA[X]) \to N_{-\varpi_k^\vee}$ and then
   verify that these homomorphisms agree on generators $z_\alpha(Xf, g)$ of different $\St(\Psi, A[X], XA[X])$.
 
-It is clear that for $\Psi \subseteq \Delta_k$ the homomorphism $\sigma(\varpi_k^\vee)_\Psi$ should act identically.
-In this case define $\sigma(\varpi_k^\vee)_\Psi$ to be the canonical map $\St(\Psi, A[X], XA[X]) \to N_{-\varpi_k^\vee}$
-induced by embedding $\Psi \subseteq \Phi$.
+In the case $\Psi \subseteq \Delta_k$ the homomorphism $\sigma(\varpi_k^\vee)_\Psi$ should have identical action, so we define it as the canonical map $\St(\Psi, A[X], XA[X]) \to N_{-\varpi_k^\vee}$
+induced by the embedding $\Psi \subseteq \Phi$.
 
 Now consider the nontrivial case $\Psi \not\subseteq \Delta_k$.
+It is clear that there is a unique nonzero coweight $\omega \in P(\Psi^\vee)$ determined by $(\omega, \alpha) = (\varpi_k^\vee, \alpha)$, $\alpha \in \Psi$.
+By definition, the weight $\omega$ is a microweight for $\Psi^\vee$.
+Suppose for a moment that we have an $\omega$-pair $\xymatrix{ \sigma(\omega)\colon N_{\omega, \Psi} \ar[r] & \ar@<-1.0ex>[l] N_{-\omega, \Psi}\colon \sigma(-\omega) }$ for the root system $\Psi\cong \rA_3$.
+The required homomorphisms $\sigma(\varpi_k^\vee)_\Psi$ then can be defined as the postcomposition of $\sigma(\omega)$ with the map $N_{-\omega, \Psi} \to N_{-\varpi_k^\vee, \Phi}$ induced by the embedding $\Psi \subseteq \Phi$.
 
-To simplify notation, throughout this section we set $N_1 = N(\varpi_1^\vee),$ $N^1 = N(-\varpi_1^\vee)$.
-We only construct one of the desired maps from the definition of $\sigma$-pair, namely $\sigma(\varpi_1^\vee) \colon N_1 \to N^1$,
-for shortness we denote it by $\sigma_1$.
+The microweights of the root system $\rA_3$ can be classfied as follows: up to an action of the Weyl group every nontrivial microweight in $\rA_3$ coincides with either $\pm\varepsilon_1$ or $\pm\varepsilon_2$ from~\cref{exm:chi-linear}.
+Thus, it remains for us to construct an $\omega$-pair for the root system $\Phi=\rA_3$ in the special cases $\omega = \epsilon_1, \epsilon_2$.
+
+We claim that the existence of $\sigma(\varepsilon_1)$-pair implies the existence of $\sigma(\varepsilon_2)$-pair.
+Indeed, since $\sigma(\varepsilon_1)$ for $\varepsilon_1 = \varpi_1^\vee$ is defined then so are $\sigma(\varpi_2^\vee)$, $\sigma(-\varpi_2^\vee)$.
+Now the restriction of the homomorphism $\sigma(\varepsilon_2)$ on $\St(\Psi, A[X], XA[X])$ can be defined as the composition of the restriction of $\sigma(\varpi_1^\vee)$ on $\St(\Psi, A[X], XA[X])$ and $\sigma(-\varpi_2^\vee)$.
+It easy to check that these homomorphisms can be composed correctly and that the image is contained in $N_{-\varepsilon_2, \Psi}$.
+To define $\sigma(\varepsilon_2)$ on the whole group $N_{\varepsilon_2, \Psi}$ it remains to use the same trick with semidirect products.
+
+Thus, we are left to prove the existence of $\sigma(\varepsilon_1)$-pair for the root system $\Psi$ of type $\rA_3$.
+Applying the semidirect product trick once again we further reduce the problem to the existence of the restriction of $\sigma(\varepsilon_1)$ to $\St(4, A[X], XA[X])$.
 
 In order to define $\sigma_1$ we will use the description of the subgroup $N_1$ given in terms of ``another presentation''.
 We start with the following simple observation.
