@@ -80,41 +80,40 @@ From now on we assume that the ground ring $A$ is local.
     \end{multline}
 \end{proof}
 
-\begin{cor}
+\begin{cor} \label{cor:a3-microweight}
     For a local ring $A$ and $\Phi = \rA_3$ an $\omega$-pair exists for any microweight $\omega \in P(\Phi^\vee)$.
 \end{cor}
 \begin{proof}
     Up to an action of the Weyl group every nontrivial microweight in $\rA_3$ coincides with either
     $\pm\varpi_1^\vee$ or $\pm\varpi_2^\vee$.
 
-    In \cref{prop:sigma-construction} already have proved the existence of $\sigma(\omega)$ for $\varepsilon_1 = \varpi_1^\vee$ (and hence also for $\varepsilon_2$ from~\cref{exm:chi-linear}).
+    In \cref{prop:sigma-construction} we have proved the existence of $\sigma(\omega)$ for $\varepsilon_1 = \varpi_1^\vee$ (and hence also for $\varepsilon_2$ from~\cref{exm:chi-linear}).
     Let us prove the existence of $\sigma(\varpi_2^\vee)$.
     The restriction of the homomorphism $\sigma(\varpi_2^\vee)$ on $N_0 = \St(4, A[X], XA[X])$ can be defined as the composition of
-     $\sigma(\varepsilon_2)_{N_0}$ and $\sigma(-\varepsilon_1^\vee)$.
+     $\sigma(\varepsilon_2)_{N_0}$ and $\sigma(\varepsilon_1^\vee)$.
     It easy to check that these homomorphisms can be composed correctly and that the image is contained in $N_{-\varpi_2^\vee, \Psi}$.
     To define $\sigma(\varepsilon_2)$ on the whole group $N_{\varepsilon_2, \Psi}$ it remains to use the same argument with semidirect products.
 \end{proof}
 
-Thus, it remains to construct $\sigma({\varpi_k^\vee})_{N_0}$.
-We will use~\cref{thm:relPres} to reduce this problem to the special case $\Phi = \rA_3$.
-In our situation \cref{thm:relPres} asserts that $N_0$ can be decomposed into the free product of subgroups $\St(\Psi, A[X], XA[X])$,
- where $\Psi$ ranges over the set $A_3(\Phi)$ of root subsystems of type $\rA_3$ in $\Phi$, amalgamated over embeddings of generators $z_\alpha(Xf, g)$ into different groups $\St(\Psi, A[X], XA[X])$, whose root system $\Psi \in A_3(\Phi)$ contains $\alpha$.
-Thus, by the universal property of coproducts it remains to construct $\sigma(\varpi_k^\vee)_\Psi \colon \St(\Psi, A[X], XA[X]) \to N_{-\varpi_k^\vee}$ and then
-  verify that these homomorphisms agree on generators $z_\alpha(Xf, g)$ of different $\St(\Psi, A[X], XA[X])$.
+Now we can prove the main result of this subsection.
 
-In the case $\Psi \subseteq \Delta_k$ the homomorphism $\sigma(\varpi_k^\vee)_\Psi$ should have identical action, so we define it as the canonical map $\St(\Psi, A[X], XA[X]) \to N_{-\varpi_k^\vee}$
-induced by the embedding $\Psi \subseteq \Phi$.
+\begin{thm}
+    For root systems $\Phi$ of type $\rD_{\geq 4}$, $\rE_6$ or $\rE_7$ there exists $\sigma(\varpi_k^\vee)$-pair.
+\end{thm}
+\begin{proof}
+    Applying the semidirect product argument once again we reduce the construction problem for $\sigma(\varpi_k^\vee)$ of to the one for $\sigma({\varpi_k^\vee})_{N_0}$.
+    In our situation \cref{thm:relPres} asserts that $N_0 = \St(\Phi, A[X], XA[X])$ can be decomposed into the free product of subgroups $\St(\Psi, A[X], XA[X])$,
+    where $\Psi$ ranges over the set $A_3(\Phi)$ of root subsystems of type $\rA_3$ in $\Phi$, amalgamated over embeddings of generators $z_\alpha(Xf, g)$ into different groups $\St(\Psi, A[X], XA[X])$, whose root system $\Psi \in A_3(\Phi)$ contains $\alpha$.
+    Thus, by the universal property of coproducts it remains to construct $\sigma(\varpi_k^\vee)_\Psi \colon \St(\Psi, A[X], XA[X]) \to N_{-\varpi_k^\vee}$ and then
+    verify that these homomorphisms agree on generators $z_\alpha(Xf, g)$ of different $\St(\Psi, A[X], XA[X])$.
 
-Now consider the nontrivial case $\Psi \not\subseteq \Delta_k$.
-It is clear that there is a unique nonzero coweight $\omega \in P(\Psi^\vee)$ determined by $(\omega, \alpha) = (\varpi_k^\vee, \alpha)$, $\alpha \in \Psi$.
-By definition, the weight $\omega$ is a microweight for $\Psi^\vee$.
-Suppose for a moment that we have an $\omega$-pair $\xymatrix{ \sigma(\omega)\colon N_{\omega, \Psi} \ar[r] & \ar@<-1.0ex>[l] N_{-\omega, \Psi}\colon \sigma(-\omega) }$ for the root system $\Psi\cong \rA_3$.
-The required homomorphisms $\sigma(\varpi_k^\vee)_\Psi$ then can be defined as the postcomposition of $\sigma(\omega)$ with the map $N_{-\omega, \Psi} \to N_{-\varpi_k^\vee, \Phi}$ induced by the embedding $\Psi \subseteq \Phi$.
+    In the case $\Psi \subseteq \Delta_k$ the homomorphism $\sigma(\varpi_k^\vee)_\Psi$ should have identical action, so we define it as the canonical map $\St(\Psi, A[X], XA[X]) \to N_{-\varpi_k^\vee}$
+    induced by the embedding $\Psi \subseteq \Phi$.
 
-Thus, it remains for us to construct an $\omega$-pair for the root system $\Phi=\rA_3$ in the special cases $\omega = \epsilon_1, \epsilon_2$.
-
-We claim that the existence of $\sigma(\varepsilon_1)$-pair implies the existence of $\sigma(\varepsilon_2)$-pair.
-
-
-It is not hard to verify that the condition~\eqref{eq:coherence-condition} is satisfied with these definitions,
-therefore, we have also completed the construction of the map $\sigma_1$.
+    Now consider the nontrivial case $\Psi \not\subseteq \Delta_k$.
+    It is clear that there is a unique nonzero coweight $\omega \in P(\Psi^\vee)$ determined by $(\omega, \alpha) = (\varpi_k^\vee, \alpha)$, $\alpha \in \Psi$.
+    By definition, the weight $\omega$ is a microweight for $\Psi^\vee$.
+    By~\cref{cor:a3-microweight} there exists an $\omega$-pair $\xymatrix{ \sigma(\omega)\colon N_{\omega, \Psi} \ar[r] & \ar@<-1.0ex>[l] N_{-\omega, \Psi}\colon \sigma(-\omega) }$.
+    The required homomorphisms $\sigma(\varpi_k^\vee)_\Psi$ now can be defined as the postcomposition of $\sigma(\omega)$ with the map $N_{-\omega, \Psi} \to N_{-\varpi_k^\vee, \Phi}$ induced by the embedding $\Psi \subseteq \Phi$.
+    The fact that $\sigma(\varpi_k^\vee)_\Psi(z_\alpha(Xf, g))$ does not depend on $\Psi$ is obvious from the construction of $\sigma(\varpi_k^\vee)_\Psi$.
+\end{proof}
