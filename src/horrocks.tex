@@ -217,18 +217,26 @@ The following lemma provides the second key reduction in the proof of Horrocks t
 \input{pairconstr}
 
 \subsection{Construction of the action of $\St(\Phi, A[X, X\inv])$ on $V$} \label{sec:construction-delta}
-Recall that \[V = G^+ \times B \times G_M,\ W = U^+ \times G_M^+ \times B_M\]
-and that $W$ acts upon $V$ via $\star$.
-Denote by $V_\omega$ the subset of $V$ consisting of those triples $v = (x, y, z)$ for which $x \in N(\omega)\cdot \StW(\Phi, A)$.
 
+Recall from \cref{subsec:structure-theorem-overview} that \[V = G^+ \times B \times G_M,\ W = U^+ \times G_M^+ \times B_M\]
+and that $W$ acts upon $V$ via $\star$-action defined in~\cref{subsec:triples}.
+
+For a coweight $\omega \in P(\Phi^\vee)$ denote by $V_\omega$ the subset of $V$ consisting of those triples $v = (x, y, z)$ for which $x \in N_\omega\cdot \StW(\Phi, A)$.
+Throughout this section we assume that $\Phi$ is a root system of type $\rD_{\geq 4}$, $\rE_6$ or $\rE_7$
+ and $\omega = \pm \varpi_k^\vee$, where $k$ is the same as in the statement of \cref{thm:pairconstr}.
 
 \begin{dfn} \label{sigma-def}
-  Define a function $\sigma(\omega) \colon V_\omega \to V_{-\omega}$ via the following formula:
-  \begin{equation} \label{eq:sigma-def} \sigma(\omega)(x_1 \cdot x_2, y, z) \mapsto (\delta(\omega)(x_1)\cdot x_2, x_2^{-1} \cdot \chi_{\omega, X}(x_2 \cdot y), \widetilde{\chi}(\omega, X)(z)), \end{equation}
+  We define the function $\delta_\omega \colon V_\omega \to V_{-\omega}$ via the following formula:
+  \begin{equation} \label{eq:sigma-def} \delta(\omega)(x_1 \cdot x_2, y, z) \mapsto (\sigma(\omega)(x_1)\cdot x_2, x_2^{-1} \cdot \chi_{\omega, X}(x_2 \cdot y), \widetilde{\chi}_{\omega, X}(z)), \end{equation}
   where $x_1 \in N(\omega)$, $x_2 \in \StW(\Phi, A)$,  $y \in B$, $z \in G_M$.
-
-  By~\cref{lem:winv-chiw} the factor $x_2^{-1} \cdot \chi_{\omega, X}(x_2)$ lies in $\StH(\Phi, A[X^{\pm 1}])$, so the second component of the above triple belongs to $B$. At this point, it is not immediately clear why the above definition does not depend on the choice of decomposition $x = x_1 \cdot x_2$.
 \end{dfn}
+
+In the above definition homomorphisms $\chi_{\omega, X}$ and $\widetilde{\chi}_{\omega, X}$ were defined in~\cref{subsec:weight-automorphisms},
+ while $\sigma(\omega)$ has been constructed in~\cref{thm:pairconstr}.
+
+By~\cref{lem:winv-chiw} the factor $x_2^{-1} \cdot \chi_{\omega, X}(x_2)$ lies in $\StH(\Phi, A[X^{\pm 1}])$,
+ so the second component of the above triple belongs to $B$.
+At this point, it is not immediately clear why the above definition does not depend on the choice of decomposition $x = x_1 \cdot x_2$.
 
 
 Set $\Delta = \Delta_k$ (the symmetric subset of $\Phi$ consisting of $\alpha$ with $m_k(\alpha)=0$). Recall that the coset set $W(\Delta) \setminus W(\Phi)$ is in one-to-one correspondence with $\Lambda$ (the set of minuscule weights of the representation $\pi$ with highest weight $\varpi_k^\vee$). For each minuscule weight $\lambda \in \Lambda = W(\Phi)\cdot \varpi_k$ we choose a representative $w_\lambda \in W(\Phi)$ a representative for the coset $W(\Delta) w_\lambda$.

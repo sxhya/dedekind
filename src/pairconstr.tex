@@ -1,8 +1,7 @@
-Throughout this section $\Phi$ denotes a simply laced root system of rank $\geq 3$.
-We also reserve letter $k$ for the index of the simple root $\alpha_k$, whose coweight $\varpi_k^\vee$ is a microweight.
-This notation agrees with~\cref{subsec:curtis-tits}, where $k$ was used to denote of index the vertex marked green on the Dynkin diagram from Figure 1.
-If $\Phi = \rA_\ell$ the number $k$ can any number between $1$ and $\ell$ since any coweight $\varpi_k^\vee$ would be a microweight.
-The aim of this section is to prove the existence of a $\varpi_k^\vee$-pair for $\Phi$ in the sense of~\cref{dfn:delta-pair} under the additional assumption that $A$ is a local ring.
+Throughout this section $\Phi$ denotes a simply laced root system of rank $\geq 3$ and $k$ is the index of
+ a simple root $\alpha_k$ such that the corresponding coweight $\varpi_k^\vee$ is a microweight.
+The aim of this section is to prove the existence of a $\varpi_k^\vee$-pair for $\Phi$ in the sense of~\cref{dfn:delta-pair}
+ under the additional assumption that $A$ is a local ring.
 
 First of all, recall that the ideal $XA[X]$ is a splitting ideal of $A[X]$, therefore
 $\St(\Phi, A[X])$ decomposes as $\St(\Phi, A[X], XA[X]) \rtimes \St(\Phi, A)$.
@@ -92,13 +91,15 @@ From now on we assume that the ground ring $A$ is local.
     The restriction of the homomorphism $\sigma(\varpi_2^\vee)$ on $N_0 = \St(4, A[X], XA[X])$ can be defined as the composition of
      $\sigma(\varepsilon_2)_{N_0}$ and $\sigma(\varepsilon_1^\vee)$.
     It easy to check that these homomorphisms can be composed correctly and that the image is contained in $N_{-\varpi_2^\vee, \Psi}$.
-    To define $\sigma(\varepsilon_2)$ on the whole group $N_{\varepsilon_2, \Psi}$ it remains to use the same argument with semidirect products.
+    To define $\sigma(\varepsilon_2)$ on the whole group $N_{\varepsilon_2, \Psi}$ it remains to use the above argument with semidirect products.
 \end{proof}
 
 Now we can prove the main result of this subsection.
-
-\begin{thm}
-    For root systems $\Phi$ of type $\rD_{\geq 4}$, $\rE_6$ or $\rE_7$ there exists $\sigma(\varpi_k^\vee)$-pair.
+\begin{thm} \label{thm:pairconstr}
+    Let $\Phi$ be a root system of type $\rD_{\geq 4}$, $\rE_6$ or $\rE_7$.
+    Denote by $k$ the index of the simple root $\alpha_k$, whose coweight $\varpi_k^\vee$ is a microweight
+     ($k$ is the index of the vertex marked green on the Dynkin diagram from Figure 1 in~\cref{subsec:curtis-tits}).
+    Then there exists a $\varpi_k^\vee$-pair.
 \end{thm}
 \begin{proof}
     Applying the semidirect product argument once again we reduce the construction problem for $\sigma(\varpi_k^\vee)$ of to the one for $\sigma({\varpi_k^\vee})_{N_0}$.
