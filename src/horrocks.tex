@@ -292,7 +292,7 @@ The first step towards achieving this is the following
  The first two factors in the above decomposition are contained in $N_\omega$, so the assertion follows from the definition of $\star$.
 \end{proof}
 
-
+\begin{comment}
 \begin{lemma} \label{h-computation} Set $ x = w_{\lambda, u} = w_{\alpha'}(u) \cdot [w_{\alpha''}(1) \cdot w_{\alpha'''}(1)]$ for some $\alpha', \alpha'', \alpha''' \in \Sigma_k$ (or $x = h_{\alpha'}(u)$ if $\lambda = \varpi_k$). We claim that:
  \begin{equation*} h_{\alpha'}(1+m)^{x^{-1} \cdot \chi_{\varpi_k, X}(x)} = \left\{\begin{array}{ll} h_{\alpha'}(1+m) & \text{if $\lambda = \varpi_k$,}\\ \{X^2, 1+m\} \cdot h_{\alpha'}(1+m) & \text{otherwise.}\end{array}\right. \end{equation*}
 \end{lemma}
@@ -311,7 +311,7 @@ Now suppose that $x = w_{\alpha'}(u)\cdot w_{\alpha''}(1)$. Using the already es
 Here we use the fact that $\alpha' \neq \alpha''$.
 Similar computation also applies in the case when $w_{\lambda, u}$ is a product of three Weyl elements.
 \end{proof}
-
+\end{comment}
 
 \begin{prop}
  For every $w \in W$, $v \in V_\omega$ such that $v' = w \star v \in V_\omega$ there exists $w' \in W$ such that
@@ -332,15 +332,16 @@ Similar computation also applies in the case when $w_{\lambda, u}$ is a product 
  %Again, without loss of generality we may assume $w_{\lambda, u} = w_{\alpha'}(u) \cdot [ w_{\alpha''}(1) \cdot w_{\alpha'''}(1)]$.
  Set $m = 1 - u/u' \in M$.
  Since $\K_2(\Phi, A) \subseteq \StW(\Delta_k, A)$ it follows from Chevalley--Matsumoto decomposition that
-  $x_2 = x_2' \cdot c \cdot h_{\alpha'}(1 + m)$ for some $c \in \StW(\Delta_k, A)$ and $\alpha' \in \Sigma_k$.
+  $x_2 = x_2' \cdot c \cdot h_{\alpha}(1 + m)$ for some $c \in \StW(\Delta_k, A)$ and $\alpha \in \Sigma_k$.
 
 Set $\epsilon = 1$ if $\lambda\neq \varpi_k$, otherwise set $\epsilon = -1$.
-From~\eqref{eq:chi-h},~\cref{lem:delta-k2-trivial} and~\cref{h-computation} we obtain that
+ By~\cref{lem:winv-chiw} $\chi_{\omega, X}$ acts identically on $\StW(\Delta_k, A)$, consequently we obtain from~\eqref{eq:chi-h} that
 \begin{multline*}\label{eq:central-term}
  {x_2}^{-1} \cdot \chi_{\omega, X}(x_2) =
-    {x_2'}^{-1} \cdot h_{\alpha'}^{-1}(1 + m) \cdot c^{-1} \cdot \chi_{\omega, X}(c \cdot h_{\alpha'}(1 + m) \cdot x_2') =
+    {x_2'}^{-1} \cdot h_{\alpha}^{-1}(1 + m) \cdot c^{-1} \cdot \chi_{\omega, X}(c \cdot h_{\alpha}(1 + m) \cdot x_2') = \\
+    = {x_2'}^{-1} \cdot h_{\alpha}^{-1}(1 + m) \cdot \chi_{\omega, X}(h_{\alpha}(1 + m) \cdot x_2') = \{X, 1+m\} \cdot {x_2'}^{-1} \chi_{\omega, X}(x_2').
 \end{multline*}
- $\{1+m, X^\epsilon\} \cdot \bigl({x_2'}^{-1} \cdot \chi(\omega, x_2')\bigr)$
+ %$\{1+m, X^\epsilon\} \cdot \bigl({x_2'}^{-1} \cdot \chi(\omega, x_2')\bigr)$
 while from~\eqref{eq:x-xprime} and \cref{delta-weyl} we get that
 $\pi(b) \cdot a \cdot h_{\alpha'}(1 + m) \in N(\omega')$ for $\omega' = w_\lambda^{-1} \cdot \omega$. By~\cref{lem:q} we can find $q \in \UU(\Phi^+, M[X])$ such that $a q^{-1}$ and the image of $b' = q \cdot b^a \cdot h_{\alpha'}(1+m) \in \St(\Phi, A[X], M[X])$ under $\pi$ both belong to $N(\omega')$.
 
