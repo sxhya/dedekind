@@ -292,27 +292,6 @@ The first step towards achieving this is the following
  The first two factors in the above decomposition are contained in $N_\omega$, so the assertion follows from the definition of $\star$.
 \end{proof}
 
-\begin{comment}
-\begin{lemma} \label{h-computation} Set $ x = w_{\lambda, u} = w_{\alpha'}(u) \cdot [w_{\alpha''}(1) \cdot w_{\alpha'''}(1)]$ for some $\alpha', \alpha'', \alpha''' \in \Sigma_k$ (or $x = h_{\alpha'}(u)$ if $\lambda = \varpi_k$). We claim that:
- \begin{equation*} h_{\alpha'}(1+m)^{x^{-1} \cdot \chi_{\varpi_k, X}(x)} = \left\{\begin{array}{ll} h_{\alpha'}(1+m) & \text{if $\lambda = \varpi_k$,}\\ \{X^2, 1+m\} \cdot h_{\alpha'}(1+m) & \text{otherwise.}\end{array}\right. \end{equation*}
-\end{lemma}
-\begin{proof}
-In the case $\lambda = \varpi_k$ it is clear that $x^{-1} \cdot \chi_{\varpi_k, X}(x) \in \K_2(\Phi, A[X^{\pm 1}])$, so the assertion of the lemma is clear in this case.
-
-
-Now suppose that $\lambda \neq \varpi_k$. We claim that $x^{-1} \cdot \widetilde{\chi}_{\omega, X}(x) \equiv h_{\alpha'}^{-1}(X)$ modulo $\K_2(\Phi, A[X^{\pm 1}])$. It is clear that lemma's assertion would follow from this.
-
-
-We already know from~\cref{lem:winv-chiw} that
-\[x_2^{-1} \cdot \widetilde{\chi}_{\omega, X}(x_2) \equiv w_{\alpha'}(u)^{-1} \cdot \widetilde{\chi}_{\omega, X}(w_{\alpha'}(u)) \equiv h_{\alpha'}^{-1}(X). \]
-Now suppose that $x = w_{\alpha'}(u)\cdot w_{\alpha''}(1)$. Using the already established case we obtain that
-\begin{multline*} x^{-1} \cdot \chi_{\omega, X}(x) \equiv w_{\alpha''}^{-1}(1) \cdot h_{\alpha'}^{-1}(X) \cdot \chi_{\omega, X}(w_{\alpha''}(1)) \equiv \\
-\equiv h_{\alpha'}^{-1}(X) \cdot w_{\alpha''}^{-1}(X) \cdot \chi_{\omega, X}(w_{\alpha''}(1)) \equiv h_\alpha^{-1}(X). \end{multline*}
-Here we use the fact that $\alpha' \neq \alpha''$.
-Similar computation also applies in the case when $w_{\lambda, u}$ is a product of three Weyl elements.
-\end{proof}
-\end{comment}
-
 \begin{prop}
  For every $w \in W$, $v \in V_\omega$ such that $v' = w \star v \in V_\omega$ there exists $w' \in W$ such that
   $\delta_\omega(w \star v) = w' \star \delta_\omega(v)$.
@@ -332,24 +311,23 @@ Similar computation also applies in the case when $w_{\lambda, u}$ is a product 
  %Again, without loss of generality we may assume $w_{\lambda, u} = w_{\alpha'}(u) \cdot [ w_{\alpha''}(1) \cdot w_{\alpha'''}(1)]$.
  Set $m = 1 - u/u' \in M$.
  Since $\K_2(\Phi, A) \subseteq \StW(\Delta_k, A)$ it follows from Chevalley--Matsumoto decomposition that
-  $x_2 = x_2' \cdot c \cdot h_{\alpha}(1 + m)$ for some $c \in \StW(\Delta_k, A)$ and $\alpha \in \Sigma_k$.
-
-Set $\epsilon = 1$ if $\lambda\neq \varpi_k$, otherwise set $\epsilon = -1$.
+  $x_2 = c \cdot h_{\alpha}(1 + m) \cdot x_2'$ for some $c \in \StW(\Delta_k, A)$ and $\alpha \in \Sigma_k$.
+ %Set $\epsilon = 1$ if $\lambda\neq \varpi_k$, otherwise set $\epsilon = -1$.
  By~\cref{lem:winv-chiw} $\chi_{\omega, X}$ acts identically on $\StW(\Delta_k, A)$, consequently we obtain from~\eqref{eq:chi-h} that
 \begin{multline*}\label{eq:central-term}
  {x_2}^{-1} \cdot \chi_{\omega, X}(x_2) =
     {x_2'}^{-1} \cdot h_{\alpha}^{-1}(1 + m) \cdot c^{-1} \cdot \chi_{\omega, X}(c \cdot h_{\alpha}(1 + m) \cdot x_2') = \\
     = {x_2'}^{-1} \cdot h_{\alpha}^{-1}(1 + m) \cdot \chi_{\omega, X}(h_{\alpha}(1 + m) \cdot x_2') = \{X, 1+m\} \cdot {x_2'}^{-1} \chi_{\omega, X}(x_2').
 \end{multline*}
- %$\{1+m, X^\epsilon\} \cdot \bigl({x_2'}^{-1} \cdot \chi(\omega, x_2')\bigr)$
-while from~\eqref{eq:x-xprime} and \cref{delta-weyl} we get that
-$\pi(b) \cdot a \cdot h_{\alpha'}(1 + m) \in N(\omega')$ for $\omega' = w_\lambda^{-1} \cdot \omega$. By~\cref{lem:q} we can find $q \in \UU(\Phi^+, M[X])$ such that $a q^{-1}$ and the image of $b' = q \cdot b^a \cdot h_{\alpha'}(1+m) \in \St(\Phi, A[X], M[X])$ under $\pi$ both belong to $N(\omega')$.
-
+ Since $\StW(\Delta_k, A) \subseteq N_\omega$ we obtain that from~\eqref{eq:x-xprime} that
+ \begin{equation} h_{\alpha}(1 + m) \cdot x_2' \cdot \mu(b) \cdot a \cdot {x_2'}^{-1} \in N_\omega. \end{equation}
+ Projecting this equality into $\St(\Phi, \kappa[x])$ we conclude that $\overline{x_2'} \overline{a} \overline{x_2'}^{-1}$ stabilizes the highest weight vector $v^+$.
+ Consequently, there exists $q \in \UU(\Phi^+, M[X])$ such that $a' = x_2' \cdot q \cdot a \cdot {x_2'}^{-1}$ and $b' = h_\alpha(1 + m) \cdot x_2' \cdot \mu(b) \cdot q^{-1} x_2'^{-1}$ both stabilize the highest weight vector $v^+$ and hence both belong to $N_\omega$.
 
 \begin{multline} \label{eq:computation1}
- \sigma(\omega)(x_1'x_2', y', z') =
- \bigl(\delta_\omega(x_1') \cdot x_2',\, x_2'^{-1}\cdot \chi_{\omega, X}(x_2' y'),\, \chi_{\omega, X}(z')\bigr) = \\
- = \bigl(\delta_\omega(x_1) \cdot \delta_\omega(x_2 \pi(b) a {x_2'}^{-1}) \cdot x_2',\, \{X^\epsilon, 1+m\} \cdot x_2^{-1}\cdot \chi_{\omega, X}(x_2 y'), \chi_{\omega, X}(z') \bigr) = \\
+ \delta_\omega(x_1'x_2', y', z') =
+ \bigl(\sigma(\omega)(x_1') \cdot x_2',\, x_2'^{-1}\cdot \chi_{\omega, X}(x_2' y'),\, \widetilde{\chi}_{\omega, X}(z')\bigr) = \\
+ = \bigl(\sigma(\omega)(x_1) \cdot \sigma(\omega)(c b') \sigma(\omega)(a') \cdot x_2',\, \{1+m, X\} \cdot x_2^{-1}\cdot \chi_{\omega, X}(x_2 y'), \chi_{\omega, X}(z') \bigr) = \\
  = \bigl(\delta_\omega(x_1) \cdot x_2 \cdot \delta_{\omega'}(aq^{-1}) \cdot \delta_{\omega'}(\pi(b')) \cdot h^{-1}_{\alpha'}(1+m),\, \{X^\epsilon, 1+m\} \cdot x_2^{-1}\cdot \chi_{\omega, X}(x_2 y'), \widetilde{\chi}_{\omega, X}(z') \bigr) = \\
  = (1, 1, \widetilde{\chi}_{\omega', X}(b') \cdot h_{\alpha'}^{-1}(1+m)) \star \\ \star \bigl(\delta_\omega(x_1) \cdot x_2 \cdot \delta_{\omega'}(aq^{-1}),\, \{X^\epsilon, 1+m\} \cdot x_2^{-1}\cdot \chi_{\omega, X}(x_2 y'), \bigl(\widetilde{\chi}_{\omega', X}(b') h^{-1}_{\alpha'}(1+m)\bigr)^{x_2^{-1} \cdot \chi_{\omega, X}(x_2 y')} \widetilde{\chi}_{\omega, X}(z') \bigr).
 \end{multline}
