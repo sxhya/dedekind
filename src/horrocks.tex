@@ -253,8 +253,17 @@ We also denote by $v^+$ the highest weight vector of this representation.
 
 Recall from~\cite[Lemma~6]{V00} that for every $w \in W(\Phi, A)$ there exists a unique $\lambda \in \Lambda$ and $u \in A^\times $ such that
  \begin{equation}\label{eq:w-highestweight} w \cdot v^+ = u v^\lambda. \end{equation}
-Conversely, for every pair $(u, \lambda) \in A^\times \times \Lambda$ there exists some element $w = w_{\lambda, u} \in W(\Phi, A)$ such that~\eqref{eq:w-highestweight} holds.
-\begin{rem} Each $w_{\lambda, u}$ can be chosen to be a product of at most $2$ elements $w_\beta(v)$ for $\beta\in\Sigma_k$ in the cases $\Phi = \rD_\ell, \rE_6$ or $3$ such elements in the case $\Phi = \rE_7$. \end{rem}
+Conversely, we claim that for every pair $(u, \lambda) \in A^\times \times \Lambda$ there exists some element $w_{\lambda, u} \in W(\Phi, A)$ such that
+ the following relations hold:
+ \begin{equation}\label{eq:w-highestweight-2}  w_{\lambda, u} \cdot v^+ = u v^\lambda,\ \ w_{\lambda, u} \cdot v^\lambda = u^{-1} v^+. \end{equation}
+We denote such element by $w_{\lambda, u}$.
+\begin{rem}
+    In the case $\Phi = \rD_\ell, \rE_6$ (respectively, $\Phi = \rE_7$) every such $w_{\lambda, u}$ can be chosen as a product of at most $2$
+     (respectively, $3$) elements $w_{\beta_i}(v)$ for $\beta_i\in\Sigma_k$, where $i\in \{1,2\}$ (respectively, $i\in\{1,2,3\}$) and $\prod v_i = \pm u$ and $\varpi_k + \sum \beta_i = \lambda$.
+    Formulae~\eqref{eq:w-highestweight-2} follow from the description of the action of $w_\beta(v)$ on $V$ given by~\cite[Lemma~6]{V00}.
+    It is also possible to verify using the method of computing structure constants proposed in~\cite[\S2.2]{V00} that formulae~\eqref{eq:w-highestweight-2} hold on the nose and not just up to signs.
+\end{rem}
+
 
 \begin{lemma} \label{lem:can-repr}
   For $\omega = \pm \varpi_k^\vee$ one has \[N_{\omega} \cdot \StW(\Phi, A) = \bigsqcup\limits_{(u, \lambda) \in A^\times \times \Lambda} N_{\omega} \cdot w_{\lambda, u}. \]
@@ -305,11 +314,17 @@ The first step towards achieving this is the following
  Thanks to~\cref{lem:can-repr} we may assume, without loss of generality, that $x_2 = w_{\lambda, u}$, $x_2' = w_{\lambda', u'}$
  for some $u, u' \in A^\times$, $\lambda, \lambda' \in \Lambda$.
 
- Evaluating both sides of~\eqref{eq:x-xprime} at $X=0$ and projecting them to $\St(\Phi, k)$ we obtain the equality
-  $\overline{x_1'}(0) \cdot \overline{x_2'} = \overline{x_1}(0) \cdot \overline{x_2}\cdot \overline{a}(0).$
- Since $x_1(0)$, $x_1'(0)$ and $a$ stabilize the highest weight vector $v^+$ we conclude that $\lambda = \lambda'$ and that $u - u' \in M$.
- %Again, without loss of generality we may assume $w_{\lambda, u} = w_{\alpha'}(u) \cdot [ w_{\alpha''}(1) \cdot w_{\alpha'''}(1)]$.
- Set $m = 1 - u/u' \in M$.
+ Evaluating both sides of~\eqref{eq:x-xprime} at $X=0$ and projecting the equality into $\St(\Phi, \kappa)$ we obtain the equality
+ \begin{equation} \label{eq:sides}
+ \overline{x_2^{-1}} \cdot \overline{x_1^{-1}(0)} \overline{x_1'(0)} \cdot \overline{x_2'} = \overline{a(0)}.
+ \end{equation}
+
+ Notice that the middle factor in the left-hand side of~\eqref{eq:sides} stabilizes the highest-weight vector $v^+$,
+ therefore we can compute the images of the vector $v^{\lambda'}$ under both sides of~\eqref{eq:sides} using~\eqref{eq:w-highestweight-2} as follows:
+ \begin{align} \overline{x_2^{-1}} \cdot \overline{x_1^{-1}(0)} \overline{x_1'(0)} \cdot \overline{x_2'} \cdot v^{\lambda'} = x_2^{-1} \cdot {u'}^{-1} \cdot v^+ &= \overline{u}\overline{u'^{-1}} \cdot v^\lambda, \\
+               \overline{a(0)} \cdot v^{\lambda'} &= v^{\lambda'} + \sum_{\mu > \lambda'} \overline{a_\mu} v^\mu \end{align}
+ for some $a_\mu \in k$.
+ From~\eqref{eq:sides} we conclude that $\lambda = \lambda'$ and that $m = 1 - u/u' \in M$ and that $a_\mu \in M$.
  Since $\K_2(\Phi, A) \subseteq \StW(\Delta_k, A)$ it follows from Chevalley--Matsumoto decomposition that
   $x_2 = c \cdot h_{\alpha}(1 + m) \cdot x_2'$ for some $c \in \StW(\Delta_k, A)$ and $\alpha \in \Sigma_k$.
  %Set $\epsilon = 1$ if $\lambda\neq \varpi_k$, otherwise set $\epsilon = -1$.
