@@ -57,8 +57,8 @@ Obviously, \cref{prop:rel-poly-Laurent} reduces the problem of construction of t
 Here index $k$ has the same meaning as in Figure 1 of~\cref{sec:subsec:curtis-tits}, namely it is the index of the simple root marked green on the extended Dynkin diagram.
 The construction of $\sigma_k$ proceeds as follows:
 \begin{itemize}
-    \item Step 3. First, we have to show the existence of $\varpi_k^\vee$-pair in the sense of~\cref{dfn:delta-pair}.
-                  Firstly, we construct $\varpi_1^\vee$-pair for the root system of type $\rA_3$ using the presentation from~\cref{prop:rel-presentation} for this purpose.
+    \item Step 3. First, we have to show the existence of $\varpi_k$-pair in the sense of~\cref{dfn:delta-pair}.
+                  Firstly, we construct $\varpi_1$-pair for the root system of type $\rA_3$ using the presentation from~\cref{prop:rel-presentation} for this purpose.
                   Next, we use the amalgamation theorem~\cref{thm:relPres} to obtain the general result.
                   This is achieved in~\cref{subsec:construction-sigma}.
     \item Step 4. Finally, we complete the construction of the action of $\St(\Phi, A[X, X\inv])$ on $V$ and verify all the neccessary relations.
@@ -212,7 +212,7 @@ The following lemma provides the second key reduction in the proof of Horrocks t
     Thus, in the linear case the assertion of the lemma remains true without the assumption that $A$ is a domain, cf.~\cite[Lemma~3.1g]{Tu83}.
 \end{rem}
 
-\subsection{Construction of the homomorphism $\sigma(\varpi_k^\vee$)} \label{subsec:construction-sigma}
+\subsection{Construction of the homomorphism $\sigma(\varpi_k$)} \label{subsec:construction-sigma}
 \input{pairconstr}
 
 \subsection{Construction of the action of $\St(\Phi, A[X, X\inv])$ on $V$} \label{sec:construction-delta}
@@ -220,9 +220,9 @@ From now on we assume that $A$ is a local ring.
 Recall from \cref{subsec:structure-theorem-overview} that \[V = G^+ \times B \times G_M,\ W = U^+ \times G_M^+ \times B_M\]
 and that $W$ acts upon $V$ via $\star$-action defined in~\cref{subsec:triples}.
 
-For a coweight $\omega \in P(\Phi^\vee)$ denote by $V_\omega$ the subset of $V$ consisting of those triples $v = (x, y, z)$ for which $x \in N_\omega\cdot \StW(\Phi, A)$.
+For a weight $\omega \in P(\Phi)$ denote by $V_\omega$ the subset of $V$ consisting of those triples $v = (x, y, z)$ for which $x \in N_\omega\cdot \StW(\Phi, A)$.
 Throughout this section we assume that $\Phi$ is a root system of type $\rD_{\geq 4}$, $\rE_6$ or $\rE_7$
- and $\omega = \pm \varpi_k^\vee$, where $k$ is the same as in the statement of \cref{thm:pairconstr}.
+ and $\omega = \pm \varpi_k$, where $k$ is the same as in the statement of \cref{thm:pairconstr}.
 
 \begin{dfn} \label{sigma-def}
   We define the function $\delta_\omega \colon V_\omega \to V_{-\omega}$ via the following formula:
@@ -238,35 +238,32 @@ By~\cref{lem:winv-chiw} the factor $x_2^{-1} \cdot \chi_{\omega, X}(x_2)$ lies i
 At this point, it is not immediately clear why the above definition does not depend on the choice of decomposition $x = x_1 \cdot x_2$.
 
 Denote by $\Lambda$ the set of microweights of $\Phi$.
-Recall that $\Lambda$ coincides with the orbit set $W(\Phi) \cdot \varpi_k^\vee$.
-Since $W(\Delta_k)$ stabilizes $\varpi_k^\vee$ we obtain that the coset set $W(\Phi)/W(\Delta_k)$ is in one-to-one correspondence with $\Lambda$.
-%For each minuscule weight $\lambda \in \Lambda = W(\Phi)\cdot \varpi_k$ we choose a representative $w_\lambda \in W(\Phi)$ a representative for the coset $W(\Delta) w_\lambda$.
-
-%Denote by $w_{\lambda, u}$ an element of the form $\prod w_{\alpha_i}(u_i) \in W(\Phi, A)$ such that $\prod u_i = u$, $\alpha_i \in \Sigma_k$ and $\varpi_k + \sum \alpha_i = \lambda$.
-%{\bf In this sum all $\alpha_i$'s are different!}
-%If $\lambda = \varpi_k$ set $w_{\lambda, \varpi_k}(u) = h_\alpha(u)$ for some $\alpha \in \Sigma_k$.
-%There is a map $\iota \colon W(\Phi) \to W(\Phi, A)$ given by $s_{\alpha_i} \mapsto w_{\alpha_i}(\pm 1)$ (this does not depend on the choice of the set $S = \{s_{\alpha_i}\}_{\alpha_i \in \Pi}$ of simple reflections of $W(\Phi)$, however, it is {\it not} a homomorphism of groups).
+Recall that $\Lambda$ coincides with the orbit set $W(\Phi) \cdot \varpi_k$.
+Since $W(\Delta_k)$ stabilizes $\varpi_k$ we obtain that the coset set $W(\Phi)/W(\Delta_k)$ is in one-to-one correspondence with $\Lambda$.
 
 We denote by $V$ the microweight representation of $\Gsc(\Phi, A)$ with the highest weight $\varpi_k$ (see e.\,g. \cite[\S~2]{Ge17} or \cite[\S~1.1]{V00}).
-This representation has dimension $|\Lambda| $ and we denote by $v^\lambda$ its basis vector corresponding to $\lambda \in \Lambda$.
+This representation has dimension $|\Lambda|$ and we denote by $v^\lambda$ its basis vector corresponding to $\lambda \in \Lambda$.
 We also denote by $v^+$ the highest weight vector of this representation.
 
 Recall from~\cite[Lemma~6]{V00} that for every $w \in W(\Phi, A)$ there exists a unique $\lambda \in \Lambda$ and $u \in A^\times $ such that
- \begin{equation}\label{eq:w-highestweight} w \cdot v^+ = u v^\lambda. \end{equation}
+ \begin{equation}\label{eq:w-highestweight} w \cdot v^\lambda = u^{-1} v^+. \end{equation}
 Conversely, we claim that for every pair $(u, \lambda) \in A^\times \times \Lambda$ there exists some element $w_{\lambda, u} \in W(\Phi, A)$ such that
- the following relations hold:
- \begin{equation}\label{eq:w-highestweight-2}  w_{\lambda, u} \cdot v^+ = u v^\lambda,\ \ w_{\lambda, u} \cdot v^\lambda = u^{-1} v^+. \end{equation}
-We denote such element by $w_{\lambda, u}$.
+ \begin{equation}\label{eq:w-highestweight-2} w_{\lambda, u} \cdot v^\lambda = u^{-1} v^+. \end{equation}
+%We denote such element by $w_{\lambda, u}$.
 \begin{rem}
-    In the case $\Phi = \rD_\ell, \rE_6$ (respectively, $\Phi = \rE_7$) every such $w_{\lambda, u}$ can be chosen as a product of at most $2$
-     (respectively, $3$) elements $w_{\beta_i}(v)$ for $\beta_i\in\Sigma_k$, where $i\in \{1,2\}$ (respectively, $i\in\{1,2,3\}$) and $\prod v_i = \pm u$ and $\varpi_k + \sum \beta_i = \lambda$.
-    Formulae~\eqref{eq:w-highestweight-2} follow from the description of the action of $w_\beta(v)$ on $V$ given by~\cite[Lemma~6]{V00}.
-    It is also possible to verify using the method of computing structure constants proposed in~\cite[\S2.2]{V00} that formulae~\eqref{eq:w-highestweight-2} hold on the nose and not just up to signs.
+    If $\lambda = \varpi_k$ the element $w_{\lambda, u}$ can be chosen as $h_\alpha(u)$ for some $\alpha \in \Sigma_k^-$, $u \in A^\times$.
+    If $\lambda \neq \varpi_k$ the element $w_{\lambda, u}$ can be chosen as a product of \textit{at most} $n$ elements
+     $w_{\beta_i}(v_i)$, $1 \leq i \leq n$, for $\beta_i\in\Sigma_k$ and $\prod v_i = \pm u$ and $\varpi_k + \sum \beta_i = \lambda$ where
+    \begin{itemize}
+        \item $n=2$ if $\Phi = \rD_\ell, \rE_6$,
+        \item $n=3$ if $\Phi = \rE_7$.
+    \end{itemize}
+    Formula~\eqref{eq:w-highestweight-2} follows from the description of the action of $w_\beta(v)$ on $V$ given by~\cite[Lemma~6]{V00}.
 \end{rem}
 
 
 \begin{lemma} \label{lem:can-repr}
-  For $\omega = \pm \varpi_k^\vee$ one has \[N_{\omega} \cdot \StW(\Phi, A) = \bigsqcup\limits_{(u, \lambda) \in A^\times \times \Lambda} N_{\omega} \cdot w_{\lambda, u}. \]
+  For $\omega = \pm \varpi_k$ one has \[N_{\omega} \cdot \StW(\Phi, A) = \bigsqcup\limits_{(u, \lambda) \in A^\times \times \Lambda} N_{\omega} \cdot w_{\lambda, u}. \]
 \end{lemma}
 \begin{proof}
   First of all, observe that the natural homomorphism $\K_2(\Delta_k, A) \to \K_2(\Phi, A)$ is surjective.
@@ -296,7 +293,7 @@ The first step towards achieving this is the following
  For every $v \in V$ there exists $(a, b, 1) \in W$ such that $(a, b, 1) \star v \in V_\omega$.
 \end{lemma}
 \begin{proof}
- Choose system of positive roots $\Phi^+'$ to be either $\Phi^+$ or $\Phi^-$ depending on whether $\omega $ is $\varpi_k^\vee$ or $-\varpi_k^\vee$.
+ Choose system of positive roots $\Phi^+'$ to be either $\Phi^+$ or $\Phi^-$ depending on whether $\omega $ is $\varpi_k$ or $-\varpi_k$.
  From~\cref{lem:bruhat} and the normality of the subgroup $\St(\Phi, A[X], X[A]) \leq G^+$ we obtain that
   \[G^+ = \UU(\Phi^{+}', A)\cdot \St(\Phi, A[X], XA[X]) \cdot \StW(\Phi,A)\cdot \overline{\St}(\Phi, A, M) \cdot\UU(\Phi^+, A).\]
  The first two factors in the above decomposition are contained in $N_\omega$, so the assertion follows from the definition of $\star$.
@@ -307,27 +304,27 @@ The first step towards achieving this is the following
   $\delta_\omega(w \star v) = w' \star \delta_\omega(v)$.
 \end{prop}
 \begin{proof}
- It suffices to consider the case $\omega = \varpi_k^\vee$.
- Suppose that $v' = (x_1' x_2', y', z') = (a, b, 1) \star v$, where $v = (x_1 x_2, y, z)$.
+ It suffices to consider the case $\omega = \varpi_k$.
+ Suppose that $v = (x_1 x_2, y, z) = (a, b, 1) \star v'$, where $v = (x_1' x_2', y', z')$.
  We have that
- \begin{equation}\label{eq:x-xprime} x_1' x_2' = x_1 x_2 \cdot \mu(b) \cdot a  \text{ for some }x_1, x_1' \in N_\omega,\ x_2, x_2' \in \StW(\Phi, A) \end{equation}
+ \begin{equation}\label{eq:x-xprime} x_1 x_2 = x_1' x_2' \cdot \mu(b) \cdot a  \text{ for some }x_1, x_1' \in N_\omega,\ x_2, x_2' \in \StW(\Phi, A) \end{equation}
  and some $a \in \UU(\Phi^+, A[X]),\ b \in \St(\Phi, A[X], M[X])$.
  Thanks to~\cref{lem:can-repr} we may assume, without loss of generality, that $x_2 = w_{\lambda, u}$, $x_2' = w_{\lambda', u'}$
  for some $u, u' \in A^\times$, $\lambda, \lambda' \in \Lambda$.
 
  Evaluating both sides of~\eqref{eq:x-xprime} at $X=0$ and projecting the equality into $\St(\Phi, \kappa)$ we obtain the equality
  \begin{equation} \label{eq:sides}
- \overline{x_2^{-1}} \cdot \overline{x_1^{-1}(0)} \overline{x_1'(0)} \cdot \overline{x_2'} = \overline{a(0)}.
+ \overline{{x_2'}^{-1}} \cdot \overline{{x_1'}^{-1}(0)} \overline{x_1(0)} \cdot \overline{x_2} = \overline{a(0)}.
  \end{equation}
 
  Notice that the middle factor in the left-hand side of~\eqref{eq:sides} stabilizes the highest-weight vector $v^+$,
  therefore we can compute the images of the vector $v^{\lambda'}$ under both sides of~\eqref{eq:sides} using~\eqref{eq:w-highestweight-2} as follows:
- \begin{align} \overline{x_2^{-1}} \cdot \overline{x_1^{-1}(0)} \overline{x_1'(0)} \cdot \overline{x_2'} \cdot v^{\lambda'} = x_2^{-1} \cdot {u'}^{-1} \cdot v^+ &= \overline{u}\overline{u'^{-1}} \cdot v^\lambda, \\
-               \overline{a(0)} \cdot v^{\lambda'} &= v^{\lambda'} + \sum_{\mu > \lambda'} \overline{a_\mu} v^\mu \end{align}
+ \begin{align} \overline{{x_2'}^{-1}} \cdot \overline{{x_1'}^{-1}(0)} \overline{x_1(0)} \cdot \overline{x_2} \cdot v^{\lambda'} = \overline{{x_2'}^{-1}} \cdot \overline{{u}^{-1}} \cdot v^+ &= \overline{u^{-1}}\overline{u'} \cdot v^\lambda, \\
+               \overline{a(0)} \cdot v^{\lambda'} &= v^{\lambda'} + \sum_{\mu > \lambda'} \overline{a_\mu} v^\mu \label{eq:right-side} \end{align}
  for some $a_\mu \in A$.
- From~\eqref{eq:sides} we conclude that $\lambda = \lambda'$ and that $1 - u/u' \in M$ and that $a_\mu \in M$.
- We can find $\alpha \in \Sigma_k$ and $m \in M$ such that the element $x_2' \cdot h_\alpha(1+m) \cdot x_2^{-1}$ stabilizes the highest weight vector and
-  hence belongs to $\StW(\Delta_k, A)$ by the same argument as in the proof of~\cref{lem:can-repr}.
+ Thus, from~\eqref{eq:sides}--\eqref{eq:right-side} we conclude that $\lambda = \lambda'$ and that $1 - u/u' \in M$ and also that $a_\mu \in M$.
+ Using~\cite[Lemma~7]{V00} and~\eqref{eq:w-highestweight-2} we can find $\alpha \in \Sigma_k$ and $m \in M$ such that the element $x_2' \cdot h_\alpha(1+m) \cdot x_2^{-1}$ stabilizes the highest weight vector $v^+$.
+ By the same argument as in the proof of~\cref{lem:can-repr} we obtain that it belongs to $\StW(\Delta_k, A)$.
  Consequently, we can write $x_2 = c \cdot x_2' \cdot h_\alpha(1+m)$ for some $c \in \StW(\Delta_k, A)$.
 
  Since $\chi_{\omega, X}$ acts identically on $\StW(\Delta_k, A)$ (cf. the proof of~\cref{lem:winv-chiw}) we obtain from~\eqref{eq:chi-h} and the commutativity of $\StH(\Phi, A[X, X\inv])$ that
@@ -336,32 +333,21 @@ The first step towards achieving this is the following
    h_{\alpha}^{-1}(1 + m) \cdot {x_2'}^{-1} \cdot c^{-1} \cdot \chi_{\omega, X}(c \cdot x_2' \cdot h_{\alpha}(1 + m)) = \\
     = {x_2'}^{-1} \cdot h_{\alpha}^{-1}(1 + m) \cdot \chi_{\omega, X}(h_{\alpha}(1 + m) \cdot x_2') = \{X, 1+m\} \cdot {x_2'}^{-1} \chi_{\omega, X}(x_2').
 \end{multline*}
- Since $\StW(\Delta_k, A) \subseteq N_\omega$ we obtain that from~\eqref{eq:x-xprime} that
- \begin{equation} h_{\alpha}(1 + m) \cdot x_2' \cdot \mu(b) \cdot a \cdot {x_2'}^{-1} \in N_\omega. \end{equation}
- Projecting this equality into $\St(\Phi, \kappa[x])$ we conclude that $\overline{x_2'} \overline{a} \overline{x_2'}^{-1}$ stabilizes the highest weight vector $v^+$.
- Consequently, there exists $q \in \UU(\Phi^+, M[X])$ such that $a' = x_2' \cdot q \cdot a \cdot {x_2'}^{-1}$ and $b' = h_\alpha(1 + m) \cdot x_2' \cdot \mu(b) \cdot q^{-1} x_2'^{-1}$ both stabilize the highest weight vector $v^+$ and hence both belong to $N_\omega$.
-
-\begin{multline} \label{eq:computation1}
- \delta_\omega(x_1'x_2', y', z') =
- \bigl(\sigma(\omega)(x_1') \cdot x_2',\, x_2'^{-1}\cdot \chi_{\omega, X}(x_2' y'),\, \widetilde{\chi}_{\omega, X}(z')\bigr) = \\
- = \bigl(\sigma(\omega)(x_1) \cdot \sigma(\omega)(c b') \sigma(\omega)(a') \cdot x_2',\, \{1+m, X\} \cdot x_2^{-1}\cdot \chi_{\omega, X}(x_2 y'), \chi_{\omega, X}(z') \bigr) = \\
- = \bigl(\delta_\omega(x_1) \cdot x_2 \cdot \delta_{\omega'}(aq^{-1}) \cdot \delta_{\omega'}(\pi(b')) \cdot h^{-1}_{\alpha'}(1+m),\, \{X^\epsilon, 1+m\} \cdot x_2^{-1}\cdot \chi_{\omega, X}(x_2 y'), \widetilde{\chi}_{\omega, X}(z') \bigr) = \\
- = (1, 1, \widetilde{\chi}_{\omega', X}(b') \cdot h_{\alpha'}^{-1}(1+m)) \star \\ \star \bigl(\delta_\omega(x_1) \cdot x_2 \cdot \delta_{\omega'}(aq^{-1}),\, \{X^\epsilon, 1+m\} \cdot x_2^{-1}\cdot \chi_{\omega, X}(x_2 y'), \bigl(\widetilde{\chi}_{\omega', X}(b') h^{-1}_{\alpha'}(1+m)\bigr)^{x_2^{-1} \cdot \chi_{\omega, X}(x_2 y')} \widetilde{\chi}_{\omega, X}(z') \bigr).
-\end{multline}
+ Also we conclude from all the equalities obtained up to this point that
+ \begin{equation} {}^{x_2'}(a \cdot \mu(b^a) \cdot h_\alpha^{-1}(1+m)) = {x_1'}^{-1} \cdot x_1 \cdot c \in N_\omega. \end{equation}
 
 
-Now let us compute the third coordinate:
-\begin{multline} \bigl(\widetilde{\chi}_{\omega', X}(b') \cdot h^{-1}_{\alpha'}(1+m)\bigr)^{x_2^{-1} \cdot \chi_{\omega, X}(x_2 y')} \widetilde{\chi}_{\omega, X}(z') = \\ =
-\bigl(\widetilde{\chi}_{\omega', X}(q \cdot b^a \cdot h_{\alpha'}(1+m)) \cdot h^{-1}_{\alpha'}(1+m)\bigr)^{x_2^{-1} \cdot \chi_{\omega, X}(x_2 y')} \widetilde{\chi}_{\omega, X}(b^{-y}z) = \text{by~\cref{h-computation}}  \\ = \bigl(\widetilde{\chi}_{\omega, X}((q \cdot b^a \cdot h_{\alpha'}(1+m))^{x_2^{-1}}) \bigr)^{\chi_{\omega, X}(x_2 y')} \cdot h_{\alpha'}(1+m)^{-\chi_{\omega, X}(y')} \cdot \{1 + m, X^{\epsilon + 1} \} \cdot \widetilde{\chi}_{\omega, X}(b^{-y}z) = \\ = \widetilde{\chi}_{\omega, X}\bigl((q \cdot b^a \cdot h_{\alpha'}(1+m))^{y'}\bigr) \cdot \widetilde{\chi}_{\omega, X}\bigl(h_{\alpha'}(1+m)\bigr)^{-\chi_{\omega, X}(y')} \cdot \{1 + m, X^\epsilon \} \cdot \widetilde{\chi}_{\omega, X}(b^{-y}z) = \\ = \{ 1+m, X^\epsilon \} \cdot \widetilde{\chi}_{\omega, X}(q^{y'} \cdot z).
-\end{multline}
+ $ (c^{-1} x_1^{-1} x_1')^{x_2'}  =  h_\alpha(1+m) \cdot a \cdot \mu(b^a) \in (N_\omega)^{x_2'}$
+ $a \mu(b^a) h_\alpha^{-1}(1+m) \in {N_\omega}^{x_2'}$
 
-
-Now recalling that $y' = a ^{-1} y, z' = b^{-y} z$ we can continue~\eqref{eq:computation1} as follows:
 \begin{multline*}
- \bigl(\delta_\omega(x_1) \cdot x_2 \cdot \delta_{\omega'}(aq^{-1}),\, x_2^{-1}\cdot \chi_{\omega, X}(x_2 y'), \widetilde{\chi}_{\omega, X}(q^{y'} z) \bigr) = \\ = (\delta_{\omega'}(qa^{-1}), 1, \chi_{\omega, X}(q^{y'})) \star \bigl(\delta_\omega(x_1) \cdot x_2,\, \cdot \chi_{\omega', X}(aq^{-1}) \cdot x_2^{-1}\cdot \chi_{\omega, X}(x_2 q a^{-1} \cdot y ), \widetilde{\chi}_{\omega, X}(z) \bigr) = \\ = (\ldots) \star (\delta_\omega(x_1) \cdot x_2,\, x_2^{-1} \chi_{\omega, X}(x_2y), \widetilde{\chi}_{\omega, X}(z)) \end{multline*} \end{proof}
+    \delta_{\omega}((a, b, 1) \star (x_1 \cdot x_2, y, z)) = \delta_{\omega}(x_1' x_2', y', z') =
+\end{multline*}
+
+\end{proof}
 
 
- For $w\in W(\Phi)$ denote by $\Stab_{w}$ the algebraic subgroup of $\G_{sc}(\Phi, -)$ consisting of elements stabilizing the vector $\iota(w) \cdot v^+$. It is clear that the resulting subgroup does not depend on the exact choice of $\iota$. Recall that the projection $\varphi \colon \St(\Phi, R) \to \G_{sc}(\Phi, R)$ is always injective on unipotent subgroups. Moreover, it is clear that $N(w \cdot \varpi_k)(0) = \varphi^{-1}(\Stab_w(A[X]))$.
+For $w\in W(\Phi)$ denote by $\Stab_{w}$ the algebraic subgroup of $\G_{sc}(\Phi, -)$ consisting of elements stabilizing the vector $\iota(w) \cdot v^+$. It is clear that the resulting subgroup does not depend on the exact choice of $\iota$. Recall that the projection $\varphi \colon \St(\Phi, R) \to \G_{sc}(\Phi, R)$ is always injective on unipotent subgroups. Moreover, it is clear that $N(w \cdot \varpi_k)(0) = \varphi^{-1}(\Stab_w(A[X]))$.
 
 \begin{lemma} \label{lem:q}
 Let $R$ be a commutative ring, $I$ be an ideal of $R$.
