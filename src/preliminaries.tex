@@ -10,7 +10,7 @@ i.\,e. $\alpha = \sum_{i=1}^n m_i(\alpha) \alpha_i$.
 We denote by $\Phi^+$ (resp. $\Phi^-$) the system of positive (respectively, negative) roots with respect to the basis $\Pi$.
 
 We denote by $\Phi^\vee$ the corresponding dual root system, which, by definition, consists of all coroots $\alpha^\vee = \frac{2}{(\alpha, \alpha)} \alpha$, where $\alpha \in \Phi$.
-We denote by $P(\Phi)$ the integral lattice spanned by the \emph{fundamental weights $\varpi_i$}.
+We denote by $P(\Phi)$ the \textit{weight lattice}, i.\,e. the integral lattice spanned by the \emph{fundamental weights $\varpi_i$}.
 Recall that the fundamental weights $\varpi_i$ are uniquely determined by the property $(\varpi_i, \alpha_j^\vee) = \delta_{ij}$.
 For $v \in \mathbb{R}^\ell$ define the product $\langle v, \beta \rangle \coloneqq (v, \beta^\vee).$
 Clearly, for $\alpha,\beta \in \Phi$ the product $\langle \alpha, \beta\rangle$ is always an integer.
@@ -242,11 +242,12 @@ Moreover, $\sigma(\omega), \sigma(-\omega)$ always make the following diagram co
 \St(\Phi, A[X^{\pm 1}]) \ar@<-0.0ex>[r]_{\chi_{\omega, X}} \ar@/_1.5pc/[rr]^{\mathrm{id}} & \St(\Phi, A[X^{\pm 1}]) \ar@<-0.0ex>[r]_{\chi_{-\omega, X}} & \St(\Phi, A[X^{\pm 1}]).} \end{equation}
 The question of existence of an $\omega$-pair is rather complicated since $N_\omega$ itself is \textit{not} presented by generators and relations
  (it is merely a subgroup of such group) and $\sigma(\pm \omega)$ can \textit{not} be extended to all of $\St(\Phi, A[X])$.
-Thus, to show the existence of $\sigma(\omega)$ in~\cref{subsec:construction-sigma} we will use the explicit presentation of the \textit{relative}
- Steinberg group $\St(\Phi, A[X], XA[X])$ which forms an essential part of the group $N_\omega$.
+In the case when $\omega$ is a \textit{microweight} in order to show the existence of $\sigma(\omega)$ in~\cref{subsec:construction-sigma} one can use
+ the explicit presentation of the \textit{relative} Steinberg group $\St(\Phi, A[X], XA[X])$
+  (which in this case forms an essential part of the group $N_\omega$).
 We will recall such explicit presentation in the next subsection.
 
-Now let $\omega$ be a microweight.
+Now we describe a construction which allows one to construct many $\omega$-pairs once one such pair is constructed.
 Suppose that we already known that an $\omega$-pair exists.
 We claim that $w \cdot \omega$-pair also exists for any $w \in W(\Phi).$
 Indeed, for $g \in N_\omega$, $w \in \StW(\Phi, A)$ we define $\sigma(\overline{w} \cdot \omega)$ via the following identity:

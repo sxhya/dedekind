@@ -1,5 +1,5 @@
 Throughout this section $\Phi$ denotes a simply laced root system of rank $\geq 3$ and $k$ is the index of
- a simple root $\alpha_k$ such that the corresponding coweight $\varpi_k$ is a microweight.
+ a simple root $\alpha_k$ such that the corresponding weight $\varpi_k$ is a microweight.
 The aim of this section is to prove the existence of a $\varpi_k$-pair for $\Phi$ in the sense of~\cref{dfn:delta-pair}
  under the additional assumption that $A$ is a local ring.
 
@@ -19,7 +19,7 @@ a unique map $f\colon N \rtimes H \to G$ extending $f_N$ and $f_H$.
 Applying this universal property to our situation reduces the problem of construction of $\sigma(\varpi_k) \colon N_{\varpi_k} \to N_{-\varpi_k}$
 to the construction problems for $\sigma(\varpi_k)_{P_k}$ and $\sigma(\varpi_k)_{N_0}$.
 Since $P_k = L_k \ltimes U_k^+$, where $L_k = \mathrm{Im}(\St(\Delta_k, A) \to \St(\Phi, A))$
-and $U_k^\pm = \UU(\Sigma_k^\pm, A)$ we may apply the universal property once again and further reduce the construction problem for $\sigma(\varpi_k)_{P_k}$
+and $U_k^\pm = \UU(\Sigma_k^\pm, A)$ we can apply the universal property once again and further reduce the construction problem for $\sigma(\varpi_k)_{P_k}$
 to the problems of defining $\sigma(\varpi_k)_{L_k}$ and $\sigma(\varpi_k)_{U_k}$.
 The latter two homomorphisms now can be defined directly as follows:
 \[\sigma(\varpi_k)_{L_k} \coloneqq \mathrm{id}_{L_k},\ \sigma(\varpi_k)\left(\prod\limits_{\alpha \in \Sigma_k^+} x_\alpha(a_\alpha)\right) \coloneqq \prod\limits_{\alpha \in \Sigma_k^+} x_\alpha(Xa_\alpha).\]
@@ -83,15 +83,18 @@ From now on we assume that the ground ring $A$ is local.
     For a local ring $A$ and $\Phi = \rA_3$ an $\omega$-pair exists for any microweight $\omega \in P(\Phi)$.
 \end{cor}
 \begin{proof}
-    Up to an action of the Weyl group every nontrivial microweight in $\rA_3$ coincides with either
-    $\pm\varpi_1$ or $\pm\varpi_2$.
+    Recall from~\cref{lem:delta-weyl} that it suffices to prove the existence of $\omega$-pair for a representative $\omega$
+     of every orbit of the action of $W(\Phi)$ on the set of microweights of $\Phi$.
 
-    In \cref{prop:sigma-construction} we have proved the existence of $\sigma(\omega)$ for $\varepsilon_1 = \varpi_1$ (and hence also for $\varepsilon_2$ from~\cref{exm:chi-linear}).
+    It is easy to see that up to the action of the Weyl group every nontrivial microweight in $\rA_3$ coincides with either
+    $\pm\varpi_1$, $\pm\varpi_2$ or $\pm\varpi_3$.
+
+    In \cref{prop:sigma-construction} we have proved the existence of $\sigma(\omega)$ for $\varepsilon_1 = \varpi_1$ (and hence also for $\varepsilon_2$ and $\varepsilon_3 = -\varpi_3$ from~\cref{exm:chi-linear}).
     Let us prove the existence of $\sigma(\varpi_2)$.
     The restriction of the homomorphism $\sigma(\varpi_2)$ on $N_0 = \St(4, A[X], XA[X])$ can be defined as the composition of
      $\sigma(\varepsilon_2)_{N_0}$ and $\sigma(\varepsilon_1)$.
     It easy to check that these homomorphisms can be composed correctly and that the image is contained in $N_{-\varpi_2, \Psi}$.
-    To define $\sigma(\varepsilon_2)$ on the whole group $N_{\varepsilon_2, \Psi}$ it remains to use the above argument with semidirect products.
+    To define $\sigma(\varpi_2)$ on the whole group $N_{\varepsilon_2, \Psi}$ it remains to use the above argument with semidirect products.
 \end{proof}
 
 Now we can prove the main result of this subsection.
