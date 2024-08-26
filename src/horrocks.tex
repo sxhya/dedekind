@@ -244,25 +244,41 @@ Since $W(\Delta_k)$ stabilizes $\varpi_k$ we obtain that the coset set $W(\Phi)/
 We denote by $V$ the microweight representation of $\Gsc(\Phi, A)$ with the highest weight $\varpi_k$ (see e.\,g. \cite[\S~2]{Ge17} or \cite[\S~1.1]{V00}).
 This representation has dimension $|\Lambda|$ and we denote by $v^\lambda$ its basis vector corresponding to $\lambda \in \Lambda$.
 We also denote by $v^+$ the highest weight vector of this representation, i.\,e. the basis vector $v^{\varpi_k}$.
-A choice of the system of positive roots specifies a partial order on $\Lambda$ called \textit{dominance order}.
-By definition, $\lambda \geq \mu$ if $\lambda = \mu$ or if $\lambda - \mu$ is a sum of positive roots.
-If $\lambda \geq \mu$ and $\lambda \neq \mu$ we also use the notation $\lambda > \mu$.
+A choice of the system of positive roots specifies a strict partial order on $\Lambda$.
+By definition, $\lambda > \mu$ if $\lambda - \mu$ is a sum of positive roots.
 
-Recall from~\cite[Lemma~6]{V00} that for every $w \in W(\Phi, A)$ there exists a unique $\lambda \in \Lambda$ and $u \in A^\times $ such that
+Recall that for every $w \in W(\Phi, A)$ there exists a unique $\lambda \in \Lambda$ and $u \in A^\times $ such that
  \begin{equation}\label{eq:w-highestweight} w \cdot v^\lambda = u^{-1} v^+. \end{equation}
 Conversely, for every pair $(u, \lambda) \in A^\times \times \Lambda$ there exists some element $w = w_{\lambda, u} \in W(\Phi, A)$ such that~\eqref{eq:w-highestweight} holds.
-\begin{rem}
-    If $\lambda = \varpi_k$ the element $w_{\lambda, u}$ can be chosen as $h_\alpha(u)$ for some $\alpha \in \Sigma_k^+$, $u \in A^\times$, cf.~\cite[Lemma~7]{V00}.
-    If $\lambda \neq \varpi_k$ the element $w_{\lambda, u}$ can be chosen as a product of \textit{at most} $n$ elements
-     $w_{\beta_i}(v_i)$, $1 \leq i \leq n$, for $\beta_i\in\Sigma_k^+$ and $\prod v_i = \pm u$ and $\varpi_k + \sum \beta_i = \lambda$ where
+    If $\lambda = \varpi_k$ the element $w_{\lambda, u}$ can be chosen as $h_\alpha(u)$ for some $\alpha \in \Sigma_k^-$, $u \in A^\times$, cf.~\cite[Lemma~7]{V00}.
+    If $\lambda \neq \varpi_k$ by~\cite[Lemma~6]{V00} the element $w_{\lambda, u}$ can be chosen as a product of \textit{at most} $n$ elements
+     $w_{\beta_i}(v_i)$, $1 \leq i \leq n$, for $\beta_i\in\Sigma_k^-$ such that $\beta_i$ are mutually orthogonal and $\prod v_i = \pm u$ and $\varpi_k + \sum \beta_i = \lambda$ where
     \begin{itemize}
         \item $n=2$ if $\Phi = \rD_\ell, \rE_6$,
         \item $n=3$ if $\Phi = \rE_7$.
     \end{itemize}
     Formula~\eqref{eq:w-highestweight} follows from the description of the action of $w_\beta(v)$ on $V$ given by~\cite[Lemma~6]{V00}.
     It is also clear that $\overline{w_{\lambda, u}} \in W(\Phi)$ swaps weights $\varpi_k$ and $\lambda$.
-\end{rem}
 
+
+\begin{lemma} \label{h-computation} For $x = w_{\lambda, u}$ one has
+ \begin{equation*}
+      h_{\alpha}(1+m)^{x^{-1} \cdot \chi_{\varpi_k, X}(x)} = \left\{\begin{array}{ll} h_{\alpha}(1+m) & \text{if $\lambda = \varpi_k$,}\\
+      \{X^2, 1+m\} \cdot h_{\alpha}(1+m) & \text{otherwise.}\end{array}\right.
+ \end{equation*}
+\end{lemma}
+\begin{proof}
+In the case $\lambda = \varpi_k$ it is clear from~\eqref{eq:chi-h} that $x^{-1} \cdot \chi_{\varpi_k, X}(x) \in \K_2(\Phi, A[X^{\pm 1}])$,
+ so the assertion of the lemma is clear in this case.
+
+Now suppose that $\lambda \neq \varpi_k$.
+From the proof of~\cref{lem:winv-chiw} and the fact that $\beta_i$ are mutually orthogonal we obtain that
+\begin{multline*}
+    x^{-1} \cdot \chi_{\varpi_k, X}(x) =
+     \prod {w_{\beta_i}^{-1}(v_i) \cdot \chi_{\varpi_k, \omega}(w_{\beta_i}(v_i))} =
+     \{ X^{-1}, \prod v_i \} \prod h_{\beta_i}^{-1}(X^{-1}).
+\end{multline*}
+\end{proof}
 
 \begin{lemma} \label{lem:can-repr}
   For $\omega = \pm \varpi_k$ one has \[N_{\omega} \cdot \StW(\Phi, A) = \bigsqcup\limits_{(u, \lambda) \in A^\times \times \Lambda} N_{\omega} \cdot w_{\lambda, u}. \]
