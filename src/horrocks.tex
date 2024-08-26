@@ -327,7 +327,7 @@ Then there exists $q \in \UU(\Phi^+, M)$ such that $\pi(aq)$ lies in $\Stab_{\la
 \end{prop}
 \begin{proof}
  It suffices to consider the case $\omega = \varpi_k$.
- Suppose that $v = (x_1 x_2, y, z) = (a, b, 1) \star v'$, where $v = (x_1' x_2', y', z')$.
+ Suppose that $v = (x_1 x_2, y, z) = (a, b, 1) \star v'$, where $v' = (x_1' x_2', y', z')$.
  We have that
  \begin{equation}\label{eq:x-xprime} x_1 x_2 = x_1' x_2' \cdot \mu(b) \cdot a  \text{ for some }x_1, x_1' \in N_\omega,\ x_2, x_2' \in \StW(\Phi, A) \end{equation}
  and some $a \in \UU(\Phi^+, A[X]),\ b \in \St(\Phi, A[X], M[X])$.
@@ -345,7 +345,8 @@ Then there exists $q \in \UU(\Phi^+, M)$ such that $\pi(aq)$ lies in $\Stab_{\la
                \overline{a(0)} \cdot v^{\lambda'} &= v^{\lambda'} + \sum_{\mu > \lambda'} \overline{a_\mu} v^\mu \label{eq:right-side} \end{align}
  for some $a_\mu \in A$.
  Thus, from~\eqref{eq:sides}--\eqref{eq:right-side} we conclude that $\lambda = \lambda'$ and that $1 - u/u' \in M$ and also that $a_\mu \in M$.
- Using~\cite[Lemma~7]{V00} and~\eqref{eq:w-highestweight} we can find $\alpha \in \Sigma_k$ and $m \in M$ such that the element $x_2' \cdot h_\alpha(1+m) \cdot x_2^{-1}$ stabilizes the highest weight vector $v^+$.
+ Using~\cite[Lemma~7]{V00} and~\eqref{eq:w-highestweight} we can find $\alpha \in \Sigma_k^-$ (if $\lambda \neq \varpi_k$) or $\alpha \in \Sigma^+_k$ (if $\lambda = \varpi_k$)
+  and $m \in M$ such that the element $x_2' \cdot h_\alpha(1+m) \cdot x_2^{-1}$ stabilizes the highest weight vector $v^+$.
  By the same argument as in the proof of~\cref{lem:can-repr} we obtain that it belongs to $\StW(\Delta_k, A)$.
  Consequently, we can write $x_2 = c \cdot x_2' \cdot h_\alpha(1+m)$ for some $c \in \StW(\Delta_k, A)$.
 
@@ -369,8 +370,8 @@ Then there exists $q \in \UU(\Phi^+, M)$ such that $\pi(aq)$ lies in $\Stab_{\la
  Now we let us compute the second coordinate of $\delta_\omega \cdot v$ using \eqref{eq:chi-h} and the fact that
  $\chi_{\omega, X}$ acts identically on $\StW(\Delta_k, A)$.
  \begin{multline*}
- x_2^{-1}\cdot \chi_{X, \omega}(x_2 \cdot y) = x_2^{-1}\chi_{\omega, X}(x_2 \cdot a^{-1} \cdot y') =
- h_{\alpha}^{-1}(1 + m) \cdot {x_2'}^{-1} \cdot c^{-1} \cdot \chi_{\omega, X}(c \cdot x_2' \cdot h_{\alpha}(1 + m) \cdot a^{-1} \cdot y') = \\
+ x_2^{-1}\cdot \chi_{X, \omega}(x_2 \cdot y) = x_2^{-1}\chi_{\omega, X}(x_2 \cdot a^{-1} \cdot y') = \\
+ = h_{\alpha}^{-1}(1 + m) \cdot {x_2'}^{-1} \cdot c^{-1} \cdot \chi_{\omega, X}(c \cdot x_2' \cdot h_{\alpha}(1 + m) \cdot a^{-1} \cdot y') = \\
  = {x_2'}^{-1} \cdot h_{\alpha}^{-1}(1 + m) \cdot \chi_{\omega, X}(h_{\alpha}(1 + m) \cdot x_2' \cdot a^{-1} \cdot y') = \{X, 1+m\} \cdot {x_2'}^{-1} \chi_{\omega, X}(x_2' a^{-1} y').
  \end{multline*}
 
