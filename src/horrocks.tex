@@ -252,7 +252,7 @@ Recall that for every $w \in W(\Phi, A)$ there exists a unique $\lambda \in \Lam
 Conversely, for every pair $(u, \lambda) \in A^\times \times \Lambda$ there exists some element $w = w_{\lambda, u} \in W(\Phi, A)$ such that~\eqref{eq:w-highestweight} holds.
     If $\lambda = \varpi_k$ the element $w_{\lambda, u}$ can be chosen as $h_\alpha(u)$ for some $\alpha \in \Sigma_k^-$, $u \in A^\times$, cf.~\cite[Lemma~7]{V00}.
     If $\lambda \neq \varpi_k$ by~\cite[Lemma~6]{V00} the element $w_{\lambda, u}$ can be chosen as a product of \textit{at most} $n$ elements
-     $w_{\beta_i}(v_i)$, $1 \leq i \leq n$, for $\beta_i\in\Sigma_k^-$ such that $\beta_i$ are mutually orthogonal and $\prod v_i = \pm u$ and $\varpi_k + \sum \beta_i = \lambda$ where
+     $w_{\beta_i}(v_i)$, $1 \leq i \leq n$, for $\beta_i\in\Sigma_k^-$ such that $\beta_i$ are mutually orthogonal and $\prod_i v_i = \pm u$ and $\varpi_k + \sum_i \beta_i = \lambda$ where
     \begin{itemize}
         \item $n=2$ if $\Phi = \rD_\ell, \rE_6$,
         \item $n=3$ if $\Phi = \rE_7$.
@@ -263,8 +263,11 @@ Conversely, for every pair $(u, \lambda) \in A^\times \times \Lambda$ there exis
 
 \begin{lemma} \label{h-computation} For $x = w_{\lambda, u}$ one has
  \begin{equation*}
-      h_{\alpha}(1+m)^{x^{-1} \cdot \chi_{\varpi_k, X}(x)} = \left\{\begin{array}{ll} h_{\alpha}(1+m) & \text{if $\lambda = \varpi_k$,}\\
-      \{X^2, 1+m\} \cdot h_{\alpha}(1+m) & \text{otherwise.}\end{array}\right.
+      h_{\alpha}(1+m)^{x^{-1} \cdot \chi_{\varpi_k, X}(x)} =  \left\{
+       \begin{array}{ll}
+           h_{\alpha}(1+m) & \text{if $\lambda = \varpi_k$,}\\
+           \{X^{-\sum_i\langle \alpha, \beta_i \rangle}, 1+m\} \cdot h_{\alpha}(1+m) & \text{otherwise.}\end{array}
+      \right.
  \end{equation*}
 \end{lemma}
 \begin{proof}
@@ -276,8 +279,10 @@ From the proof of~\cref{lem:winv-chiw} and the fact that $\beta_i$ are mutually 
 \begin{multline*}
     x^{-1} \cdot \chi_{\varpi_k, X}(x) =
      \prod {w_{\beta_i}^{-1}(v_i) \cdot \chi_{\varpi_k, \omega}(w_{\beta_i}(v_i))} =
-     \{ X^{-1}, \prod v_i \} \prod h_{\beta_i}^{-1}(X^{-1}).
+     \{ X^{-1}, \prod_i v_i \} \prod_i h_{\beta_i}^{-1}(X^{-1}).
 \end{multline*}
+    From~\cite[Lemme~5.2(e)]{Ma69} and~\eqref{eq:steinberg} we know that ${}^{h_\beta(v)}h_\alpha(u) = \{v^{\langle \alpha, \beta \rangle}, u\} \cdot h_\alpha(u)$
+     from which the assertion of the lemma follows.
 \end{proof}
 
 \begin{lemma} \label{lem:can-repr}
@@ -301,13 +306,7 @@ Notice that for $g \in \StW(\Delta, A)$ one has $\chi_{\omega, X}(g) = g$ theref
  The right-hand side of~\eqref{eq:sigma-def} does not depend on the choice of decomposition $x = x_1 \cdot x_2$, so $\delta_\omega$ is defined unambigously.
 \end{cor}
 
-%We will also need to compute $x^{-1} \cdot \chi_{\omega, X}(x)$ for the representative $x = h_{\alpha_k}(u)\iota(w_\lambda)$. For simplicity, we may assume $w_\lambda = w_\beta(1)$, $\beta \in \Sigma_k$.
-%\begin{multline} x^{-1} \cdot \chi_{\omega, X}(x) = \{ X, u\} \cdot \iota(w_\lambda)^{-1} \chi_{\omega, X}(w_\lambda) = \\ = \{X, u\} \cdot w_\beta(1)^{-1} w_\beta(X) \end{multline}
-
-Our next goal is to show that the function $\delta_\omega$ gives rise to a well-defined function
- \[\overline{\delta}_\omega \colon V/\sim_W \to V/\sim_W.\]
-The first step towards achieving this is the following
-\begin{lemma}
+\begin{lemma} \label{lem:v-correctness1}
  For every $v \in V$ there exists $(a, b, 1) \in W$ such that $(a, b, 1) \star v \in V_\omega$.
 \end{lemma}
 \begin{proof}
@@ -337,7 +336,7 @@ Then there exists $q \in \UU(\Phi^+, M)$ such that $\pi(aq)$ lies in $\Stab_{\la
      from which the assertion of the lemma follows.
 \end{proof}
 
-\begin{prop}
+\begin{prop} \label{prop:v-correctness2}
  For every $w \in W$, $v \in V_\omega$ such that $v' = w \star v \in V_\omega$ there exists $w' \in W$ such that
   $\delta_\omega(w \star v) = w' \star \delta_\omega(v)$.
 \end{prop}
@@ -391,7 +390,41 @@ Then there exists $q \in \UU(\Phi^+, M)$ such that $\pi(aq)$ lies in $\Stab_{\la
  = {x_2'}^{-1} \cdot h_{\alpha}^{-1}(1 + m) \cdot \chi_{\omega, X}(h_{\alpha}(1 + m) \cdot x_2' \cdot a^{-1} \cdot y') = \{X, 1+m\} \cdot {x_2'}^{-1} \chi_{\omega, X}(x_2' a^{-1} y').
  \end{multline*}
 
+    \textbf{to be continued}
 
  \end{proof}
+
+For $\omega = \om \varpi_k$ the function $\delta_\omega \colon V_{\omega} \to V_{-\omega}$ gives rise to a well-defined function $\overline{\delta}_\omega \colon V/\sim_W \to V/\sim_W.$
+Indeed, by~\cref{lem:v-correctness1} for every $v \in V$ there exists $w \in W$ such that $w \star v \in V_\omega$, therefore
+we can define $\overline{\delta_\omega}(v)$ as the equivalence class of $\delta_{\omega}(w \star v)$.
+By~\cref{prop:v-correctness2} this definition is correct, i.\,e. does not depend on the choice of $w$.
+
+\begin{prop}
+    There is a well-defined action of $\St(\Phi, A[X, X\inv])$ on $V/\sim_W$ compatible with the action of $\St(\Phi, A[X])$.
+\end{prop}
+\begin{proof}
+    Thanks to~\cref{prop:rel-poly-Laurent} it suffices to construct the action of the group $G$ on $V/\sim_W$.
+    Here $V$ denotes the free product of $\langle \sigma \rangle$ and $\St(\Phi, A[X])$ amalgamated over the relations~\eqref{eq:sigma-sigma-plus}--\eqref{eq:sigma-delta}.
+
+    We let the generator $\sigma$ of $G$ act on $V/\sim_W$ via $\delta_{\varpi_k}$.
+    For $\alpha \in \Phi$ we define the translation action of $g \in \St(\Phi, A[X])$ on $V$ via $g \cdot (x, y, z) \coloneqq (gx, y, z)$.
+    It is easy to see that this definition is correct and gives rise to a well-defined action of $\St(\Phi, A[X])$ on $V/\sim_W$.
+
+    Thus, it remains to check that these two actions satisfy the relations~\eqref{eq:sigma-sigma-plus}--\eqref{eq:sigma-delta}.
+    We will only verify this for~\eqref{eq:sigma-sigma-plus}, the argument for other relations is similar.
+    Indeed, for $v = (x_1 \cdot x_2, y, z) \in V_{-\omega_k}$, where $x_1 \in V_{-\varpi_k}$, $x_2 \in \StW(\Phi, A)$, $y \in B$, $z \in G_M$ and $\alpha_k \in \Sigma_k^+$, $f \in A[X]$
+     we obtain from~\eqref{eq:sigmadef} and~\eqref{eq:sigma-def} that
+    \begin{multline*}
+        \overline{\delta_{\varpi_k}} \cdot x_\alpha(f) \cdot \overline{\delta_{-\varpi_k}} \cdot [x_1 \cdot x_2, y, z] = \\
+        = \overline{\delta_{\varpi_k}} \cdot x_\alpha(f) \cdot [\sigma(-\varpi_k)(x_1) \cdot x_2, x_2^{-1} \cdot \chi_{-\varpi_k, X}(x_2 \cdot y), \widetilde{\chi}_{-\varpi_k, X}(z)] = \\
+        = \left[\sigma(\varpi_k)\left(x_{\alpha}(f) \cdot \sigma(-\varpi_k)(x_1)) \cdot x_2, x_2^{-1} \cdot \chi_{\varpi_k, X}\left(x_2 \cdot x_2^{-1} \cdot \chi_{-\varpi_k, X}(x_2 \cdot y)\right), z\right] = \\
+        = [x_\alpha(Xf) \cdot x_1 \cdot x_2, y, z] = x_\alpha(Xf) \cdot [x_1 \cdot x_2, y, z]. \qedhere
+    \end{multline*}
+\end{proof}
+
+Now we are ready to prove the main result of this section.
+\begin{proof}{Proof of~\cref{thm:horrocks-k2}}
+    Blah-blah-blah
+\end{proof}
 
 
