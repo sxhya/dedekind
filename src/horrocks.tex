@@ -192,7 +192,7 @@ The fact that $(g^+_M, h_+)$ is a map of precrossed modules is obvious.
 Thus, we find ourselves in the situation of~\cref{subsec:triples}.
 
 The following lemma provides the second key reduction in the proof of Horrocks theorem.
-\begin{lemma}
+\begin{lemma} \label{lem:second-reduction}
     Suppose that $A$ is a domain.
     Suppose that $V/\sim_W$ admits an action of $G$ such that
       for $g \in G_M$ one has \[ h_M(g) \cdot [1, 1, 1] = [1, 1, g]. \]
@@ -424,7 +424,34 @@ By~\cref{prop:v-correctness2} this definition is correct, i.\,e. does not depend
 
 Now we are ready to prove the main result of this section.
 \begin{proof}{Proof of~\cref{thm:horrocks-k2}}
-    Blah-blah-blah
+
+    Indeed, for $n, m \geq 0$, $f \in M[X]$, $g \in A[X]$, $\beta \in \Sigma_k^-$ we have that
+    \begin{multline*}
+        [1, 1, z] \rightsquigarrow_{\delta_{-\varpi_k}^n}
+        [1, 1, \widetilde{\chi}^n_{-\varpi_k, X}(z)] \rightsquigarrow_{x_{-\beta}(g)}
+        [x_{-\beta}(g), 1, \widetilde{\chi}_{-\varpi_k, X}^n(z)] = \\
+        = [1, x_{-\beta}(g), \widetilde{\chi}^n_{-\varpi_k, X}(z)] \rightsquigarrow_{\delta_{\varpi_k}^{n + m}}
+        [1, x_{-\beta}(X^{-n-m}g), \widetilde{\chi}^m_{\varpi_k, X}(z)] \rightsquigarrow_{ x_{\beta}(f) } \\
+        \rightsquigarrow_{ x_{\beta}(f) } [x_{\beta}(f), x_{-\beta}(X^{-n-m}g), \widetilde{\chi}^m_{\varpi_k, X}(z)] = \\
+        = [1, x_{-\beta}(X^{-n-m}g), x_{\beta}(f)^{x_{-\beta}(X^{-n-m}g)} \widetilde{\chi}^m_{\varpi_k, X}(z)] \rightsquigarrow_{\delta^{n + m}_{-\varpi_k}} \\
+        \rightsquigarrow_{\delta_{-\varpi_k}^{n + m}} [1, x_{-\beta}(g), x_{\beta}(X^{-n-m}f)^{x_{-\beta}(g)} \widetilde{\chi}^n_{-\varpi_k, X}(z)] \rightsquigarrow_{ x_{-\beta}(-g) } \\
+        \rightsquigarrow_{ x_{-\beta}(-g) } [1, 1, x_{\beta}(X^{-n-m}f)^{x_{-\beta}(g)} \widetilde{\chi}^n_{-\varpi_k, X}(z)] \rightsquigarrow_{ \delta_{\varpi_k}^n }
+        [1, 1, x_{\beta}(X^{-m}f)^{x_{-\beta}(X^{-n}g)} \cdot z].
+    \end{multline*}
+
+    On the other hand, for $w \in \StW(\Phi, A)$, $n \geq 0$ and $f \in M[X]$ one has
+    \begin{multline*}
+       [1, 1, z] \rightsquigarrow_{w} [w, 1, z] = [w_1 \cdot w_{\lambda, u}, 1, z] \rightsquigarrow_{\delta^n_{\omega_k}}
+       [w_1 \cdot w_{\lambda, u}, w_{\lambda, u}^{-1} \chi^n_{\varpi_k, X}(w_{\lambda, u} \cdot y), z]
+    \end{multline*}
+
+    Thanks to~\cref{lem:first-reduction} and~\cref{lem:second-reduction} it suffices to show that the action of
+    $\St(\Phi, A[X, X\inv])$ on $V/\sim_W$ constructed above satisfies property
+    $\mu(h) \cdot [1, 1, z] = [1, 1, hz]$ for $h, z \in \St(\Phi, A[X, X\inv], M[X, X\inv])$.
+    It suffices to verify this property for $h$ belonging to a generating set of $\St(\Phi, A[X, X\inv], M[X, X\inv])$.
+    According to~\cref{lem:relative-generators} it suffices to verify this assertion for
+    $z_{\beta}(f, g)$, $f \in M[X, X\inv]$, $g \in A[X, X\inv]$, $\beta \in \Sigma_k^-$ and
+    $x_\alpha(f)$, $f \in M[X, X\inv]$, $\alpha \in \Phi$.
 \end{proof}
 
 
