@@ -331,7 +331,7 @@ Then there exists $q \in \UU(\Phi^+, M)$ such that $\pi(aq)$ lies in $\Stab_{\la
  \begin{equation} \label{eq:sides}
  \overline{{x_2'}^{-1}} \cdot \overline{{x_1'}^{-1}(0)} \overline{x_1(0)} \cdot \overline{x_2} = \overline{a(0)}.
  \end{equation}
- Here $\overline{x}$ denotes the image of $x$ in $\St(\Phi, \kappa)$.
+ Here by $\overline{x}$ we denote the image of $x$ in $\St(\Phi, \kappa)$.
 
  Notice that the middle factor in the left-hand side of~\eqref{eq:sides} stabilizes the highest-weight vector $v^+$,
  therefore we can compute the images of the vector $v^{\lambda'}$ under both sides of~\eqref{eq:sides} using~\eqref{eq:w-highestweight} as follows:
@@ -389,8 +389,8 @@ Thus, we obtain that
  v'' = (1, {b'}^{-1}, \{1 + m, X\}) \star (\delta_\omega \cdot v) = \\ =
   (\sigma(\omega)(x_1') \cdot x_2' \cdot \sigma(\lambda)(aq), x_2'^{-1} \cdot \chi_{\omega, X}(x_2' \cdot a^{-1} y'), \widetilde{\chi}_{\omega, X}(q^{-a^{-1}y'} \cdot z')).
 \end{multline*}
-Notice that $\sigma(\lambda)(aq) \in \UU(\Phi^+, A[X])$, while $\chi_{\omega, X}(q^{-a^{-1}y'})\in \UU(\Phi^+, M[X, X\inv])$,
-  thus from the definition of $\star$-action we obtain that
+Notice that $\sigma(\lambda)(aq) \in \UU(\Phi^+, A[X])$, while $\chi_{\omega, X}(q^{-a^{-1}y'})\in \UU(\Phi^+, M[X, X\inv])$.
+Thus, from the definition of $\star$-action we obtain that
 \begin{multline*}
  (\sigma(\lambda)(aq)^{-1}, 1, \chi_{\omega, X}(q^{-a^{-1}y'})) \star v'' = \\
  = (\sigma(\omega)(x_1') \cdot x_2', \sigma(\lambda)(aq) x_2'^{-1} \cdot \chi_{\omega, X}(x_2' \cdot a^{-1} y') \cdot \chi_{\omega, X}(q^{-a^{-1}y'}), \widetilde{\chi}_{\omega, X}(z')) = \\
@@ -428,16 +428,19 @@ By~\cref{prop:v-correctness2} this definition is correct, i.\,e. does not depend
 \end{proof}
 
 \begin{lemma} \label{lem:family1}
-    For $z \in \St(\Phi, M[X, X\inv], A[X, X\inv])$, $n, m \geq 0$, $f \in M[X]$, $g \in A[X]$, $\beta \in \Sigma_k^-$ one has
+    For $z \in \St(\Phi, M[X, X\inv], A[X, X\inv])$, $n, m \geq 0$, $f \in M[X]$, $g \in A[X]$, $\beta \in \Sigma_k^\pm$ one has
     \[ z_\beta(X^{-m}f, X^{-n}g) \cdot [1, 1, z] =  [1, 1, z_\beta(X^{-m}f, X^{-n}g) \cdot z].\]
 \end{lemma}
 \begin{proof}
+    We will only verify the assertion in the case $\beta \in \Sigma_k^-$
+     (the case $\beta \in \Sigma_k^+$ can be obtained by replacing everywhere in the proof $\sigma$ with $\sigma^{-1}$).
+
     Notice that in the group $G$ one has
     \begin{equation} z_\beta(X^{-m}f, X^{-n}g) =
      \sigma^n \cdot x_{-\beta}(-g) \cdot \sigma^{-n-m} \cdot x_{\beta}(f) \cdot \sigma^{n + m} \cdot x_{-\beta}(g) \cdot \sigma^{-n} \end{equation}
-    For shortness we write $[x, y, z] \rightsquigarrow_{g} [x', y', z']$ to illustrate the fact
+    For shortness we write $[x, y, z] \rightsquigarrow_{g} [x', y', z']$ to illustrate the fact that
      $[x', y', z'] = g \cdot [x, y, z]$.
-    It is easy to see from~\eqref{eq:sigmadef} and~\eqref{eq:sigma-def} that
+    Direct calculation using~\eqref{eq:sigmadef} and~\eqref{eq:sigma-def} shows that
     \begin{multline*}
     [1, 1, z] \rightsquigarrow_{\overline{\delta}_{-\varpi_k}^n}
     [1, 1, \widetilde{\chi}^n_{-\varpi_k, X}(z)] \rightsquigarrow_{x_{-\beta}(g)}
@@ -467,8 +470,8 @@ By~\cref{prop:v-correctness2} this definition is correct, i.\,e. does not depend
     Notice also that from~\eqref{eq:w-computation} it follows that
      \[ w_\beta(u) \cdot \chi_{\omega, X}(w^{-1}_\beta(u)) = \{ X^{-\langle \omega, \beta \rangle }, u \} \cdot h_\beta(X^{-\langle \omega, \beta \rangle}). \]
 
-    Consequently, a direct computation involving~\eqref{eq:sigmadef}, \eqref{eq:sigma-def} and~\cite[Lemme~5.1--5.2]{Ma69} shows that there exists an element $c \in \StH(\Phi, A[X, X\inv])$
-     (in fact, a product of Steinberg symbols) such that
+    Consequently, a direct computation involving~\eqref{eq:sigmadef}, \eqref{eq:sigma-def} and~\cite[Lemme~5.1--5.2]{Ma69}
+     shows that there exists a central element $c \in \StH(\Phi, A[X, X\inv])$ (in fact, $c$ is a product of Steinberg symbols) such that
     \begin{multline*}
         [1, 1, z] \rightsquigarrow_{\delta_{-\varpi_k}^n}
         [1, 1, \widetilde{\chi}_{-\varpi_k}^n(z)] \rightsquigarrow_{w^{-1}_\beta(1)}
@@ -477,8 +480,8 @@ By~\cref{prop:v-correctness2} this definition is correct, i.\,e. does not depend
         [x_{s_\beta(\alpha)}(f) \cdot w_\beta^{-1}(1), c \cdot h_\beta^n(X^{-1}), z] = \\
         = [w_\beta^{-1}(1) \cdot x_{\alpha}(\eta f), c \cdot h_\beta^n(X^{-1}), z] =
           [w_\beta^{-1}(1), c \cdot h_\beta^n(X^{-1}), x_{\alpha}(\eta f)^{h_\beta^n(X^{-1})} \cdot z] = \\
-        = [w_\beta^{-1}(1), c \cdot h_\beta^n(X^{-1}), x_{\alpha}(\eta fX^{-n}) \cdot z] \rightsquigarrow_{\delta_{-\varpi_k}^n}
-          [w_\beta^{-1}(1), 1, \widetilde{\chi}_{-\varpi_k, X}^n (x_{\alpha}(\eta fX^{-n}) \cdot z)] \rightsquigarrow_{ w_\beta(1) } \\
+        = [w_\beta^{-1}(1), c \cdot h_\beta^n(X^{-1}), x_{\alpha}(\eta fX^{-n}) \cdot z] \rightsquigarrow_{\delta_{-\varpi_k}^n} \\
+        \rightsquigarrow_{\delta_{-\varpi_k}^n} [w_\beta^{-1}(1), 1, \widetilde{\chi}_{-\varpi_k, X}^n (x_{\alpha}(\eta fX^{-n}) \cdot z)] \rightsquigarrow_{ w_\beta(1) } \\
         \rightsquigarrow_{ w_\beta(1) } [1, 1, \widetilde{\chi}_{-\varpi_k, X}^n (x_{\alpha}(\eta fX^{-n}) \cdot z)] \rightsquigarrow_{\delta_{\varpi_k}^n}
           [1, 1, x_{\alpha}(\eta fX^{-n}) \cdot z] \qedhere
     \end{multline*}
@@ -489,11 +492,14 @@ Now we are ready to prove the main result of this section.
     Thanks to~\cref{lem:first-reduction} and~\cref{lem:second-reduction} it suffices to show that the action of
     $\St(\Phi, A[X, X\inv])$ on $\overline{V} = V/\sim_W$ constructed above satisfies property
     $\mu(h) \cdot [1, 1, z] = [1, 1, hz]$ for $h, z \in \St(\Phi, A[X, X\inv], M[X, X\inv])$.
-    It suffices to verify this property for $h$ belonging to a generating set of $\St(\Phi, A[X, X\inv], M[X, X\inv])$.
-    According to~\cref{lem:relative-generators} it suffices to verify this assertion for
-    $z_{\beta}(f, g)$, $f \in M[X, X\inv]$, $g \in A[X, X\inv]$, $\beta \in \Sigma_k^-$ and
-    $x_\alpha(f)$, $f \in M[X, X\inv]$, $\alpha \in \Phi$.
-    But this assertion is contained~\cref{lem:family1}, the assertion symmetric to~\cref{lem:family1} (which is left as an exercise) and~\cref{lem:family2}.
+    Clearly, it suffices to verify this property for $h$ belonging to a generating set of $\St(\Phi, A[X, X\inv], M[X, X\inv])$.
+    According to~\cref{lem:relative-generators} it suffices to verify this assertion for two types of generators:
+    \begin{itemize}
+        \item $z_{\beta}(f, g)$, $f \in M[X, X\inv]$, $g \in A[X, X\inv]$, $\beta \in \Sigma_k^-$;
+        \item $x_\alpha(f)$, $f \in M[X, X\inv]$, $\alpha \in \Phi$.
+    \end{itemize}
+    The assertion for the generators of the first type is contained in~\cref{lem:family1}.
+    The assertion for the generators of second type follows from~\cref{lem:family1} (for $\alpha \in \Sigma_k^+$) and~\cref{lem:family2} (for $\alpha \in \Delta_k$).
 \end{proof}
 
 
