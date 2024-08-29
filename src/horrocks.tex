@@ -415,35 +415,69 @@ By~\cref{prop:v-correctness2} this definition is correct, i.\,e. does not depend
     Indeed, for $v = (x_1 \cdot x_2, y, z) \in V_{-\omega_k}$, where $x_1 \in V_{-\varpi_k}$, $x_2 \in \StW(\Phi, A)$, $y \in B$, $z \in G_M$ and $\alpha_k \in \Sigma_k^+$, $f \in A[X]$
      we obtain from~\eqref{eq:sigmadef} and~\eqref{eq:sigma-def} that
     \begin{multline*}
-        \overline{\delta_{\varpi_k}} \cdot x_\alpha(f) \cdot \overline{\delta_{-\varpi_k}} \cdot [x_1 \cdot x_2, y, z] = \\
-        = \overline{\delta_{\varpi_k}} \cdot x_\alpha(f) \cdot [\sigma(-\varpi_k)(x_1) \cdot x_2, x_2^{-1} \cdot \chi_{-\varpi_k, X}(x_2 \cdot y), \widetilde{\chi}_{-\varpi_k, X}(z)] = \\
+        \overline{\delta}_{\varpi_k} \cdot x_\alpha(f) \cdot \overline{\delta}_{-\varpi_k} \cdot [x_1 \cdot x_2, y, z] = \\
+        = \overline{\delta}_{\varpi_k} \cdot x_\alpha(f) \cdot [\sigma(-\varpi_k)(x_1) \cdot x_2, x_2^{-1} \cdot \chi_{-\varpi_k, X}(x_2 \cdot y), \widetilde{\chi}_{-\varpi_k, X}(z)] = \\
         = \left[\sigma(\varpi_k)\left(x_{\alpha}(f) \cdot \sigma(-\varpi_k)(x_1)) \cdot x_2, x_2^{-1} \cdot \chi_{\varpi_k, X}\left(x_2 \cdot x_2^{-1} \cdot \chi_{-\varpi_k, X}(x_2 \cdot y)\right), z\right] = \\
         = [x_\alpha(Xf) \cdot x_1 \cdot x_2, y, z] = x_\alpha(Xf) \cdot [x_1 \cdot x_2, y, z]. \qedhere
+    \end{multline*}
+\end{proof}
+
+\begin{lemma} \label{lem:family1}
+    For $z \in \St(\Phi, M[X, X\inv], A[X, X\inv])$, $n, m \geq 0$, $f \in M[X]$, $g \in A[X]$, $\beta \in \Sigma_k^-$ one has
+    \[ z_\beta(X^{-m}f, X^{-n}g) \cdot [1, 1, z] =  [1, 1, z_\beta(X^{-m}f, X^{-n}g) \cdot z].\]
+\end{lemma}
+\begin{proof}
+    Notice that in the group $G$ one has
+    \begin{equation} z_\beta(X^{-m}f, X^{-n}g) =
+     \sigma^n \cdot x_{-\beta}(-g) \cdot \sigma^{-n-m} \cdot x_{\beta}(f) \cdot \sigma^{n + m} \cdot x_{-\beta}(g) \cdot \sigma^{-n} \end{equation}
+    For shortness we write $[x, y, z] \rightsquigarrow_{g} [x', y', z']$ to illustrate the fact
+     $[x', y', z'] = g \cdot [x, y, z]$.
+    It is easy to see from~\eqref{eq:sigmadef} and~\eqref{eq:sigma-def} that
+    \begin{multline*}
+    [1, 1, z] \rightsquigarrow_{\overline{\delta}_{-\varpi_k}^n}
+    [1, 1, \widetilde{\chi}^n_{-\varpi_k, X}(z)] \rightsquigarrow_{x_{-\beta}(g)}
+    [x_{-\beta}(g), 1, \widetilde{\chi}_{-\varpi_k, X}^n(z)] = \\
+    = [1, x_{-\beta}(g), \widetilde{\chi}^n_{-\varpi_k, X}(z)] \rightsquigarrow_{\overline{\delta}_{\varpi_k}^{n + m}}
+    [1, x_{-\beta}(X^{-n-m}g), \widetilde{\chi}^m_{\varpi_k, X}(z)] \rightsquigarrow_{ x_{\beta}(f) } \\
+    \rightsquigarrow_{ x_{\beta}(f) } [x_{\beta}(f), x_{-\beta}(X^{-n-m}g), \widetilde{\chi}^m_{\varpi_k, X}(z)] = \\
+    = [1, x_{-\beta}(X^{-n-m}g), x_{\beta}(f)^{x_{-\beta}(X^{-n-m}g)} \widetilde{\chi}^m_{\varpi_k, X}(z)] \rightsquigarrow_{\overline{\delta}^{n + m}_{-\varpi_k}} \\
+    \rightsquigarrow_{\delta_{-\varpi_k}^{n + m}} [1, x_{-\beta}(g), x_{\beta}(X^{-n-m}f)^{x_{-\beta}(g)} \widetilde{\chi}^n_{-\varpi_k, X}(z)] \rightsquigarrow_{ x_{-\beta}(-g) } \\
+    \rightsquigarrow_{ x_{-\beta}(-g) } [1, 1, x_{\beta}(X^{-n-m}f)^{x_{-\beta}(g)} \widetilde{\chi}^n_{-\varpi_k, X}(z)] \rightsquigarrow_{ \overline{\delta}_{\varpi_k}^n }
+    [1, 1, x_{\beta}(X^{-m}f)^{x_{-\beta}(X^{-n}g)} \cdot z],
+    \end{multline*}
+    from which the assertion of the lemma follows.
+\end{proof}
+
+\begin{lemma} \label{lem:family2}
+    For $z \in \St(\Phi, M[X, X\inv], A[X, X\inv])$, $\alpha \in \Delta_k$, $n \geq 0$ and $f \in M[X]$ one has
+    \begin{equation*} x_\alpha(X^{-n} f) \cdot [1, 1, z] = [1, 1, x_\alpha(X^{-n} f) \cdot z]. \end{equation*}
+\end{lemma}
+\begin{proof}
+    We can find $\beta \in \Sigma_k^+$ or $\beta \in \Sigma_k^-$ such that $\langle \alpha, \beta \rangle = 1$ consequently we obtain from
+    \eqref{eq:sigmadef}, ~\eqref{eq:sigma-def} and~\cite[Lemme~5.1]{Ma69} that there exists $u \in A^\times$ such that
+    \begin{multline*}
+        [1, 1, z] \rightsquigarrow_{\overline{\delta}^n_{\omega_k}} [1, 1, \widetilde{\chi}^n_{\varpi_k, X}(z)]
+        \rightsquigarrow_{h_\beta(u)} [h_\beta(u), 1, \widetilde{\chi}^n_{\varpi_k, X}(z)] = \\
+        = [1, h_\beta(u), \widetilde{\chi}^n_{\varpi_k, X}(z)] \rightsquigarrow_{\overline{\delta}^n_{-\omega_k}}
+        [1, \{ X^{n \cdot \langle \varpi_k, \beta \rangle}, u \} \cdot h_\beta(u), z].
+    \end{multline*}
+
+    \begin{multline*}
+    [1, 1, z] \rightsquigarrow_{\overline{\delta}^n_{\omega_k}} [1, 1, \widetilde{\chi}^n_{\varpi_k, X}(z)] \rightsquigarrow_{w^{-1}}
+    [w^{-1}, 1, \widetilde{\chi}^n_{\varpi_k, X}(z)] \rightsquigarrow_{x_\alpha(f)} \\
+    \rightsquigarrow_{x_\alpha(f)} [x_\alpha(f) \cdot w^{-1}, 1, \widetilde{\chi}^n_{\varpi_k, X}(z)]  \rightsquigarrow_{w}
+    [{}^w x_{\alpha}(f), 1, \widetilde{\chi}^n_{\varpi_k, X}(z)] = \\
+    = [1, 1, x_{\overline{w} \cdot \alpha}(uf) \cdot \widetilde{\chi}^n_{\varpi_k, X}(z)]  \rightsquigarrow_{\overline{\delta}^n_{-\omega_k}}
+    [1, 1, x_{\overline{w} \cdot \alpha}(uX^{-n \langle \omega_k, \overline{w} \cdot \alpha \rangle }f) \cdot z].
     \end{multline*}
 \end{proof}
 
 Now we are ready to prove the main result of this section.
 \begin{proof}{Proof of~\cref{thm:horrocks-k2}}
 
-    Indeed, for $n, m \geq 0$, $f \in M[X]$, $g \in A[X]$, $\beta \in \Sigma_k^-$ we have that
-    \begin{multline*}
-        [1, 1, z] \rightsquigarrow_{\delta_{-\varpi_k}^n}
-        [1, 1, \widetilde{\chi}^n_{-\varpi_k, X}(z)] \rightsquigarrow_{x_{-\beta}(g)}
-        [x_{-\beta}(g), 1, \widetilde{\chi}_{-\varpi_k, X}^n(z)] = \\
-        = [1, x_{-\beta}(g), \widetilde{\chi}^n_{-\varpi_k, X}(z)] \rightsquigarrow_{\delta_{\varpi_k}^{n + m}}
-        [1, x_{-\beta}(X^{-n-m}g), \widetilde{\chi}^m_{\varpi_k, X}(z)] \rightsquigarrow_{ x_{\beta}(f) } \\
-        \rightsquigarrow_{ x_{\beta}(f) } [x_{\beta}(f), x_{-\beta}(X^{-n-m}g), \widetilde{\chi}^m_{\varpi_k, X}(z)] = \\
-        = [1, x_{-\beta}(X^{-n-m}g), x_{\beta}(f)^{x_{-\beta}(X^{-n-m}g)} \widetilde{\chi}^m_{\varpi_k, X}(z)] \rightsquigarrow_{\delta^{n + m}_{-\varpi_k}} \\
-        \rightsquigarrow_{\delta_{-\varpi_k}^{n + m}} [1, x_{-\beta}(g), x_{\beta}(X^{-n-m}f)^{x_{-\beta}(g)} \widetilde{\chi}^n_{-\varpi_k, X}(z)] \rightsquigarrow_{ x_{-\beta}(-g) } \\
-        \rightsquigarrow_{ x_{-\beta}(-g) } [1, 1, x_{\beta}(X^{-n-m}f)^{x_{-\beta}(g)} \widetilde{\chi}^n_{-\varpi_k, X}(z)] \rightsquigarrow_{ \delta_{\varpi_k}^n }
-        [1, 1, x_{\beta}(X^{-m}f)^{x_{-\beta}(X^{-n}g)} \cdot z].
-    \end{multline*}
 
-    On the other hand, for $w \in \StW(\Phi, A)$, $n \geq 0$ and $f \in M[X]$ one has
-    \begin{multline*}
-       [1, 1, z] \rightsquigarrow_{w} [w, 1, z] = [w_1 \cdot w_{\lambda, u}, 1, z] \rightsquigarrow_{\delta^n_{\omega_k}}
-       [w_1 \cdot w_{\lambda, u}, w_{\lambda, u}^{-1} \chi^n_{\varpi_k, X}(w_{\lambda, u} \cdot y), z]
-    \end{multline*}
+
+
 
     Thanks to~\cref{lem:first-reduction} and~\cref{lem:second-reduction} it suffices to show that the action of
     $\St(\Phi, A[X, X\inv])$ on $V/\sim_W$ constructed above satisfies property
