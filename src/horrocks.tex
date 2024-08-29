@@ -1,4 +1,4 @@
-\usepackage{amssymb}\begin{dfn}
+\begin{dfn}
     Let $K$ be a functor from commutative rings to groups.
     Recall from~\cite{LSV2} that $K$ is called \textit{locally acyclic (resp., locally acyclic for domains)} if for every commutative local ring (resp., domain)
      $A$ the following diagram whose arrows are induced by natural embeddings is a pullback square:
@@ -231,6 +231,8 @@ Throughout this section we assume that $\Phi$ is a root system of type $\rD_{\ge
   where $x_1 \in N(\omega)$, $x_2 \in \StW(\Phi, A)$,  $y \in B$, $z \in G_M$.
 \end{dfn}
 
+It is obvious that $\delta_{\varpi_k}$ and $\delta_{-\varpi_k}$ are mutually inverse.
+
 In the above definition $\chi_{\omega, X}$ and $\widetilde{\chi}_{\omega, X}$ denote homomorphisms defined in~\cref{subsec:weight-automorphisms},
  while $\sigma(\omega)$ is the homomorphism constructed in~\cref{thm:pairconstr}.
 
@@ -325,10 +327,11 @@ Then there exists $q \in \UU(\Phi^+, M)$ such that $\pi(aq)$ lies in $\Stab_{\la
  Thanks to~\cref{lem:can-repr} we may assume, without loss of generality, that $x_2 = w_{\lambda, u}$, $x_2' = w_{\lambda', u'}$
  for some $u, u' \in A^\times$, $\lambda, \lambda' \in \Lambda$.
 
- Evaluating both sides of~\eqref{eq:x-xprime} at $X=0$ and projecting the equality into $\St(\Phi, \kappa)$ we obtain the equality
+ Evaluating both sides of~\eqref{eq:x-xprime} at $X=0$ and projecting the equality into $\St(\Phi, \kappa)$ we obtain the following equality:
  \begin{equation} \label{eq:sides}
  \overline{{x_2'}^{-1}} \cdot \overline{{x_1'}^{-1}(0)} \overline{x_1(0)} \cdot \overline{x_2} = \overline{a(0)}.
  \end{equation}
+ Here $\overline{x}$ denotes the image of $x$ in $\St(\Phi, \kappa)$.
 
  Notice that the middle factor in the left-hand side of~\eqref{eq:sides} stabilizes the highest-weight vector $v^+$,
  therefore we can compute the images of the vector $v^{\lambda'}$ under both sides of~\eqref{eq:sides} using~\eqref{eq:w-highestweight} as follows:
@@ -344,7 +347,7 @@ Then there exists $q \in \UU(\Phi^+, M)$ such that $\pi(aq)$ lies in $\Stab_{\la
  Also we conclude from all the equalities obtained up to this point that
  \begin{equation} {}^{x_2'}(\mu(b) \cdot a) \cdot h_{\alpha_k}^{-1}(1+m) = {x_1'}^{-1} \cdot x_1 \cdot c \in N_\omega. \end{equation}
 
- Using the fact that $\overline{w_{\lambda, u}^{-1}}(\omega) = \lambda$
+ Recalling that $\overline{w_{\lambda, u}^{-1}} \in W(\Phi)$ swaps $\omega$ and $\lambda$
   we obtain from~\eqref{eq:sigma-gen} and \cref{lem:delta-weyl} that
  \begin{equation} \label{eq:delta-weyl-x2prime} {}^{x_2'}N_\lambda = N_\omega\text{ and } {}^{x_2'}\sigma(\lambda)(g) = \sigma(\omega)({}^{x_2'}g)\text{ for } g\in N_\lambda.\end{equation}
 
@@ -383,10 +386,17 @@ Now we can compute the third coordinate of $(1, {b'}^{-1}, 1) \star (\delta_\ome
 \end{multline*}
 Thus, we obtain that
 \begin{multline*}
- (1, {b'}^{-1}, \{1 + m, X\}) \star (\delta_\omega \cdot v) = \\ =
+ v'' = (1, {b'}^{-1}, \{1 + m, X\}) \star (\delta_\omega \cdot v) = \\ =
   (\sigma(\omega)(x_1') \cdot x_2' \cdot \sigma(\lambda)(aq), x_2'^{-1} \cdot \chi_{\omega, X}(x_2' \cdot a^{-1} y'), \widetilde{\chi}_{\omega, X}(q^{-a^{-1}y'} \cdot z')).
 \end{multline*}
-
+Notice that $\sigma(\lambda)(aq) \in \UU(\Phi^+, A[X])$, while $\chi_{\omega, X}(q^{-a^{-1}y'})\in \UU(\Phi^+, M[X, X\inv])$,
+  thus from the definition of $\star$-action we obtain that
+\begin{multline*}
+ (\sigma(\lambda)(aq)^{-1}, 1, \chi_{\omega, X}(q^{-a^{-1}y'})) \star v'' = \\
+ = (\sigma(\omega)(x_1') \cdot x_2', \sigma(\lambda)(aq) x_2'^{-1} \cdot \chi_{\omega, X}(x_2' \cdot a^{-1} y') \cdot \chi_{\omega, X}(q^{-a^{-1}y'}), \widetilde{\chi}_{\omega, X}(z')) = \\
+ = (\sigma(\omega)(x_1') \cdot x_2', x_2'^{-1} \chi_{\omega, X}(x_2' \cdot q^{a^{-1}} \cdot y' \cdot q^{-a^{-1}y'}), \widetilde{\chi}_{\omega, X}(z')) = \\
+    = \delta_\omega (x_1' \cdot x_2', y', z'). \qedhere
+\end{multline*}
  \end{proof}
 
 For $\omega = \pm \varpi_k$ the function $\delta_\omega \colon V_{\omega} \to V_{-\omega}$ gives rise to a well-defined function $\overline{\delta}_\omega \colon \overline{V} \to \overline{V}.$
@@ -399,7 +409,7 @@ By~\cref{prop:v-correctness2} this definition is correct, i.\,e. does not depend
 \end{prop}
 \begin{proof}
     Thanks to~\cref{prop:rel-poly-Laurent} it suffices to construct the action of the group $G$ on $\overline{V} = V/\sim_W$.
-    Here $V$ denotes the free product of $\langle \sigma \rangle$ and $\St(\Phi, A[X])$ amalgamated over the relations~\eqref{eq:sigma-sigma-plus}--\eqref{eq:sigma-delta}.
+    Here $G$ denotes the free product of $\langle \sigma \rangle$ and $\St(\Phi, A[X])$ amalgamated over the relations~\eqref{eq:sigma-sigma-plus}--\eqref{eq:sigma-delta}.
 
     We let the generator $\sigma$ of $G$ act on $V/\sim_W$ via $\delta_{\varpi_k}$.
     For $\alpha \in \Phi$ we define the translation action of $g \in \St(\Phi, A[X])$ on $V$ via $g \cdot (x, y, z) \coloneqq (gx, y, z)$.
