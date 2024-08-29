@@ -261,31 +261,6 @@ Conversely, for every pair $(u, \lambda) \in A^\times \times \Lambda$ there exis
     Formula~\eqref{eq:w-highestweight} follows from the description of the action of $w_\beta(v)$ on $V$ given by~\cite[Lemma~6]{V00}.
     It is also clear that $\overline{w_{\lambda, u}} \in W(\Phi)$ swaps weights $\varpi_k$ and $\lambda$.
 
-
-\begin{lemma} \label{h-computation} For $x = w_{\lambda, u}$ one has
- \begin{equation*}
-      h_{\alpha}(1+m)^{x^{-1} \cdot \chi_{\varpi_k, X}(x)} =  \left\{
-       \begin{array}{ll}
-           h_{\alpha}(1+m) & \text{if $\lambda = \varpi_k$,}\\
-           \{X^{-\sum_i\langle \alpha, \beta_i \rangle}, 1+m\} \cdot h_{\alpha}(1+m) & \text{otherwise.}\end{array}
-      \right.
- \end{equation*}
-\end{lemma}
-\begin{proof}
-In the case $\lambda = \varpi_k$ it is clear from~\eqref{eq:chi-h} that $x^{-1} \cdot \chi_{\varpi_k, X}(x) \in \K_2(\Phi, A[X^{\pm 1}])$,
- so the assertion of the lemma is clear in this case.
-
-Now suppose that $\lambda \neq \varpi_k$.
-From the proof of~\cref{lem:winv-chiw} and the fact that $\beta_i$ are mutually orthogonal we obtain that
-\begin{multline*}
-    x^{-1} \cdot \chi_{\varpi_k, X}(x) =
-     \prod {w_{\beta_i}^{-1}(v_i) \cdot \chi_{\varpi_k, \omega}(w_{\beta_i}(v_i))} =
-     \{ X^{-1}, \prod_i v_i \} \prod_i h_{\beta_i}^{-1}(X^{-1}).
-\end{multline*}
-    From~\cite[Lemme~5.2(e)]{Ma69} and~\eqref{eq:steinberg} we know that ${}^{h_\beta(v)}h_\alpha(u) = \{v^{\langle \alpha, \beta \rangle}, u\} \cdot h_\alpha(u)$
-     from which the assertion of the lemma follows.
-\end{proof}
-
 \begin{lemma} \label{lem:can-repr}
   For $\omega = \pm \varpi_k$ one has \[N_{\omega} \cdot \StW(\Phi, A) = \bigsqcup\limits_{(u, \lambda) \in A^\times \times \Lambda} N_{\omega} \cdot w_{\lambda, u}. \]
 \end{lemma}
@@ -338,7 +313,7 @@ Then there exists $q \in \UU(\Phi^+, M)$ such that $\pi(aq)$ lies in $\Stab_{\la
 \end{proof}
 
 \begin{prop} \label{prop:v-correctness2}
- For every $w \in W$, $v \in V_\omega$ such that $v' = w \star v \in V_\omega$ there exists $w' \in W$ such that
+ For $\omega = \pm \varpi_k$ and every $w \in W$, $v \in V_\omega$ such that $v' = w \star v \in V_\omega$ there exists $w' \in W$ such that
   $\delta_\omega(w \star v) = w' \star \delta_\omega(v)$.
 \end{prop}
 \begin{proof}
@@ -368,36 +343,55 @@ Then there exists $q \in \UU(\Phi^+, M)$ such that $\pi(aq)$ lies in $\Stab_{\la
 
  Also we conclude from all the equalities obtained up to this point that
  \begin{equation} {}^{x_2'}(\mu(b) \cdot a) \cdot h_{\alpha_k}^{-1}(1+m) = {x_1'}^{-1} \cdot x_1 \cdot c \in N_\omega. \end{equation}
- Since by~\cref{lem:delta-weyl} $N_{\overline{w} \cdot \omega} = {}^w{N_\omega}$ we conclude that
-  $a \cdot \mu(b^a) \cdot h_\alpha^{-1}(1+m) \in {N_{\lambda}}$.
 
- From~\eqref{eq:right-side} and~\cref{lem:q} we also obtain $q \in \UU(\Phi^+, M)$ such that $\pi(a(0) \cdot q) \in \Stab_\lambda(A)$ and hence
+ Using the fact that $\overline{w_{\lambda, u}^{-1}}(\omega) = \lambda$
+  we obtain from~\eqref{eq:sigma-gen} and \cref{lem:delta-weyl} that
+ \begin{equation} \label{eq:delta-weyl-x2prime} {}^{x_2'}N_\lambda = N_\omega\text{ and } {}^{x_2'}\sigma(\lambda)(g) = \sigma(\omega)({}^{x_2'}g)\text{ for } g\in N_\lambda.\end{equation}
+
+ Consequently, we obtain that
+  $a \cdot \mu(b^a) \cdot h_{\alpha_k}^{-{x_2'}}(1+m) \in {N_{\lambda}}$.
+
+ By~\eqref{eq:right-side} and~\cref{lem:q} we can find $q \in \UU(\Phi^+, M)$ such that $\pi(a(0) \cdot q) \in \Stab_\lambda(A)$ and hence
      that $a \cdot q \in N_\lambda$.
- Now we can compute the first coordinate of $\delta_\omega \cdot v$ using the fact that $\overline{w_{\lambda, u}^{-1}}(\omega) = \lambda$ as follows:
- \begin{multline*}
+ Now we can compute the first coordinate of $\delta_\omega \cdot v$ as follows:
+ \begin{multline} \label{eq:intermediate}
   \sigma(\omega)(x_1) \cdot x_2 = \sigma(\omega)(x_1'x_2' \cdot \mu(b) \cdot a \cdot x_2^{-1}) \cdot x_2 = \\
-   = \sigma(\omega)(x_1'x_2' \cdot \mu(b) \cdot a \cdot h^{-1}_\alpha(1+m) \cdot {x_2'}^{-1} \cdot c^{-1}) \cdot c \cdot x_2' \cdot h_{\alpha}(1+m) = \\
-   = \sigma(\omega)\left(x_1'\cdot {}^{x_2'} (aq \cdot q^{-1} \mu(b^a) \cdot h^{-1}_\alpha(1+m))\right) \cdot x_2' \cdot h_{\alpha}(1+m) = \\
-   = \sigma(\omega)(x_1') \cdot {}^{x_2'}\sigma(\lambda)(aq) \cdot {}^{x_2'}\sigma(\lambda)(q^{-1} \mu(b^a) \cdot h^{-1}_\alpha(1+m)) \cdot x_2' \cdot h_{\alpha}(1+m) = \\
-   = \sigma(\omega)(x_1') \cdot x_2' \cdot \sigma(\lambda)(aq) \cdot \sigma(\lambda)(q^{-1} \mu(b^a) \cdot h^{-1}_\alpha(1+m)) \cdot h_{\alpha}(1+m).
- \end{multline*}
+   = \sigma(\omega)(x_1'x_2' \cdot \mu(b) \cdot a \cdot h^{-{x_2'}}_{\alpha_k}(1+m) \cdot {x_2'}^{-1} \cdot c^{-1}) \cdot c \cdot x_2' \cdot h_{\alpha_k}^{x_2'}(1+m) = \\
+   = \sigma(\omega)\left(x_1'\cdot {}^{x_2'} (aq \cdot q^{-1} \mu(b^a) \cdot h^{-x_2'}_\alpha(1+m))\right) \cdot x_2' \cdot h_{\alpha}^{x_2'}(1+m) = \\
+   = \sigma(\omega)(x_1') \cdot {}^{x_2'}\sigma(\lambda)(aq) \cdot {}^{x_2'}\sigma(\lambda)(q^{-1} \mu(b^a) \cdot h^{-x_2'}_{\alpha_k}(1+m)) \cdot x_2' \cdot h^{x_2'}_{\alpha_k}(1+m) = \\
+   = \sigma(\omega)(x_1') \cdot x_2' \cdot \sigma(\lambda)(aq) \cdot \sigma(\lambda)\left(q^{-1} \mu(b^a) \cdot h^{-x_2'}_{\alpha_k}(1+m)\right) \cdot h^{x_2'}_{\alpha_k}(1+m).
+ \end{multline}
 
  Now we let us compute the second coordinate of $\delta_\omega \cdot v$ using~\eqref{eq:chi-h} and the fact that
- $\chi_{\omega, X}$ acts identically on $\StW(\Delta_k, A)$.
- \begin{multline*}
+ $\chi_{\omega, X}$ acts identically on $\StW(\Delta_k, A)$:
+ \begin{multline}\label{eq:intermediate2}
  x_2^{-1}\cdot \chi_{\omega, X}(x_2 \cdot y) = x_2^{-1} \cdot \chi_{\omega, X}(x_2 \cdot a^{-1} \cdot y') = \\
  = {x_2'}^{-1} \cdot h_{\alpha_k}^{-1}(1 + m) \cdot c^{-1} \cdot \chi_{\omega, X}(c \cdot h_{\alpha_k}(1 + m) \cdot x_2' \cdot a^{-1} \cdot y') = \\
- = {(x_2')}^{-1} \cdot h_{\alpha_k}^{-1}(1 + m) \cdot \chi_{\omega, X}(h_{\alpha_k}(1 + m) \cdot x_2' \cdot a^{-1} \cdot y') = \\
- = \{X, 1+m\} \cdot {(x_2')}^{-1} \chi_{\omega, X}(x_2' \cdot a^{-1} \cdot y').
- \end{multline*}
+ = {x_2'}^{-1} \cdot h_{\alpha_k}^{-1}(1 + m) \cdot \chi_{\omega, X}(h_{\alpha_k}(1 + m) \cdot x_2' \cdot a^{-1} \cdot y') = \\
+ = \{X, 1+m\} \cdot {x_2'}^{-1} \chi_{\omega, X}(x_2' \cdot a^{-1} \cdot y').
+ \end{multline}
 
-    \textbf{to be continued}
+It is clear that the product of last two factors in the right-hand side of~\eqref{eq:intermediate} is
+ the image in $G^+$ of some element $b' \in G_M^+$.
+Now we can compute the third coordinate of $(1, {b'}^{-1}, 1) \star (\delta_\omega \cdot v)$ using~\eqref{eq:intermediate2}, \eqref{eq:delta-weyl-x2prime} and~\eqref{eq:chi-h} as follows:
+\begin{multline*}
+ {b'}^{x_2^{-1} \cdot \chi_{\omega, X}(x_2 \cdot y) } \cdot \widetilde{\chi}_{\omega, X}(z) =
+ {b'}^{{x_2'}^{-1} \cdot \chi_{\omega, X}(x_2' \cdot a^{-1} \cdot y') } \cdot \widetilde{\chi}_{\omega, X}(b^{-y'} \cdot z') = \\
+ = \left(\sigma(\omega)\left( {}^{x_2'}(q^{-1} \mu(b^a)) \cdot h^{-1}_{\alpha_k}(1+m)\right) \cdot h_{\alpha_k}(1+m)\right)^{\chi_{\omega, X}(x_2' \cdot a^{-1} \cdot y')} \cdot \widetilde{\chi}_{\omega, X}(b^{-y'} \cdot z') = \\
+ = \{1+m, X\} \cdot \widetilde{\chi}_{\omega, X}\left( \left( q^{-1} \cdot b^a \right)^{a^{-1}y'} \cdot b^{-y'} \cdot z' \right) = \\
+ = \{1+m, X\} \cdot \widetilde{\chi}_{\omega, X}(q^{-a^{-1}y'} \cdot z').
+\end{multline*}
+Thus, we obtain that
+\begin{multline*}
+ (1, {b'}^{-1}, \{1 + m, X\}) \star (\delta_\omega \cdot v) = \\ =
+  (\sigma(\omega)(x_1') \cdot x_2' \cdot \sigma(\lambda)(aq), x_2'^{-1} \cdot \chi_{\omega, X}(x_2' \cdot a^{-1} y'), \widetilde{\chi}_{\omega, X}(q^{-a^{-1}y'} \cdot z')).
+\end{multline*}
 
  \end{proof}
 
-For $\omega = \om \varpi_k$ the function $\delta_\omega \colon V_{\omega} \to V_{-\omega}$ gives rise to a well-defined function $\overline{\delta}_\omega \colon \overline{V} \to \overline{V}.$
+For $\omega = \pm \varpi_k$ the function $\delta_\omega \colon V_{\omega} \to V_{-\omega}$ gives rise to a well-defined function $\overline{\delta}_\omega \colon \overline{V} \to \overline{V}.$
 Indeed, by~\cref{lem:v-correctness1} for every $v \in V$ there exists $w \in W$ such that $w \star v \in V_\omega$, therefore
-we can define $\overline{\delta_\omega}(v)$ as the equivalence class of $\delta_{\omega}(w \star v)$.
+we can define $\overline{\delta_\omega}([v])$ as the equivalence class of $\delta_{\omega}(w \star v)$.
 By~\cref{prop:v-correctness2} this definition is correct, i.\,e. does not depend on the choice of $w$.
 
 \begin{prop}
