@@ -36,7 +36,7 @@ The decomposition~\eqref{eq:triple-decomposition} then follows the fact that the
 Tulenbaev's proof of the Horrocks theorem for $\K_2$ is similar to Suslin's proof of the Horrocks theorem for $\K_1$.
 The main difference, however, is that simply proving an analogue of factorization~\eqref{eq:triple-decomposition} for the Steinberg group $\St(\Phi, A[X, X\inv])$
  would not be sufficient.
-Instead, one has to prove a much more precise result, namely one has to construct a ``model set'' $V$ for the group $\St(\Phi, A[X, X\inv])$
+Instead, one has to prove a much more precise result, namely one has to construct a ``model set'' $\overline{V}$ for the group $\St(\Phi, A[X, X\inv])$
  out of the same three ingredient groups: $\St(\Phi, A[X])$, Borel subgroup and the relative group $\St(\Phi, A[X^\pm], M[X^\pm])$.
 By a ``model set'' we mean a set upon which $\St(\Phi, A[X, X\inv])$ would act simply-transitively.
 This technique probably dates back to~\cite{ST76}, where it was used to prove the injective stability theorem for $\K_2$, it was also reused
@@ -46,22 +46,22 @@ We will use the same technique for the proof of~\cref{thm:horrocks-k2}, which, b
 
 Now let us list the key steps of the proof:
 \begin{itemize}
-    \item Step 1. First of all, in~\cref{subsec:triples} we introduce abstract formalism of group decompositions which will allow us to construct the set $V$ modeling the Steinberg group $\St(\Phi, A[X, X\inv])$.
+    \item Step 1. First of all, in~\cref{subsec:triples} we introduce abstract formalism of group decompositions which will allow us to construct the set $\overline{V}$ modeling the Steinberg group $\St(\Phi, A[X, X\inv])$.
                   This should be thought of as preparatory work needed for the formulation of the $\K_2$-analogue of Suslin's structure theorem~\eqref{eq:triple-decomposition}.
-    \item Step 2. In~\cref{subsec:structure-theorem-overview} we use this formalism to construct the "model set" $V$ and, thus, formulate the $\K_2$-analogue of Suslin's structure theorem precisely.
+    \item Step 2. In~\cref{subsec:structure-theorem-overview} we use this formalism to construct the ``model set'' $\overline{V}$ and, thus, formulate the $\K_2$-analogue of Suslin's structure theorem precisely.
                   We also show how~\cref{thm:horrocks-k2} can be reduced to a concrete technical statement, namely,
-                  to the existence of the action of $\St(\Phi, A[X, X\inv])$ on $V$.
+                  to the existence of the action of $\St(\Phi, A[X, X\inv])$ on $\overline{V}$.
 \end{itemize}
-Obviously, \cref{prop:rel-poly-Laurent} reduces the problem of construction of the action of $\St(\Phi, A[X, X\inv])$ on $V$ to the construction of
- the automorphism $\delta_{\varpi_k}$ of $V$ modeling the action of the weight automorphism $\chi_{\varpi_k, X}$ (cf.~\cref{subsec:weight-automorphisms}).
+Obviously, \cref{prop:rel-poly-Laurent} reduces the problem of construction of the action of $\St(\Phi, A[X, X\inv])$ on $\overline{V}$ to the construction of
+ the automorphism $\delta_{\varpi_k}$ modeling the action of the weight automorphism $\chi_{\varpi_k, X}$ (cf.~\cref{subsec:weight-automorphisms}).
 Here index $k$ has the same meaning as in Figure 1 of~\cref{subsec:curtis-tits}, namely it is the index of the simple root marked green on the extended Dynkin diagram.
-The construction of $\sigma_k$ proceeds as follows:
+The construction of $\delta_{\varpi_k}$ proceeds as follows:
 \begin{itemize}
-    \item Step 3. First, we have to show the existence of $\varpi_k$-pair in the sense of~\cref{dfn:delta-pair}.
-                  Firstly, we construct $\varpi_1$-pair for the root system of type $\rA_3$ using the presentation from~\cref{prop:rel-presentation} for this purpose.
+    \item Step 3. The first ingredient in this construction is to show the existence of $\varpi_k$-pair in the sense of~\cref{dfn:delta-pair}.
+                  We construct $\varpi_1$-pair for the root system of type $\rA_3$ using the presentation from~\cref{prop:rel-presentation} for this purpose.
                   Next, we use the amalgamation theorem~\cref{thm:relPres} to obtain the general result.
                   This is achieved in~\cref{subsec:construction-sigma}.
-    \item Step 4. Finally, we complete the construction of the action of $\St(\Phi, A[X, X\inv])$ on $V$ and verify all the neccessary relations.
+    \item Step 4. Finally, we complete the construction of the action of $\St(\Phi, A[X, X\inv])$ on $\overline{V}$ and verify all the necessary relations.
                   This is achieved in~\cref{sec:construction-delta}.
 \end{itemize}
 
@@ -118,7 +118,8 @@ As the following lemma shows, this relation is an equivalence relation.
         = g_3^2(c \cdot c')^{-1} \cdot g_3^1(b \cdot {b'} ^ {g_1^2(a)^{-1}})^{- h_2 \left( y \right)} \cdot z. \qedhere
     \end{multline*}
 \end{proof}
-Since $h$ is constant on the orbits of $\star$-action, $h$ gives rise to a well-defined map $\overline{h} \colon V/\sim_W \to G$.
+Since $h$ is constant on the orbits of $\star$-action, $h$ gives rise to a well-defined map $\overline{h} \colon \overline{V} \to G$,
+ where $\overline{V}$ denotes the set of equivalence classes $V/\sim_W.$
 We use the notation $[a, b, c]$ to denote the equivalence class of the triple $(a, b, c) \in V$.
 
 \begin{lemma}\label{lem:one-one-z} Assume that the back face $(f_{12}, f_{23}, g_2^1, g_2^3)$ of~\eqref{eq:cube} is a pullback square.
@@ -194,7 +195,7 @@ Thus, we find ourselves in the situation of~\cref{subsec:triples}.
 The following lemma provides the second key reduction in the proof of Horrocks theorem.
 \begin{lemma} \label{lem:second-reduction}
     Suppose that $A$ is a domain.
-    Suppose that $V/\sim_W$ admits an action of $G$ such that
+    Suppose that $\overline{V} = V/\sim_W$ admits an action of $G$ such that
       for $g \in G_M$ one has \[ h_M(g) \cdot [1, 1, 1] = [1, 1, g]. \]
     Then the canonical homomorphism~\eqref{eq:c-surj} is surjective.
 \end{lemma}
@@ -360,14 +361,13 @@ Then there exists $q \in \UU(\Phi^+, M)$ such that $\pi(aq)$ lies in $\Stab_{\la
                \overline{a(0)} \cdot v^{\lambda'} &= v^{\lambda'} + \sum_{\mu > \lambda'} \overline{a_\mu} v^\mu \label{eq:right-side} \end{align}
  for some $a_\mu \in A$.
  Thus, from~\eqref{eq:sides}--\eqref{eq:right-side} we conclude that $\lambda = \lambda'$ and that $1 - u/u' \in M$ and also that $a_\mu \in M$.
- Using~\cite[Lemma~7]{V00} and~\eqref{eq:w-highestweight} we can find $\alpha \in \Sigma_k^-$ (if $\lambda \neq \varpi_k$) or $\alpha \in \Sigma^+_k$ (if $\lambda = \varpi_k$)
-  and $m \in M$ such that the element $x_2' \cdot h_\alpha(1+m) \cdot x_2^{-1}$ stabilizes the highest weight vector $v^+$.
- By the same argument as in the proof of~\cref{lem:can-repr} we obtain that it belongs to $\StW(\Delta_k, A)$.
- Consequently, we can write $x_2 = c \cdot x_2' \cdot h_\alpha(1+m)$ for some $c \in \StW(\Delta_k, A)$.
-
+ Using~\cite[Lemma~7]{V00} and~\eqref{eq:w-highestweight} we can find $m \in M$ such that the element
+  $h_{\alpha_k}(1+m) \cdot x_2' \cdot x_2^{-1}$ stabilizes the highest weight vector $v^+$.
+ By the same argument as in the proof of~\cref{lem:can-repr} we conclude that it belongs to $\StW(\Delta_k, A)$.
+ Consequently, we can write $x_2 = c \cdot h_{\alpha_k}(1+m) \cdot x_2'$ for some $c \in \StW(\Delta_k, A)$.
 
  Also we conclude from all the equalities obtained up to this point that
- \begin{equation} {}^{x_2'}(a \cdot \mu(b^a) \cdot h_\alpha^{-1}(1+m)) = {x_1'}^{-1} \cdot x_1 \cdot c \in N_\omega. \end{equation}
+ \begin{equation} {}^{x_2'}(\mu(b) \cdot a) \cdot h_{\alpha_k}^{-1}(1+m) = {x_1'}^{-1} \cdot x_1 \cdot c \in N_\omega. \end{equation}
  Since by~\cref{lem:delta-weyl} $N_{\overline{w} \cdot \omega} = {}^w{N_\omega}$ we conclude that
   $a \cdot \mu(b^a) \cdot h_\alpha^{-1}(1+m) \in {N_{\lambda}}$.
 
@@ -382,33 +382,34 @@ Then there exists $q \in \UU(\Phi^+, M)$ such that $\pi(aq)$ lies in $\Stab_{\la
    = \sigma(\omega)(x_1') \cdot x_2' \cdot \sigma(\lambda)(aq) \cdot \sigma(\lambda)(q^{-1} \mu(b^a) \cdot h^{-1}_\alpha(1+m)) \cdot h_{\alpha}(1+m).
  \end{multline*}
 
- Now we let us compute the second coordinate of $\delta_\omega \cdot v$ using \eqref{eq:chi-h} and the fact that
+ Now we let us compute the second coordinate of $\delta_\omega \cdot v$ using~\eqref{eq:chi-h} and the fact that
  $\chi_{\omega, X}$ acts identically on $\StW(\Delta_k, A)$.
  \begin{multline*}
- x_2^{-1}\cdot \chi_{X, \omega}(x_2 \cdot y) = x_2^{-1}\chi_{\omega, X}(x_2 \cdot a^{-1} \cdot y') = \\
- = h_{\alpha}^{-1}(1 + m) \cdot {x_2'}^{-1} \cdot c^{-1} \cdot \chi_{\omega, X}(c \cdot x_2' \cdot h_{\alpha}(1 + m) \cdot a^{-1} \cdot y') = \\
- = {x_2'}^{-1} \cdot h_{\alpha}^{-1}(1 + m) \cdot \chi_{\omega, X}(h_{\alpha}(1 + m) \cdot x_2' \cdot a^{-1} \cdot y') = \{X, 1+m\} \cdot {x_2'}^{-1} \chi_{\omega, X}(x_2' a^{-1} y').
+ x_2^{-1}\cdot \chi_{\omega, X}(x_2 \cdot y) = x_2^{-1} \cdot \chi_{\omega, X}(x_2 \cdot a^{-1} \cdot y') = \\
+ = {x_2'}^{-1} \cdot h_{\alpha_k}^{-1}(1 + m) \cdot c^{-1} \cdot \chi_{\omega, X}(c \cdot h_{\alpha_k}(1 + m) \cdot x_2' \cdot a^{-1} \cdot y') = \\
+ = {(x_2')}^{-1} \cdot h_{\alpha_k}^{-1}(1 + m) \cdot \chi_{\omega, X}(h_{\alpha_k}(1 + m) \cdot x_2' \cdot a^{-1} \cdot y') = \\
+ = \{X, 1+m\} \cdot {(x_2')}^{-1} \chi_{\omega, X}(x_2' \cdot a^{-1} \cdot y').
  \end{multline*}
 
     \textbf{to be continued}
 
  \end{proof}
 
-For $\omega = \om \varpi_k$ the function $\delta_\omega \colon V_{\omega} \to V_{-\omega}$ gives rise to a well-defined function $\overline{\delta}_\omega \colon V/\sim_W \to V/\sim_W.$
+For $\omega = \om \varpi_k$ the function $\delta_\omega \colon V_{\omega} \to V_{-\omega}$ gives rise to a well-defined function $\overline{\delta}_\omega \colon \overline{V} \to \overline{V}.$
 Indeed, by~\cref{lem:v-correctness1} for every $v \in V$ there exists $w \in W$ such that $w \star v \in V_\omega$, therefore
 we can define $\overline{\delta_\omega}(v)$ as the equivalence class of $\delta_{\omega}(w \star v)$.
 By~\cref{prop:v-correctness2} this definition is correct, i.\,e. does not depend on the choice of $w$.
 
 \begin{prop}
-    There is a well-defined action of $\St(\Phi, A[X, X\inv])$ on $V/\sim_W$ compatible with the action of $\St(\Phi, A[X])$.
+    There is a well-defined action of $\St(\Phi, A[X, X\inv])$ on $\overline{V}$ compatible with the action of $\St(\Phi, A[X])$.
 \end{prop}
 \begin{proof}
-    Thanks to~\cref{prop:rel-poly-Laurent} it suffices to construct the action of the group $G$ on $V/\sim_W$.
+    Thanks to~\cref{prop:rel-poly-Laurent} it suffices to construct the action of the group $G$ on $\overline{V} = V/\sim_W$.
     Here $V$ denotes the free product of $\langle \sigma \rangle$ and $\St(\Phi, A[X])$ amalgamated over the relations~\eqref{eq:sigma-sigma-plus}--\eqref{eq:sigma-delta}.
 
     We let the generator $\sigma$ of $G$ act on $V/\sim_W$ via $\delta_{\varpi_k}$.
     For $\alpha \in \Phi$ we define the translation action of $g \in \St(\Phi, A[X])$ on $V$ via $g \cdot (x, y, z) \coloneqq (gx, y, z)$.
-    It is easy to see that this definition is correct and gives rise to a well-defined action of $\St(\Phi, A[X])$ on $V/\sim_W$.
+    It is easy to see that this definition is correct and gives rise to a well-defined action of $\St(\Phi, A[X])$ on $\overline{V}$.
 
     Thus, it remains to check that these two actions satisfy the relations~\eqref{eq:sigma-sigma-plus}--\eqref{eq:sigma-delta}.
     We will only verify this for~\eqref{eq:sigma-sigma-plus}, the argument for other relations is similar.
@@ -480,9 +481,9 @@ By~\cref{prop:v-correctness2} this definition is correct, i.\,e. does not depend
 \end{proof}
 
 Now we are ready to prove the main result of this section.
-\begin{proof}{Proof of~\cref{thm:horrocks-k2}}
+\begin{proof}[Proof of~\cref{thm:horrocks-k2}]
     Thanks to~\cref{lem:first-reduction} and~\cref{lem:second-reduction} it suffices to show that the action of
-    $\St(\Phi, A[X, X\inv])$ on $V/\sim_W$ constructed above satisfies property
+    $\St(\Phi, A[X, X\inv])$ on $\overline{V} = V/\sim_W$ constructed above satisfies property
     $\mu(h) \cdot [1, 1, z] = [1, 1, hz]$ for $h, z \in \St(\Phi, A[X, X\inv], M[X, X\inv])$.
     It suffices to verify this property for $h$ belonging to a generating set of $\St(\Phi, A[X, X\inv], M[X, X\inv])$.
     According to~\cref{lem:relative-generators} it suffices to verify this assertion for
