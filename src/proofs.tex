@@ -1,27 +1,133 @@
-\subsection{Homotopy invariance of unstable $\K_2$}
+\usepackage{mathtools}Throughout this section we also denote by $\lambda_a$ the morphism of principal localization at $a \in A$.
+\subsection{Improved stability}
+The aim of this subsection is to prepare necessary technical ingredients for the proof of early stability theorem.
+Results discussed in this subsection
 
-\subsection{Early stability}
+For the rest of this subsection $\Psi$ is an arbitrary simply-laced root system of rank $\geq 3$ embedded into another simply-laced root system $\Phi$.
+For a commutative ring $R$ we denote by $j_R$ the corresponding homomorphism of Steinberg groups $\St(\Psi, R) \to \St(\Phi, R)$ induced by this embedding.
+
+\begin{lemma}[Dilation principle]\label{lem:dp-2}
+Let $h\in\St(\Phi, A[X], X A[X])$ be such that $\lambda_a^*(h) \in \mathrm{Im}(j_{A_a[X]})$.
+Then for sufficiently large $n$ one has $\ev{A}{A[X]}{a^n\cdot X}^*(h) \in \mathrm{Im}(j_{A[X]})$. \end{lemma}
+\begin{proof}
+ We denote by $A\ltimes XA_a[X]$ the semidirect product of $A$ and the ideal $XA_a[X]$, cf. e.\,g.~\cite[Definition~3.2]{S15}.
+ Denote by $\theta$ the obvious map $A[X]\rightarrow A\ltimes XA_a[X]$ localizing at $a$ all coefficients of terms of degree $\geq 1$.
+
+ Recall from~\cite[\S~2]{LS17} that there exists a homomorphism
+ \[T_\Psi \colon \St(\Psi, A_a[X], XA_a[X]) \to \St(\Psi, A \ltimes XA_a[X])\]
+ such that $\theta^* = T_\Psi \circ \lambda_a^*$.
+
+ Let $(A_i, f_{ij})$ be the directed system of rings given by
+ \[A_i\coloneqq A[X],\ f_{ij} \coloneqq \ev{A}{A[X]}{a^{j-i} \cdot X},\ 0 \leq i\leq j.\]
+ It is easy to check that $\varinjlim A_i$ coincides with $R \ltimes XA_a[X]$.
+ The canonical morphisms $A_j\rightarrow \varinjlim_i A_i \cong A\ltimes XA_a[X]$ can be easily computed as $\ev{A}{A\ltimes XA_a[X]}{a^{-j} \cdot X}$.
+ Steinberg group functor commutes with colimits over directed systems (cf.~\cite[Lemma~2.2]{Tu83}), therefore
+ \[\St(\Psi, A\ltimes XA_a[X]) = \St(\Psi, \varinjlim_i A_i) \cong \varinjlim_i \St(\Psi,A_i).\]
+ By hypothesis $\lambda_a^*(h) = j_{A_a[X]}(h')$ for some $h' \in \St(\Psi, A_a[X], XA_a[X])$.
+ Consequently, $\theta^*(h) = T_\Phi(j_{A_a[X]}(h')) = j_{A \ltimes XA_a[X]}(T_\Psi(h'))$.
+ By hypothesis, $\theta^*(h) \in T_\Phi(\mathrm{Im}(j_{A_a[X]}))$ and it remains to use the definition of colimit.
+\end{proof}
+
+\begin{lemma}\label{lem:L25-2}
+Let $a$ and $b$ be a pair of coprime elements of $A$.
+Let $g$ be an element of $\St(\Phi, A[X], XA[X])$ such that
+$\lambda_a^*(g) \in \mathrm{Im}(j_{A_a[X]})$ and $\lambda_b^*(g) \in \mathrm{Im}(j_{A_b[X]})$.
+Then $g$ lies in the image of $j_{A[X]} \colon \St(\Psi, A[X]) \to \St(\Phi, A[X])$.
+\end{lemma}
+\begin{proof}
+    We reproduce the argument of~\cite[Lemma~2.5]{Tu83}, cf. also with~\cite[Lemma~16]{S15}.
+    Set $S := A[X, Y]$.
+    Consider the following element of $\St(\Phi, S[Z])$:
+    \[h(X, Y, Z) := g(YX) \cdot  g^{-1}((Y+Z) X) = \ev{A}{S[Z]}{YX}^* \left(g\right) \cdot \ev{A}{S[Z]}{(Y + Z)X}^*\left(g^{-1}\right).\]
+    It is easy to see that $h(X, Y, Z)$ belongs to
+    \[\Ker\left(\eval{Z}{S}{S}{0}^*\colon\St(\Phi, S[Z]) \rightarrow \St(\Phi, S)\right)\]
+    and hence by~\cite[Lemma~8]{S15} lies in $\St(\Phi, S[Z], Z S[Z])$.
+    On the other hand, \begin{multline*}
+                           \lambda_{a}^*(h(X, Y, Z)) = \left(\lambda_a\circ \ev{A}{S[Z]}{Y X}\right)^*(g) \cdot \left(\lambda_a\circ \ev{A}{S[Z]}{(Y + Z)X}\right)^*(g^{-1}) = \\
+                           = \ev{A_a}{S_a[Z]}{YX}^*(\lambda_{a}^*(g)) \cdot \ev{A_a}{S_a[Z]}{(Y + Z)X}^*(\lambda_{a}^*(g^{-1})) \end{multline*}
+    lies in the image of $j_{S_a[Z]}$.
+    Similarly, $\lambda_{b}^*(h(X, Y, Z))$ lies in the image of $j_{S_b[Z]}$.
+
+    We claim that there exists $n$ such that both $h(X, Y, a^n Z)$ and $h(X, Y, b^n Z)$
+    lie in the image of $j(S[Z])$.
+
+    By assumption, there exist $r, s\ \in A$ such that $r a^n + s b^n = 1$, consequently
+    \begin{multline*}
+        g(X) = g(X)\cdot g^{-1}(ra^n\cdot X) \cdot g(ra^n\cdot X) \cdot g^{-1}(0) = \\ = h(X, 1, -sb^n) \cdot h(X, ra^n, -ra^n) \in j(A[X]). \qedhere
+    \end{multline*} \end{proof}
+
+\subsection{Main results}
+
 We start by recalling the so-called Zariski excision property of Steinberg groups.
 \begin{lemma} \label{lem:zariski-glueing}
 Let $\Phi$ be any simply-laced root system of rank $\geq 3$.
 Let $A$ be a commutative domain and $a, b \in A$ be a pair of coprime elements.
 \begin{enumerate}
     \item Let $\delta$ be an element of $\St(\Phi, A_{ab})$.
-    Then $\delta$ can be presented as $\lambda_b(\alpha) \cdot \lambda_a(\beta)$ for some
-    $\alpha \in \St(\Phi, A_a)$ and $\beta \in \St(\Phi, A_b)$.
-    \item  Let $\alpha \in \St(\Phi, A_a)$ and $\beta \in \St(\Phi, A_b)$ be such that the equality $\lambda_b(\alpha) = \lambda_a(\beta)$ holds in $\St(\Phi, A_{ab})$.
-    Then there exists $\gamma \in \St(\Phi, A)$ such that $\alpha = \lambda_a(\gamma)$, $\beta = \lambda_b(\gamma)$.
+    Then $\delta$ can be presented as $\lambda_b(x) \cdot \lambda_a(y)$ for some
+    $x  \in \St(\Phi, A_a)$ and $y \in \St(\Phi, A_b)$.
+    \item  Let $x \in \St(\Phi, A_a)$ and $y \in \St(\Phi, A_b)$ be such that the equality $\lambda_b(x) = \lambda_a(y)$ holds in $\St(\Phi, A_{ab})$.
+    Then there exists $z \in \St(\Phi, A)$ such that $x = \lambda_a(z)$, $y = \lambda_b(z)$.
 \end{enumerate}
-
 \end{lemma}
 \begin{proof}
     This is a special case of Nisnevich excision for domains, see~\cite[Proposition~4.5]{LSV2}
     (cf. also the proof of~\cite[Lemma~2.6]{LSV2}).
 \end{proof}
 
-For the rest of this subsection $\Psi$ is an arbitrary simply-laced root system of rank $\geq 3$
- embedded into another simply-laced root system $\Phi$.
-We denote by $j$ the corresponding homomorphism of Steinberg groups $\St(\Psi, R) \to \St(\Phi, R)$.
+
+
+\begin{prop} \label{prop:horrocks-main} The group $\St(\Phi, B)$ acts on $\overline{V}$.
+This action satisfies the following properties:
+\begin{enumerate}
+    \item For $(g, h, u) \in V$ and $g_0 \in \Img(t_M)$ one has
+    \[g_0 \cdot [g, h, u] = [\lambda_{X\inv, B}^* (g_0) \cdot g, h, u]\]
+    \item For $(1, h, u) \in V$ and $h_0 \in \St(\Phi, A[X\inv])$ one has
+    \[ i_B(h_0) \cdot [1, h, u] = [1, h_0 \cdot h, u].\]
+    \item If $g \in \Img(j\colon \St(\Psi, B) \to \St(\Phi, B)), h \in \St(\Phi, A[X\inv]), u \in 1 + M$ then
+    \[ g \cdot [1, h, u] = [g', h', u']\] for some $g' \in \Img(j\colon G_{M, \Psi}^{\geq 0} \to G_{M, \Phi}^{\geq 0})$, $h' \in \St(\Phi, A[X\inv])$, $u'\in 1 + M$.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+    The existence of the action of $\St(\Phi, B)$ and the second assertion are contained in~\cite[Proposition~5.39]{LS20}.
+    The first assertion is what the proof of~\cite[Lemma~5.41]{LS20} actually shows without the assumption that $i_R$ is injective.
+    The last assertion follows from the construction of the action. %TODO: Add more details!
+\end{proof}
+
+\begin{lemma} \label{lem:horrocks--ingredient}
+Let $A$ be a local ring, $x \in \K_2(\Phi, A[X], XA[X])$, $y \in \St(\Phi, A[X\inv]),$ $z \in \St(\Psi, A[X, X\inv])$ be elements satisfying the equality in $\St(\Phi, A[X, X\inv])$
+\begin{equation} \label{eq:alpha-def}\lambda_X(x) = j(z) \cdot \lambda_{X\inv}(y) \end{equation}
+Then $x$ belongs to the image of $j\colon \St(\Psi, A[X]) \to \St(\Phi, A[X])$.
+\end{lemma}
+\begin{proof}
+    Denote by $M$ the maximal ideal of $A$ and by $\kappa$ its residue field.
+    We denote by $\rho_{A}$ (resp. $\rho_{A[X]}$, $\rho_{A[X, X\inv]}$) the canonical homomorphism $A \to \kappa$ (resp. $A[X] \to \kappa[X]$, $A[X, X\inv] \to \kappa[X, X\inv]$).
+
+    Since $\K_2(\Psi, \kappa[X])$ surjects onto $\K_2(\Phi, \kappa[X])$ there exists $x_0 \in \St(\Psi, A[X])$ such that $j(x_0) \cdot x \in \overline{\St}(\Phi, A[X], M[X]) = \Ker(\rho^*_{A[X]})$ and
+    hence $\rho_{A[X]}^*(j(x_0) \cdot x) = 1$.
+    By the definition of relative Steinberg groups, there exists $\widetilde{x} \in \St(\Phi, A[X], M[X])$ such that
+    $\iota \cdot \lambda_X^{rel}(\widetilde{x}) = \lambda_X^* (j(x_0) \cdot x)$. %TODO: More details
+
+    Now consider the element $\rho^*_{A[X\inv]}(y) \in \St(\Phi, \kappa[X\inv])$.
+    Its image in $\Gsc(\Phi, \kappa[X\inv])$ is contained in the subgroup $\Gsc(\Psi, \kappa[X\inv])$.
+    Since $\K_1(\Psi, \kappa[X\inv]) = 1$, there exist
+    \[y_0 \in \St(\Psi, A[X\inv]),\ y_1 \in \St(\Phi, A[X\inv], M[X\inv])\] such that $y = j(y_0) \cdot y_1$.
+    Set $z_1 \coloneqq \lambda^*_X(x_0) \cdot z \cdot \lambda^*_{X\inv}(y_0) \in \St(\Psi, A[X, X\inv])$.
+    It follows from~\eqref{eq:alpha-def} that the element $\rho_{A[X, X\inv]}^*(j(z_1)) \in \St(\Phi, \kappa[X, X\inv])$ is trivial, hence $\rho^*_{A[X, X\inv]}(z_1) \in \K_2(\Psi, \kappa[X, X\inv])$.
+    Recall from~\cite{Hur77} that $\K_2(\Psi, \kappa[X, X\inv]) \to \K_2(\Phi, \kappa[X, X\inv])$ is injective (see the assertion after Korollar~6).
+    Thus, $z_1 \in \overline{\St}(\Psi, A[X, X\inv], M[X, X\inv]).$
+    There exists $z_2 \in \St(\Psi, A[X, X\inv], M[X, X\inv])$ such that $\iota (z_2) = z_1$.
+    Notice that $j(z_2) \cdot \lambda_{X\inv}^{rel}(y_1) = \kappa \lambda_X^{rel}(\widetilde{x})$ for $\kappa \in \Ker(\iota\colon \St(\Phi, A[X, X\inv], M[X, X\inv]) \to \St(\Phi, A[X, X\inv]))$
+
+    By the third assertion of~\cref{prop:horrocks-main} $j(z_2) \cdot [1, y_1, 1] = [j(g), h, u]$ for some $g \in \G_{M, \Psi}^{\geq 0}$.
+    Observe that
+    \[ \lambda_{X\inv, B}^* (j(z_2) \cdot i_B(y_1)) = j(z_1) \lambda_{X\inv}^*(y_1) = \lambda_X^*(j(x_0)) \cdot j(z) \lambda_{X\inv}^*(y) = \lambda_{X\inv, B}^*(t_M(\widetilde{x})), \]
+    hence there exists $\kappa \in \Ker(\lambda^*_{X\inv, B})$ such that $j(z_2) \cdot i_B(y_1) = \kappa t_M(\widetilde{x})$.
+    Consequently, from~\cref{prop:horrocks-main} we obtain that
+    \[j(z_2) \cdot [1, y_1, 1] = j(z_2) \cdot i_B(y_1) [1, 1, 1] = \kappa [\lambda_X^*(j(x_0) \cdot x), 1, 1].\]
+    By the definition of $\overline{V}$ one has $j(x_0) x = j(g) g_0$ for $g$ as above and some $g_0 \in \overline{\St}(\Phi, A, M)$.
+    Since $x(0) = 1$ we obtain that $g_0 = j(g)(0) \cdot j(x_0)(0)$, which implies the required assertion.
+\end{proof}
 
 \begin{lemma} \label{lem:horrocks-b}
  Let $A$ be a commutative domain and $f \in A[X]$ be a unitary polynomial.
@@ -98,60 +204,3 @@ Set $G_M^{\geq 0} \coloneqq \Img(\St(\Phi, A[X], M[X]) \to \St(\Phi, R)), G_M^0 
 Denote by $\overline{V}$ the quotient-set of the product $V \coloneqq G_M^{\geq 0} \times \St(\Phi, A[X\inv]) \times (1 + M)^\times$
 modulo the equivalence relation given by $(gh_0, h, u) \cong (g, h_0h, u)$ where $h_0 \in G_M^0, (g, h, u) \in V.$
 Denote by $[g, h, u] \in \overline{V}$ the equivalence class corresponding to $(g, h, u)\in V$.
-
-\begin{prop} \label{prop:horrocks-main} The group $\St(\Phi, B)$ acts on $\overline{V}$.
-This action satisfies the following properties:
-\begin{enumerate}
-    \item For $(g, h, u) \in V$ and $g_0 \in \Img(t_M)$ one has
-    \[g_0 \cdot [g, h, u] = [\lambda_{X\inv, B}^* (g_0) \cdot g, h, u]\]
-    \item For $(1, h, u) \in V$ and $h_0 \in \St(\Phi, A[X\inv])$ one has
-    \[ i_B(h_0) \cdot [1, h, u] = [1, h_0 \cdot h, u].\]
-    \item If $g \in \Img(j\colon \St(\Psi, B) \to \St(\Phi, B)), h \in \St(\Phi, A[X\inv]), u \in 1 + M$ then
-    \[ g \cdot [1, h, u] = [g', h', u']\] for some $g' \in \Img(j\colon G_{M, \Psi}^{\geq 0} \to G_{M, \Phi}^{\geq 0})$, $h' \in \St(\Phi, A[X\inv])$, $u'\in 1 + M$.
-\end{enumerate}
-\end{prop}
-\begin{proof}
-    The existence of the action of $\St(\Phi, B)$ and the second assertion are contained in~\cite[Proposition~5.39]{LS20}.
-    The first assertion is what the proof of~\cite[Lemma~5.41]{LS20} actually shows without the assumption that $i_R$ is injective.
-    The last assertion follows from the construction of the action. %TODO: Add more details!
-\end{proof}
-
-\begin{lemma} \label{lem:horrocks--ingredient}
-Let $A$ be a local ring, $\alpha \in \K_2(\Phi, A[X], XA[X])$, $\beta \in \St(\Phi, A[X\inv]),$ $\gamma \in \St(\Psi, A[X, X\inv])$ be elements satisfying the equality (in $\St(\Phi, R)$)
-\begin{equation} \label{eq:alpha-def}\lambda_X(\alpha) = j(\gamma) \cdot \lambda_{X\inv}(\beta) \end{equation}
-Then $\alpha$ belongs to the image of $j\colon \St(\Psi, A[X]) \to \St(\Phi, A[X])$.
-\end{lemma}
-\begin{proof}
-\end{proof}
-
-\begin{comment}
-\begin{proof}
-    Denote by $M$ the maximal ideal of $A$ and by $k$ its residue field.
-    We denote by $\pi_A$ (resp. $\pi_{A[X]}$, resp. $\pi_{R}$) the canonical homomorphism $A \to k$ (resp. $A[X] \to k[X]$, resp. $R \to k[X, X\inv]$).
-
-    Since $\K_2(\Psi, k[X])$ surjects onto $\K_2(\Phi, k[X])$ there exists $\alpha_0 \in \St(\Psi, A[X])$ such that $j(\alpha_0) \cdot \alpha \in \overline{\St}(\Phi, A[X], M[X])$ and
-    hence $\pi_{A[X]}^*(j(\alpha_0) \cdot \alpha) = 1$.
-    By definition of relative Steinberg groups, there exists $\widetilde{\alpha} \in \St(\Phi, A[X], M[X])$ such that
-    $\iota \cdot \lambda_X^{rel}(\widetilde{\alpha}) = \lambda_X^* (j(\alpha_0) \cdot \alpha)$. %TODO: More details
-
-    Now consider the element $\pi^*_{A[X\inv]}(\beta) \in \St(\Phi, k[X\inv])$.
-    Its image in $\G(\Phi, k[X\inv])$ is contained in the subgroup $\G(\Psi, k[X\inv])$.
-    Since $\K_1(\Psi, k[X\inv]) = 1$, there exist
-    \[\beta_0 \in \St(\Psi, A[X\inv]),\ \beta_1 \in \St(\Phi, A[X\inv], M[X\inv])\] such that $\beta = j(\beta_0) \cdot \beta_1$.
-    Set $\gamma_1 \coloneqq \lambda^*_X(\alpha_0) \cdot \gamma \cdot \lambda^*_{X\inv}(\beta_0) \in \St(\Psi, R)$.
-    It follows from~\eqref{eq:alpha-def} that the element $\pi_R^*(j(\gamma_1)) \in \St(\Phi, k[X, X\inv])$ is trivial, hence $\pi^*_R(\gamma_1) \in \K_2(\Psi, k[X, X\inv])$.
-    Recall from~\cite{Hur77} that $\K_2(\Psi, k[X, X\inv]) \to \K_2(\Phi, k[X, X\inv])$ is injective (see the assertion after Korollar~6).
-    Thus, $\gamma_1 \in \overline{\St}(\Psi, R, M[X, X\inv]).$
-    There exists $\gamma_2 \in \St(\Psi, R, M[X, X\inv])$ such that $\iota (\gamma_2) = \gamma_1$.
-    Notice that $j(\gamma_2) \cdot \lambda_{X\inv}^{rel}(\beta_1) = \kappa \lambda_X^{rel}(\widetilde{\alpha})$ for $\kappa \in \Ker(\iota\colon \St(\Phi, R, M[X, X\inv]) \to \St(\Phi, R))$
-
-    By the third assertion of~\cref{prop:horrocks-main} $j(\gamma_2) \cdot [1, \beta_1, 1] = [j(g), h, u]$ for some $g \in \G_{M, \Psi}^{\geq 0}$.
-    Observe that
-    \[ \lambda_{X\inv, B}^* (j(\gamma_2) \cdot i_B(\beta_1)) = j(\gamma_1) \lambda_{X\inv}^*(\beta_1) = \lambda_X^*(j(\alpha_0)) \cdot j(\gamma) \lambda_{X\inv}^*(\beta) = \lambda_{X\inv, B}^*(t_M(\widetilde{\alpha})), \]
-    hence there exists $\kappa \in \Ker(\lambda^*_{X\inv, B})$ such that $j(\gamma_2) \cdot i_B(\beta_1) = \kappa t_M(\widetilde{\alpha})$.
-    Consequently, from~\cref{prop:horrocks-main} we obtain that
-    \[j(\gamma_2) \cdot [1, \beta_1, 1] = j(\gamma_2) \cdot i_B(\beta_1) [1, 1, 1] = \kappa [\lambda_X^*(j(\alpha_0) \cdot \alpha), 1, 1].\]
-    By the definition of $\overline{V}$ one has $j(\alpha_0) \alpha = j(g) g_0$ for $g$ as above and some $g_0 \in \overline{\St}(\Phi, A, M)$.
-    Since $\alpha(0) = 1$ we obtain that $g_0 = j(g)(0) \cdot j(\alpha_0)(0)$, which implies the required assertion.
-\end{proof}
-\end{comment}
