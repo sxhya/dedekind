@@ -94,7 +94,7 @@
 \newtheorem{rem}[lemma]{Remark}
 \Crefname{rem}{Remark}{Remarks}
 
-\title{On the $\mathbb{A}^1$-invariance of $K_2$ \RNum{2}: exceptional groups and Dedekind domains}
+\title{On the $\mathbb{A}^1$-invariance of $K_2$ of simply-laced root systems}
 \keywords {Steinberg group, $K_2$-functor, Serre problem {\em Mathematical Subject Classification (2010):} 19C20}
 \author {Sergei Sinchuk}
 \dedicatory{In the memory of my teacher Nikolai Vavilov}
@@ -106,21 +106,19 @@
 
     \section{Introduction}\label{sec:introduction}
 
-    As a corollary we obtain the following result analogous to~\cite[Theorem~1.1]{St-Ded}:
-    \begin{cor}
-        \label{cor:dedekind}
-        Let $\Phi$ and $A$ be as above.
-        Assume additionally that $A$ is a regular domain.
-        Then $\K_2(A)$ surjects onto $\K_2(\Phi, A[X_1,\ldots, X_n])$.
-    \end{cor}
-    \begin{proof}
-        Consider the following diagram:
-        \[ \K_2(\rA_3, A) \to \K_2(\rA_4, A) \to \K_2(\rA_4, A[X_1, \ldots, X_n]) \rightarrow \K_2(A[X_1, \ldots, X_n]) \to \K_2(A).\]
-        The two right arrows on the above diagram are isomorphisms by the $\mathbb{A}^1$-invariance of the stable $\K_2$
-        (see e.\,g. \cite[Theorem~V.6.3]{Kbook}) combined with the main result of~\cite{Tu83}.
-        On the other hand, by~\cite[Corollary~3.2]{ST76} the left arrow and the composite arrow are isomorphisms.
-        Our assertion now follows from~\cref{thm:early-stability}.
-    \end{proof}
+
+\begin{thm}[The $\K_2$-analogue of Lindel--Popescu theorem] \label{theorem:LP-for-K2}
+ Let $k$ be an arbitrary field and $R$ be a regular ring containing $k$.
+ Let $\Phi$ be an irreducible simply-laced root system containing $\rA_4$ not of type $\rE_8$.
+ Then for any lattice $\Lambda$ as above and $G = \mathrm{G}_\Lambda(\Phi, -)$ one has $\K_2^G(R[t])\cong\K_2^G(R).$
+\end{thm}
+
+As a corollary we obtain the following result analogous to~\cite[Theorem~1.1]{St-Ded}:
+\begin{thm} \label{cor:dedekind}
+Let $\Phi$ and $A$ be as above.
+Assume additionally that $A$ is a regular domain.
+Then $\K_2(A)$ surjects onto $\K_2(\Phi, A[X_1,\ldots, X_n])$.
+\end{thm}
 
 
     \section{Preliminaries}\label{sec:preliminaries}
