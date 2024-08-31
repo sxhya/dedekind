@@ -97,18 +97,19 @@ this does not present a problem for us since this condition has been checked alr
 
 \begin{prop} \label{prop:horrocks-main} The group $\St(\Phi, A[X\inv] + M[X])$ acts simply transitively on $\overline{V}$.
 This action satisfies the following additional property.
-If
+Suppose that for some
 \[g \in \Img(j\colon \St(\Psi, A[X\inv] + M[X]) \to \St(\Phi, A[X\inv] + M[X])), \]
-$h \in \St(\Phi, A[X\inv])$ and $u \in 1 + M$ then
-\[ g \cdot [1, h, u] = [g', h', u']\] for some
- $g' \in \Img(j\colon G_{M, \Psi}^{\geq 0} \to G_{M, \Phi}^{\geq 0})$, $h' \in \St(\Phi, A[X\inv])$, $u'\in 1 + M$.
+$h, h' \in \St(\Phi, A[X\inv])$ and $u, h' \in 1 + M$ one has
+\[ g \cdot [1, h, u] = [g', h', u'].\]
+Then $g'$ belongs to $\Img(j\colon G_{M, \Psi}^{\geq 0} \to G_{M, \Phi}^{\geq 0})$.
 \end{prop}
 \begin{proof}
     The existence of the action of $\St(\Phi, A[X\inv] + M[X])$ and its faithfullness are contained in
     Proposition~5.39 and Remark 5.42 of~\cite{LS20}.
-    The stated property directly follows from the construction of the action in~\cite[\S~5.4]{LS20}.
+    The stated property follows from the construction of the action in~\cite[\S~5.4]{LS20}.
 \end{proof}
 
+The following lemma generalizes~\cite[Proposition~4.3(b)]{Tu83}.
 \begin{lemma} \label{lem:horrocks--ingredient}
 Let $A$ be a local ring with maximal ideal $M$ and residue field $\kappa$.
 Suppose that the image in $\St(\Phi, A[X, X\inv])$ of the element $x \in \K_2(\Phi, A[X], XA[X])$
@@ -124,17 +125,14 @@ Then $x$ belongs to $\Img(j_{A[X]})$.
      hence by our assumptions $\rho_{A[X, X\inv]}(j_{A[X, X\inv]}(y) \cdot z) = 1$.
     Consequently, we can find $z_0 \in \St(\Psi, A[X\inv])$ and $z_1 \in \overline{\St}(\Phi, A[X^{-1}], M[X^{-1}])$
      such that $z = j_{A[X\inv]}(z_0) \cdot z_1$.
-    Set $y' = y \cdot \lambda_{X^{-1}}(z_0)$, from $\rho_{A[X, X\inv]}(y') = 1$ we obtain that
-    $y' \in \overline{\St}(\Psi, A[X, X\inv], M[X, X\inv])$.
-
-    By the third assertion of~\cref{prop:horrocks-main} $j(z_2) \cdot [1, y_1, 1] = [j(g), h, u]$ for some $g \in \G_{M, \Psi}^{\geq 0}$.
-    Observe that
-    \[ \lambda_{X\inv, B}^* (j(z_2) \cdot i_B(y_1)) = j(z_1) \lambda_{X\inv}^*(y_1) = \lambda_X^*(j(x_0)) \cdot j(z) \lambda_{X\inv}^*(y) = \lambda_{X\inv, B}^*(t_M(\widetilde{x})), \]
-    hence there exists $\kappa \in \Ker(\lambda^*_{X\inv, B})$ such that $j(z_2) \cdot i_B(y_1) = \kappa t_M(\widetilde{x})$.
-    Consequently, from~\cref{prop:horrocks-main} we obtain that
-    \[j(z_2) \cdot [1, y_1, 1] = j(z_2) \cdot i_B(y_1) [1, 1, 1] = \kappa [\lambda_X^*(j(x_0) \cdot x), 1, 1].\]
-    By the definition of $\overline{V}$ one has $j(x_0) x = j(g) g_0$ for $g$ as above and some $g_0 \in \overline{\St}(\Phi, A, M)$.
-    Since $x(0) = 1$ we obtain that $g_0 = j(g)(0) \cdot j(x_0)(0)$, which implies the required assertion.
+    It is clear that $\rho_{A[X, X\inv]}(y \cdot \lambda_{X^{-1}}(z_0)) = 1$ hence we can find
+     $y' \in \St(\Psi, A[X, X\inv], M[X, X\inv])$ such that $\mu(y') = \cdot \lambda_{X^{-1}}(z_0)$.
+    Notice also that $t(y') \in \St(\Phi, A[X\inv] + M[X])$, where $t$ denotes the homomorphism discussed in~\cref{lem:first-reduction}.
+    From~\cref{prop:horrocks-main} we obtain that
+    \[ [x, 1, 1 ] = t(y') [1, z_1, 1] = [g', h', u']. \]
+    for some $g' \in \Img(\G_{M, \Psi}^{\geq 0} \to G_{M, \Phi}^{\geq 0})$.
+    From the definition of $\overline{V}$ we obtain that $x = g' \cdpt h_0$ for some $h_0 \in \overline{\St}(\Phi, A, M)$.
+    But since $x(0) = 1$ we conclude that $x = g' \cdot (g'(0))^{-1}$ from which the assertion of the lemma follows.
 \end{proof}
 
 \subsection{Main results}
@@ -221,19 +219,3 @@ Then for any $n \geq 0$ the obvious inclusion $\rA_4 \subseteq \Phi$ induces a s
     On the other hand, by~\cite[Corollary~3.2]{ST76} the left arrow and the composite arrow are isomorphisms.
     Our assertion now follows from~\cref{thm:early-stability}.
 \end{proof}
-
-\begin{comment}
-\subsection{Horrocks ingredient}\label{subsec:horrocks-ingredient}
-
-
-Now let $A$ be a local ring with maximal ideal $M$.
-Set $B \coloneqq A[X\inv] + M[X],\ R \coloneqq A[X, X\inv]$.
-Consider the following diagram:
-%! suppress = EscapeAmpersand
-\[ \xymatrix{ & \St(\Phi, A[X], M[X]) \ar[d]_{t_M} \ar[r] & \St(\Phi, A[X]) \ar[d]_{\lambda_X^*} \\
-\St(\Phi, A[X\inv]) \ar[r]^{i_B} \ar@/_/[rr]_{\lambda_{X\inv}^*} & \St(\Phi, B) \ar[r]^{\lambda^*_{X\inv, B}} & \St(\Phi, R)
-}\]
-The arrow $t_M$ arises from the \("\)lifting property\("\) of Steinberg groups (cf. \cite[Lemma~3.3]{LS20} or~\cite[Theorem~3]{LS17}) as the composition of morphisms
-$\lambda_{X}^{rel}\colon \St(\Phi, A[X], M[X]) \to \St(\Phi, R, M[X, X\inv])$ and $T \colon \St(\Phi, R, M[X, X\inv]) \to \St(\Phi, B)$.
-%This is wrong: Its image $\Img(t_M) \leq \St(\Phi, B)$ is generated as a subgroup by elements $x_\alpha(f)$, $z_\alpha(f, a)$, $z_\alpha(X^2f, aX^{-1})$, for $\alpha\in \Phi$, $a \in A$, $f \in M[X]$, see the proof of~\cite[Lemma~5.41]{LS20}.
-\end{comment}
