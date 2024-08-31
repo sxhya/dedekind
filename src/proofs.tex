@@ -4,12 +4,12 @@ Also for a prime ideal $M \trianglelefteq A$ we denote by $\lambda_M \colon A \t
 For a commutative ring $A$, and a $A$-algebra $B$ and $b\in B$ we denote by $\ev{A}{B}{b}\colon A[t]\rightarrow B$ the morphism of $A$-algebras evaluating each polynomial
  $p(t)\in A[t]$ at $b$, i.e. $\ev{A}{B}{b} (p(t)) = p(b)$.
 \subsection{Early stability theorem}
-The aim of this subsection is to prepare necessary technical ingredients for the proof of early stability theorem.
+The aim of this subsection is to prepare necessary technical ingredients for the proof of early stability theorem~\cref{cor:dedekind}.
 
 For the rest of this subsection $\Psi$ is an arbitrary irreducible simply-laced root system of rank $\geq 3$ embedded into another irreducible simply-laced root system $\Phi$.
 For a commutative ring $R$ we denote by $j_R$ the corresponding homomorphism of Steinberg groups $\St(\Psi, R) \to \St(\Phi, R)$ induced by this embedding.
 
-The following result is the analogue of the so-called Dilation principle for subsystem embeddings.
+The following result is the analogue of the so-called dilation principle for subsystem embeddings.
 \begin{lemma}\label{lem:dp-2}
 Let $h\in\St(\Phi, A[X], X A[X])$ be such that $\lambda_a^*(h) \in \Img(j_{A_a[X]})$.
 Then for sufficiently large $n$ one has
@@ -65,7 +65,7 @@ Then $g$ lies in the image of $j_{A[X]} \colon \St(\Psi, A[X]) \to \St(\Phi, A[X
     \end{multline*} \end{proof}
 
 The following result is the subsystem analogue of~\cite[Theorem~2]{LS17}, cf.\ also~\cite[Theorem~2.1]{Tu83}.
-\begin{cor}[Local-global principle for subsystem embeddings]
+\begin{cor}[Local-global principle for subsystem embeddings] \label{cor:QS-subsystem}
     An element $g \in \St(\Phi, A[X], XA[X])$ lies in $\Img(j_{A[X]})$ if and only if
      $\lambda_M^*(g) \in \St(\Phi, A_M[X])$ lies in $\Img(j_{A_M[X]})$ for all maximal ideals $M \trianglelefteq A$.
 \end{cor}
@@ -110,8 +110,8 @@ Then $g'$ belongs to $\Img(j\colon G_{M, \Psi}^{\geq 0} \to G_{M, \Phi}^{\geq 0}
 \end{proof}
 
 The following lemma generalizes~\cite[Proposition~4.3(b)]{Tu83}.
-\begin{lemma} \label{lem:horrocks--ingredient}
-Let $A$ be a local ring with maximal ideal $M$ and residue field $\kappa$.
+\begin{lemma} \label{lem:horrocks-subsystem-local}
+Let $A$ be a local domain with maximal ideal $M$ and residue field $\kappa$.
 Suppose that the image in $\St(\Phi, A[X, X\inv])$ of the element $x \in \K_2(\Phi, A[X], XA[X])$
  can be decomposed as $j_{A[X, X\inv]}(y) \cdot \lambda_{X^{-1}}^*(z)$ for
  some $y \in \St(\Psi, A[X, X\inv])$ and $z \in \St(\Phi, A[X\inv])$
@@ -133,6 +133,17 @@ Then $x$ belongs to $\Img(j_{A[X]})$.
     for some $g' \in \Img(\G_{M, \Psi}^{\geq 0} \to G_{M, \Phi}^{\geq 0})$.
     From the definition of $\overline{V}$ we obtain that $x = g' \cdpt h_0$ for some $h_0 \in \overline{\St}(\Phi, A, M)$.
     But since $x(0) = 1$ we conclude that $x = g' \cdot (g'(0))^{-1}$ from which the assertion of the lemma follows.
+\end{proof}
+
+\begin{cor} \label{cor:horrocks--ingredient}
+    Let $A$ be an arbitrary commutative domain.
+    Suppose that the image in $\St(\Phi, A[X, X\inv])$ of the element $x \in \K_2(\Phi, A[X], XA[X])$
+    can be decomposed as $j_{A[X, X\inv]}(y) \cdot \lambda_{X^{-1}}^*(z)$ for
+    some $y \in \St(\Psi, A[X, X\inv])$ and $z \in \St(\Phi, A[X\inv])$
+    Then $x$ belongs to $\Img(j_{A[X]})$.
+\end{cor}
+\begin{proof}
+    This is a consequence of~\cref{lem:horrocks-subsystem-local} and~\cref{cor:QS-subsystem}.
 \end{proof}
 
 \subsection{Main results}
@@ -157,9 +168,9 @@ Let $A$ be a commutative domain and $a, b \in A$ be a pair of coprime elements.
 
 \begin{lemma} \label{lem:horrocks-b}
  Let $A$ be a commutative domain and $f \in A[X]$ be a unitary polynomial.
- Let $\alpha$ be an element of $\K_2(\Phi, A[X], XA[X])$ such that $\lambda_f(\alpha)$ belongs to the image of the stabilization map
+ Let $h$ be an element of $\K_2(\Phi, A[X], XA[X])$ such that $\lambda_f(h)$ belongs to the image of the stabilization map
  $\St(\Psi, A[X]_f) \to \St(\Phi, A[X]_f)$.
- Then $\alpha$ lies in the image of $\St(\Psi, A[X]) \to \St(\Phi, A[X])$.
+ Then $h$ lies in the image of $\St(\Psi, A[X]) \to \St(\Phi, A[X])$.
 \end{lemma}
 \begin{proof}
     Suppose that $f(X) = X^n + a_1 X^{n-1} \ldots + a_n$.
@@ -173,17 +184,18 @@ Let $A$ be a commutative domain and $a, b \in A$ be a pair of coprime elements.
                  \St(\Psi, A[X]_f) \ar[r] \ar[u]_j & \St(\Psi, A[X, X\inv]_f) \ar[u]_j & \St(\Psi, A[X\inv]_g) \ar[l] \ar[u]_j \\
                                    & \St(\Psi, A[X, X\inv]) \ar[u]_{\lambda_f^\Psi}   & \St(\Psi, A[X\inv]). \ar[l] \ar[u]_{\lambda_g^\Psi}}\]
 
-    By assumption there exists $\widetilde{\alpha} \in \St(\Psi, A[X]_f)$ such that $j(\widetilde{\alpha}) = \lambda_f(\alpha)$.
-    By the first part of~\cref{lem:zariski-glueing} one can write $\lambda_X(\widetilde{\alpha}) = \lambda_f^\Psi(\gamma) \cdot \lambda_{X\inv}(\beta)$
-     for some $\beta \in \St(\Psi, A[X\inv]_g)$, $\gamma \in \St(\Psi, A[X, X\inv]).$
-    Consequently, one has $\lambda_f(j(\gamma)\inv \cdot \lambda_X(\alpha)) = \lambda_{X\inv}(j(\beta))$.
-    By the second part of~\cref{lem:zariski-glueing} there exists $\beta' \in \St(\Phi, A[X\inv])$ such that $\lambda_X(\alpha) = j(\gamma) \cdot \lambda_{X\inv}(\beta').$
-    The assertion now follows from~\cref{lem:horrocks--ingredient} and~\cref{lem:horrocks--ingredient}.
+    By assumption there exists $\widetilde{h} \in \St(\Psi, A[X]_f)$ such that $j(\widetilde{h}) = \lambda_f(h)$.
+    By the first part of~\cref{lem:zariski-glueing} one can write 
+     $\lambda_X(\widetilde{h}) = \lambda_f^\Psi(z) \cdot \lambda_{X\inv}(y)$
+     for some $y \in \St(\Psi, A[X\inv]_g)$, $z \in \St(\Psi, A[X, X\inv]).$
+    Consequently, one has $\lambda_f(j(z)\inv \cdot \lambda_X(\alpha)) = \lambda_{X\inv}(j(y))$.
+    By the second part of~\cref{lem:zariski-glueing} there exists $y' \in \St(\Phi, A[X\inv])$ such that $\lambda_X(\alpha) = j(z) \cdot \lambda_{X\inv}(y').$
+    The assertion now follows from~\cref{cor:horrocks--ingredient}.
 \end{proof}
 
-We now come to the main theorem of this section.
 \begin{thm}\label{thm:early-stability}
-Let $\Phi$ be a root system of type $\rA_{\geq 4}$, $\rD_{\geq 5}$ or $\rE_{6,7,8}$ and let $A$ be an arbitrary noetherian commutative ring of Krull dimension $\leq 1$.
+Let $\Phi$ be a root system of type $\rA_{\geq 4}$, $\rD_{\geq 5}$ or $\rE_{6,7,8}$ and let $A$ be an arbitrary noetherian commutative
+ domain of Krull dimension $\leq 1$.
 Then for any $n \geq 0$ the obvious inclusion $\rA_4 \subseteq \Phi$ induces a surjection
 \[\K_2(\rA_4, A[X_1,\ldots, X_n]) \to \K_2(\Phi, A[X_1, \ldots X_n]).\]
 \end{thm}
@@ -209,6 +221,14 @@ Then for any $n \geq 0$ the obvious inclusion $\rA_4 \subseteq \Phi$ induces a s
     Since functor $\K_2$ commutes with filtered colimits (cf. \cite[Lemma~3.3]{LSV2}) there exists $f \in S$ such that $\lambda^*_f(\alpha_1)$ lies in the image of $\K_2(\rA_4, B_f) \to \K_2(\Phi, B_f)$.
     By the construction of $S$ we may assume that $f$ is unital in $X_1$.
     The required assertion now follows from~\cref{lem:horrocks-b}.
+\end{proof}
+
+\begin{proof}[Proof of~\cref{thm:LP-for-K2}]
+    This is what the proof of~\cite[Theorem~1.1]{LSV2} actually shows if we use the more general~\cref{thm:horrocks-k2}.
+\end{proof}
+
+\begin{proof}[Proof of~\cref{cor:motivic-pi1}]
+    Repeat the proof of~\cite[Corollary~1.2]{LSV2} verbatim.
 \end{proof}
 
 \begin{proof}[Proof of~\cref{cor:dedekind}]
