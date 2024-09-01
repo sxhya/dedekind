@@ -288,9 +288,9 @@ Notice that for $g \in \StW(\Delta, A)$ one has $\chi_{\omega, X}(g) = g$ theref
  For every $v \in V$ there exists $(a, b, 1) \in W$ such that $(a, b, 1) \star v \in V_\omega$.
 \end{lemma}
 \begin{proof}
- Choose system of positive roots $\Phi^+'$ as either $\Phi^+$ or $\Phi^-$ depending on whether $\omega $ is $\varpi_k$ or $-\varpi_k$.
+ Choose system of positive roots ${\Phi^+}'$ as either $\Phi^+$ or $\Phi^-$ depending on whether $\omega $ is $\varpi_k$ or $-\varpi_k$.
  From~\cref{lem:bruhat} and the normality of the subgroup $\St(\Phi, A[X], X[A]) \leq G^+$ we obtain that
-  \[G^+ = \UU(\Phi^{+}', A)\cdot \St(\Phi, A[X], XA[X]) \cdot \StW(\Phi,A)\cdot \overline{\St}(\Phi, A, M) \cdot\UU(\Phi^+, A).\]
+  \[G^+ = \UU({\Phi^+}', A)\cdot \St(\Phi, A[X], XA[X]) \cdot \StW(\Phi,A)\cdot \overline{\St}(\Phi, A, M) \cdot\UU(\Phi^+, A).\]
  The first two factors in the above decomposition are contained in $N_\omega$, so the assertion follows from the definition of $\star$.
 \end{proof}
 
@@ -422,7 +422,7 @@ By~\cref{prop:v-correctness2} this definition is correct, i.\,e. does not depend
     \begin{multline*}
         \overline{\delta}_{\varpi_k} \cdot x_\alpha(f) \cdot \overline{\delta}_{-\varpi_k} \cdot [x_1 \cdot x_2, y, z] = \\
         = \overline{\delta}_{\varpi_k} \cdot x_\alpha(f) \cdot [\sigma(-\varpi_k)(x_1) \cdot x_2, x_2^{-1} \cdot \chi_{-\varpi_k, X}(x_2 \cdot y), \widetilde{\chi}_{-\varpi_k, X}(z)] = \\
-        = \left[\sigma(\varpi_k)\left(x_{\alpha}(f) \cdot \sigma(-\varpi_k)(x_1)) \cdot x_2, x_2^{-1} \cdot \chi_{\varpi_k, X}\left(x_2 \cdot x_2^{-1} \cdot \chi_{-\varpi_k, X}(x_2 \cdot y)\right), z\right] = \\
+        = \left[\sigma(\varpi_k)\left(x_{\alpha}(f) \cdot \sigma(-\varpi_k)(x_1)\right) \cdot x_2, x_2^{-1} \cdot \chi_{\varpi_k, X}\left(x_2 \cdot x_2^{-1} \cdot \chi_{-\varpi_k, X}(x_2 \cdot y)\right), z\right] = \\
         = [x_\alpha(Xf) \cdot x_1 \cdot x_2, y, z] = x_\alpha(Xf) \cdot [x_1 \cdot x_2, y, z]. \qedhere
     \end{multline*}
 \end{proof}
