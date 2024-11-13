@@ -449,11 +449,14 @@ We now define two families of elements of $\St(n, R)$.
      x(d^{-1} \cdot u', d \cdot u'_{ij} c_{ij}) \cdot
      x(d^{-1} \cdot u', d \cdot u'_{ki} bc_{ij}),
   \end{equation}
- where $u' = m  u = t_{jk}(b) \cdot u$ and $b = d_j \cdot a \cdot d_k^{-1} \in R$.
-  Notice that $m^* \cdot u_{ij} = t_{kj}(-b) \cdot u_{ij} = e_iu_j - e_ju_i + e_k b u_i =u'_{ij}+u'_{ki}b$.
+ where $u' = m \cdot u = t_{jk}(b) \cdot u$ and $b = d_j \cdot a \cdot d_k^{-1} \in R$.
+  Notice that
+ \begin{multline*}
+    m^* \cdot u_{ij} = t_{kj}(-b) \cdot u_{ij} = t_{kj}(-b) \cdot (e_i u_j-e_j u_i) = e_iu_j - e_ju_i + e_k b u_i =
+     \\ = \left(e_i (u_kb + u_j) - e_j u_i\right) + (e_k u_i-e_i u_k)b = (e_i u'_j-e_j u'_i) + (e_k u'_i-e_i u'_k)b = u'_{ij}+u'_{ki}b.
+ \end{multline*}
 
   Thus, $g' = \prod_{s} x(d^{-1} \cdot u', d \cdot v'_s) $, where $v'_s \in D(u')$ and $\sum v'_s = m^*v$.
   It is clear now that $g' = X^d(m u, m^* v)$ by~\cref{dfn:xy-def}.
-
   The argument for the generator $Y^d(v, u)$ is similar.
 \end{proof}
