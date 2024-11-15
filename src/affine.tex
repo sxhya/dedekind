@@ -4,12 +4,24 @@ Throughout this section $A$ denotes an arbitrary commutative ring.
 In this subsection we briefly recall the theory of Steinberg groups in the Kac--Moody setting.
 Only in this subsection we allow root systems to be infinite.
 
-Recall that to any generalized Cartan matrix one can associate (possibly infinite) root system $\Phi$ and the Steinberg group functor $\St(\Phi, -)$.
+Recall that to any generalized Cartan matrix (or, for short, GCM) $A$ one can associate a (possibly infinite) root system $\Phi = \Phi_A$ and the Steinberg group functor $\St(\Phi, -)$ from the category of commutative rings to groups.
 Two definitions of this functor have been proposed: the definition of J.~Tits~\cite[\S~3.6]{Ti87} and the definition of J.~Morita and U.~Rehmann~\cite[\S~2]{MR90}.
-These definitions agree if the Dynkin diagram of the GCM does not contain connected components of type $\rA_1$, see~\cite[\S~6]{A13}.
+These definitions agree if the Dynkin diagram of $A$ does not contain connected components of type $\rA_1$, see \cite[\S~3]{A16} or~\cite[\S~6]{A13}.
+In this case $\St(\Phi, R)$ is presented by generators $x_\alpha(a)$ (where $a \in R$ and $\alpha$ ranges over the set $\Phi^\mathrm{re}$ of {\it real} roots of $\Phi$)
+ and the following relations:
+\begin{align}
+    x_\alpha(a) x_\alpha(b) & =  x_\alpha(a + b), \\
+    [x_\alpha(a), x_\beta(b)] & =  \prod \limits_{\substack{i\alpha+j\beta \in \Phi^\mathrm{re} \\ i, j > 0 }} x_{i\alpha+j\beta}(N_{\alpha, \beta}^{i, j} \cdot r^i s^j),
+\end{align}
+where $\alpha, \beta$ range over all {\it prenilpotent} pairs of real roots.
+Recall that by definition this means that there exists a Weyl-group element $w \in W_\Phi$ such that both
+ $w\cdot \alpha$ and $w \cdot \beta$ both belong to $\Phi^+.$
+A consequence of this condition is that $(\mathbb{Z}_{>0} \alpha + \mathbb{Z}_{>0}\beta)\cap \Phi$ consists of real roots.
 
-For our purposes it will be sufficient to restrict attention to the case of a GCM of \textit{affine} type, or, in other words, GCM whose Dynkin diagram is the \textit{extended} Dynkin diagram of a finite irreducible simply-laced root system $\Phi$ of rank $>1$.
-Such digrams for $\Phi$ of type $\rD_\ell$, $\rE_6$ and $\rE_7$ are depicted on Figure 1 (the added root is marked with yellow color and index $0$).
+For our purposes it will be sufficient to restrict attention to a certain subclass of GCMs of \textit{affine} type.
+More precisely, we will consider GCMs whose Dynkin diagram is the \textit{extended} Dynkin diagram of a finite irreducible simply-laced root system $\Phi$ of rank $>1$.
+Such digrams for $\Phi$ of type $\rD_\ell$, $\rE_6$ and $\rE_7$ are depicted on Figure 1.
+The added root is marked with yellow color and index $0$ (other markings on the diagram will be explained in the text below).
 
 \tikzset{
     root/.style={circle, draw, minimum size=0.2cm, inner sep=0},
@@ -87,13 +99,19 @@ Such digrams for $\Phi$ of type $\rD_\ell$, $\rE_6$ and $\rE_7$ are depicted on 
 \caption{Root markings on extended Dynkin diagrams}
 \end{figure}
 
-Denote by $\widetilde{\Phi}$ the affine root system corresponding to $\Phi$.
-Recall from~\cite[\S~4]{A16} that the set of real roots of $\widetilde{\Phi}$ is isomorphic to $\Phi \times \ZZ$.
+Now let $\Phi$ be a finite root system.
+Following \S~4 of~\cite{A16} we denote by $\widetilde{\Phi}$ the corresponding affine root system (sometimes it is denoted by $\Phi^{(1)}$, cf.~ibid.).
 \begin{lemma} \label{lem:affine-vs-loop} $\St(\widetilde{\Phi}, A) \cong \St(\Phi, A[X, X\inv])$.
 \end{lemma}
 \begin{proof}
-    By definition, the group $\mathrm{St}(\widetilde{\Phi}, A)$ is presented by generators $x_{(\alpha, m)}(a)$, $a \in A$, $\alpha \in \Phi$ and
+    By definition, the group $\mathrm{St}(\widetilde{\Phi}, A)$
+
+    is presented by generators $x_{(\alpha, m)}(a)$, $a \in A$, $\alpha \in \Phi$ and
     the following relations:
+
+    The set of real roots of $\widetilde{\Phi}$ is isomorphic to $\Phi \times \ZZ$, see~ibid.
+
+
     \begin{align}
         x_{(\alpha, m)}(a)\cdot x_{(\alpha, m)}(b)&=x_{(\alpha, m)}(a+b),  \label{AR1}\\
         [x_{(\alpha, m)}(a),\,x_{(\beta, n)}(b)]  &=x_{(\alpha+\beta, n+m)}(N_{\alpha,\beta} \cdot ab),\text{ for }\alpha+\beta\in\Phi, \label{AR2} \\
