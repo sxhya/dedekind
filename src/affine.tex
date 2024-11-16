@@ -4,24 +4,19 @@ Throughout this section $A$ denotes an arbitrary commutative ring.
 In this subsection we briefly recall the theory of Steinberg groups in the Kac--Moody setting.
 Only in this subsection we allow root systems to be infinite.
 
-Recall that to any generalized Cartan matrix (or, for short, GCM) $A$ one can associate a (possibly infinite) root system $\Phi = \Phi_A$ and the Steinberg group functor $\St(\Phi, -)$ from the category of commutative rings to groups.
-Two definitions of this functor have been proposed: the definition of J.~Tits~\cite[\S~3.6]{Ti87} and the definition of J.~Morita and U.~Rehmann~\cite[\S~2]{MR90}.
-These definitions agree if the Dynkin diagram of $A$ does not contain connected components of type $\rA_1$, see \cite[\S~3]{A16} or~\cite[\S~6]{A13}.
-In this case $\St(\Phi, R)$ is presented by generators $x_\alpha(a)$ (where $a \in R$ and $\alpha$ ranges over the set $\Phi^\mathrm{re}$ of {\it real} roots of $\Phi$)
- and the following relations:
-\begin{align}
-    x_\alpha(a) x_\alpha(b) & =  x_\alpha(a + b), \\
-    [x_\alpha(a), x_\beta(b)] & =  \prod \limits_{\substack{i\alpha+j\beta \in \Phi^\mathrm{re} \\ i, j > 0 }} x_{i\alpha+j\beta}(N_{\alpha, \beta}^{i, j} \cdot r^i s^j),
-\end{align}
-where $\alpha, \beta$ range over all {\it prenilpotent} pairs of real roots.
-Recall that by definition this means that there exists a Weyl-group element $w \in W_\Phi$ such that both
- $w\cdot \alpha$ and $w \cdot \beta$ both belong to $\Phi^+.$
+Recall that to any generalized Cartan matrix (or, for short, GCM) $C$ one can associate a (possibly infinite) root system $\Phi = \Phi_C$.
+In this general setting, the notion of the Weyl group $W(\Phi)$ is introduced.
+Additionally, there are analogues of the concepts of simple, positive and negative roots, as discussed in e.\,g.~\cite[\S~16]{Ca05}.
+Recall that a root $\alpha \in \Phi$ is called \textit{real} if it lies in the orbit of some simple root $\alpha_i \in \Pi$ under the action of the Weyl group $W(\Phi)$, cf.~\cite[\S~16.3]{Ca05}.
+Recall that a pair of real roots $\alpha, \beta$ is called \textit{prenilpotent} if there exists an element $w$ of the Weyl group $W(\Phi)$ such that both $w\cdot \alpha$ and $w \cdot \beta$ belong to $\Phi^+,$ cf.~\cite[\S~3]{A16}
 A consequence of this condition is that $(\mathbb{Z}_{>0} \alpha + \mathbb{Z}_{>0}\beta)\cap \Phi$ consists of real roots.
 
-For our purposes it will be sufficient to restrict attention to a certain subclass of GCMs of \textit{affine} type.
-More precisely, we will consider GCMs whose Dynkin diagram is the \textit{extended} Dynkin diagram of a finite irreducible simply-laced root system $\Phi$ of rank $>1$.
-Such digrams for $\Phi$ of type $\rD_\ell$, $\rE_6$ and $\rE_7$ are depicted on Figure 1.
-The added root is marked with yellow color and index $0$ (other markings on the diagram will be explained in the text below).
+For our purposes it suffices to focus on a specific subclass of GCMs of \textit{affine} type.
+Let $\Phi$ be a finite irreducible root system of rank at least $2$.
+Following \S~4 of~\cite{A16} we denote by $\widetilde{\Phi}$ the corresponding unfolded affine root system (sometimes it is denoted by $\Phi^{(1)}$, cf.~\cite[Table~2]{A16}).
+The Dynkin diagram of $\widetilde{\Phi}$ is the \textit{extended} Dynkin diagram of $\Phi$, cf.~\cite[\S~17.1]{Ca05}.
+Such diagrams for $\Phi$ of type $\rD_\ell$, $\rE_6$ and $\rE_7$ are shown on Figure~1.
+The vertex corresponding to the affinizing simple root is marked with yellow color and index $0$ (other markings on the diagram will be explained in the subsequent text).
 
 \tikzset{
     root/.style={circle, draw, minimum size=0.2cm, inner sep=0},
@@ -99,25 +94,33 @@ The added root is marked with yellow color and index $0$ (other markings on the 
 \caption{Root markings on extended Dynkin diagrams}
 \end{figure}
 
-Now let $\Phi$ be a finite root system.
-Following \S~4 of~\cite{A16} we denote by $\widetilde{\Phi}$ the corresponding affine root system (sometimes it is denoted by $\Phi^{(1)}$, cf.~ibid.).
-\begin{lemma} \label{lem:affine-vs-loop} $\St(\widetilde{\Phi}, A) \cong \St(\Phi, A[X, X\inv])$.
+Now we are ready to recall the definition of the Steinberg group functor $\St(C, -)$ in the Kac--Moody setting.
+In fact, two such definitions have been proposed: the definition of J.~Tits~\cite[\S~3.6]{Ti87} and the definition of J.~Morita and U.~Rehmann~\cite[\S~2]{MR90}.
+These definitions agree if the Dynkin diagram of $C$ does not contain connected components of type $\rA_1$ (as is the case in our setting), see~\cite[\S~3]{A16} or~\cite[\S~6]{A13}.
+
+The set of generators for $\St(C, A)$ consists of all $x_\alpha(a)$, where $a \in A$ and $\alpha$ ranges over the set $\Phi^\mathrm{re}$ of real roots of $\Phi$.
+The set of defining relations for $\St(C, A)$ consists of the following two families of relations:
+\begin{align}
+    x_\alpha(a) x_\alpha(b) & =  x_\alpha(a + b), \label{SKM1} \\
+    [x_\alpha(a), x_\beta(b)] & =  \prod \limits_{\substack{i\alpha+j\beta \in \Phi^\mathrm{re} \\ i, j > 0 }} x_{i\alpha+j\beta}(N_{\alpha, \beta}^{i, j} \cdot a^i b^j), \label{SKM2}
+\end{align}
+where $a, b \in A$ and $\alpha, \beta$ range over all {\it prenilpotent} pairs of real roots of $\Phi$.
+
+\begin{lemma} \label{lem:affine-vs-loop} For every irreducible finite root system $\Phi$ of rank $\geq 2$ one has $\St(\widetilde{\Phi}, A) \cong \St(\Phi, A[X, X\inv])$.
 \end{lemma}
 \begin{proof}
-    By definition, the group $\mathrm{St}(\widetilde{\Phi}, A)$
+    Notice that the set of real roots of $\widetilde{\Phi}$ is isomorphic to $\Phi \times \ZZ$, see~\cite[\S~3]{A16}.
+    Also recall from~\cite[\S~5]{A16} that a pair $(\alpha, n), (\beta, m)$ is prenilpotent iff $\alpha \neq - \beta$.
 
-    is presented by generators $x_{(\alpha, m)}(a)$, $a \in A$, $\alpha \in \Phi$ and
-    the following relations:
-
-    The set of real roots of $\widetilde{\Phi}$ is isomorphic to $\Phi \times \ZZ$, see~ibid.
-
-
+    This description allows one to unfold the defining relations~\eqref{SKM1}--\eqref{SKM2}.
+    For example, in the simply-laced case one obtains the following list of defining relations for $\St(\widetilde{\Phi}, A)$:
     \begin{align}
         x_{(\alpha, m)}(a)\cdot x_{(\alpha, m)}(b)&=x_{(\alpha, m)}(a+b),  \label{AR1}\\
         [x_{(\alpha, m)}(a),\,x_{(\beta, n)}(b)]  &=x_{(\alpha+\beta, n+m)}(N_{\alpha,\beta} \cdot ab),\text{ for }\alpha+\beta\in\Phi, \label{AR2} \\
         [x_{(\alpha, m)}(a),\,x_{(\beta, n)}(b)]  &=1,\text{ for }\alpha+\beta\not\in\Phi\cup0. \label{AR3}
     \end{align}
-    It is not hard to check that the homomorphism given by $x_{(\alpha, m)}(a) \mapsto x_\alpha(aX^m)$ is an isomorphism with the inverse given by
+
+    Now it is straightforward to check that the homomorphism given by $x_{(\alpha, m)}(a) \mapsto x_\alpha(aX^m)$ is an isomorphism with the inverse given by
     $x_\alpha(a_{n}X^n + \ldots + a_m X^m) \mapsto \prod_{i=n}^m x_{(\alpha, i)}(a_i)$, $a_i \in A$, $n \leq m$, $n, m\in \ZZ$.
 \end{proof}
 
