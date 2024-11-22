@@ -67,7 +67,7 @@ The construction of $\delta_{\varpi_k}$ proceeds as follows:
 
 \subsection{Formalism of triples}\label{subsec:triples}
 Let $\mu\colon M \to N$ and $\mu' \colon M' \to N'$ be a pair of precrossed modules (cf.~\cref{dfn:crossed-module}).
-A \textit{map of precrossed modules} $(f, g)\colon \mu \to \mu'$ is a pair of group homomorphisms $f\colon M \to M'$, $g\colon N \to N'$ such that
+A \textit{homomorphism of precrossed modules} $(f, g)\colon \mu \to \mu'$ is a pair of group homomorphisms $f\colon M \to M'$, $g\colon N \to N'$ such that
 $\mu'f = g \mu$ and that the action of $N$ is preserved, i.\,e. ${f(m)}^{g(n)} = f(m^n)$ for all $n \in N$, $m \in M$.
 
 Now suppose that we are given the following cube-like commutative diagram of abstract groups:
@@ -78,9 +78,11 @@ Now suppose that we are given the following cube-like commutative diagram of abs
     & G_1 \ar[rr]_{h_1}              &                   & G.} \end{split} \end{equation}
 Additionally, we make the following assumptions:
 \begin{itemize}
-    \item $g_1^3$ is a precrossed module;
-    \item $h_3$ is a crossed module;
-    \item $(g_3^1, h_1) \colon g_1^3 \to h_3$ is a map of precrossed modules.
+    \item $G_1$ acts on $G_{13}$ on the right, with the action denoted by exponential notation, i.\,e. $h^g$ represents the action of $g \in G_1$ on $h \in G_{13}$;
+    \item $g_1^3$ is a precrossed module with respect to this action;
+    \item $G$ acts on $G_3$ on the right, also using the exponential notation;
+    \item $h_3$ is a crossed module with respect to this action;
+    \item $(g_3^1, h_1) \colon g_1^3 \to h_3$ is a homomorphism of precrossed modules.
 \end{itemize}
 Set $V = G_1 \times G_2 \times G_3$, $W = G_{12} \times G_{13} \times G_{23}$.
 We define an operation $\star \colon W \times V \to V$ as follows.
@@ -101,11 +103,11 @@ As the following lemma shows, this relation is an equivalence relation.
         x'' =& x' \cdot g_1^3(b') \cdot g_1^2(a') = x \cdot g_1^3(b) \cdot g_1^2(a) \cdot g_1^3(b') \cdot g_1^2(a') = x \cdot g_1^3(b \cdot b'^{g_1^2(a)^{-1}}) g_1^2(a \cdot a'),\\
         y'' =& g_2^1(a')^{-1} \cdot g_2^1(a)^{-1} \cdot y \cdot g_2^3(c) \cdot g_2^3(c') = g_2^1(a\cdot a')^{-1} \cdot y \cdot g_2^{3}(c\cdot c'). \end{align*}
     Since $(g_3^1, h_1)$ is a map of precrossed modules, for every $a \in G_{12}$, $b \in G_{13}$ one has $g_3^1(b^{g_1^2(a)}) = g_3^1(b)^{h_1 g_1^2(a)} = g_3^1(b)^{h_2g_2^1(a)}$.
-    Since $h_3$ satisfies Peiffer identity, for every $c \in G_{23}$ and $z \in G_3$ one has $z ^{h_2 g_2^3(c)} = z^{ h_3 g_3^2(c)} = g_3^2(c)^{-1} \cdot z \cdot g_3^2(c)$.
+    Since $h_3$ satisfies Peiffer's identity~\eqref{eq:peiffer}, for every $c \in G_{23}$ and $z \in G_3$ one has $z ^{h_2 g_2^3(c)} = z^{ h_3 g_3^2(c)} = g_3^2(c)^{-1} \cdot z \cdot g_3^2(c)$.
     Using these identities we obtain that
     \begin{multline*}
         z'' = g_3^2(c')^{-1} \cdot g_3^1(b')^{-h_2(y')} \cdot z' = \\
-        = g_3^2(c')^{-1} \cdot g_3^1(b')^{- h_2 \left( g_2^1(a)^{-1} \cdot y \cdot g_2^3(c) \right)} g_3^2(c)^{-1} \cdot g_3^1(b)^{-h_2(y)} \cdot z = \\
+        = g_3^2(c')^{-1} \cdot g_3^1(b')^{- h_2 \left( g_2^1(a)^{-1} \cdot y g_2^3(c) \right)} g_3^2(c)^{-1} \cdot g_3^1(b)^{-h_2(y)} \cdot z = \\
         = g_3^2(c \cdot c')^{-1} \cdot g_3^1(b')^{- h_2 \left( g_2^1(a)^{-1} \cdot y \right)} \cdot g_3^1(b)^{-h_2(y)} \cdot z = \\
         = g_3^2(c \cdot c')^{-1} \cdot g_3^1(b \cdot {b'} ^ {g_1^2(a)^{-1}})^{- h_2 \left( y \right)} \cdot z. \qedhere
     \end{multline*}
@@ -115,7 +117,7 @@ Since $h$ is constant on the orbits of $\star$-action, $h$ gives rise to a well-
 We use the notation $[a, b, c]$ to denote the equivalence class of the triple $(a, b, c) \in V$.
 
 \begin{lemma}\label{lem:one-one-z} Assume that the back face $(f_{12}, f_{23}, g_2^1, g_2^3)$ of~\eqref{eq:cube} is a pullback square.
-Assume additionally that $[1, 1, 1] = [1, 1, z]$ for some $z\in G_3$.
+Let $z \in G_3$ be such that $[1, 1, 1] = [1, 1, z]$ for some $z\in G_3$.
 Then $z \in g_3^1(\Ker(g_1^3)).$ \end{lemma}
 \begin{proof} By the definition of congruence relation there exists $(a, b, c)\in W$ such that
 \[ (a, b, c) \star (1, 1, 1) = ( g_1^3(b) \cdot g_1^2(a),\ g_2^1(a)^{-1} \cdot g_2^3(c),\ g_3^2(c)^{-1} \cdot g_3^1(b)^{-1}) = (1,1,z). \]
