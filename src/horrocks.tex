@@ -4,65 +4,70 @@
      $A$ the following diagram whose arrows are induced by natural embeddings is a pullback square:
     \begin{equation}\label{eq:P1-square} \begin{tikzcd} K(A) \ar[r] \ar[d] & K(A[X]) \arrow{d} \\ K(A[X\inv]) \ar{r} & K(A[X, X\inv]). \end{tikzcd} \end{equation}
 \end{dfn}
+Observe that the top and left arrows in the above diagram are injective (they admit a section induced by evaluation at $X=1$).
+Consequently, if~\eqref{eq:P1-square} is a pullback then that all arrows on the diagram are injective.
 
-Now we can formulate the main result of this section.
-\begin{thm}[Horrocks theorem for $\K_2$]\label{thm:horrocks-k2}
+Now we are ready formulate the $\K_2$-analogue of Horrocks theorem for domains,
+ which is the main result of this section.
+\begin{thm}\label{thm:horrocks-k2}
 Let $\Phi$ be a root system of type $\rA_{\geq 4}$, $\rD_{\geq 5}$, $\rE_6$ or $\rE_7$.
 Then the functor $\K_{2}(\Phi, -)$ is locally acyclic for domains.
 \end{thm}
 Horrocks theorem for $\K_2$ has been previously known in the linear and even orthogonal case $\Phi=\rA_{\geq 4},\rD_{\geq 7}$, see~\cite[Proposition~4.3]{Tu83} and~\cite[Theorem~1]{LS20}, respectively.
-Notice that the orthogonal Horrocks theorem for $\K_2$ \cite[Theorem~1]{LS20} was proved only under the additional assumption $2 \in A^\times$.
-Thus, the novelty of~\cref{thm:horrocks-k2} consists not only in the fact that it applies to root systems of types $\rD_5$, $\rD_6$, $\rE_6$, $\rE_7$ but also that
- it is proved without the assumption $2 \in A^\times$.
+Notice that the orthogonal Horrocks theorem for $\K_2$ was proved in~\cite{LS20} only under the additional assumption that $2$ is invertible.
+Thus, the novelty of~\cref{thm:horrocks-k2} lies not only in its applicability to root systems of types $\rD_5$, $\rD_6$, $\rE_6$, and $\rE_7$, but also in the fact that
+ it is proved without assuming that 2 is invertible -- albeit under the requirement that the base ring is a domain.
 
-Since our proof of \cref{thm:horrocks-k2} is rather long and technical we will first try to describe its plan.
-
-Let $A$ be a local ring with maximal ideal $M$ and residue field $k$.
-Recall that proofs of the Horrocks theorem for $\K_1$ are usually based on the decomposition of the elementary subgroup over Laurent polynomial ring
- called \textit{Suslin's lemma} or \textit{Suslin's structure theorem}, cf.~\cite{Abe83, Su77}, \cite[\S~VI.6]{Lam10}.
-In the linear case this decomposition asserts that the elementary linear group $\E(n, A[X, X\inv]) = \Esc(\rA_{n-1}, A[X, X\inv])$ admits the following group factorization for $n \geq 3$:
+Since our proof of \cref{thm:horrocks-k2} is rather long and technical, we will first outline its main structure.
+Let \( A \) be a local ring with maximal ideal \( M \) and residue field \( \kappa \).
+Recall that proofs of Horrocks' theorem for \( \K_1 \) are typically based on the decomposition of the elementary subgroup over the Laurent polynomial ring,
+commonly referred to as \textit{Suslin's lemma} or \textit{Suslin's structure theorem}; see~\cite{Abe83, Su77}, \cite[\S~VI.6]{Lam10}.
+In the linear case, this decomposition asserts that the elementary linear group
+\( \E(n, A[X, X\inv]) = \Esc(\rA_{n-1}, A[X, X\inv]) \) admits the following group factorization for \( n \geq 3 \):
 \begin{equation}\label{eq:triple-decomposition}
 \E(n, A[X^{\pm 1}]) = \E(n, A[X]) \cdot B(A[X^{\pm 1}]) \cdot \E(n, A[X^{\pm 1}], M[X^{\pm 1}]).
 \end{equation}
-In the above formula $\E(n, R, I)$ denotes the relative elementary subgroup, i.\,e. the kernel of the canonical reduction homomorphism $\E(n, R) \to \E(n, R/I),$
- while $B(R)$ denotes the Borel subgroup (i.\,e. the semidirect product of the unipotent radical $\UU(\Phi^+, R)$ and the group of diagonal matrices).
+Here, \( \E(n, R, I) \) denotes the relative elementary subgroup, i.e., the kernel of the canonical reduction homomorphism \( \E(n, R) \to \E(n, R/I), \)
+while \( B(R) \) denotes the Borel subgroup (i.e., the semidirect product of the unipotent radical \( \UU(\Phi^+, R) \) and the group of diagonal matrices).
 
-To prove the Suslin's structure theorem one constructs a collection of diagonal automorphisms $\delta_i$, $1\leq i\leq n$
- and shows that the product $V$ of the three subgroups in the right-hand side of~\eqref{eq:triple-decomposition} is stabilized by these automorphisms.
-On the other hand, the product $V$ is clearly stabilized by left translations by elements of $\E(n, A[X])$.
-The decomposition~\eqref{eq:triple-decomposition} then follows the fact that the minimal subgroup of $\E(n, A[X, X\inv])$ that contains the image of $\E(n, A[X])$ and at the same time is invariant with respect to the action of all $\delta_i$
-  coincides with $\E(n, A[X, X\inv])$.
+To prove Suslin's structure theorem, one constructs a collection of diagonal automorphisms \( \delta_i \) (\( 1 \leq i \leq n \))
+and shows that the product \( V \) of the three subgroups on the right-hand side of~\eqref{eq:triple-decomposition} is stabilized by these automorphisms.
+On the other hand, the product \( V \) is clearly stabilized by left translations by elements of \( \E(n, A[X]) \).
+The decomposition~\eqref{eq:triple-decomposition} then follows from the fact that the minimal subgroup of \( \E(n, A[X, X\inv]) \)
+that contains the image of \( \E(n, A[X]) \) and is simultaneously invariant under the action of all \( \delta_i \)
+coincides with \( \E(n, A[X, X\inv]) \).
 
-Tulenbaev's proof of the Horrocks theorem for $\K_2$ is similar to Suslin's proof of the Horrocks theorem for $\K_1$.
-The main difference, however, is that simply proving an analogue of factorization~\eqref{eq:triple-decomposition} for the Steinberg group $\St(\Phi, A[X, X\inv])$
- would not be sufficient.
-Instead, one has to prove a much more precise result, namely one has to construct a ``model set'' $\overline{V}$ for the group $\St(\Phi, A[X, X\inv])$
- out of the same three ingredient groups: $\St(\Phi, A[X])$, Borel subgroup and the relative group $\St(\Phi, A[X^\pm], M[X^\pm])$.
-By a ``model set'' we mean a set upon which $\St(\Phi, A[X, X\inv])$ would act simply-transitively.
-This technique probably dates back to~\cite{ST76}, where it was used to prove the injective stability theorem for $\K_2$, it was also reused
- by M.~Tulenbaev in his proof of the Horrocks theorem for $\K_2$ in the linear case, cf.\ Propositions 4.1 and 4.3 in~\cite{Tu83}.
-The same technique is also used in the proof of~\cite[Theorem~3]{LS20}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}.
-We will use the same technique for the proof of~\cref{thm:horrocks-k2}, which, by analogy, should be thought of as a generalization of~\cite[Proposition~4.1]{Tu83}.
+Tulenbaev's proof of Horrocks' theorem for \( \K_2 \) is analogous to Suslin's proof for \( \K_1 \).
+The key difference, however, is that proving an analogue of the factorization~\eqref{eq:triple-decomposition} for the Steinberg group
+\( \St(\Phi, A[X, X\inv]) \) alone is insufficient.
+Instead, one must establish a much more refined result: the construction of a "model set" \( \overline{V} \) for the group
+\( \St(\Phi, A[X, X\inv]) \) using the same three ingredient groups: \( \St(\Phi, A[X]) \), the Borel subgroup, and the relative group
+\( \St(\Phi, A[X^\pm], M[X^\pm]) \).
+By a "model set," we mean a set upon which \( \St(\Phi, A[X, X\inv]) \) acts simply transitively.
+This technique likely originates from~\cite{ST76}, where it was employed to prove the injective stability theorem for \( \K_2 \).
+It was subsequently adapted by M.~Tulenbaev in his proof of Horrocks' theorem for \( \K_2 \) in the linear case; see Propositions~4.1 and~4.3 in~\cite{Tu83}.
+The same method is also used in~\cite[Theorem~3]{LS20}, a direct generalization of~\cite[Proposition~4.3]{Tu83}.
+We adopt this technique to prove \cref{thm:horrocks-k2}, which should be regarded as a generalization of~\cite[Proposition~4.1]{Tu83}.
 
-Now let us list the key steps of the proof:
+The key steps of the proof are as follows:
 \begin{itemize}
-    \item Step 1. First of all, in~\cref{subsec:triples} we introduce abstract formalism of group decompositions which will allow us to construct the set $\overline{V}$ modeling the Steinberg group $\St(\Phi, A[X, X\inv])$.
-                  This should be thought of as preparatory work needed for the formulation of the $\K_2$-analogue of Suslin's structure theorem~\eqref{eq:triple-decomposition}.
-    \item Step 2. In~\cref{subsec:structure-theorem-overview} we use this formalism to construct the ``model set'' $\overline{V}$ and, thus, formulate the $\K_2$-analogue of Suslin's structure theorem precisely.
-                  We also show how~\cref{thm:horrocks-k2} can be reduced to a concrete technical statement, namely,
-                  to the existence of the action of $\St(\Phi, A[X, X\inv])$ on $\overline{V}$.
+    \item \textbf{Step 1.} In~\cref{subsec:triples}, we introduce an abstract formalism of group decompositions, enabling us to construct the set \( \overline{V} \) modeling
+    the Steinberg group \( \St(\Phi, A[X, X\inv]) \). This serves as the groundwork for formulating the \( \K_2 \)-analogue of Suslin's structure theorem~\eqref{eq:triple-decomposition}.
+    \item \textbf{Step 2.} In~\cref{subsec:structure-theorem-overview}, we use this formalism to construct the "model set" \( \overline{V} \) and precisely formulate the \( \K_2 \)-analogue
+    of Suslin's structure theorem. We also demonstrate how \cref{thm:horrocks-k2} reduces to a concrete technical statement: the existence of an action of \( \St(\Phi, A[X, X\inv]) \) on \( \overline{V} \).
 \end{itemize}
-Obviously, \cref{prop:rel-poly-Laurent} reduces the problem of construction of the action of $\St(\Phi, A[X, X\inv])$ on $\overline{V}$ to the construction of
- the automorphism $\delta_{\varpi_k}$ modeling the action of the weight automorphism $\chi_{\varpi_k, X}$ (cf.~\cref{subsec:weight-automorphisms}).
-Here index $k$ has the same meaning as in Figure 1 of~\cref{subsec:curtis-tits}, namely it is the index of the simple root marked green on the extended Dynkin diagram.
-The construction of $\delta_{\varpi_k}$ proceeds as follows:
+
+Clearly, \cref{prop:rel-poly-Laurent} reduces the problem of constructing the action of \( \St(\Phi, A[X, X\inv]) \) on \( \overline{V} \) to the construction of
+the automorphism \( \delta_{\varpi_k} \) modeling the action of the weight automorphism \( \chi_{\varpi_k, X} \) (cf.~\cref{subsec:weight-automorphisms}).
+Here, the index \( k \) corresponds to the simple root marked in green in Figure~1 of \cref{subsec:curtis-tits}.
+
+The construction of \( \delta_{\varpi_k} \) then proceeds as follows:
 \begin{itemize}
-    \item Step 3. The first ingredient in this construction is to show the existence of $\varpi_k$-pair in the sense of~\cref{dfn:delta-pair}.
-                  We construct $\varpi_1$-pair for the root system of type $\rA_3$ using the presentation from~\cref{prop:rel-presentation} for this purpose.
-                  Next, we use the amalgamation theorem~\cref{thm:relPres} to obtain the general result.
-                  This is achieved in~\cref{subsec:construction-sigma}.
-    \item Step 4. Finally, we complete the construction of the action of $\St(\Phi, A[X, X\inv])$ on $\overline{V}$ and verify all the necessary relations.
-                  This is achieved in~\cref{sec:construction-delta}.
+    \item \textbf{Step 3.} First, we establish the existence of a \( \varpi_k \)-pair in the sense of \cref{dfn:delta-pair}.
+    For the root system of type \( \rA_3 \), we construct the \( \varpi_1 \)-pair using the presentation from \cref{prop:rel-presentation}.
+    We then generalize this result using the amalgamation theorem for relative Steinberg groups (i.\,e. \cref{thm:relPres}), as shown in \cref{subsec:construction-sigma}.
+    \item \textbf{Step 4.} Finally, we complete the construction of the action of \( \St(\Phi, A[X, X\inv]) \) on \( \overline{V} \) and verify all the necessary relations.
+    This is carried out in \cref{sec:construction-delta}.
 \end{itemize}
 
 \subsection{Formalism of triples}\label{subsec:triples}
@@ -78,10 +83,10 @@ Now suppose that we are given the following cube-like commutative diagram of abs
     & G_1 \ar[rr]_{h_1}              &                   & G.} \end{split} \end{equation}
 Additionally, we make the following assumptions:
 \begin{itemize}
-    \item $G_1$ acts on $G_{13}$ on the right, with the action denoted by exponential notation, i.\,e. $h^g$ represents the action of $g \in G_1$ on $h \in G_{13}$;
-    \item $g_1^3$ is a precrossed module with respect to this action;
-    \item $G$ acts on $G_3$ on the right, also using the exponential notation;
-    \item $h_3$ is a crossed module with respect to this action;
+    \item $G_1$ acts on $G_{13}$ on the right; $G$ acts on $G_3$ on the right;
+    exponential notation is used for both actions, e.\,g. $h^g$ denotes the action of $g \in G$ on $h \in G_{3}$;
+    \item $g_1^3$ is a precrossed module with respect to the above action;
+    \item $h_3$ is a crossed module with respect to the above action;
     \item $(g_3^1, h_1) \colon g_1^3 \to h_3$ is a homomorphism of precrossed modules.
 \end{itemize}
 Set $V = G_1 \times G_2 \times G_3$, $W = G_{12} \times G_{13} \times G_{23}$.
@@ -117,7 +122,7 @@ Since $h$ is constant on the orbits of $\star$-action, $h$ gives rise to a well-
 We use the notation $[a, b, c]$ to denote the equivalence class of the triple $(a, b, c) \in V$.
 
 \begin{lemma}\label{lem:one-one-z} Assume that the back face $(f_{12}, f_{23}, g_2^1, g_2^3)$ of~\eqref{eq:cube} is a pullback square.
-Let $z \in G_3$ be such that $[1, 1, 1] = [1, 1, z]$ for some $z\in G_3$.
+Let $z \in G_3$ be such that $[1, 1, 1] = [1, 1, z]$.
 Then $z \in g_3^1(\Ker(g_1^3)).$ \end{lemma}
 \begin{proof} By the definition of congruence relation there exists $(a, b, c)\in W$ such that
 \[ (a, b, c) \star (1, 1, 1) = ( g_1^3(b) \cdot g_1^2(a),\ g_2^1(a)^{-1} \cdot g_2^3(c),\ g_3^2(c)^{-1} \cdot g_3^1(b)^{-1}) = (1,1,z). \]
@@ -129,7 +134,8 @@ By lemma's assumption there exists $e \in G_{123}$ such that $f_{12}(e) = a$, $f
 %sSignificant progress towards proving~\cref{thm:horrocks-k2} has already been achieved in~\cite{LS20}.
 %In this subsection we reduce~\cref{thm:horrocks-k2} to a specific technical statement which will be addressed in the following sections.
 
-The following lemma provides the first key reduction in the proof of~\cref{thm:horrocks-k2}.
+The following lemma, which is based on the argument of~\cite[Theorem~2]{LS20},
+ provides the first key reduction in the proof of~\cref{thm:horrocks-k2}.
 \begin{lemma} \label{lem:first-reduction}
 Let $A$ be a local ring with maximal ideal $M$ and residue field $\kappa$.
 Let $\Phi$ be as in the statement of~\cref{thm:horrocks-k2}.
@@ -146,18 +152,19 @@ Then the square~\eqref{eq:P1-square} is pullback and Horrocks theorem for $\K_2$
           C(\Phi, B, I) \arrow{r} \arrow[d, swap, twoheadrightarrow] & \St(\Phi, B, I) \arrow{r}{\mu_B} \arrow{d} & \St(\Phi, B) \arrow{r} \arrow{d} & \St(\Phi, \kappa[X^{-1}]) \arrow[hookrightarrow]{d} \\
           C(\Phi, R, I) \arrow{r} & \St(\Phi, R, I) \arrow{r}{\mu_R} \arrow[ur, "t", dashrightarrow] & \St(\Phi, R) \arrow{r} & \St(\Phi, \kappa[X, X^{-1}]).
     \end{tikzcd}\]
-    The lifting $t$ is obtained from~\cite[Lemma~3.3]{LS20}.
+    The construction of the lifting $t$ is discussed in~\cite[\S~2]{LS17}, cf. also~\cite[Lemma~3.3]{LS20}.
     The right-hand side vertical arrow is injective by~\cite[Lemma~2.2]{LS20}.
     The left-hand side vertical arrow is surjective since the composite arrow
-    $\xymatrix{ C(\Phi, A[X], M[X]) \ar[r] & C(\Phi, B, I) \ar[r] & C(\Phi, R, I) }$
+    \[\xymatrix{ C(\Phi, A[X], M[X]) \ar[r] & C(\Phi, B, I) \ar[r] & C(\Phi, R, I) }\]
     is surjective by lemma's assumption.
     It remains to repeat the diagram chasing argument of~\cite[Theorem~1]{LS20} to conclude that the homomorphism $\St(\Phi, B) \to \St(\Phi, A[X, X\inv])$ is injective.
-    The assertion of the lemma will then follow from~\cite[Theorem~3]{LS20}.
+    The assertion of the lemma then follows from~\cite[Theorem~3]{LS20}.
 \end{proof}
 The proof of Horrocks theorem is, thus, reduced to showing that~\eqref{eq:c-surj} is surjective for every local domain $(A, M)$.
-We need to shorten notation for certain subgroups of $\St(\Phi, R)$.
 
-%Not let us introduce shorter notation for Steinberg groups and their subgroups relevant for the proof of Horrocks theorem.
+Our next objective is to present a second key reduction in the proof of Horrocks' theorem.
+Before proceeding further, we introduce concise notation for certain Steinberg groups and their subgroups.
+Specifically, let
 {\allowdisplaybreaks\begin{align*}
     G     =& \St(\Phi, A[X, X^{-1}]),\\
     G^+   =& \St(\Phi, A[X]),\\
@@ -166,9 +173,9 @@ We need to shorten notation for certain subgroups of $\St(\Phi, R)$.
     U^+   =& \UU(\Phi^+, A[X]),\\
     G^+_M =& \St(\Phi, A[X], M[X]),\\
     B_M   =& \UU(\Phi^+, M[X, X^{-1}]) \times \{X, 1+M\} \leq G_M,\\
-    U^+_M =& \UU(\Phi^+, M[X]).
+    U^+_M =& \UU(\Phi^+, M[X]),
 \end{align*}}
-In the definition of $B_M$ we denote by $\{X, 1+M\}$ the image of the homomorphism $\{X, -\}_{r}$ from~\eqref{eq:relative-symbol}.
+where $\{X, 1+M\}$ denotes the image of the homomorphism $\{X, -\}_{r}$ from~\eqref{eq:relative-symbol}.
 
 The above groups can be organized into the following commutative diagram:
 \begin{equation} \label{eq:cube-Steinberg} \xymatrix{
@@ -178,7 +185,7 @@ The above groups can be organized into the following commutative diagram:
     & G^+ \ar[rr]_{h_+}              &                   & G.}\end{equation}
 Here $g^M_+$ and $h_M$ are just renamed homomorphisms $\mu$ from~\eqref{eq:relative-Steinberg}.
 The homomorphism $g^M_B$ is also induced by $\mu$.
-Maps $g_M^+$ and $h^+$ are induced by the ring embedding $A[X] \to A[X, X\inv]$.
+Homomorphisms $g_M^+$ and $h_+$ are induced by the ring embedding $A[X] \to A[X, X\inv]$.
 The other homomorphisms on the diagram are all obvious subgroup embeddings.
 
 Set $V = G^+\times B \times G_M$, $W = U^+\times G^+_M \times B_M$.
@@ -186,7 +193,6 @@ Both homomorphisms $g_+^M$ and $h_M$ are crossed modules by~\cref{lem:rel-Steinb
 The fact that $(g^+_M, h_+)$ is a map of precrossed modules is obvious.
 Thus, we find ourselves in the situation of~\cref{subsec:triples}.
 
-The following lemma provides the second key reduction in the proof of Horrocks theorem.
 \begin{lemma} \label{lem:second-reduction}
     Suppose that $A$ is a domain.
     Suppose that $\overline{V} = V/\sim_W$ admits an action of $G$ such that
