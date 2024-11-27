@@ -5,7 +5,7 @@
     \begin{equation}\label{eq:P1-square} \begin{tikzcd} K(A) \ar[r] \ar[d] & K(A[X]) \arrow{d} \\ K(A[X\inv]) \ar{r} & K(A[X, X\inv]). \end{tikzcd} \end{equation}
 \end{dfn}
 Observe that the top and left arrows in the above diagram are injective (they admit a section induced by evaluation at $X=1$).
-Consequently, if~\eqref{eq:P1-square} is a pullback then that all arrows on the diagram are injective.
+Consequently, if~\eqref{eq:P1-square} is a pullback then all arrows on the diagram are injective.
 
 Now we are ready formulate the $\K_2$-analogue of Horrocks theorem for domains,
  which is the main result of this section.
@@ -72,8 +72,11 @@ The construction of \( \delta_{\varpi_k} \) then proceeds as follows:
 
 \subsection{Formalism of triples}\label{subsec:triples}
 Let $\mu\colon M \to N$ and $\mu' \colon M' \to N'$ be a pair of precrossed modules (cf.~\cref{dfn:crossed-module}).
-A \textit{homomorphism of precrossed modules} $(f, g)\colon \mu \to \mu'$ is a pair of group homomorphisms $f\colon M \to M'$, $g\colon N \to N'$ such that
-$\mu'f = g \mu$ and that the action of $N$ is preserved, i.\,e. ${f(m)}^{g(n)} = f(m^n)$ for all $n \in N$, $m \in M$.
+By definition, a \textit{homomorphism of precrossed modules} $(f, g)\colon \mu \to \mu'$ is a pair of group homomorphisms $f\colon M \to M'$, $g\colon N \to N'$ such that
+\begin{enumerate}[ref=CH\arabic*, label=CH\arabic*)]
+    \item \label{ax:ch-cs} they complete $\mu$ and $\mu'$ to a commutative square, i.\,e. $\mu'f = g \mu$;
+    \item \label{ax:ch-ga} they preserve the group action, i.\,e. ${f(m)}^{g(n)} = f(m^n)$ for $n \in N$, $m \in M$.
+\end{enumerate}
 
 Now suppose that we are given the following cube-like commutative diagram of abstract groups:
 \begin{equation} \label{eq:cube} \begin{split} \xymatrix{
@@ -107,7 +110,7 @@ As the following lemma shows, this relation is an equivalence relation.
     \begin{align*}
         x'' =& x' \cdot g_1^3(b') \cdot g_1^2(a') = x \cdot g_1^3(b) \cdot g_1^2(a) \cdot g_1^3(b') \cdot g_1^2(a') = x \cdot g_1^3(b \cdot b'^{g_1^2(a)^{-1}}) g_1^2(a \cdot a'),\\
         y'' =& g_2^1(a')^{-1} \cdot g_2^1(a)^{-1} \cdot y \cdot g_2^3(c) \cdot g_2^3(c') = g_2^1(a\cdot a')^{-1} \cdot y \cdot g_2^{3}(c\cdot c'). \end{align*}
-    Since $(g_3^1, h_1)$ is a map of precrossed modules, for every $a \in G_{12}$, $b \in G_{13}$ one has $g_3^1(b^{g_1^2(a)}) = g_3^1(b)^{h_1 g_1^2(a)} = g_3^1(b)^{h_2g_2^1(a)}$.
+    Since $(g_3^1, h_1)$ is a map of precrossed modules we get from~\eqref{ax:ch-ga} that for $a \in G_{12}$, $b \in G_{13}$ one has $g_3^1(b^{g_1^2(a)}) = g_3^1(b)^{h_1 g_1^2(a)} = g_3^1(b)^{h_2g_2^1(a)}$.
     Since $h_3$ satisfies Peiffer's identity~\eqref{eq:peiffer}, for every $c \in G_{23}$ and $z \in G_3$ one has $z ^{h_2 g_2^3(c)} = z^{ h_3 g_3^2(c)} = g_3^2(c)^{-1} \cdot z \cdot g_3^2(c)$.
     Using these identities we obtain that
     \begin{multline*}
@@ -183,14 +186,15 @@ The above groups can be organized into the following commutative diagram:
     & G^+_M \ar[rr]^(.3){g^+_M} \ar^(.3){g^M_+}[dd] &                   & G_M \ar[dd]_{h_M} \\
     U^+ \ar@{^{(}->}[rr]^(.3){g_B^+} \ar@{^{(}->}[rd]_{g_+^B}          &                        & B \ar@{^{(}->}[rd]_{h_B}       &           \\
     & G^+ \ar[rr]_{h_+}              &                   & G.}\end{equation}
-Here $g^M_+$ and $h_M$ are just renamed homomorphisms $\mu$ from~\eqref{eq:relative-Steinberg}.
+Here $g^M_+$ and $h_M$ are simply renamed homomorphisms $\mu$ from~\eqref{eq:relative-Steinberg}.
 The homomorphism $g^M_B$ is also induced by $\mu$.
 Homomorphisms $g_M^+$ and $h_+$ are induced by the ring embedding $A[X] \to A[X, X\inv]$.
 The other homomorphisms on the diagram are all obvious subgroup embeddings.
 
-Set $V = G^+\times B \times G_M$, $W = U^+\times G^+_M \times B_M$.
+Set $V = G^+\times B \times G_M,$ $W = U^+\times G^+_M \times B_M.$
 Both homomorphisms $g_+^M$ and $h_M$ are crossed modules by~\cref{lem:rel-Steinberg-crossed-module}.
-The fact that $(g^+_M, h_+)$ is a map of precrossed modules is obvious.
+Notice that the actions of $G$ on $G_M$ and the action of $G^+$ on $G_M^+$ are both right conjugation actions.
+From this and the functoriality of the relative Steinberg group construction (cf. e.\,g.~\cite[\S~3]{S15}) it follows that $(g^+_M, h_+)$ is a map of precrossed modules.
 Thus, we find ourselves in the situation of~\cref{subsec:triples}.
 
 \begin{lemma} \label{lem:second-reduction}
@@ -208,12 +212,12 @@ Thus, we find ourselves in the situation of~\cref{subsec:triples}.
 \end{proof}
 
 \begin{rem}
-    Notice that in the linear case the symbol homomorphism $A^\times \to \K_2(A[X, X\inv])$, $a \mapsto \{a, X\}$ admits section
+    Notice that in the linear case the symbol homomorphism \[A^\times \to \K_2(A[X, X\inv]),\ a \mapsto \{a, X\}\] admits section
      for a general commutative ring $A$ by~\cite{Wa71}.
-    Thus, in the linear case the assertion of the lemma remains true without the assumption that $A$ is a domain, cf.~\cite[Lemma~3.1g]{Tu83}.
+    Thus, in the linear case the assertion of the lemma can be proven by the same argument without the assumption that $A$ is a domain, cf.~\cite[Lemma~3.1g]{Tu83}.
 \end{rem}
 
-\subsection{Construction of the homomorphism $\sigma(\varpi_k$)} \label{subsec:construction-sigma}
+\subsection{Construction of an $\varpi_k$-pair} \label{subsec:construction-sigma}
 \input{pairconstr}
 
 \subsection{Construction of the action of $\St(\Phi, A[X, X\inv])$ on $V$} \label{sec:construction-delta}
