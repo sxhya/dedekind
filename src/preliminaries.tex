@@ -283,8 +283,8 @@ Let $\omega \in P(\Phi)$ be a weight.
 By definition, an {\it $\omega$-pair} is a pair of mutually inverse group homomorphisms
 $\xymatrix{ \sigma(\omega)\colon N_\omega \ar[r] & \ar@<-1.0ex>[l] N_{-\omega}\colon \sigma(-\omega) }$ satisfying the following identity:
 \begin{equation} \label{eq:sigmadef}
-\sigma(\pm \omega)(x_\alpha(\xi)) = x_\alpha(X^{\pm\langle\omega, \alpha\rangle}\cdot \xi),
-\text{ for all } x_\alpha(\xi) \in \mathcal{X}_{\pm\omega}.
+\sigma(\pm \omega)(x_\alpha(f)) = x_\alpha(X^{\pm\langle\omega, \alpha\rangle}\cdot f),
+\text{ for all } x_\alpha(f) \in \mathcal{X}_{\pm\omega}.
 \end{equation}\end{dfn}
 It is clear that the maps $\sigma(\omega)$, $\sigma(-\omega)$ are uniquely determined by~\eqref{eq:sigmadef}, so at most one $\omega$-pair may exist for any given $\omega$.
 Moreover, $\sigma(\omega), \sigma(-\omega)$ always make the following diagram commute:
@@ -386,7 +386,7 @@ where $u_{ij} =e_i u_j-e_j u_i \in D(u)$ and $c_{ij}(v, w) =v_i w_j-v_j w_i \in 
         then $x(v, w_1) \cdot x(v, w_2) = x(v, w_1+w_2)$ and $x(w_1, v) \cdot x(w_2, v) = x(w_1 + w_2, v)$.
         \item \label{itm:xsmall-commute} If $v$, $v'$ are simultaneously orthogonal to $w$ and $w'$, and the elements $w, w'$ both have at least two zero entries then
         $[x(v, w),\ x(v', w')] = 1$.
-        \item \label{itm:xsmall-conj} If $g = x_{ij}(\xi)$ is a generator of the Steinberg group and $v$ or $w$ has at least two zero entries then
+        \item \label{itm:xsmall-conj} If $g = x_{ij}(a)$ is a generator of the Steinberg group and $v$ or $w$ has at least two zero entries then
         $g \cdot x(v, w) \cdot g^{-1} = x(gv, g^*w)$.
     \end{lemlist}
 \end{lemma}
