@@ -232,18 +232,16 @@ Throughout this section we assume that $\Phi$ is a root system of type $\rD_{\ge
   Let $k$ be the index of the vertex marked green on the Dynkin diagram from Figure 1 in~\cref{subsec:curtis-tits} and let $\omega = \pm \varpi_k$,
   We define the function $\delta_\omega \colon V_\omega \to V_{-\omega}$ via the following formula:
   \begin{equation} \label{eq:sigma-def} \delta_\omega(x_1 \cdot x_2, y, z) \mapsto (\sigma(\omega)(x_1)\cdot x_2, x_2^{-1} \cdot \chi_{\omega, X}(x_2 \cdot y), \widetilde{\chi}_{\omega, X}(z)), \end{equation}
-  where $x_1 \in N_\omega$, $x_2 \in \StW(\Phi, A)$, $y \in B$, $z \in G_M$, and $\chi_{\omega, X}$, $\widetilde{\chi}_{\omega, X}$, $\sigma(\omega)$
-  denote homomorphisms defined in~\eqref{eq:chi-def}, ~\cref{lem:relative-chi}, and \cref{thm:pairconstr}, respectively.
+  where $x_1 \in N_\omega$, $x_2 \in \StW(\Phi, A)$, $y \in B$, $z \in G_M$, and
+  $\chi_{\omega, X}$, $\widetilde{\chi}_{\omega, X}$ denote automorphisms defined in~\eqref{eq:chi-def} and~\cref{lem:relative-chi}, respectively,
+  while $\sigma(\omega)$ denotes the homomorphism defined in~\cref{thm:pairconstr}.
 \end{dfn}
-It is obvious that $\delta_{\varpi_k}$ and $\delta_{-\varpi_k}$ are mutually inverse.
-
 By~\cref{lem:winv-chiw} the factor $x_2^{-1} \cdot \chi_{\omega, X}(x_2)$ lies in $\StH(\Phi, A[X^{\pm 1}])$,
  so the second component of the above triple belongs to $B$.
 At this point, it is not immediately clear why the above definition does not depend on the choice of decomposition $x = x_1 \cdot x_2$.
 
-Denote by $\Lambda$ the set of microweights of $\Phi$.
-Recall that $\Lambda$ coincides with the orbit set $W(\Phi) \cdot \varpi_k$.
-Since $W(\Delta_k)$ stabilizes $\varpi_k$ we obtain that the coset set $W(\Phi)/W(\Delta_k)$ is in one-to-one correspondence with $\Lambda$.
+Denote by $\Lambda$ the orbit of $\varpi_k$ under $W(\Phi)$.
+Since $W(\Delta_k)$ stabilizes $\varpi_k$ it follows that the coset set $W(\Phi)/W(\Delta_k)$ is in one-to-one correspondence with $\Lambda$.
 
 We denote by $V$ the microweight representation of $\Gsc(\Phi, A)$ with the highest weight $\varpi_k$ (see e.\,g. \cite[\S~2]{Ge17} or \cite[\S~1.1]{V00}).
 This representation has dimension $|\Lambda|$ and we denote by $v^\lambda$ its basis vector corresponding to $\lambda \in \Lambda$.
@@ -283,7 +281,10 @@ Conversely, for every pair $(u, \lambda) \in A^\times \times \Lambda$ there exis
 Notice that for $g \in \StW(\Delta, A)$ one has $\chi_{\omega, X}(g) = g$ therefore we obtain the following
 \begin{cor}
  The right-hand side of~\eqref{eq:sigma-def} does not depend on the choice of decomposition $x = x_1 \cdot x_2$, so $\delta_\omega$ is defined unambigously.
+ Moreover, $\delta_{\varpi_k}$ and $\delta_{-\varpi_k}$ are mutually inverse.
 \end{cor}
+\begin{proof}
+\end{proof}
 
 \begin{lemma} \label{lem:v-correctness1}
  For every $v \in V$ there exists $(a, b, 1) \in W$ such that $(a, b, 1) \star v \in V_\omega$.
