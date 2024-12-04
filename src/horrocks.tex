@@ -221,7 +221,7 @@ Thus, we find ourselves in the situation of~\cref{subsec:triples}.
 \input{pairconstr}
 
 \subsection{Construction of the action of $\St(\Phi, A[X, X\inv])$ on $V$} \label{sec:construction-delta}
-From now on we assume that $A$ is a local ring.
+From now on we assume that $A$ is a local domain.
 Recall from \cref{subsec:structure-theorem-overview} that \[V = G^+ \times B \times G_M,\ W = U^+ \times G_M^+ \times B_M\]
 and that $W$ acts upon $V$ via $\star$-action defined in~\cref{subsec:triples}.
 
@@ -229,16 +229,13 @@ For a weight $\omega \in P(\Phi)$ denote by $V_\omega$ the subset of $V$ consist
 Throughout this section we assume that $\Phi$ is a root system of type $\rD_{\geq 4}$, $\rE_6$ or $\rE_7$.
 
 \begin{dfn} \label{sigma-def}
-  For $\omega = \pm \varpi_k$, where $k$ is the same as in the statement of \cref{thm:pairconstr},
-  we define the function $\delta_\omega \colon V_\omega \to V_{-\omega}$ via the following formula:
+  Let $k$ be the index of the vertex marked green on the Dynkin diagram from Figure 1 in~\cref{subsec:curtis-tits} and let $\omega = \pm \varpi_k$,
+  We define the function $\delta_\omega \colon V_\omega \to V_{-\omega}$ via the following formula:
   \begin{equation} \label{eq:sigma-def} \delta_\omega(x_1 \cdot x_2, y, z) \mapsto (\sigma(\omega)(x_1)\cdot x_2, x_2^{-1} \cdot \chi_{\omega, X}(x_2 \cdot y), \widetilde{\chi}_{\omega, X}(z)), \end{equation}
-  where $x_1 \in N(\omega)$, $x_2 \in \StW(\Phi, A)$,  $y \in B$, $z \in G_M$.
+  where $x_1 \in N_\omega$, $x_2 \in \StW(\Phi, A)$, $y \in B$, $z \in G_M$, and $\chi_{\omega, X}$, $\widetilde{\chi}_{\omega, X}$, $\sigma(\omega)$
+  denote homomorphisms defined in~\eqref{eq:chi-def}, ~\cref{lem:relative-chi}, and \cref{thm:pairconstr}, respectively.
 \end{dfn}
-
 It is obvious that $\delta_{\varpi_k}$ and $\delta_{-\varpi_k}$ are mutually inverse.
-
-In the above definition $\chi_{\omega, X}$ and $\widetilde{\chi}_{\omega, X}$ denote homomorphisms defined in~\cref{subsec:weight-automorphisms},
- while $\sigma(\omega)$ is the homomorphism constructed in~\cref{thm:pairconstr}.
 
 By~\cref{lem:winv-chiw} the factor $x_2^{-1} \cdot \chi_{\omega, X}(x_2)$ lies in $\StH(\Phi, A[X^{\pm 1}])$,
  so the second component of the above triple belongs to $B$.
