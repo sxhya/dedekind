@@ -301,7 +301,6 @@ The map $(u, \lambda) \mapsto w_{\lambda, u}$ establishes an isomorphism of the 
   Follows from the coset decomposition for $\StW(\Phi, A)$, and Lemmas~\ref{lem:can-repr1}--\ref{lem:can-repr2}.
 \end{proof}
 
-Notice that for $g \in \StW(\Delta, A)$ one has $ $ therefore we obtain the following
 \begin{cor}
  For $\omega = \pm\varpi_k$ the right-hand side of~\eqref{eq:sigma-def} does not depend on the choice of decomposition $x = x_1 \cdot x_2$, so $\delta_\omega$ is defined unambiguously.
  Moreover, $\delta_{\varpi_k}$ and $\delta_{-\varpi_k}$ are mutually inverse.
@@ -315,21 +314,22 @@ Notice that for $g \in \StW(\Delta, A)$ one has $ $ therefore we obtain the foll
  For every $v \in V$ there exists $(a, b, 1) \in W$ such that $(a, b, 1) \star v \in V_\omega$.
 \end{lemma}
 \begin{proof}
- Choose system of positive roots ${\Phi^+}'$ as either $\Phi^+$ or $\Phi^-$ depending on whether $\omega $ is $\varpi_k$ or $-\varpi_k$.
- From~\cref{lem:bruhat} and the normality of the subgroup $\St(\Phi, A[X], X[A]) \leq G^+$ we obtain that
-  \[G^+ = \UU({\Phi^+}', A)\cdot \St(\Phi, A[X], XA[X]) \cdot \StW(\Phi,A)\cdot \overline{\St}(\Phi, A, M) \cdot\UU(\Phi^+, A).\]
+ Let $P$ be $\Pi$ or $-\Pi$ depending on whether $\omega$ is $\varpi_k$ or $-\varpi_k$.
+ Thus, $\Phi^+_P$ is either $\Phi^+$ or $\Phi^-$.
+ From~\cref{lem:bruhat} and the normality of subgroups $\St(\Phi, A[X], XA[X]) \leq G^+$, $\overline{\St}(\Phi, A, M) \leq \St(\Phi, A)$ we obtain that
+  \[G^+ = \UU(\Phi^+_P, A)\cdot \St(\Phi, A[X], XA[X]) \cdot \StW(\Phi,A)\cdot \overline{\St}(\Phi, A, M) \cdot\UU(\Phi^+, A).\]
  The first two factors in the above decomposition are contained in $N_\omega$, so the assertion follows from the definition of $\star$.
 \end{proof}
 
 
-For $\lambda \in \Lambda$ and a commutative ring $R$ we denote by $\Stab_{\lambda}(R)$ the subgroup of $\G_{sc}(\Phi, R)$
+For $\lambda \in \Lambda$ and a commutative ring $R$ we denote by $\Stab_{\lambda}(R)$ the subgroup of $\Gsc(\Phi, R)$
  consisting of elements stabilizing the basis vector $v^\lambda$ of $V$.
 %Recall that the projection $\pi \colon \St(\Phi, R) \to \G_{sc}(\Phi, R)$ is always injective on unipotent subgroups.
-Moreover, it is clear that $ev_{X=0}^*(N_\lambda) = \pi^{-1}(\Stab_\lambda(A))$ and that
+Moreover, it is clear that $\mathrm{ev}_{X=0}^*(N_\lambda) = \pi^{-1}(\Stab_\lambda(A))$ and that
  $(\Stab_{\varpi_k}(A))^{w_{\lambda, u}} = \Stab_\lambda(A)$.
 \begin{lemma} \label{lem:q}
-Suppose that $a \in \UU(\Phi^+, A)$ is such that its image $\pi(\overline{a})$ lies in $\Stab_{\lambda}(A/M)$ for some $\lambda \in \Lambda$.
-Then there exists $q \in \UU(\Phi^+, M)$ such that $\pi(aq)$ lies in $\Stab_{\lambda}(A)$.
+Suppose that $a \in \UU(\Phi^+, A)$ is such that its image $\pi(\overline{a})$ belongs to $\Stab_{\lambda}(A/M)$ for some $\lambda \in \Lambda$.
+Then there exists $q \in \UU(\Phi^+, M)$ such that $\pi(aq)$ belongs to $\Stab_{\lambda}(A)$.
 \end{lemma}
 \begin{proof}
     Set $b = {}^{w_{\lambda, u}} a$.
@@ -351,25 +351,25 @@ Then there exists $q \in \UU(\Phi^+, M)$ such that $\pi(aq)$ lies in $\Stab_{\la
  We have that
  \begin{equation}\label{eq:x-xprime} x_1 x_2 = x_1' x_2' \cdot \mu(b) \cdot a  \text{ for some }x_1, x_1' \in N_\omega,\ x_2, x_2' \in \StW(\Phi, A) \end{equation}
  and some $a \in \UU(\Phi^+, A[X]),\ b \in \St(\Phi, A[X], M[X])$.
- Thanks to~\cref{lem:can-repr} we may assume, without loss of generality, that $x_2 = w_{\lambda, u}$, $x_2' = w_{\lambda', u'}$
+ Thanks to~\cref{cor:can-repr} we may assume, without loss of generality, that $x_2 = w_{\lambda, u}$, $x_2' = w_{\lambda', u'}$
  for some $u, u' \in A^\times$, $\lambda, \lambda' \in \Lambda$.
 
- Evaluating both sides of~\eqref{eq:x-xprime} at $X=0$ and projecting the equality into $\St(\Phi, \kappa)$ we obtain the following equality:
+ Evaluating both sides of~\eqref{eq:x-xprime} at $X=0$ and projecting the equality into $\St(\Phi, \kappa)$ we obtain that
  \begin{equation} \label{eq:sides}
- \overline{{x_2'}^{-1}} \cdot \overline{{x_1'}^{-1}(0)} \overline{x_1(0)} \cdot \overline{x_2} = \overline{a(0)}.
+ \overline{{x_2'}^{-1}} \cdot \overline{\mathrm{ev}_{X=0}^*({x_1'}^{-1}x_1)} \cdot \overline{x_2} = \overline{\mathrm{ev}_{X=0}^*(a)},
  \end{equation}
- Here by $\overline{x}$ we denote the image of $x$ in $\St(\Phi, \kappa)$.
+ where by $\overline{x}$ we denote the image of $x$ in $\St(\Phi, \kappa)$.
 
  Notice that the middle factor in the left-hand side of~\eqref{eq:sides} stabilizes the highest-weight vector $v^+$,
  therefore we can compute the images of the vector $v^{\lambda'}$ under both sides of~\eqref{eq:sides} using~\eqref{eq:w-highestweight} as follows:
- \begin{align} \overline{{x_2'}^{-1}} \cdot \overline{{x_1'}^{-1}(0)} \overline{x_1(0)} \cdot \overline{x_2} \cdot v^{\lambda'} = \overline{{x_2'}^{-1}} \cdot \overline{{u}^{-1}} \cdot v^+ &= \overline{u^{-1}}\overline{u'} \cdot v^\lambda, \\
-               \overline{a(0)} \cdot v^{\lambda'} &= v^{\lambda'} + \sum_{\mu > \lambda'} \overline{a_\mu} v^\mu \label{eq:right-side} \end{align}
+ \begin{align} \overline{{x_2'}^{-1}} \cdot \overline{\mathrm{ev}_{X=0}^*({x_1'}^{-1}x_1)} \cdot \overline{x_2} \cdot v^{\lambda'} = \overline{{x_2'}^{-1}} \cdot \overline{{u}^{-1}} \cdot v^+ &= \overline{u^{-1}}\overline{u'} \cdot v^\lambda, \\
+               \overline{\mathrm{ev}_{X=0}^*(a)} \cdot v^{\lambda'} &= v^{\lambda'} + \sum_{\mu > \lambda'} \overline{a_\mu} v^\mu \label{eq:right-side} \end{align}
  for some $a_\mu \in A$.
  Thus, from~\eqref{eq:sides}--\eqref{eq:right-side} we conclude that $\lambda = \lambda'$ and that $1 - u/u' \in M$ and also that $a_\mu \in M$.
  Using~\cite[Lemma~7]{V00} and~\eqref{eq:w-highestweight} we can find $m \in M$ such that the element
   $h_{\alpha_k}(1+m) \cdot x_2' \cdot x_2^{-1}$ stabilizes the highest weight vector $v^+$.
- By the same argument as in the proof of~\cref{lem:can-repr} we conclude that it belongs to $\StW(\Delta_k, A)$.
- Consequently, we can write $x_2 = c \cdot h_{\alpha_k}(1+m) \cdot x_2'$ for some $c \in \StW(\Delta_k, A)$.
+ By the same argument as in the proof of~\cref{lem:can-repr2} we conclude that it belongs to $\overline{W}(\Delta_k, A)$.
+ Consequently, we can write $x_2 = c \cdot h_{\alpha_k}(1+m) \cdot x_2'$ for some $c \in \overline{W}(\Delta_k, A)$.
 
  Also we conclude from all the equalities obtained up to this point that
  \begin{equation} {}^{x_2'}(\mu(b) \cdot a) \cdot h_{\alpha_k}^{-1}(1+m) = {x_1'}^{-1} \cdot x_1 \cdot c \in N_\omega. \end{equation}
@@ -381,7 +381,7 @@ Then there exists $q \in \UU(\Phi^+, M)$ such that $\pi(aq)$ lies in $\Stab_{\la
  Consequently, we obtain that
   $a \cdot \mu(b^a) \cdot h_{\alpha_k}^{-{x_2'}}(1+m) \in {N_{\lambda}}$.
 
- By~\eqref{eq:right-side} and~\cref{lem:q} we can find $q \in \UU(\Phi^+, M)$ such that $\pi(a(0) \cdot q) \in \Stab_\lambda(A)$ and hence
+ By~\eqref{eq:right-side} and~\cref{lem:q} we can find $q \in \UU(\Phi^+, M)$ such that $\pi(\mathrm{ev}_{X=0}^*(a) \cdot q) \in \Stab_\lambda(A)$ and hence
      that $a \cdot q \in N_\lambda$.
  Now we can compute the first coordinate of $\delta_\omega \cdot v$ as follows:
  \begin{multline} \label{eq:intermediate}
