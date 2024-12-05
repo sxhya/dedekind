@@ -35,7 +35,7 @@ For $\omega = \pm \varpi_k$ the homomorphism $\sigma(\omega)\colon N_\omega \to 
     \sigma(\varpi_k)_{L_k} \coloneqq \mathrm{id}_{L_k}, \quad
     \sigma(\varpi_k)_{U_k} \left(\prod_{\alpha \in \Sigma_k^+} x_\alpha(a_\alpha)\right) \coloneqq \prod_{\alpha \in \Sigma_k^+} x_\alpha(Xa_\alpha).
     \end{equation}
-    These homomorphisms satisfy~\eqref{eq:coherence-condition}, so the existence of \( \sigma(\varpi_k)_{P_k^+} \) follows from the above universal property.
+    These homomorphisms obviously satisfy~\eqref{eq:coherence-condition}, so the existence of \( \sigma(\varpi_k)_{P_k^+} \) follows from the above universal property.
 
     It remains to verify~\eqref{eq:coherence-condition} for \( \sigma(\varpi_k)_{P_k^+} \) and \( \sigma(\varpi_k)_{N_0} \).
     From~\eqref{eq:sigmadef}, we deduce that for any \( \alpha \in \Phi \), \( \beta \in \Sigma_k^- \), and \( f, g \in A[X] \), one has
@@ -127,17 +127,13 @@ Consequently $\mathrm{ev}_{X=0}^* \left(x(v, w)\right) \in U_1^-$, proving the a
 \end{proof}
 
 \begin{cor} \label{cor:a3-microweight}
-    For a local ring $A$ and $\Phi = \rA_3$ an $\omega$-pair exists for any microweight $\omega \in P(\Phi)$.
+    For a local ring $A$ and $\Phi = \rA_3$ an $\omega$-pair exists for any weight $\omega$ lying the $W(\Phi)$-orbit of a microweight.
 \end{cor}
 \begin{proof}
-    Recall from~\cref{lem:delta-weyl} that it suffices to prove the existence of an $\omega$-pair for a representative $\omega$
-    of each orbit under the action of $W(\Phi) \cong S_4$ on the set of microweights of $\Phi$.
-
-    It is straightforward to observe that, up to the action of the Weyl group $S_4$, every nontrivial microweight in $\rA_3$ coincides with
-    $\varpi_1$, $\varpi_2$, or $\varpi_3$.
+    By~\cref{lem:delta-weyl} that it suffices to prove the existence of an $\omega$-pair in the case when $\omega$ is a fundamental weight, i.\,e. $\omega \in \{\varpi_1, \varpi_2, \varpi_3\}$.
 
     In \cref{prop:sigma-construction}, we established the existence of an $\omega$-pair for $\omega = \varpi_1$
-    (and by symmetry, also for $\omega = -\varpi_3$, cf.~\cref{exm:chi-linear}).
+    (and by symmetry, also for $\omega = \varpi_3$, cf.~\cref{exm:chi-linear}).
     Thus, it remains to do the same for $\omega = \varpi_{2}$.
 
     By~\cref{lem:first-reduction} we only need to construct the restriction $\sigma(\varpi_2)_{N_0}$, where $N_0 = \St(4, A[X], XA[X])$.
