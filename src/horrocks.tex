@@ -296,12 +296,12 @@ The map $(u, \lambda) \mapsto w_{\lambda, u}$ establishes an isomorphism of the 
 
 \begin{cor} \label{cor:can-repr}
   For $\omega = \pm \varpi_k$ one has \[N_{\omega} \cdot \StW(\Phi, A) = \bigsqcup\limits_{(u, \lambda) \in A^\times \times \Lambda} N_{\omega} \cdot w_{\lambda, u}. \]
-\end{lemma}
+\end{cor}
 \begin{proof}
   Follows from the coset decomposition for $\StW(\Phi, A)$, and Lemmas~\ref{lem:can-repr1}--\ref{lem:can-repr2}.
 \end{proof}
 
-\begin{cor}
+\begin{cor} \label{cor:can-repr2}
  For $\omega = \pm\varpi_k$ the right-hand side of~\eqref{eq:sigma-def} does not depend on the choice of decomposition $x = x_1 \cdot x_2$, so $\delta_\omega$ is defined unambiguously.
  Moreover, $\delta_{\varpi_k}$ and $\delta_{-\varpi_k}$ are mutually inverse.
 \end{cor}
@@ -439,10 +439,11 @@ By~\cref{prop:v-correctness2} this definition is correct, i.\,e. does not depend
     Here $G$ denotes the free product of $\langle \sigma \rangle$ and $\St(\Phi, A[X])$ amalgamated over the relations~\eqref{eq:sigma-sigma-plus}--\eqref{eq:sigma-delta}.
 
     We let the generator $\sigma$ of $G$ act on $V/\sim_W$ via $\delta_{\varpi_k}$.
+    By~\cref{cor:can-repr2} $\sigma^{-1}$ acts on $V/\sim_W$ via $\delta_{-\varpi_k}$.
     For $\alpha \in \Phi$ we define the translation action of $g \in \St(\Phi, A[X])$ on $V$ via $g \cdot (x, y, z) \coloneqq (gx, y, z)$.
     It is easy to see that this definition is correct and gives rise to a well-defined action of $\St(\Phi, A[X])$ on $\overline{V}$.
 
-    Thus, it remains to check that these two actions satisfy the relations~\eqref{eq:sigma-sigma-plus}--\eqref{eq:sigma-delta}.
+    We need to check that these two actions satisfy relations~\eqref{eq:sigma-sigma-plus}--\eqref{eq:sigma-delta}.
     Let us verify~\eqref{eq:sigma-sigma-plus}.
     Indeed, for $v = (x_1 \cdot x_2, y, z) \in V_{-\omega_k}$, where $x_1 \in V_{-\varpi_k}$, $x_2 \in \StW(\Phi, A)$, $y \in B$, $z \in G_M$ and $\alpha \in \Sigma_k^+$, $f \in A[X]$
      we obtain from~\eqref{eq:sigmadef} and~\eqref{eq:sigma-def} that
@@ -450,12 +451,15 @@ By~\cref{prop:v-correctness2} this definition is correct, i.\,e. does not depend
         \overline{\delta}_{\varpi_k} \cdot x_\alpha(f) \cdot \overline{\delta}_{-\varpi_k} \cdot [x_1 \cdot x_2, y, z] = \\
         = \overline{\delta}_{\varpi_k} \cdot x_\alpha(f) \cdot [\sigma(-\varpi_k)(x_1) \cdot x_2, x_2^{-1} \cdot \chi_{-\varpi_k, X}(x_2 \cdot y), \widetilde{\chi}_{-\varpi_k, X}(z)] = \\
         = \left[\sigma(\varpi_k)\left(x_{\alpha}(f) \cdot \sigma(-\varpi_k)(x_1)\right) \cdot x_2, x_2^{-1} \cdot \chi_{\varpi_k, X}\left(x_2 \cdot x_2^{-1} \cdot \chi_{-\varpi_k, X}(x_2 \cdot y)\right), z\right] = \\
-        = [x_\alpha(Xf) \cdot x_1 \cdot x_2, y, z] = x_\alpha(Xf) \cdot [x_1 \cdot x_2, y, z]. \qedhere
+        = [x_\alpha(Xf) \cdot x_1 \cdot x_2, y, z] = x_\alpha(Xf) \cdot [x_1 \cdot x_2, y, z].
     \end{multline*}
 
-    Identity~\eqref{eq:sigma-sigma-minus} can be verified by the same calculation (with $\varpi_k$ and $\Sigma_k^+$ replaced with $-\varpi_k$ and $\Sigma_k^-$).
-    Now let us verify~\eqref{eq:sigma-delta}.
+    Relation~\eqref{eq:sigma-sigma-minus} can be verified by the same calculation with $\varpi_k$ and $\Sigma_k^+$ replaced with $-\varpi_k$ and $\Sigma_k^-$, respectively.
+    Relation~\eqref{eq:sigma-delta} follows from the fact that $\sigma(\pm \varpi_k)$ fixes elements of the image of the canonical homomorphism $\St(\Delta_k, A[X]) \to \St(\Phi, A[X])$.
 \end{proof}
+
+Our next goal is to prove~\cref{thm:horrocks-k2}.
+In order to achieve this we need several lemmas.
 
 \begin{lemma} \label{lem:family1}
     For $z \in \St(\Phi, M[X, X\inv], A[X, X\inv])$, $n, m \geq 0$, $f \in M[X]$, $g \in A[X]$, $\beta \in \Sigma_k^\pm$ one has
