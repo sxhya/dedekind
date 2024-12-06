@@ -1,10 +1,10 @@
 \subsection{Early stability theorem}
-The aim of this subsection is to prepare necessary technical ingredients for the proof of early stability theorem~\cref{cor:dedekind}.
+The aim of this subsection is to prepare necessary technical ingredients for the proof of the early stability theorem~\cref{cor:dedekind}.
 
 For the rest of this subsection $\Psi$ is an arbitrary irreducible simply-laced root system of rank $\geq 3$ embedded into another irreducible simply-laced root system $\Phi$.
 For a commutative ring $R$ we denote by $j_R$ the corresponding homomorphism of Steinberg groups $\St(\Psi, R) \to \St(\Phi, R)$ induced by this embedding.
 
-The following result is the analogue of the so-called dilation principle for subsystem embeddings.
+The following result is the analogue of the so-called ``dilation principle'' for subsystem embeddings, cf.~\cite[Corollary~2.4]{Tu83}.
 \begin{lemma}\label{lem:dp-2}
 Let $h\in\St(\Phi, A[X], X A[X])$ be such that $\lambda_a^*(h) \in \Img(j_{A_a[X]})$.
 Then for sufficiently large $n$ one has
@@ -30,6 +30,8 @@ Then for sufficiently large $n$ one has
  \[\St(\Psi, A\ltimes XA_a[X]) = \St(\Psi, \varinjlim_i A_i) \cong \varinjlim_i \St(\Psi,A_i). \qedhere\]
 \end{proof}
 
+Recall that a pair of elements $a, b \in A$ are called \textit{coprime} if together they generate the unit ideal, i.\,e. $Aa + Ab = A$.
+The following lemma generalizes~\cite[Lemma~2.5]{Tu83}.
 \begin{lemma}\label{lem:L25-2}
 Let $a$ and $b$ be a pair of coprime elements of $A$.
 Let $g$ be an element of $\St(\Phi, A[X], XA[X])$ such that
@@ -61,8 +63,8 @@ Then $g$ lies in the image of $j_{A[X]} \colon \St(\Psi, A[X]) \to \St(\Phi, A[X
 
 The following result is the subsystem analogue of~\cite[Theorem~2]{LS17}, cf.\ also~\cite[Theorem~2.1]{Tu83}.
 \begin{cor}[Local-global principle for subsystem embeddings] \label{cor:QS-subsystem}
-    An element $g \in \St(\Phi, A[X], XA[X])$ lies in $\Img(j_{A[X]})$ if and only if
-     $\lambda_M^*(g) \in \St(\Phi, A_M[X])$ lies in $\Img(j_{A_M[X]})$ for all maximal ideals $M \trianglelefteq A$.
+    An element $g \in \St(\Phi, A[X], XA[X])$ belongs to $\Img(j_{A[X]})$ if and only if
+     $\lambda_M^*(g) \in \St(\Phi, A_M[X])$ belongs to $\Img(j_{A_M[X]})$ for all maximal ideals $M \trianglelefteq A$.
 \end{cor}
 \begin{proof}
     It suffices to show ``if'' part of the statement.
@@ -156,7 +158,7 @@ Let $A$ be a commutative domain and $a, b \in A$ be a pair of coprime elements.
 \end{enumerate}
 \end{lemma}
 \begin{proof}
-    This is a special case of Nisnevich excision for domains, see~\cite[Proposition~4.5]{LSV2}
+    For the second assertion see~\cite[Proposition~4.4]{LSV2}
     (cf. also the proof of~\cite[Lemma~2.6]{LSV2}).
 \end{proof}
 

@@ -49,10 +49,10 @@ It was subsequently adapted by M.~Tulenbaev in his proof of Horrocks' theorem fo
 The same method is also used in~\cite[Theorem~3]{LS20}, a direct generalization of~\cite[Proposition~4.3]{Tu83}.
 We adopt this technique to prove \cref{thm:horrocks-k2}, which should be regarded as a generalization of~\cite[Proposition~4.1]{Tu83}.
 
-The key distinction of our proof compared to Tulenbaev's is our use of the economical presentation of the Steinberg group over Laurent polynomial rings (\cref{prop:rel-poly-Laurent}).
-This approach enables us to construct only a single ``weight automorphism'' $\delta_{\varpi_k}$, rather than attempting to construct multiple weight automorphisms as Tulenbaev does.
-This simplification substantially streamlines the proof, as it eliminates the need to verify, for example, that the weight automorphisms commute with one another —
- an especially challenging task for root systems of types $\rD_\ell$ and $\rE_\ell$.
+Our proof differs from Tulenbaev's in that it uses the economical presentation of the Steinberg group over Laurent polynomial rings, cf.~\cref{prop:rel-poly-Laurent}.
+This allows us to construct a single ``weight automorphism'' $\delta_{\varpi_k}$ instead of multiple ones, as in Tulenbaev's approach.
+Also, this streamlines the proof by avoiding the task of verifying that weight automorphisms commute with one another,
+ which is particularly hard to prove for root systems of types $\rD_\ell$ and $\rE_\ell$.
 
 The key steps of the proof are as follows:
 \begin{itemize}
@@ -62,7 +62,7 @@ The key steps of the proof are as follows:
     of Suslin's structure theorem. We also demonstrate how \cref{thm:horrocks-k2} reduces to a concrete technical statement: the existence of an action of \( \St(\Phi, A[X, X\inv]) \) on \( \overline{V} \).
 \end{itemize}
 
-Clearly, \cref{prop:rel-poly-Laurent} reduces the problem of constructing the action of \( \St(\Phi, A[X, X\inv]) \) on \( \overline{V} \) to the construction of
+\cref{prop:rel-poly-Laurent} reduces the problem of constructing the action of \( \St(\Phi, A[X, X\inv]) \) on \( \overline{V} \) to the construction of
 the automorphism \( \delta_{\varpi_k} \) modeling the action of the weight automorphism \( \chi_{\varpi_k, X} \) (cf.~\cref{subsec:weight-automorphisms}).
 Here, the index \( k \) corresponds to the simple root marked in green in Figure~1 of \cref{subsec:curtis-tits}.
 The construction of \( \delta_{\varpi_k} \) then proceeds as follows:
@@ -527,7 +527,7 @@ In order to achieve this we need several lemmas.
 Now we are ready to prove the main result of this section.
 \begin{proof}[Proof of~\cref{thm:horrocks-k2}]
     Thanks to~\cref{lem:first-reduction} and~\cref{lem:second-reduction} it suffices to show that the action of
-    $\St(\Phi, A[X, X\inv])$ on $\overline{V} = V/\sim_W$ constructed above satisfies property
+    $\St(\Phi, A[X, X\inv])$ on $\overline{V} = V/\sim_W$ constructed above satisfies the property
     $\mu(h) \cdot [1, 1, z] = [1, 1, hz]$ for $h, z \in \St(\Phi, A[X, X\inv], M[X, X\inv])$.
     Clearly, it suffices to verify this property for $h$ belonging to a generating set of $\St(\Phi, A[X, X\inv], M[X, X\inv])$.
     According to~\cref{lem:relative-generators} it suffices to verify this assertion for two types of generators:
