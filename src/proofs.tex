@@ -1,10 +1,23 @@
-\subsection{Early stability theorem}
+First of all, notice that we already have all technical ingredients to prove
+ some of our main results.
+
+\begin{proof}[Proof of~\cref{thm:LP-for-K2}]
+    This is what the proof of~\cite[Theorem~1.1]{LSV2} actually shows if we use the more general~\cref{thm:horrocks-k2}.
+\end{proof}
+
+\begin{proof}[Proof of~\cref{cor:motivic-pi1}]
+    Repeat the proof of~\cite[Corollary~1.2]{LSV2} verbatim.
+\end{proof}
+
+The remainder of this section is devoted to the proof of~\cref{cor:dedekind}.
+
+\subsection{Local-global principle and patching for subsystem embeddings}
 The aim of this subsection is to prepare necessary technical ingredients for the proof of the early stability theorem~\cref{cor:dedekind}.
 
 For the rest of this subsection $\Psi$ is an arbitrary irreducible simply-laced root system of rank $\geq 3$ embedded into another irreducible simply-laced root system $\Phi$.
 For a commutative ring $R$ we denote by $j_R$ the corresponding homomorphism of Steinberg groups $\St(\Psi, R) \to \St(\Phi, R)$ induced by this embedding.
 
-The following result is the analogue of the so-called ``dilation principle'' for subsystem embeddings, cf.~\cite[Corollary~2.4]{Tu83}.
+The following result is generalizes the so-called ``dilation principle'' for subsystem embeddings, cf.~\cite[Corollary~2.4]{Tu83}.
 \begin{lemma}\label{lem:dp-2}
 Let $h\in\St(\Phi, A[X], X A[X])$ be such that $\lambda_a^*(h) \in \Img(j_{A_a[X]})$.
 Then for sufficiently large $n$ one has
@@ -40,9 +53,9 @@ Then $g$ lies in the image of $j_{A[X]} \colon \St(\Psi, A[X]) \to \St(\Phi, A[X
 \end{lemma}
 \begin{proof}
     We reproduce the argument of~\cite[Lemma~2.5]{Tu83}, cf. also with~\cite[Lemma~16]{S15}.
-    Set $S := A[X, Y]$.
+    Set $S \coloneqq A[X, Y]$.
     Consider the following element of $\St(\Phi, S[Z])$:
-    \[h(X, Y, Z) := g(YX) \cdot  g^{-1}((Y+Z) X) = \ev{A}{S[Z]}{YX}^* \left(g\right) \cdot \ev{A}{S[Z]}{(Y + Z)X}^*\left(g^{-1}\right).\]
+    \[h(X, Y, Z) \coloneqq g(YX) \cdot  g^{-1}((Y+Z) X) = \ev{A}{S[Z]}{YX}^* \left(g\right) \cdot \ev{A}{S[Z]}{(Y + Z)X}^*\left(g^{-1}\right).\]
     It is easy to see that $h(X, Y, Z)$ belongs to
     \[\Ker\left(\eval{Z}{S}{S}{0}^*\colon\St(\Phi, S[Z]) \rightarrow \St(\Phi, S)\right)\]
     and hence by~\cite[Lemma~8]{S15} lies in $\St(\Phi, S[Z], Z S[Z])$.
@@ -83,7 +96,7 @@ Its construction proceeds as follows.
 
 Set $G_{M, \Phi}^{\geq 0} \coloneqq \Img(\St(\Phi, A[X], M[X]) \to \St(\Phi, A[X, X\inv])), G_M^0 \coloneqq \overline{\St}(\Phi, A, M)$.
 $G_M^0$ is easily seen to be a subgroup of both $\St(\Phi, A[X\inv])$ and $G_M^{\geq 0}$.
-Denote by $\overline{V}$ the quotient-set of the product $V \coloneqq G_M^{\geq 0} \times \St(\Phi, A[X\inv]) \times (1 + M)^\times$
+Denote by $\overline{V}$ the factor set of the product $V \coloneqq G_M^{\geq 0} \times \St(\Phi, A[X\inv]) \times (1 + M)^\times$
 modulo the equivalence relation given by $(gh_0, h, u) \cong (g, h_0h, u)$ where $h_0 \in G_M^0, (g, h, u) \in V.$
 Denote by $[g, h, u] \in \overline{V}$ the equivalence class corresponding to $(g, h, u)\in V$, cf.~\cite[\S~5.4]{LS20}.
 
@@ -119,10 +132,10 @@ Then $x$ belongs to $\Img(j_{A[X]})$.
      $A \to \kappa$ (resp. $A[X] \to \kappa[X]$, $A[X, X\inv] \to \kappa[X, X\inv]$).
 
     Recall from~\cite{Hur77} that $\K_2(\Phi, \kappa[X]) = \K_2(\Phi, \kappa)$ hence one has $\rho_{A[X]}(x) = 1$
-     hence by our assumptions $\rho_{A[X, X\inv]}(j_{A[X, X\inv]}(y) \cdot z) = 1$.
+     and by our assumptions $\rho_{A[X, X\inv]}(j_{A[X, X\inv]}(y) \cdot z) = 1$.
     Consequently, we can find $z_0 \in \St(\Psi, A[X\inv])$ and $z_1 \in \overline{\St}(\Phi, A[X^{-1}], M[X^{-1}])$
      such that $z = j_{A[X\inv]}(z_0) \cdot z_1$.
-    It is clear that $\rho_{A[X, X\inv]}(y \cdot \lambda_{X^{-1}}(z_0)) = 1$ hence we can find
+    It is clear that $\rho_{A[X, X\inv]}(y \cdot \lambda_{X^{-1}}^*(z_0)) = 1$ hence we can find
      $y' \in \St(\Psi, A[X, X\inv], M[X, X\inv])$ such that $\mu(y') = \cdot \lambda_{X^{-1}}(z_0)$.
     Notice also that $t(y') \in \St(\Phi, A[X\inv] + M[X])$, where $t$ denotes the homomorphism discussed in~\cref{lem:first-reduction}.
     From~\cref{prop:horrocks-main} we obtain that
@@ -143,7 +156,7 @@ Then $x$ belongs to $\Img(j_{A[X]})$.
     This is a consequence of~\cref{lem:horrocks-subsystem-local} and~\cref{cor:QS-subsystem}.
 \end{proof}
 
-\subsection{Main results}
+\subsection{Early stability theorem}
 
 We start by recalling the so-called Zariski excision property of Steinberg groups.
 \begin{lemma} \label{lem:zariski-glueing}
@@ -153,21 +166,20 @@ Let $A$ be a commutative domain and $a, b \in A$ be a pair of coprime elements.
     \item Let $\delta$ be an element of $\St(\Phi, A_{ab})$.
     Then $\delta$ can be presented as $\lambda_b(x) \cdot \lambda_a(y)$ for some
     $x  \in \St(\Phi, A_a)$ and $y \in \St(\Phi, A_b)$.
-    \item  Let $x \in \St(\Phi, A_a)$ and $y \in \St(\Phi, A_b)$ be such that the equality $\lambda_b(x) = \lambda_a(y)$ holds in $\St(\Phi, A_{ab})$.
-    Then there exists $z \in \St(\Phi, A)$ such that $x = \lambda_a(z)$, $y = \lambda_b(z)$.
+    \item  Let $x \in \St(\Phi, A_a)$ and $y \in \St(\Phi, A_b)$ be such that the equality $\lambda_b^*(x) = \lambda_a^*(y)$ holds in $\St(\Phi, A_{ab})$.
+    Then there exists $z \in \St(\Phi, A)$ such that $x = \lambda_a^*(z)$, $y = \lambda_b^*(z)$.
 \end{enumerate}
 \end{lemma}
 \begin{proof}
-    For the second assertion see~\cite[Proposition~4.4]{LSV2}
-    (cf. also the proof of~\cite[Lemma~2.6]{LSV2}).
+    See~\cite[Corollary~4.5]{LSV2}, cf.\ also the proof of~\cite[Lemma~2.6]{LSV2}.
 \end{proof}
 
 
 \begin{lemma} \label{lem:horrocks-b}
  Let $A$ be a commutative domain and $f \in A[X]$ be a unitary polynomial.
- Let $h$ be an element of $\K_2(\Phi, A[X], XA[X])$ such that $\lambda_f(h)$ belongs to the image of the stabilization map
+ Let $h$ be an element of $\K_2(\Phi, A[X], XA[X])$ such that $\lambda_f^*(h)$ belongs to the image of the stabilization map
  $\St(\Psi, A[X]_f) \to \St(\Phi, A[X]_f)$.
- Then $h$ lies in the image of $\St(\Psi, A[X]) \to \St(\Phi, A[X])$.
+ Then $h$ lies in the image of $j_{A[X]}\colon\St(\Psi, A[X]) \to \St(\Phi, A[X])$.
 \end{lemma}
 \begin{proof}
     Suppose that $f(X) = X^n + a_1 X^{n-1} \ldots + a_n$.
@@ -176,17 +188,17 @@ Let $A$ be a commutative domain and $a, b \in A$ be a pair of coprime elements.
 
     Consider the following diagram:
     %! suppress = EscapeAmpersand
-    \[ \xymatrix{\St(\Phi, A[X]) \ar[r]^{\lambda_X} \ar[d]_{\lambda_f} & \St(\Phi, A[X, X\inv]) \ar[d]_{\lambda_f}  & \St(\Phi, A[X\inv]) \ar[l]_{\lambda_{X\inv}} \ar[d]_{\lambda_g}  \\
+    \[ \xymatrix{\St(\Phi, A[X]) \ar[r]^{\lambda_X} \ar[d]_{\lambda_f^*} & \St(\Phi, A[X, X\inv]) \ar[d]_{\lambda_f^*}  & \St(\Phi, A[X\inv]) \ar[l]_{\lambda_{X\inv}^*} \ar[d]_{\lambda_g^*}  \\
                  \St(\Phi, A[X]_f) \ar[r] & \St(\Phi, A[X, X\inv]_f) & \St(\Phi, A[X\inv]_g) \ar[l] \\
                  \St(\Psi, A[X]_f) \ar[r] \ar[u]_j & \St(\Psi, A[X, X\inv]_f) \ar[u]_j & \St(\Psi, A[X\inv]_g) \ar[l] \ar[u]_j \\
-                                   & \St(\Psi, A[X, X\inv]) \ar[u]_{\lambda_f^\Psi}   & \St(\Psi, A[X\inv]). \ar[l] \ar[u]_{\lambda_g^\Psi}}\]
+                                   & \St(\Psi, A[X, X\inv]) \ar[u]_{{\lambda_f^\Psi}^*}   & \St(\Psi, A[X\inv]). \ar[l] \ar[u]_{{\lambda_g^\Psi}^*}}\]
 
     By assumption there exists $\widetilde{h} \in \St(\Psi, A[X]_f)$ such that $j(\widetilde{h}) = \lambda_f(h)$.
     By the first part of~\cref{lem:zariski-glueing} one can write 
-     $\lambda_X(\widetilde{h}) = \lambda_f^\Psi(z) \cdot \lambda_{X\inv}(y)$
+     $\lambda_X(\widetilde{h}) = {\lambda_f^\Psi}^*(z) \cdot \lambda_{X\inv}^*(y)$
      for some $y \in \St(\Psi, A[X\inv]_g)$, $z \in \St(\Psi, A[X, X\inv]).$
-    Consequently, one has $\lambda_f(j(z)\inv \cdot \lambda_X(\alpha)) = \lambda_{X\inv}(j(y))$.
-    By the second part of~\cref{lem:zariski-glueing} there exists $y' \in \St(\Phi, A[X\inv])$ such that $\lambda_X(\alpha) = j(z) \cdot \lambda_{X\inv}(y').$
+    Consequently, one has $\lambda_f^*(j(z)\inv \cdot \lambda_X^*(\alpha)) = \lambda_{X\inv}^*(j(y))$.
+    By the second part of~\cref{lem:zariski-glueing} there exists $y' \in \St(\Phi, A[X\inv])$ such that $\lambda_X^*(\alpha) = j(z) \cdot \lambda_{X\inv}^*(y').$
     The assertion now follows from~\cref{cor:horrocks--ingredient}.
 \end{proof}
 
@@ -220,13 +232,6 @@ Then for any $n \geq 0$ the obvious inclusion $\rA_4 \subseteq \Phi$ induces a s
     The required assertion now follows from~\cref{lem:horrocks-b}.
 \end{proof}
 
-\begin{proof}[Proof of~\cref{thm:LP-for-K2}]
-    This is what the proof of~\cite[Theorem~1.1]{LSV2} actually shows if we use the more general~\cref{thm:horrocks-k2}.
-\end{proof}
-
-\begin{proof}[Proof of~\cref{cor:motivic-pi1}]
-    Repeat the proof of~\cite[Corollary~1.2]{LSV2} verbatim.
-\end{proof}
 
 \begin{proof}[Proof of~\cref{cor:dedekind}]
     Consider the following diagram:

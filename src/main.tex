@@ -106,7 +106,7 @@
 
 \begin{abstract}
 In this paper we study the $\mathbb{A}^1$-invariance of the unstable functor $\mathrm{K}_2(\Phi, R)$
-in the case when $\Phi$ is an irreducible simply-laced root system containing $\rA_4$ and not of type $\rE_8$.
+in the case when $\Phi$ is an irreducible root system of type $\mathsf{ADE}$ containing $\rA_4$ and not of type $\rE_8$.
 We show that in the geometric case, i.\,e. when $R$ is a regular ring containing a field $k$
 one has $\K_2(\Phi, R[t]) = \K_2(\Phi, R)$, which allows one to interpret the unstable $\K_2$ groups
 as $\mathbb{A}^1$-fundamental groups of Chevalley--Demazure group schemes in the $\mathbb{A}^1$-homotopy category.
@@ -122,7 +122,10 @@ Recall that a choice of a lattice $\Lambda$ lying between the root lattice $\mat
 The Steinberg group $\St(\Phi, R)$ is a certain group defined by means of generators and relations, see~\cref{subsec:steinberg-preliminaries} for the definition.
 By definition, the \textit{unstable $\K_2$-functor} $\K_2^G(R)$ is defined as the kernel of the canonical homomorphism $\St(\Phi, R) \to \G_\Lambda(\Phi, R)$.
 
-Our first main result is the following theorem generalizing~\cite[Theorem~1.1]{LSV2}
+This work continues the series of papers~\cite{LS20, LSV2} and has a twofold aim.
+First, we generalize the main result of~\cite{LSV2} concerning the $\mathbb{A}^1$-invariance of the functor $\K_2^G(R)$.
+Specifically, we prove the following theorem, which generalizes~\cite[Theorem~1.1]{LSV2}:
+
 \begin{thm}[The $\K_2$-analogue of Lindel--Popescu theorem] \label{thm:LP-for-K2}
  Let $k$ be an arbitrary field and $R$ be a regular ring containing $k$.
  Let $\Phi$ be an irreducible simply-laced root system containing $\rA_4$ but not of type $\rE_8$.
@@ -130,7 +133,13 @@ Our first main result is the following theorem generalizing~\cite[Theorem~1.1]{L
  $\K_2^G(R[t])\cong\K_2^G(R).$
 \end{thm}
 
-Another main result of this paper is the following corollary which allows one to
+\Cref{thm:LP-for-K2} can be viewed as an analogue, for the functor $\K_2^G$, of the theorem of H.~Lindel and D.~Popescu,
+ which resolved the classical Bass--Quillen conjecture in the geometric case — i.\,e., for commutative regular $k$-algebras of arbitrary dimension.
+For a more detailed historical account of this problem and references to prior results, we refer the reader to~\cite{LSV2}.
+Here, we highlight that the main novelty of \cref{thm:LP-for-K2} is its applicability to root system types $\Phi = \rE_6, \rE_7$,
+ as well as its extension to orthogonal groups over the base ring, without requiring that $2$ be invertible in $R$.
+
+The main corollary of \cref{thm:LP-for-K2} is the following result which allows one to
  interpret the unstable $\K_2$-functors as certain hom-sets in the motivic category of V.~Voevodsky,
  cf.~\cite[Corollary~1.2]{LSV2}.
 \begin{cor} \label{cor:motivic-pi1} Let $\Phi$, $\Lambda$ and $k$ be as in~\cref{thm:LP-for-K2}.
