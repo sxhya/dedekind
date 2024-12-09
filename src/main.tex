@@ -111,7 +111,7 @@ We show that in the geometric case, i.\,e. when $R$ is a regular ring containing
 one has $\K_2(\Phi, R[t]) = \K_2(\Phi, R)$, which allows one to interpret the unstable $\K_2$ groups
 as $\mathbb{A}^1$-fundamental groups of Chevalley--Demazure group schemes in the $\mathbb{A}^1$-homotopy category.
 We also prove a variant of "early stability" theorem which allows one to find a generating set
-of $\K_2(\Phi, A[X_1, \ldots X_n])$ in the mixed characteristic case, e.\,g. in the case when $A$ is a Dedekind domain.
+of $\K_2(\Phi, A[X_1, \ldots X_n])$ in the case when $A$ is a Dedekind domain.
 \end{abstract}
 
 \section{Introduction}\label{sec:introduction}
@@ -123,8 +123,8 @@ The Steinberg group $\St(\Phi, R)$ is a certain group defined by means of genera
 By definition, the \textit{unstable $\K_2$-functor} $\K_2^G(R)$ is defined as the kernel of the canonical homomorphism $\St(\Phi, R) \to \G_\Lambda(\Phi, R)$.
 
 This work continues the series of papers~\cite{LS20, LSV2} and has a twofold aim.
-First, we generalize the main result of~\cite{LSV2} concerning the $\mathbb{A}^1$-invariance of the functor $\K_2^G(R)$.
-Specifically, we prove the following theorem, which generalizes~\cite[Theorem~1.1]{LSV2}:
+The first goal of this work is to generalize the main result of~\cite{LSV2} concerning the $\mathbb{A}^1$-invariance of the functor $\K_2^G(R)$.
+Specifically, we prove the following invariance theorem, which generalizes~\cite[Theorem~1.1]{LSV2}:
 
 \begin{thm}[The $\K_2$-analogue of Lindel--Popescu theorem] \label{thm:LP-for-K2}
  Let $k$ be an arbitrary field and $R$ be a regular ring containing $k$.
@@ -133,37 +133,48 @@ Specifically, we prove the following theorem, which generalizes~\cite[Theorem~1.
  $\K_2^G(R[t])\cong\K_2^G(R).$
 \end{thm}
 
-\Cref{thm:LP-for-K2} can be viewed as an analogue, for the functor $\K_2^G$, of the theorem of H.~Lindel and D.~Popescu,
- which resolved the classical Bass--Quillen conjecture in the geometric case — i.\,e., for commutative regular $k$-algebras of arbitrary dimension.
-For a more detailed historical account of this problem and references to prior results, we refer the reader to~\cite{LSV2}.
-Here, we highlight that the main novelty of \cref{thm:LP-for-K2} is its applicability to root system types $\Phi = \rE_6, \rE_7$,
- as well as its extension to orthogonal groups over the base ring, without requiring that $2$ be invertible in $R$.
+The primary corollary of \cref{thm:LP-for-K2} is the following result, which interprets the unstable $\K_2$-functors as fundamental groups of group schemes
+ $\mathrm{G}_\Lambda(\Phi, -)$ in the motivic category of F.~Morel and V.~Voevodsky extending the result of~\cite[Corollary~1.2]{LSV2}.
 
-The main corollary of \cref{thm:LP-for-K2} is the following result which allows one to
- interpret the unstable $\K_2$-functors as certain hom-sets in the motivic category of V.~Voevodsky,
- cf.~\cite[Corollary~1.2]{LSV2}.
 \begin{cor} \label{cor:motivic-pi1} Let $\Phi$, $\Lambda$ and $k$ be as in~\cref{thm:LP-for-K2}.
 Then for any $k$-smooth algebra $R$ and $G = \mathrm{G}_{\Lambda}(\Phi, -)$ one has
 \[ \pi_1^{\mathbb{A}^1}(G)(R) := \mathrm{Hom}_{\mathscr{H}_{\bullet}(k)}(S^1 \wedge \mathrm{Spec}(R)_+, G) = \mathrm{KV}_2^{G}(R) = \K_2^G(R).\]
 \end{cor}
-In the above statement $\mathscr{H}_\bullet(k)$ denotes the pointed unstable $\mathbb{A}^1$-homotopy category over $k$ and
-$\mathrm{KV}_2^{G}(R)$ is the second Karoubi--Villamayor K-functor, i.\,e. the fundamental group of
+In the above statement $\mathscr{H}_\bullet(k)$ denotes the pointed unstable $\mathbb{A}^1$-homotopy category over $k$, see~\cite{MV99}.
+$\mathrm{KV}_2^{G}(R)$ denotes the second Karoubi--Villamayor K-functor, i.\,e. the fundamental group of
  the simplicial group $G(R[\Delta^\bullet])$, see e.\,g.~\cite[\S~3]{Jar83} or~\cite[\S~3.2]{LSV2}.
 
-In the case when $\Lambda = P(\Phi)$ we will use the notation $\Gsc(\Phi, -)$ for the resulting group scheme,
-which in this case is called the \textit{simply-connected} group scheme.
+The second primary objective of this paper is to establish a result that describes the structure of unstable $\K_2$-groups
+ over multivariate polynomial rings over Dedekind domains.
+Conceptually, this should be compared to the solution of the Bass--Quillen conjecture for one-dimensional rings, as discussed in~\cite[\S~V.3]{Lam10},
+ and to analogous results for the unstable $\K_1$-functor, e.\,g.~\cite[Theorem~1.1]{St-Ded}.
 
-Another main result of this paper is the following theorem analogous to~\cite[Theorem~1.1]{St-Ded}
- and the main result of~\cite{Tu83}.
 \begin{thm} \label{cor:dedekind}
 Let $\Phi$ be as in the statement of~\cref{thm:LP-for-K2} and let $A$ be a Dedekind domain.
-Then for any $n \geq 0$ the group $\K_2(A)$ surjects onto $\K_2(\Phi, A[X_1,\ldots, X_n])$.
+Then for any $n \geq 0$ the group $\K_2(\rA_4, A)$ surjects onto $\K_2(\Phi, A[X_1,\ldots, X_n])$.
+In particular, $\K_2(\Phi, A[X_1,\ldots, X_n]) = \K_2(\Phi, A)$.
 Moreover, if $\K_2(A)$ is generated by Dennis--Stein symbols then for any $n \geq 0$ so is $\K_2(\Phi, A[X_1,\ldots, X_n])$.
 \end{thm}
 
-The main technical ingredient in the proof of all our results is the generalized Horrocks theorem for $\K_2$,
- whose proof, in turn, is based on the amalgamation theorem for affine Steinberg groups discovered by A.~Allcock in~\cite{A13},
- see~\cref{thm:horrocks-k2}.
+In turn, \cref{thm:LP-for-K2} can be viewed as an analogue, for the functor $\K_2^G$, of the theorem of H.~Lindel and D.~Popescu,
+which resolved the classical Bass--Quillen conjecture in the geometric case — i.\,e., for commutative regular $k$-algebras of arbitrary dimension.
+We highlight here that the main novelty of \cref{thm:LP-for-K2} is its applicability to root system types $\Phi = \rE_6, \rE_7$,
+as well as its extension to orthogonal groups over the base ring, without requiring that $2$ be invertible in $R$.
+
+In the special case when $R$ is a field, homotopy invariance type results for $\K_2$ similar to~\cref{thm:LP-for-K2} have been known since 1970's, cf. e.\,g.~\cite{Hur77, Re75, VW16}.
+Notice also that the homotopy invariance for the unstable $\K_1$-functors and their interpretation as groups of connected components of the corresponding group schemes in the motivic homotopy category have been
+ recently obtained in much greater generality by A.~Stavrova, see~\cite[Theorem~1.3]{St-poly}, \cite[Theorem~5.2]{St22}.
+Notice also that the Nisnevich sheaf $\bm{\pi}_1^{\mathbb{A}^1}(G)$ associated to the presheaf of fundamental groups $\pi_1^{\mathbb{A}^1}(G)(R)$
+ has been recently computed by F.~Morel and A.~Sawant for all split reductive $G$ without any assumptions on the rank of $G$, see~\cite[Theorem~1]{MS23}.
+
+The main technical ingredient in the proof of all our results is the refined Horrocks theorem for $\K_2$,~\cref{thm:horrocks-k2},
+ which generalizes~\cite[Theorem~1]{LS20} and~\cite[Proposition~4.3]{Tu83}.
+As noted in~\cite{LSV2}, the restrictive nature of these two Horrocks-type theorems for $\K_2$ was a major obstacle to proving a more
+ general result in~\cite{LSV2}, which this paper addresses.
+Our proof of~\cref{thm:horrocks-k2} follows the same general approach as that of~\cite[Proposition~4.3]{Tu83},
+ with the key difference being our use of more modern technical tools, such as the amalgamation theorem for affine Steinberg groups introduced by A.~Allcock in~\cite{A13}.
+For a more detailed discussion of the ideas behind our proof of~\cref{thm:horrocks-k2} and its key differences from~\cite{LS20, Tu83}, we refer the reader to~\cref{sec:horrocks}.
+
 
 \subsection{Acknowledgements}
 This work was supported by the Russian Science Foundation grant №19-71-30002.

@@ -10,10 +10,6 @@ First of all, notice that we already have all technical ingredients to prove
 \end{proof}
 
 The remainder of this section is devoted to the proof of~\cref{cor:dedekind}.
-
-\subsection{Local-global principle and patching for subsystem embeddings}
-The aim of this subsection is to prepare necessary technical ingredients for the proof of the early stability theorem~\cref{cor:dedekind}.
-
 For the rest of this subsection $\Psi$ is an arbitrary irreducible simply-laced root system of rank $\geq 3$ embedded into another irreducible simply-laced root system $\Phi$.
 For a commutative ring $R$ we denote by $j_R$ the corresponding homomorphism of Steinberg groups $\St(\Psi, R) \to \St(\Phi, R)$ induced by this embedding.
 
@@ -74,7 +70,7 @@ Then $g$ lies in the image of $j_{A[X]} \colon \St(\Psi, A[X]) \to \St(\Phi, A[X
          = h(X, 1, -sb^n) \cdot h(X, ra^n, -ra^n) \in \mathrm{Im}(j_{A[X]}). \qedhere
     \end{multline*} \end{proof}
 
-The following result is the subsystem analogue of~\cite[Theorem~2]{LS17}, cf.\ also~\cite[Theorem~2.1]{Tu83}.
+The following result is the subsystem analogue of~\cite[Theorem~2]{LS17} which generalizes~\cite[Theorem~2.1]{Tu83}.
 \begin{cor}[Local-global principle for subsystem embeddings] \label{cor:QS-subsystem}
     An element $g \in \St(\Phi, A[X], XA[X])$ belongs to $\Img(j_{A[X]})$ if and only if
      $\lambda_M^*(g) \in \St(\Phi, A_M[X])$ belongs to $\Img(j_{A_M[X]})$ for all maximal ideals $M \trianglelefteq A$.
@@ -89,21 +85,22 @@ The following result is the subsystem analogue of~\cite[Theorem~2]{LS17}, cf.\ a
 \end{proof}
 
 Before we proceed further we would like to briefly recall the main construction from~\cite{LS20} upon which
- the proof of Theorem~1 ibid. is based.
-Recall that one constructs an action of the group $\St(\Phi, A[X\inv] + M[X])$ on a certain set $\overline{V}$.
-This set $\overline{V}$ is unrelated to the set $\overline{V}$ encountered in~\cref{sec:horrocks}.
-Its construction proceeds as follows.
+ the proof of Theorem~1 ibid.\ is based.
+Recall that in~\cite{LS20} one constructs an action of the group $\St(\Phi, A[X\inv] + M[X])$ on a certain set $\overline{V}$.
+The set $\overline{V}$ referenced here is distinct from the set $\overline{V}$ introduced in~\cref{sec:horrocks}.
+Since the latter is no longer relevant to our discussion, we will henceforth use the notation $\overline{V}$ exclusively to denote the set defined in~\cite{LS20},
+ thereby avoiding any potential ambiguity in notation.
 
+The construction of $\overline{V}$ proceeds as follows.
 Set $G_{M, \Phi}^{\geq 0} \coloneqq \Img(\St(\Phi, A[X], M[X]) \to \St(\Phi, A[X, X\inv])), G_M^0 \coloneqq \overline{\St}(\Phi, A, M)$.
 $G_M^0$ is easily seen to be a subgroup of both $\St(\Phi, A[X\inv])$ and $G_M^{\geq 0}$.
 Denote by $\overline{V}$ the factor set of the product $V \coloneqq G_M^{\geq 0} \times \St(\Phi, A[X\inv]) \times (1 + M)^\times$
 modulo the equivalence relation given by $(gh_0, h, u) \cong (g, h_0h, u)$ where $h_0 \in G_M^0, (g, h, u) \in V.$
 Denote by $[g, h, u] \in \overline{V}$ the equivalence class corresponding to $(g, h, u)\in V$, cf.~\cite[\S~5.4]{LS20}.
 
-Notice also that although the results in~\cite[\S~5.5]{LS20} are conditional,
- i.\,e. they are formulated under additional assumption that the canonical homomorphism
- $\St(\Phi, A[X\inv] + M[X]) \to \St(\Phi, A[X, X\inv])$ is injective,
-this does not present a problem for us since this condition has been checked already during the proof of~\cref{lem:first-reduction}.
+Note also that, although the results in~\cite[\S~5.5]{LS20} are conditional,
+ i.e., they are formulated under the additional assumption that the canonical homomorphism $\St(\Phi, A[X^{-1}] + M[X]) \to \St(\Phi, A[X, X^{-1}])$ is injective,
+ this does not pose a problem for us, as this condition was already verified in the proof of~\cref{lem:first-reduction}.
 
 \begin{prop} \label{prop:horrocks-main} The group $\St(\Phi, A[X\inv] + M[X])$ acts simply transitively on $\overline{V}$.
 This action satisfies the following additional property.
@@ -156,15 +153,13 @@ Then $x$ belongs to $\Img(j_{A[X]})$.
     This is a consequence of~\cref{lem:horrocks-subsystem-local} and~\cref{cor:QS-subsystem}.
 \end{proof}
 
-\subsection{Early stability theorem}
-
 We start by recalling the so-called Zariski excision property of Steinberg groups.
 \begin{lemma} \label{lem:zariski-glueing}
 Let $\Phi$ be any simply-laced root system of rank $\geq 3$.
 Let $A$ be a commutative domain and $a, b \in A$ be a pair of coprime elements.
 \begin{enumerate}
     \item Let $\delta$ be an element of $\St(\Phi, A_{ab})$.
-    Then $\delta$ can be presented as $\lambda_b(x) \cdot \lambda_a(y)$ for some
+    Then $\delta$ can be presented as $\lambda_b^*(x) \cdot \lambda_a^*(y)$ for some
     $x  \in \St(\Phi, A_a)$ and $y \in \St(\Phi, A_b)$.
     \item  Let $x \in \St(\Phi, A_a)$ and $y \in \St(\Phi, A_b)$ be such that the equality $\lambda_b^*(x) = \lambda_a^*(y)$ holds in $\St(\Phi, A_{ab})$.
     Then there exists $z \in \St(\Phi, A)$ such that $x = \lambda_a^*(z)$, $y = \lambda_b^*(z)$.
@@ -208,7 +203,7 @@ Let $\Phi$ be a root system of type $\rA_{\geq 4}$, $\rD_{\geq 5}$ or $\rE_{6,7,
 Then for any $n \geq 0$ the obvious inclusion $\rA_4 \subseteq \Phi$ induces a surjection
 \[\K_2(\rA_4, A[X_1,\ldots, X_n]) \to \K_2(\Phi, A[X_1, \ldots X_n]).\]
 \end{thm}
-\begin{proof}[Proof of Theorem 1]
+\begin{proof}
     The proof is modeled after the proof of~\cite[Theorem~5.3]{Tu83}.
     We proceed by induction on $n$.
     Our assumption on the dimension of $A$ guarantees that it satisfies the condition $\mathrm{SR}_3$ in the sense of~\cite{St78}.
