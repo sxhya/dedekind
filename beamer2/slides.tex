@@ -1,0 +1,532 @@
+\documentclass[handout]{beamer} %Remove handout to reenable pauses
+\usetheme{Berlin}
+\usepackage{array}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{wrapfig}
+\usepackage{amsmath}
+
+\usetikzlibrary{matrix, shapes, trees, arrows, decorations.pathmorphing, fit}
+\usepackage[utf8]{inputenc}
+
+\DeclareMathOperator{\K}{K}
+\DeclareMathOperator{\G}{G}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\E}{E}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Cent}{Cent}
+\DeclareMathOperator{\sr}{sr}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\Umd}{Umd}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\coker}{coker}
+\newcommand{\catname}[1]{{\normalfont\textbf{#1}}}
+\newcommand{\Groups}{\catname{Groups}}
+\newcommand{\rA}{\mathsf{A}}
+\newcommand{\rB}{\mathsf{B}}
+\newcommand{\rC}{\mathsf{C}}
+\newcommand{\rD}{\mathsf{D}}
+\newcommand{\rE}{\mathsf{E}}
+\newcommand{\rF}{\mathsf{F}}
+\newcommand{\rG}{\mathsf{G}}
+\newcommand{\StH}{\widehat{H}}
+\DeclareMathOperator{\UU}{U}
+
+\theoremstyle{definition}
+\newtheorem*{thm}{Theorem}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{lem}{Lemma}
+\newtheorem*{exm}{Example}
+\newtheorem*{dfn}{Definition}
+\newtheorem*{que}{Question}
+\newtheorem*{conj}{Conjecture}
+\newtheorem*{ans}{Answer}
+\newtheorem*{rem}{Remark}
+\newtheorem*{cor}{Corollary}
+\newtheorem*{conc}{Conclusion}
+\newtheorem*{fac}{Fact}
+\newtheorem*{ide}{Idea}
+\newtheorem*{prb}{Problem}
+
+\def\hnode{*[o]{\circ}}
+\def\lnode#1{*[o]{\composite{!{\circ}*h!<0pt,-1em>{\scriptstyle #1}}}}
+\def\lnoded#1{*[o]{\composite{!{\circ}*h!<0pt,0.5em>{\scriptstyle #1}}}}
+\def\lbnode#1{*[o]{\composite{!{\bullet}*h!<0pt,-1em>{\scriptstyle #1}}}}
+\def\harr#1{\ar@{-}[r]_{\displaystyle #1}}
+\def\hard{\ar@{-}[d]}
+\def\harl#1{\ar@{-}[l]^{\displaystyle #1}}
+
+\newcommand\restr[2]{{\left.\kern-\nulldelimiterspace #1\vphantom{\big|}\right|_{#2}}}
+
+\tikzset{
+  root/.style={
+    circle,
+    draw,
+    fill=black,
+    inner sep=1.5pt
+  },
+  highlighted/.style={
+    fill=green!60!black
+  },
+  zeroroot/.style={
+    fill=white
+  },
+  levi/.style={
+    draw,
+    rounded corners,
+    inner sep=3pt
+  },
+  dottededge/.style={
+    dotted,
+    thick
+  }
+}
+
+\title{Horrocks theorem for \texorpdfstring{K2}{$К_2$}, weight elements in Chevalley groups and Curtis--Tits decompositions}
+\author{Sergei Sinchuk}
+\date{3 April 2026}
+
+\AtBeginSection[]{}
+
+%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section{Recollection}
+
+\begin{frame} \tableofcontents[currentsection] \end{frame}
+
+\begin{frame}{Recollection}
+Let $A$ be a local comm., unital domain.
+\begin{prop}[Suslin, 1977]
+ \( \E(n, A[X^{\pm 1}]) = \E(n, A[X]) \cdot B(A[X^{\pm 1}]) \cdot \E(n, A[X^{\pm 1}], M[X^{\pm 1}]). \)
+\end{prop}
+\textbf{Idea:} Denote by $L$ the Minkowski-product of three groups in the right-hand side.
+Set $\delta_i(X) := \mathrm{diag}(1, \ldots, \underbrace{X}_{i\text{-th}}, \ldots, 1)$, $1 \leq i \leq n$.
+Show that $\delta_i^{-1} L \delta_i \subseteq L$.
+
+It is even enough to show that $\delta_i^{-1} \E(n, A[X]) \delta_i \subseteq L$.
+\end{frame}
+
+\begin{frame}[fragile]{Recollection}
+\begin{columns}[T]
+\begin{column}{0.4\textwidth}
+\raggedleft
+\scriptsize
+\hspace*{0pt}%
+\[
+\begin{tikzcd}[row sep=2.6em, column sep=3em]
+G_{123}
+  \arrow[rr, "f_{23}"]
+  \arrow[dd, "f_{12}"']
+  \arrow[rd, "f_{13}"]
+&&
+G_{23}
+  \arrow[dd, dashed, "{g_2^3}" description, pos=0.3]
+  \arrow[rd, "{g_3^2}", pos=0.3]
+& \\
+&
+G_{13}
+  \arrow[rr, "{g_3^1}" description, pos=0.3]
+  \arrow[dd, "{g_1^3}" description, pos=0.3]
+&&
+G_3
+  \arrow[dd, "h_3"]
+\\
+G_{12}
+  \arrow[rr, dashed, "{g_2^1}" description, pos=0.3]
+  \arrow[rd, "{g_1^2}", pos=0.3]
+&&
+G_2
+  \arrow[rd, dashed, "h_2"']
+& \\
+&
+G_1
+  \arrow[rr, "h_1"']
+&&
+G
+\end{tikzcd}
+\]
+\end{column}
+
+\begin{column}{0.6\textwidth}
+\raggedleft
+\scriptsize
+\[
+\begin{aligned}
+V \;&=\; G_1 \times G_2 \times G_3,\\
+W \;&=\; G_{12} \times G_{13} \times G_{23},\\
+W \;&\curvearrowright \; V\text{ via }\star\text{-action},\\
+\star \;&\; \text{defines an equiv. relation $\sim_W$},\\
+V/\sim_W\; &\rightarrow \; G\text{ induced by }h_1, h_2, h_3,\\
+V/\sim_W\;&\;\text{ is a set with no add. structure, }\\
+\text{class of} \;&\;(a, b, c)\text{ is denoted }[a, b, c].\\
+\end{aligned}
+\]
+\end{column}
+\end{columns}
+
+\scriptsize { \[(a, b, c) \star (x, y, z) = (x \cdot g_1^3(b) \cdot g_1^2(a), g_2^1(a)^{-1} \cdot y \cdot g_2^3(c),\ g_3^2(c)^{-1} \cdot g_3^1(b)^{-h_2(y)} \cdot z).\] }
+
+
+\end{frame}
+
+\begin{frame}[fragile]{Recollection}
+\begin{columns}[T]
+\begin{column}{0.4\textwidth}
+\raggedleft
+\scriptsize
+\hspace*{0pt}%
+\[
+\begin{tikzcd}[row sep=1.8em, column sep=2.1em]
+U^+_M
+  \arrow[rr, hook]
+  \arrow[dd, hook]
+  \arrow[rd, hook]
+&&
+B_M
+  \arrow[dd, dashed]
+  \arrow[rd, hook]
+& \\
+&
+G_M^+
+  \arrow[rr]
+  \arrow[dd, "\mu", pos=0.3]
+&&
+G_M
+  \arrow[dd, "\mu"]
+\\
+U^+
+  \arrow[rr, hook, dashed]
+  \arrow[rd, hook]
+&&
+B
+  \arrow[rd, hook, dashed]
+& \\
+&
+G^+
+  \arrow[rr]
+&&
+G
+\end{tikzcd}
+\]
+\end{column}
+
+\begin{column}{0.6\textwidth}
+\raggedleft
+\scriptsize
+\[
+\begin{aligned}
+G \;&=\; \St(\Phi, A[X,X^{-1}]),\\
+G^+ \;&=\; \St(\Phi, A[X]),\\
+B \;&=\; \UU(\Phi^+, A[X,X^{-1}])
+       \rtimes \StH(\Phi, A[X,X^{-1}]) \le G,\\
+G_M \;&=\; \St(\Phi, A[X,X^{-1}], M[X,X^{-1}]),\\
+U^+ \;&=\; \UU(\Phi^+, A[X]),\\
+G_M^+ \;&=\; \St(\Phi, A[X], M[X]),\\
+B_M \;&=\; \UU(\Phi^+, M[X,X^{-1}]) \times \{X,1+M\} \le G_M,\\
+U_M^+ \;&=\; \UU(\Phi^+, M[X]).
+\end{aligned}
+\]
+\end{column}
+\end{columns}
+\medbreak
+
+\scriptsize { Here $\StH(\Phi, A[X^{\pm 1}]) = \langle h_\alpha(u) \mid u \in A[X^{\pm 1}]^\times, \alpha \in \Phi \rangle \leq \St(\Phi, A[X, X^{-1}])$. }
+\pause
+
+\scriptsize { We have $V = G^+ \times B \times G_M$, $W = U^+ \times G_M^+ \times B_M^+$. }
+\end{frame}
+
+\begin{frame}{The main result}
+\begin{thm}
+ The group $G = \St(\Phi, A[X, X^{-1}])$ acts on $V/\sim_W$, this action is compatible with the action of $G^+$ and, moreover, for every $z \in G_M$ one has $\mu(z) \cdot [1, 1, 1] = [1, 1, z]$, where $\mu \colon G_M \to G$.
+\end{thm}
+The particular case $\Phi=\rA_{\geq 4}$ is Tulenbaev's Proposition 4.1.
+
+\textbf{Idea:} $G^+$ acts on the first coordinate of $V$, this action is compatible with $\star$ and descends to $V/\sim_W$.
+
+It remains to define a conj. action of $\delta_i$ (or their analogue) on $V$ and then express $G$ in terms of $G^+$ and $\delta_i$.
+\end{frame}
+
+\begin{frame}{Abe's automorphism $\sigma$}
+Let $\Phi= \mathsf{D}_\ell, \mathsf{E}_6$ or $\mathsf{E}_7$.
+Let $k$ be the green vertex on the diagram:
+
+\medbreak
+\begin{tabular}{ccc}
+\scalebox{0.52}{%
+\begin{tikzpicture}
+\node[root, highlighted, label=$1$] (d1) at (0,0.5) {};
+\node[root, label=$2$] (d2) at (1,0) {};
+\node[root, label=$3$] (d3) at (2,0) {};
+\node at (3,0) {\ldots};
+\node[root, label={[xshift=-0.5cm,yshift=-0.6cm]$\ell-2$}] (dl2) at (4,0) {};
+\node[root, label={[xshift=-0.6cm,yshift=-0.35cm]$\ell-1$}] (dl1) at (5,0.5) {};
+\node[root, label={[xshift=-0.5cm,yshift=-0.3cm]$\ell$}] (dl) at (5,-0.5) {};
+\node[root, zeroroot, label=below:{$0$}] (d0) at (0,-0.5) {};
+
+\draw (d1) -- (d2) -- (d3) -- (2.5,0);
+\draw (3.5,0) -- (dl2) -- (dl1);
+\draw (dl2) -- (dl);
+\draw[dottededge] (d2) -- (d0);
+
+\node[levi, fit=(d2) (d3) (dl) (dl1) (dl2), label=above:{$\Delta$}] {};
+\end{tikzpicture}}
+&
+\scalebox{0.52}{%
+\begin{tikzpicture}
+\node[root, highlighted, label=$1$] (e1) at (0,0) {};
+\node[root, label=$3$] (e3) at (1,0) {};
+\node[root, label={[xshift=-0.3cm]$4$}] (e4) at (2,0) {};
+\node[root, label=$5$] (e5) at (3,0) {};
+\node[root, label=$6$] (e6) at (4,0) {};
+\node[root, label={[xshift=-0.3cm,yshift=-0.3cm]$2$}] (e2) at (2,1) {};
+\node[root, zeroroot, label=left:$0$] (e0) at (2,2) {};
+
+\draw (e1) -- (e3) -- (e4) -- (e5) -- (e6);
+\draw (e2) -- (e4);
+\draw[dottededge] (e2) -- (e0);
+
+\node[levi, fit=(e2) (e3) (e4) (e5) (e6), label=above:{$\Delta$}] {};
+\end{tikzpicture}}
+&
+\scalebox{0.52}{%
+\begin{tikzpicture}
+\node[root, zeroroot, label={$0$}] (f0) at (0,0) {};
+\node[root, label={$1$}] (f1) at (1,0) {};
+\node[root, label={$3$}] (f3) at (2,0) {};
+\node[root, label={[xshift=-0.3cm]$4$}] (f4) at (3,0) {};
+\node[root, label={$5$}] (f5) at (4,0) {};
+\node[root, label={$6$}] (f6) at (5,0) {};
+\node[root, label={[xshift=-0.3cm,yshift=-0.3cm]$2$}] (f2) at (3,1) {};
+\node[root, highlighted, label={$7$}] (f7) at (6,0) {};
+
+\draw (f1) -- (f3) -- (f4) -- (f5) -- (f6) -- (f7);
+\draw (f2) -- (f4);
+\draw[dottededge] (f0) -- (f1);
+
+\node[levi, fit=(f1) (f2) (f3) (f4) (f5) (f6), label=above:{$\Delta$}] {};
+\end{tikzpicture}}
+\\[-0.2em]
+$\mathsf{D}_\ell$ & $\mathsf{E}_6$ & $\mathsf{E}_7$
+\end{tabular}
+\medbreak
+\pause
+
+$m_k(\alpha_\mathrm{\max}) = 1$, therefore $m_k(\alpha) = 1$ for all $\alpha \in \Sigma_k^+$ and the subgroup $\UU(\Sigma^+_k, R)$ is abelian.
+\pause
+Also the weight $\varpi_k$ is a \textit{microweight} of $\Phi$.
+
+E. Abe defines $\sigma (x_\alpha(u)) := x_\alpha(u)^{h_{\omega_k}(X)} = x_\alpha(X^{\langle \varpi_k, \alpha \rangle}u)$ and shows that $\sigma(L) \subseteq L$.
+\end{frame}
+
+\begin{frame}{Comparison with Tulenbaev}
+ \begin{itemize}
+  \item Tulenbaev follows Suslin's approach, so he constructs automorphisms $\sigma_i \colon V/\sim_W \to V/\sim_W$ ($1\leq i \leq n$) ``modeling'' the diagonal automorphisms of the Steinberg group $G = \St(n, R[X, X^{-1}])$.
+  \item He is then forced to check that $\sigma_i$, $\sigma_j$ commute between each other;
+  \item He defines $x_{ij}(aX^{-1}) := \sigma_i \cdot x_{ij}(a) \cdot \sigma_i^{-1}$, and interprets $\St(n, R[X, X^{-1}])$ indirectly in these terms;
+  \item This all introduces immense technical strain in his proof while also leaving many gaps (e.g. checking commutator formulae);
+  \item This can not be generalized to Chevalley groups.
+ \end{itemize}
+\end{frame}
+
+\section{Plan of the proof}
+
+\begin{frame} \tableofcontents[currentsection] \end{frame}
+
+\begin{frame}{Weight automorphisms}
+ To $\omega \in P(\Phi)$ and $\beta \in \mathbb{Z} \Phi$ associate the product $\langle \omega, \beta\rangle \in \mathbb{Z}$.
+\pause
+
+ For $u \in S^\times$ and $\omega \in P(\Phi)$ there exists a bijection of the generating set $\St(\Phi, S)$ via the following mapping:
+ \[ x_\alpha(a) \mapsto x_\alpha(u^{\langle\omega, \alpha\rangle} \cdot a),\ \alpha\in \Phi,\ a \in S. \]
+\pause
+ This bijection preserves Chevalley commutator formulae.
+
+ This gives rise to an automorphism $\chi_{\omega, u}$ of $\St(\Phi, S)$.
+
+ One can construct the ``relative'' version of this automorphism $\widetilde{\chi}_{\omega, X}$ on $G_M = \St(\Phi, S, I)$ using standard technique.
+
+ Now set $S := R[X, X^{-1}]$, $u := X$.
+\end{frame}
+
+\begin{frame}{Definition of an automorphism of $V/\sim_W$}
+ \begin{dfn} \label{sigma-def}
+Let $v = (x, y, z) \in G^+ \times B \times G_M$.
+We want to define Steinberg-group level analogue of Abe's automorphism $\sigma$ on $V/\sim_W$.
+We need to define it first on $V$. We need something like this:
+\begin{equation} \label{eq:sigma-def} (x, y, z) \mapsto (?, ? \cdot \chi_{\omega, X}(? \cdot y),\  \widetilde{\chi}_{\omega, X}(z)), \end{equation}
+where $x \in G^+, y \in B$, $z \in G_M$, and
+$\chi_{\omega, X}$, $\widetilde{\chi}_{\omega, X}$ are the automorphisms defined above.
+\end{dfn}
+\textbf{Problem: } Can't define $\sigma$ on $G^+$.
+\end{frame}
+
+\begin{frame}{What should be the domain of definition of $\sigma$ on $G^+$? }
+Let $\omega \in P(\Phi)$. Consider the subset $\mathcal{X}_\omega$ of the generating set of $\St(\Phi, A[X])$ consisting of those generators $x_{\alpha}(a) \in \St(\Phi, A[X])$ for which
+$\langle \omega, \alpha\rangle < 0$ implies that $a \in A[X]$ is divisible by $X^{-\langle \omega, \alpha\rangle}$.
+\pause
+
+If $\langle \omega, \alpha\rangle \geq 0$ then $\mathcal{X}_\omega$ contains $x_\alpha(a)$ for all $a \in A[X]$.
+\pause
+
+Denote by $N_{\omega}$ the subgroup of $\St(\Phi, A[X])$ generated by $\mathcal{X}_\omega$.
+\pause
+
+Let $\omega \in P(\Phi)$ be a weight.
+
+By definition, an \textit{$\omega$-pair} is a pair of mutually inverse group homomorphisms
+\( N_\omega \overset{\delta_\omega}{\underset{\delta_{-\omega}}{\rightleftarrows}} N_{-\omega} \) satisfying
+\begin{equation} \label{eq:delta} \delta_{\pm\omega}(x_\alpha(f)) = x_\alpha\!\bigl(X^{\pm\langle\omega,\alpha\rangle}\cdot f\bigr), \qquad x_\alpha(f)\in \mathcal{X}_{\pm\omega}. \end{equation}
+\end{frame}
+
+\begin{frame}{The subgroups $N_\omega$}
+ At most one pair of homomorphisms $\delta_{\pm \omega}$ satisfying~\eqref{eq:delta} may exist.
+
+ How to show that such $\delta_{\pm \omega}$ exist?
+
+ Recall that $\St(\Phi, A[X]) = \St(\Phi, A[X], XA[X]) \rtimes \St(\Phi, A)$.
+
+ Now if $\omega = \pm \varpi_k$ is a microweight (i.\,e. $\langle\omega, \Phi^+ \rangle \subseteq \{0, 1\}$), then
+ $N_{\pm \varpi_k} = \St(\Phi, A[X], XA[X]) \rtimes P_k$, where $P_k^{\pm}$ is Steinberg parabolic subgroup corresponding to the $k$-th root.
+
+ We may use ``another presentation'' for the construction of $\delta_{\pm \omega}$.
+\end{frame}
+
+
+\begin{frame} [fragile]{The $\delta_{\omega}$-diagram}
+\[
+\begin{tikzcd}[ampersand replacement=\&, column sep=3.2em, row sep=2.6em]
+N_\omega
+  \arrow[r, "\delta_\omega"]
+  \arrow[d, hook]
+  \arrow[rr, bend left=30, "\mathrm{id}"]
+\&
+N_{-\omega}
+  \arrow[r, "\delta_{-\omega}"]
+  \arrow[d, hook]
+\&
+N_\omega
+  \arrow[d, hook]
+\\
+\St(\Phi,A[X])
+  \arrow[d]
+\&
+\St(\Phi,A[X])
+  \arrow[d]
+\&
+\St(\Phi,A[X])
+  \arrow[d]
+\\
+\St(\Phi,A[X^{\pm1}])
+  \arrow[r, "\chi_{\omega,X}"']
+  \arrow[rr, bend right=15, "\mathrm{id}"']
+\&
+\St(\Phi,A[X^{\pm1}])
+  \arrow[r, "\chi_{-\omega,X}"']
+\&
+\St(\Phi,A[X^{\pm1}])
+\end{tikzcd}
+\]
+\end{frame}
+
+\begin{frame}{Definition of an automorphism of $V/\sim_W$: second attempt}
+
+Recall that $\mathrm{W}(\Phi, A) = \langle w_\alpha(u) \mid u \in A^\times \rangle \leq \St(\Phi, A)$.
+
+Set $\omega = \pm \varpi_k$. Denote by $V_\omega$ the subset of $V$ consisting of those triples $v = (x, y, z)$ for which $x \in N_\omega\cdot \mathrm{W}(\Phi, A)$.
+We define the function $\delta_\omega \colon V_\omega \to V_{-\omega}$ via the following formula:
+\begin{equation} \label{eq:sigma-def} (x_1 \cdot x_2, y, z) \mapsto (\delta_\omega(x_1)\cdot x_2, x_2^{-1} \cdot \chi_{\omega, X}(x_2 \cdot y),\  \widetilde{\chi}_{\omega, X}(z)), \end{equation}
+where $x_1 \in N_\omega$, $x_2 \in \mathrm{W}(\Phi, A)$,\ $y \in B$, $z \in G_M$, and
+$\chi_{\omega, X}$, $\widetilde{\chi}_{\omega, X}$ are weight automorphisms of $G$ and $G_M$.
+
+\textbf{Lemma 2.7:} $x_2 \cdot \chi_{\omega, X}(x_2) \in H(\Phi, A[X, X^{-1}]) = \langle h_\alpha(u) \rangle\leq B$.
+\end{frame}
+
+\begin{frame}{Definition of an automorphism of $V/\sim_W$: continued}
+ $V_\omega$ is transversal wrt to $\star$: in every $\star$-orbit one can find $v \in V_\omega$.
+ \begin{lemma}[2.4, Bruhat decomposition]
+  $\St(\Phi,A) =\UU(\Phi^\pm, A)\cdot \mathrm{W}(\Phi, A) \cdot \UU(\Phi^+, A) \cdot \overline{\St}(\Phi, A, M).$
+ \end{lemma}
+ \begin{corollary}
+  \scriptsize { $\St(\Phi,A[X]) =\UU(\Phi^\pm, A) \cdot \St(\Phi, A[X], XA[X]) \cdot \mathrm{W}(\Phi, A) \cdot \UU(\Phi^+, A) \cdot \overline{\St}(\Phi, A, M).$ }
+ \end{corollary}
+
+ For every $v$ there exists $(a, b, 1) \in U^+ \times G_M^+\times B_M^+$ such that $w \star v = (x, y, z)$ and $x \in V_\omega$.
+
+\end{frame}
+
+
+\begin{frame}{The following three things need to be done:}
+\begin{enumerate}
+ \item Prove that $\delta_{\pm \varpi_k}$ exist;
+ \item Prove \eqref{eq:sigma-def} is well-defined and descends to $V/\sim_W$;
+ \item Interpret $G$ in terms of $G^+$ and $\delta_\omega$.
+\end{enumerate}
+\end{frame}
+
+
+
+
+\begin{frame}{Certain presentation $\St(\Phi, A[X, X^{-1}])$.}
+Denote by $G'$ the amalgamated product of $\St(\Phi, A[X])$ and the cyclic group $\langle \sigma \rangle$ amalgamated over the subgroup generated by the following relations:
+\begin{align}
+{}^\sigma x_{\alpha}(f) = & x_{\alpha} (Xf), & \alpha \in \Sigma^+_k, f \in A[X], \label{eq:sigma-sigma-plus} \\
+x_{\beta}(f)^ \sigma     =& x_{\beta} (Xf), & \beta \in \Sigma^-_k, f \in A[X], \label{eq:sigma-sigma-minus} \\
+[\sigma,\, x_\gamma(f)]   =& 1, & \gamma \in \Delta_k, f \in A[X]. \label{eq:sigma-delta}
+\end{align}
+
+\end{frame}
+
+\begin{frame}{Certain presentation $\St(\Phi, A[X, X^{-1}])$.}
+
+\begin{block}{Proposition}
+For $\Phi$ and $G'$ as above there exists a group homomorphism
+\[
+\varphi \colon \St(\Phi,A[X,X^{-1}]) \to G'
+\]
+making the following diagram commute:
+\[
+\begin{tikzcd}[ampersand replacement=\&, column sep=2.8em, row sep=2.2em]
+\& \St(\Phi,A[X,X^{-1}]) \arrow[rd, dashed, "\varphi"] \& \\
+\St(\Phi,A[X]) \arrow[ru] \arrow[rr] \&\& G'
+\end{tikzcd}
+\]
+\end{block}
+\end{frame}
+
+\begin{frame}
+ It is possible to prove the correctness of this definition using the following:
+\pause
+
+ \begin{prop} \label{prop:v-correctness2}
+For $\omega = \pm \varpi_k$ and every $w \in W$, $v \in V_\omega$ such that $v' = w \star v \in V_\omega$ there exists $w' \in W$ such that
+$\delta_\omega(w \star v) = w' \star \delta_\omega(v)$.
+\end{prop}
+\pause
+
+There is well-defined $\overline{\delta}_{\pm \omega} \colon V/\sim_W \to V/\sim_W$.
+\pause
+
+$G'$ acts on $V/\sim_W$: $\sigma$ acts via $\overline{\delta}_{\pm \omega}$, $\St(\Phi, A[X])$ acts on the first component of $V$ via left multiplication.
+\pause
+
+The definining relations of $G'$ are verified. Consequently $G'$ acts on $V/\sim_W$.
+
+\end{frame}
+
+
+\begin{frame}
+\[ \text{Thank you for attention!} \]
+\end{frame}
+
+\end{document}
