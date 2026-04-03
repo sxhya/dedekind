@@ -1,4 +1,4 @@
-\documentclass[handout]{beamer} %Remove handout to reenable pauses
+\documentclass{beamer} %Remove handout to reenable pauses
 \usetheme{Berlin}
 \usepackage{array}
 \usepackage{color}
@@ -7,6 +7,7 @@
 \usepackage{tikz-cd}
 \usepackage{wrapfig}
 \usepackage{amsmath}
+\usepackage{multicol}
 
 \usetikzlibrary{matrix, shapes, trees, arrows, decorations.pathmorphing, fit}
 \usepackage[utf8]{inputenc}
@@ -109,11 +110,13 @@ Let $A$ be a local comm., unital domain.
 \begin{prop}[Suslin, 1977]
  \( \E(n, A[X^{\pm 1}]) = \E(n, A[X]) \cdot B(A[X^{\pm 1}]) \cdot \E(n, A[X^{\pm 1}], M[X^{\pm 1}]). \)
 \end{prop}
+\pause
 \textbf{Idea:} Denote by $L$ the Minkowski-product of three groups in the right-hand side.
 Set $\delta_i(X) := \mathrm{diag}(1, \ldots, \underbrace{X}_{i\text{-th}}, \ldots, 1)$, $1 \leq i \leq n$.
-Show that $\delta_i^{-1} L \delta_i \subseteq L$.
 
-It is even enough to show that $\delta_i^{-1} \E(n, A[X]) \delta_i \subseteq L$.
+\pause Show that $\delta_i^{-1} L \delta_i \subseteq L$.
+
+\pause It is even enough to show that $\delta_i^{-1} \E(n, A[X]) \delta_i \subseteq L$.
 \end{frame}
 
 \begin{frame}[fragile]{Recollection}
@@ -250,11 +253,11 @@ U_M^+ \;&=\; \UU(\Phi^+, M[X]).
 \begin{thm}
  The group $G = \St(\Phi, A[X, X^{-1}])$ acts on $V/\sim_W$, this action is compatible with the action of $G^+$ and, moreover, for every $z \in G_M$ one has $\mu(z) \cdot [1, 1, 1] = [1, 1, z]$, where $\mu \colon G_M \to G$.
 \end{thm}
-The particular case $\Phi=\rA_{\geq 4}$ is Tulenbaev's Proposition 4.1.
+\pause The particular case $\Phi=\rA_{\geq 4}$ is Tulenbaev's Proposition 4.1.
 
-\textbf{Idea:} $G^+$ acts on the first coordinate of $V$, this action is compatible with $\star$ and descends to $V/\sim_W$.
+\pause \textbf{Idea:} $G^+$ acts on the first coordinate of $V$, this action is compatible with $\star$ and descends to $V/\sim_W$.
 
-It remains to define a conj. action of $\delta_i$ (or their analogue) on $V$ and then express $G$ in terms of $G^+$ and $\delta_i$.
+\pause It remains to define a conj. action of $\delta_i$ (or their analogue) on $V$ and then express $G$ in terms of $G^+$ and $\delta_i$.
 \end{frame}
 
 \begin{frame}{Abe's automorphism $\sigma$}
@@ -326,21 +329,20 @@ $m_k(\alpha_\mathrm{\max}) = 1$, therefore $m_k(\alpha) = 1$ for all $\alpha \in
 \pause
 Also the weight $\varpi_k$ is a \textit{microweight} of $\Phi$.
 
-E. Abe defines $\sigma (x_\alpha(u)) := x_\alpha(u)^{h_{\omega_k}(X)} = x_\alpha(X^{\langle \varpi_k, \alpha \rangle}u)$ and shows that $\sigma(L) \subseteq L$.
+\pause E. Abe defines $\sigma (x_\alpha(u)) := x_\alpha(u)^{h_{\omega_k}(X)} = x_\alpha(X^{\langle \varpi_k, \alpha \rangle}u)$ and shows that $\sigma(L) \subseteq L$.
 \end{frame}
 
 \begin{frame}{Comparison with Tulenbaev}
  \begin{itemize}
-  \item Tulenbaev follows Suslin's approach, so he constructs automorphisms $\sigma_i \colon V/\sim_W \to V/\sim_W$ ($1\leq i \leq n$) ``modeling'' the diagonal automorphisms of the Steinberg group $G = \St(n, R[X, X^{-1}])$.
-  \item He is then forced to check that $\sigma_i$, $\sigma_j$ commute between each other;
+  \pause \item Tulenbaev follows Suslin's approach, so he constructs automorphisms $\sigma_i \colon V/\sim_W \to V/\sim_W$ ($1\leq i \leq n$) ``modeling'' the diagonal automorphisms of the Steinberg group $G = \St(n, R[X, X^{-1}])$.
+  \pause \item He is then forced to check that $\sigma_i$, $\sigma_j$ commute between each other;
   \item He defines $x_{ij}(aX^{-1}) := \sigma_i \cdot x_{ij}(a) \cdot \sigma_i^{-1}$, and interprets $\St(n, R[X, X^{-1}])$ indirectly in these terms;
-  \item This all introduces immense technical strain in his proof while also leaving many gaps (e.g. checking commutator formulae);
-  \item This can not be generalized to Chevalley groups.
+  \pause \item This all introduces immense technical strain in his proof while also leaving many gaps (e.g. checking commutator formulae);
+  \pause \item This can not be generalized to Chevalley groups.
  \end{itemize}
 \end{frame}
 
 \section{Plan of the proof}
-
 \begin{frame} \tableofcontents[currentsection] \end{frame}
 
 \begin{frame}{Weight automorphisms}
@@ -349,14 +351,13 @@ E. Abe defines $\sigma (x_\alpha(u)) := x_\alpha(u)^{h_{\omega_k}(X)} = x_\alpha
 
  For $u \in S^\times$ and $\omega \in P(\Phi)$ there exists a bijection of the generating set $\St(\Phi, S)$ via the following mapping:
  \[ x_\alpha(a) \mapsto x_\alpha(u^{\langle\omega, \alpha\rangle} \cdot a),\ \alpha\in \Phi,\ a \in S. \]
-\pause
- This bijection preserves Chevalley commutator formulae.
+\pause This bijection preserves Chevalley commutator formulae.
 
- This gives rise to an automorphism $\chi_{\omega, u}$ of $\St(\Phi, S)$.
+\pause This gives rise to an automorphism $\chi_{\omega, u}$ of $\St(\Phi, S)$.
 
- One can construct the ``relative'' version of this automorphism $\widetilde{\chi}_{\omega, X}$ on $G_M = \St(\Phi, S, I)$ using standard technique.
+\pause One can construct the ``relative'' version of this automorphism $\widetilde{\chi}_{\omega, X}$ on $G_M = \St(\Phi, S, I)$ using standard technique.
 
- Now set $S := R[X, X^{-1}]$, $u := X$.
+\pause Now set $S := R[X, X^{-1}]$, $u := X$.
 \end{frame}
 
 \begin{frame}{Definition of an automorphism of $V/\sim_W$}
@@ -368,7 +369,7 @@ We need to define it first on $V$. We need something like this:
 where $x \in G^+, y \in B$, $z \in G_M$, and
 $\chi_{\omega, X}$, $\widetilde{\chi}_{\omega, X}$ are the automorphisms defined above.
 \end{dfn}
-\textbf{Problem: } Can't define $\sigma$ on $G^+$.
+\pause \textbf{Problem: } Can't define $\sigma$ on $G^+$.
 \end{frame}
 
 \begin{frame}{What should be the domain of definition of $\sigma$ on $G^+$? }
@@ -394,12 +395,12 @@ By definition, an \textit{$\omega$-pair} is a pair of mutually inverse group hom
 
  How to show that such $\delta_{\pm \omega}$ exist?
 
- Recall that $\St(\Phi, A[X]) = \St(\Phi, A[X], XA[X]) \rtimes \St(\Phi, A)$.
+ \pause Recall that $\St(\Phi, A[X]) = \St(\Phi, A[X], XA[X]) \rtimes \St(\Phi, A)$.
 
- Now if $\omega = \pm \varpi_k$ is a microweight (i.\,e. $\langle\omega, \Phi^+ \rangle \subseteq \{0, 1\}$), then
+ \pause Now if $\omega = \pm \varpi_k$ is a microweight (i.\,e. $\langle\omega, \Phi^+ \rangle \subseteq \{0, 1\}$), then
  $N_{\pm \varpi_k} = \St(\Phi, A[X], XA[X]) \rtimes P_k$, where $P_k^{\pm}$ is Steinberg parabolic subgroup corresponding to the $k$-th root.
 
- We may use ``another presentation'' for the construction of $\delta_{\pm \omega}$.
+ \pause We may use ``another presentation'' in the construction of $\delta_{\pm \omega}$.
 \end{frame}
 
 
@@ -443,42 +444,56 @@ N_\omega
 
 Recall that $\mathrm{W}(\Phi, A) = \langle w_\alpha(u) \mid u \in A^\times \rangle \leq \St(\Phi, A)$.
 
-Set $\omega = \pm \varpi_k$. Denote by $V_\omega$ the subset of $V$ consisting of those triples $v = (x, y, z)$ for which $x \in N_\omega\cdot \mathrm{W}(\Phi, A)$.
-We define the function $\delta_\omega \colon V_\omega \to V_{-\omega}$ via the following formula:
+\pause Set $\omega = \pm \varpi_k$. Denote by $V_\omega$ the subset of $V$ consisting of those triples $v = (x, y, z)$ for which $x \in N_\omega\cdot \mathrm{W}(\Phi, A)$.
+\pause We define the function $\sigma^\pm \colon V_\omega \to V_{-\omega}$ via the following formula:
 \begin{equation} \label{eq:sigma-def} (x_1 \cdot x_2, y, z) \mapsto (\delta_\omega(x_1)\cdot x_2, x_2^{-1} \cdot \chi_{\omega, X}(x_2 \cdot y),\  \widetilde{\chi}_{\omega, X}(z)), \end{equation}
 where $x_1 \in N_\omega$, $x_2 \in \mathrm{W}(\Phi, A)$,\ $y \in B$, $z \in G_M$, and
 $\chi_{\omega, X}$, $\widetilde{\chi}_{\omega, X}$ are weight automorphisms of $G$ and $G_M$.
 
-\textbf{Lemma 2.7:} $x_2 \cdot \chi_{\omega, X}(x_2) \in H(\Phi, A[X, X^{-1}]) = \langle h_\alpha(u) \rangle\leq B$.
+\pause \textbf{Lemma 2.7:} $x_2 \cdot \chi_{\omega, X}(x_2) \in H(\Phi, A[X, X^{-1}]) = \langle h_\alpha(u) \rangle\leq B$.
 \end{frame}
 
 \begin{frame}{Definition of an automorphism of $V/\sim_W$: continued}
  $V_\omega$ is transversal wrt to $\star$: in every $\star$-orbit one can find $v \in V_\omega$.
- \begin{lemma}[2.4, Bruhat decomposition]
+ \pause \begin{lemma}[2.4, Bruhat decomposition]
   $\St(\Phi,A) =\UU(\Phi^\pm, A)\cdot \mathrm{W}(\Phi, A) \cdot \UU(\Phi^+, A) \cdot \overline{\St}(\Phi, A, M).$
  \end{lemma}
- \begin{corollary}
+ \pause \begin{corollary}
   \scriptsize { $\St(\Phi,A[X]) =\UU(\Phi^\pm, A) \cdot \St(\Phi, A[X], XA[X]) \cdot \mathrm{W}(\Phi, A) \cdot \UU(\Phi^+, A) \cdot \overline{\St}(\Phi, A, M).$ }
  \end{corollary}
 
- For every $v$ there exists $(a, b, 1) \in U^+ \times G_M^+\times B_M^+$ such that $w \star v = (x, y, z)$ and $x \in V_\omega$.
+ \pause For every $v$ there exists $(a, b, 1) \in U^+ \times G_M^+\times B_M^+$ such that $w \star v = (x, y, z)$ and $x \in V_\omega$.
 
 \end{frame}
 
 
-\begin{frame}{The following three things need to be done:}
+\begin{frame}{Plan of the proof:}
 \begin{enumerate}
- \item Prove that $\delta_{\pm \varpi_k}$ exist;
- \item Prove \eqref{eq:sigma-def} is well-defined and descends to $V/\sim_W$;
- \item Interpret $G$ in terms of $G^+$ and $\delta_\omega$.
+ \pause \item Prove that $\delta_{\pm \varpi_k}$ exist;
+ \pause \item Prove \eqref{eq:sigma-def} is well-defined and descends to $V/\sim_W$;
+ \pause \item Interpret $G$ in terms of $G^+$ and $\delta_\omega$.
 \end{enumerate}
 \end{frame}
 
 
+\begin{frame}
+\begin{lemma}[4.18, easy] For $v \in V_\omega$, $v = (x_1 \cdot x_2, y, z)$ the right-hand side of\eqref{eq:sigma-def} does not depend on the decomposition $x = x_1 \cdot x_2$.
+\end{lemma}
+\pause \textbf{Idea:} Follows from $N_\omega \cap W(\Phi, A) = \langle w_\alpha(u) \mid \alpha \in \Delta_k, u\in A^\times\rangle$.
 
+\pause \begin{prop}[4.21, hard] \label{prop:v-correctness2}
+For $\omega = \pm \varpi_k$ and every $w \in W$, $v \in V_\omega$ such that $v' = w \star v \in V_\omega$ there exists $w' \in W$ such that
+$\delta_\omega(w \star v) = w' \star \delta_\omega(v)$.
+\end{prop}
+\pause \textbf{Idea:} 2-pages long direct computation that relies on Chevalley--Matsumoto decomposition and explicit matrix calculations in microweight representations of $G$.
+\end{frame}
+
+\section{A presentation of $G$}
+
+\begin{frame} \tableofcontents[currentsection] \end{frame}
 
 \begin{frame}{Certain presentation $\St(\Phi, A[X, X^{-1}])$.}
-Denote by $G'$ the amalgamated product of $\St(\Phi, A[X])$ and the cyclic group $\langle \sigma \rangle$ amalgamated over the subgroup generated by the following relations:
+Denote by $G'$ the amalgamated product of $\St(\Phi, A[X])$ and the infinite cyclic group $\mathbb{Z}=\langle \sigma \rangle$ amalgamated over the subgroup generated by the following relations:
 \begin{align}
 {}^\sigma x_{\alpha}(f) = & x_{\alpha} (Xf), & \alpha \in \Sigma^+_k, f \in A[X], \label{eq:sigma-sigma-plus} \\
 x_{\beta}(f)^ \sigma     =& x_{\beta} (Xf), & \beta \in \Sigma^-_k, f \in A[X], \label{eq:sigma-sigma-minus} \\
@@ -487,9 +502,9 @@ x_{\beta}(f)^ \sigma     =& x_{\beta} (Xf), & \beta \in \Sigma^-_k, f \in A[X], 
 
 \end{frame}
 
-\begin{frame}{Certain presentation $\St(\Phi, A[X, X^{-1}])$.}
+\begin{frame}{A presentation $\St(\Phi, A[X, X^{-1}])$.}
 
-\begin{block}{Proposition}
+\begin{prop}[3.5]
 For $\Phi$ and $G'$ as above there exists a group homomorphism
 \[
 \varphi \colon \St(\Phi,A[X,X^{-1}]) \to G'
@@ -501,29 +516,254 @@ making the following diagram commute:
 \St(\Phi,A[X]) \arrow[ru] \arrow[rr] \&\& G'
 \end{tikzcd}
 \]
-\end{block}
+\end{prop}
+\end{frame}
+
+\begin{frame}{Kac--Moody--Steinberg groups}
+Recal that $C\in M_n(\mathbb{Z})$ is a GCM iff 
+
+a) $c_{ii}=2$, b) $c_{ij}\leq 0$ if $i\neq j$, c) $c_{ij}=0$ iff $c_{ji}=0$, d) $c = d \cdot s$ (rational diagonal times rational symmetric). 
+
+\pause To such $C$ one can associate a (possibly infinite) root system $\Phi = \Phi_C$ with Weyl group $W(\Phi)$. 
+\pause A root $\alpha \in \Phi$ is called \textit{real} if it lies in the orbit of some simple root $\alpha_i \in \Pi$ under the action of the Weyl group $W(\Phi)$.
+
+\pause A pair of real roots $\alpha, \beta$ is called \textit{prenilpotent} if there exists an element $w \in W(\Phi)$ such that both $w\cdot \alpha$ and $w \cdot \beta$ belong to $\Phi^+.$
+
+\pause In particular $(\mathbb{Z}_{>0} \alpha + \mathbb{Z}_{>0}\beta)\cap \Phi \subseteq \Phi^\mathrm{re}$.
+\end{frame}
+
+\begin{frame}{Kac--Moody--Steinberg groups, continued}
+$\St(C, A)$ generated by $x_\alpha(a)$, where $a \in A$ and $\alpha$ ranges over the set $\Phi^\mathrm{re}$ of real roots of $\Phi_C$.
+The set of defining relations for $\St(C, A)$ consists of the following two families of relations:
+\begin{align}
+x_\alpha(a) x_\alpha(b) & =  x_\alpha(a + b), \label{SKM1} \\
+[x_\alpha(a), x_\beta(b)] & =  \prod \limits_{\substack{i\alpha+j\beta \in \Phi^\mathrm{re} \\ i, j > 0 }} x_{i\alpha+j\beta}(N_{\alpha, \beta}^{i, j} \cdot a^i b^j), \label{SKM2}
+\end{align}
+where $a, b \in A$ and $\alpha, \beta$ range over all {\it prenilpotent} pairs of real roots of $\Phi$.
+\end{frame}
+
+\begin{frame}{Kac--Moody--Steinberg groups of affine type}
+Let $\widetilde{\Phi}^{(1)}$ be the affine unfolded root system.
+\pause \begin{lemma}
+$\St(\widetilde{\Phi}^{(1)}, A) \cong \St(\Phi, A[X, X^{-1}])$.
+\end{lemma}
+\pause \textbf{Idea:}
+$\widetilde{\Phi} \cong \Phi \times \mathbb{Z}.$ $(\alpha, n), (\beta, m)$ is prenilpotent iff $\alpha \neq - \beta$.
+\begin{align*}
+x_{(\alpha, m)}(a)\cdot x_{(\alpha, m)}(b)&=x_{(\alpha, m)}(a+b), \\
+[x_{(\alpha, m)}(a),\,x_{(\beta, n)}(b)]  &=x_{(\alpha+\beta, n+m)}(N_{\alpha,\beta} \cdot ab),\text{ for }\alpha+\beta\in\Phi, \\
+[x_{(\alpha, m)}(a),\,x_{(\beta, n)}(b)]  &=1,\text{ for }\alpha+\beta\not\in\Phi\cup0.
+\end{align*}
+\pause $x_{(\alpha, m)}(a) \mapsto x_\alpha(aX^m)$ is an isomorphism with the inverse given by
+$x_\alpha(a_{n}X^n + \ldots + a_m X^m) \mapsto \prod_{i=n}^m x_{(\alpha, i)}(a_i)$, $a_i \in A$, $n \leq m$, $n, m\in \mathbb{Z}.$
+\end{frame}
+
+\begin{frame}{Curtis--Tits presentation, relations (simply-laced case)}
+\renewcommand{\arraystretch}{1.4}
+
+\begin{tabular}{p{0.35\textwidth} p{0.6\textwidth}}
+
+\textbf{Condition} & \textbf{Relations} \\ \hline
+
+all vertices $i$ on $D(C)$ &
+\scriptsize{$\begin{aligned}
+X_i(t)X_i(u) &= X_i(t+u) \\
+[S_i^2, X_i(t)] &= 1 \\
+S_i &= X_i(1)\, S_i\, X_i(1)\, S_i^{-1}\, X_i(1)
+\end{aligned}$} \\
+\hline
+\pause
+all pairs $(i,j)$ of vertices with $i \neq j$ unjoined &
+\scriptsize{$\begin{aligned}
+S_i S_j &= S_j S_i \\
+[S_i, X_j(t)] &= 1 \\
+[X_i(t), X_j(u)] &= 1
+\end{aligned}$} \\
+\hline
+\pause
+all pairs $(i,j)$ with $i \neq j$ joined by a single edge &
+\scriptsize{
+$\begin{aligned}
+S_i S_j S_i &= S_j S_i S_j \\
+S_i^2 S_j S_i^{-2} &= S_j^{-1} \\
+X_i(t) S_j S_i &= S_j S_i X_i(t) \\
+S_i^2 X_j(t) S_i^{-2} &= X_j(t)^{-1} \\
+[X_i(t), S_i X_j(u) S_i^{-1}] &= 1 \\
+[X_i(t), X_j(u)] &= S_i X_j(tu) S_i^{-1}
+\end{aligned}$} \\
+
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Curtis--Tits presentation, statement}
+
+Notice that $S_i^2 \neq 1$, instead they behave like "toric" elements. So the S-part of this presentation is something that is a quotient of the braid group (but still a nontrivial extension of the Weyl group).
+
+\pause \begin{theorem}[Allcock, 2016]
+ Assume that $C$ is $3$-spherical (or irreducible affine of rank $\geq 3$). Then $\St(C, R)$ has a presentation by means of generators $X_i(a)$, $a \in R$, $S_i$ ($i$ varies over the vertices of $D(C)$) and relations like above.
+\end{theorem}
+\end{frame}
+
+\begin{frame}{Corollary 3.3}
+
+For a finite irr, type ADE $\Phi$ and a comm. $A$ the Steinberg group $\St(\Phi, A[X, X^{-1}])$ is isomorphic to the amalgamated product of $\St(\Phi, A[X]) * \langle S \rangle$ over the subgroup generated by the following relations: 
+
+\scriptsize 
+
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
+\begin{align*}
+[S^2, x_{\alpha_0}(aX)] &= 1,
+\\[0.3em]
+x_{\alpha_0}(X)\cdot {}^{S}x_{\alpha_0}(X)\cdot x_{\alpha_0}(X) &= S,
+\\[0.3em]
+[S, w_{\alpha_i}(1)] &= 1,
+\\[0.3em]
+[S, x_{\alpha_i}(a)] &= 1,
+\\[0.3em]
+S \cdot w_{\alpha_j}(1) \cdot S
+&= w_{\alpha_j}(1) \cdot S \cdot w_{\alpha_j}(1),
+\\[0.3em]
+{}^{S^2} w_{\alpha_j}(1) &= w_{\alpha_j}(-1),
+\end{align*}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\begin{align*}
+{}^{w_{\alpha_j}^2(1)} S &= S^{-1},
+\\[0.3em]
+x_{\alpha_j}(a)\cdot S \cdot w_{\alpha_j}(1)
+&= S \cdot w_{\alpha_j}(1) \cdot x_{\alpha_0}(aX),
+\\[0.3em]
+x_{\alpha_0}(aX)\cdot w_{\alpha_j}(1)\cdot S
+&= w_{\alpha_j}(1)\cdot S \cdot x_{\alpha_j}(a),
+\\[0.3em]
+{}^{S^2} x_{\alpha_j}(a) &= x_{\alpha_j}(-a),
+\\[0.3em]
+[x_{\alpha_0}(aX), {}^{S} x_{\alpha_j}(b)] &= 1,
+\\[0.3em]
+[x_{\alpha_0}(aX), x_{\alpha_j}(b)]
+&= {}^{S} x_{\alpha_j}(ab).
+\end{align*}
+\end{column}
+\end{columns}
+
+$\alpha_0 := - \alpha_\mathrm{max}$, $j$ is the vertex adjacent to $0$, $i$ is a vertex unjoined with $0$, $a \in A$
+\end{frame}
+
+\begin{frame}{Sketch of the proof of Proposition 3.5}
+Need to show that the following homomorphism $\varphi$ exists:
+$\St(\Phi, A[X]) * \langle S \rangle / \langle\text{above page}\rangle \to \St(\Phi, A[X]) * \langle \sigma \rangle / \langle \eqref{eq:sigma-sigma-plus}\text{ -- }\eqref{eq:sigma-delta} \rangle$
+
+\pause Set
+\[\varphi(S) := x_{\alpha_0}(X) \cdot x_{-\alpha_0}(-1)^\sigma \cdot x_{\alpha_0}(X).\]
+
+\pause Then we directly check that every relation from previous page is satisfied in $G'$.
+
+\medskip \pause 
+Example of such verification:
+\scriptsize
+\begin{multline*}
+\varphi(x_{\alpha_0}(X) \cdot {}^{S} x_{\alpha_0}(X) \cdot x_{\alpha_0}(X)) = x_{\alpha_0}(1)^\sigma \cdot {}^{w_{\alpha_0}(1)^\sigma} x_{\alpha_0}(1)^\sigma \cdot x_{\alpha_0}(1)^\sigma = \\
+= \left( x_{\alpha_0}(1) \cdot {}^{w_{\alpha_0}(1)} x_{\alpha_0}(1) \cdot x_{\alpha_0}(1)\right)^\sigma = \left(x_{\alpha_0}(1) \cdot x_{-\alpha_0}(-1) \cdot x_{\alpha_0}(1)\right)^\sigma = w_{\alpha_0}(1)^\sigma = \varphi(S).
+\end{multline*}
+\end{frame}
+
+\section{The existence of $\delta_\omega$.}
+
+\begin{frame} \tableofcontents[currentsection] \end{frame}
+
+\begin{frame}{Ingredient 1: relative Curtis--Tits}
+We want to construct $\delta_{\varpi_k} \colon N_{\varpi_k} \to N_{-\varpi_k}$.
+The universal property of semidirect products reduces the problem to the construction of
+$\delta_{\varpi_k}$ restricted to $\St(\Phi, A[X], XA[X])$.
+
+\pause \begin{thm}[Lavrenov-S. 2017] \label{thm:relPres}The group $\St(\Phi, R, I)$ is isomorphic to the free product of relative Steinberg groups $\St(\Psi, R, I)$, where $\Psi \subseteq \Phi$ is of type $\rA_3$ amalgamated over embeddings of Tits generators $z_\alpha(s, \xi)$ into various subsystems $\{\alpha\} \to \Psi$. \end{thm}
+\end{frame}
+
+\begin{frame}{Ingredient 2: reduction to the case $\rA_3$}
+Reduce the problem to the case $\Phi = \rA_3$, $\omega = \varpi_1$.
+
+\pause If $\varpi_1$-pair exists for $\St(\rA_3, A[X], XA[X])$ then it exists for $\omega = \varpi_3$ and $\varpi_2$ ($\delta_{\varpi_2}$ can be expressed through $\delta_{\varpi_1}$ and $\delta_{\varpi_3}$).
+
+\pause If $\omega$-pair exists then $w \cdot \omega$-pair exists for any $w \in W(\Phi)$:
+\[ \sigma(\overline{w} \cdot \omega)(g) = w \cdot \sigma(\omega)(w^{-1} g w) \cdot w^{-1} \]
+
+\pause Now if $\rA_3 \cong \Psi \subseteq \Phi$ then either $\Psi \subseteq \Delta_k$ (in which case $\delta_{\varpi_k}$ restricted to $\St(\Psi, A[X], XA[X])$ concides with the identity) or there exists a microweight $\omega \in P(\Psi)$ such that for every $\alpha \in \Psi$ one has $\langle \omega, \alpha \rangle = \langle \varpi_k, \alpha \rangle$.
+\end{frame}
+
+\begin{frame}{Ingredient 3: Yet another presentation}
+\begin{prop}[Lavrenov--S., 2017]
+\label{prop:rel-presentation}
+Assume that $I$ is a splitting ideal of a commutative ring $R$.
+Then for any $n\geq 4$ the group $\St(n,\,R,\,I)$ can be presented by means of two families of generators $F(u,\,v)$, $S(v,\,u)$
+(where $u\in \E(n,\,R)e_1,$ and $v\in I^n$ are such that $u^{t}v=0$) subject to the following relations: $t(u, v) = e_n + u v^t$.
+\begin{align*}
+&F(u,\,v)\cdot F(u,\,w)=F(u,\,v+w), \\
+&S(u,\,v)\cdot S(w,\,v)=S(u+w,\,v), \\
+&F(u,\,v)\cdot F(u',\,v') \cdot F(u,\,v)^{-1}=F(t(u,\,v)u',\,t(v,\,u)^{-1} v'), \\
+&F(me_1,\,m^{*}e_{2}a)=S(me_{1}a,\,m^{*}e_{2}),\ \text{for all $a\in I$,}\, m \in \E(n, R).
+\end{align*}
+\end{prop}
 \end{frame}
 
 \begin{frame}
- It is possible to prove the correctness of this definition using the following:
-\pause
-
- \begin{prop} \label{prop:v-correctness2}
-For $\omega = \pm \varpi_k$ and every $w \in W$, $v \in V_\omega$ such that $v' = w \star v \in V_\omega$ there exists $w' \in W$ such that
-$\delta_\omega(w \star v) = w' \star \delta_\omega(v)$.
-\end{prop}
-\pause
-
-There is well-defined $\overline{\delta}_{\pm \omega} \colon V/\sim_W \to V/\sim_W$.
-\pause
-
-$G'$ acts on $V/\sim_W$: $\sigma$ acts via $\overline{\delta}_{\pm \omega}$, $\St(\Phi, A[X])$ acts on the first component of $V$ via left multiplication.
-\pause
-
-The definining relations of $G'$ are verified. Consequently $G'$ acts on $V/\sim_W$.
-
+We denote by $D(u)$ the subset of $R^n$ consisting of all columns $v$ which are orthogonal to $u$
+(i.\,e. $u^{t} v = 0$) and have at least two zero entries.
+\pause Recall from 3.2 of van der Kallen's paper that for every $u, v, w \in R^n$ such that $u^t v = 0$ there is a decomposition of $(w^t u) \cdot v$ into a sum of elements of $D(u)$, called \textit{canonical decomposition}:
+\pause \begin{equation}
+\label{eq:canonical} (w^tu) \cdot v=\sum_{i<j}u_{ij} c_{ij}(v, w),
+\end{equation}
+where $u_{ij} =e_i u_j-e_j u_i \in D(u)$ and $c_{ij}(v, w) =v_i w_j-v_j w_i \in R$.
 \end{frame}
 
+\begin{frame}
+\begin{lemma}[van der Kallen]
+\label{lem:xsmall-properties}
+Let $v, w \in R^n$ s.t. $v^t w = 0$ and assume that either $v$ or $w$ has at least one zero entry.
+One can define $x(v, w) \in \St(n, R)$ s.t. $\pi(x(v, w)) = t(v, w) = e + vw^t$ and
+\begin{itemize}
+\pause \item If $v$ or $w$ has at least $2$ zero entries, then $x(v, wa) = x(va, w)$ for $a\in R$.
+\pause \item If $w_1$ and $w_2$ have at least two zero entries of which at least one entry is common
+then $x(v, w_1) \cdot x(v, w_2) = x(v, w_1+w_2)$ and $x(w_1, v) \cdot x(w_2, v) = x(w_1 + w_2, v)$.
+\pause \item If $v$, $v'$ are simultaneously orthogonal to $w$ and $w'$, and the elements $w, w'$ both have at least two zero entries then
+$[x(v, w),\ x(v', w')] = 1$.
+\pause \item If $g = x_{ij}(a)$ is a generator of the Steinberg group and $v$ or $w$ has at least two zero entries then
+$g \cdot x(v, w) \cdot g^{-1} = x(gv, g^*w)$.
+\end{itemize}
+\end{lemma}
+\end{frame}
+
+
+\begin{frame}{Ingredient 4: elements $X$ and $Y$}
+$R \subseteq S$ ring ext, 
+$u \in \mathrm{Um}(n, R)$, $v \in I^n$ s.t. $u^{t}v = 0$.
+Let $v = \sum_r v^r$ be some decomposition of $v$ into a finite sum $v^r \in D(u) \cap I^n$.
+Under our assumptions on $u$ and $v$ such decomposition always exists.
+
+\pause Let $d = \mathrm{diag}(d_1, \ldots, d_n) \in T(n, S) \leq \mathrm{GL}(n, S)$ s.t.
+$d^{-1} \cdot u \in R^n,\ d \cdot I^n \subseteq R^n.$
+Under these assumptions we set
+\begin{equation*} X^d(u, v) :=\prod_i x(d^{-1}u, dv^r), \end{equation*}
+
+\pause Now let $d' \in T(n, S)$ be such that $d' u\in R^n,\ {d'}^{-1} \cdot I^n \subseteq R^n$.
+Under these assumptions set
+\begin{equation*} Y^{d'}(v, u) := \prod_i x({d'}^{-1} v^r, {d'}u). \end{equation*}
+\end{frame}
+
+\begin{frame}{The definition of $\delta_{\varpi_1}$}
+The elements $X^d(u, v)$ and $Y^{d'}(v, u)$ are well-defined, do not depend on the choice of decomposition of $v$ \pause and, moreover, for $g \in \St(n, R)$, $m = d\pi(g)d^{-1} \in \E(n, R)$ satisfy:
+\begin{equation*}
+g \cdot X^d(u, v) \cdot g^{-1} = X^d(mu, m^*v) \text{ and } g \cdot Y^d(v, u) \cdot g^{-1} = Y^d(mv, m^*u)
+\end{equation*}
+
+\pause Set $d_1 := \mathrm{diag}(X, 1, \ldots 1)$.
+\begin{align*}
+\delta_{\varpi_1} (F(u, v) ) := X^{d_1^{-1}}(u, v), & \quad \delta_{\varpi_1} (S(v, u)) := Y^{d_1^{-1}\cdot X}(v, u), \\
+\delta_{-\varpi_1} (F(u, v) ) := X^{d_1 \cdot X^{-1}}(u, v),& \quad \delta_{-\varpi_1} (S(v, u)) := Y^{d_1}(v, u). 
+\end{align*}
+\pause It is hard to verify the $F=S$ type relation, at first we it prove only for the "big-cell" elements $m$, then use Gauss decomposition.
+\end{frame}
 
 \begin{frame}
 \[ \text{Thank you for attention!} \]
